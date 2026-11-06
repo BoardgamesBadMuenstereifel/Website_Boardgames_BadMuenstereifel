@@ -1,0 +1,22 @@
+---
+layout: basis.njk
+titel: Termine
+beschreibung: Alle kommenden Spieleabende von Boardgames Bad Münstereifel mit Uhrzeit, Ort und Adresse.
+permalink: /termine/
+---
+{% import "bausteine.njk" as b %}
+<section class="sektion" aria-labelledby="h-termine">
+  <div class="wrap">
+    <h1 class="seiten-titel" id="h-termine">Termine</h1>
+    <p class="lead">Den Ort legen wir pro Termin fest, deshalb steht er immer direkt dabei.</p>
+    {%- if daten.termine.length %}
+    <ul class="termine" data-adresse="1">
+      {%- for t in daten.termine %}{{ b.terminzeile(t, true) }}{% endfor %}
+    </ul>
+    <div class="mehr"><a class="btn btn-rand" href="{{ '/termine.ics' | url }}">Termine in den Kalender holen</a></div>
+    {%- else %}
+    <p><b>Neue Termine folgen.</b> <a href="{{ verein.whatsapp }}" rel="noopener">Zur WhatsApp-Gruppe</a></p>
+    {%- endif %}
+  </div>
+</section>
+<script type="application/json" id="termine-daten">{{ daten.termine | jsonSicher | safe }}</script>

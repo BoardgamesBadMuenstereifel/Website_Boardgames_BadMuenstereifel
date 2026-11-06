@@ -1,0 +1,7 @@
+node_modules/
+_site/
+.werkzeuge/
+.env
+# Ausgangslisten, ihr Inhalt steht in daten/
+/Boardgames_Gepsielt_Liste.xlsx
+/Brettspielsammlung.xlsx

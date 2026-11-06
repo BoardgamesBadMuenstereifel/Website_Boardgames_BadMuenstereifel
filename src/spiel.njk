@@ -1,0 +1,36 @@
+---
+layout: basis.njk
+pagination:
+  data: daten.alleSpiele
+  size: 1
+  alias: spiel
+permalink: "/spiele/{{ spiel.slug }}/"
+eleventyComputed:
+  titel: "{{ spiel.name }}"
+---
+{% import "bausteine.njk" as b %}
+<section class="sektion" aria-labelledby="h-spiel">
+  <div class="wrap">
+    <p class="brotkrume"><a href="{{ '/spiele/' | url }}">Zurück zu den Spielen</a></p>
+    <article class="spiel-seite">
+      {{ b.cover(spiel, "fokus-bild") }}
+      <div>
+        <h1 class="seiten-titel" id="h-spiel">{{ spiel.name }}</h1>
+        {%- if spiel.bgg %}
+        <dl class="fakten">
+          {%- if spiel.bgg | spieler %}<div><dt>Spieleranzahl</dt><dd>{{ spiel.bgg | spieler }}</dd></div>{% endif %}
+          {%- if spiel.bgg | dauer %}<div><dt>Dauer</dt><dd>{{ spiel.bgg | dauer }}</dd></div>{% endif %}
+          {%- if spiel.bgg.alter %}<div><dt>Alter</dt><dd>ab {{ spiel.bgg.alter }} Jahren</dd></div>{% endif %}
+          {%- if spiel.bgg.komplexitaet %}<div><dt>Komplexität</dt><dd>{{ spiel.bgg.komplexitaet | zahlDe }} von 5</dd></div>{% endif %}
+          {%- if spiel.bgg.bewertung %}<div><dt>BGG-Bewertung</dt><dd>{{ spiel.bgg.bewertung | zahlDe }} von 10</dd></div>{% endif %}
+        </dl>
+        {%- if spiel.bgg.beschreibung %}<p lang="en">{{ spiel.bgg.beschreibung }}</p>{% endif %}
+        <p><a href="https://boardgamegeek.com/boardgame/{{ spiel.bggId }}" rel="noopener">Mehr bei BoardGameGeek</a></p>
+        {%- else %}
+        <p>Zu diesem Spiel haben wir noch keine weiteren Infos.</p>
+        {%- endif %}
+        {%- if spiel.partienGesamt %}<p class="partien-info">Bei uns {{ spiel.partienGesamt }}-mal gespielt.</p>{% endif %}
+      </div>
+    </article>
+  </div>
+</section>

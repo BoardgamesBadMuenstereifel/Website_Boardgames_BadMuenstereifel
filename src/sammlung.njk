@@ -1,0 +1,44 @@
+---
+layout: basis.njk
+titel: Unsere Sammlung
+beschreibung: Die Spielesammlung von Boardgames Bad Münstereifel, filterbar nach Spieleranzahl, Dauer, Komplexität und Kategorie.
+permalink: /spiele/sammlung/
+---
+{% import "bausteine.njk" as b %}
+<section class="sektion" aria-labelledby="h-sammlung">
+  <div class="wrap">
+    <p class="brotkrume"><a href="{{ '/spiele/' | url }}">Zurück zu den Spielen</a></p>
+    <h1 class="seiten-titel" id="h-sammlung">Unsere Sammlung</h1>
+    <p class="lead">Diese {{ daten.sammlung.length }} Spiele gehören zum Club.</p>
+
+    <form class="filter" id="filter" hidden>
+      <label>Spieleranzahl
+        <select name="spieler"><option value="">Egal</option>{% for n in [2,3,4,5,6,7,8] %}<option value="{{ n }}">{{ n }}{% if n == 8 %}+{% endif %}</option>{% endfor %}</select>
+      </label>
+      <label>Dauer
+        <select name="dauer"><option value="">Egal</option><option value="30">bis 30 Min.</option><option value="60">bis 60 Min.</option><option value="90">bis 90 Min.</option></select>
+      </label>
+      <label>Komplexität
+        <select name="komplexitaet"><option value="">Egal</option><option value="2">leicht (bis 2)</option><option value="3">mittel (bis 3)</option><option value="5">alle</option></select>
+      </label>
+      <label>Kategorie
+        <select name="kategorie"><option value="">Alle</option>{% for k in daten.kategorienSammlung %}<option>{{ k }}</option>{% endfor %}</select>
+      </label>
+    </form>
+    <p class="treffer" id="treffer" aria-live="polite"></p>
+
+    <ul class="sammlung" id="sammlung">
+      {%- for s in daten.sammlung %}
+      <li class="sammel-karte" data-kategorie="{{ s.kategorie }}" data-min="{{ s.bgg.minSpieler if s.bgg }}" data-max="{{ s.bgg.maxSpieler if s.bgg }}" data-dauer="{{ s.bgg.maxDauer if s.bgg }}" data-komplexitaet="{{ s.bgg.komplexitaet if s.bgg }}">
+        {{ b.cover(s, "bild") }}
+        <div>
+          <h2><a href="{{ ('/spiele/' + s.slug + '/') | url }}">{{ s.name }}</a></h2>
+          {%- if s.kategorie %}<p class="info">{{ s.kategorie }}</p>{% endif %}
+          {{ b.infos(s) }}
+          {%- if s.neu %}<span class="badge">Neu</span>{% endif %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+layout: basis.njk
+titel: Über uns & Kontakt
+beschreibung: Kontakt zu Boardgames Bad Münstereifel, dem Brettspielclub in 53902 Bad Münstereifel.
+permalink: /kontakt/
+---
+<section class="sektion" aria-labelledby="h-kontakt">
+  <div class="wrap">
+    <h1 class="seiten-titel">Über uns &amp; Kontakt</h1>
+    <div class="zweispaltig">
+      {% include "kontakt-block.njk" %}
+    </div>
+    <h2 class="unter-h">Presse und Stadt</h2>
+    <p>Sie möchten über uns berichten oder mit uns zusammenarbeiten? Schreiben Sie an <a href="mailto:{{ verein.mail }}">{{ verein.mail }}</a> oder rufen Sie an.</p>
+  </div>
+</section>

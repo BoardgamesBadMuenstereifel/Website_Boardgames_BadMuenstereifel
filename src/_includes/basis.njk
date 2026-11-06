@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if titel %}{{ titel }} – {% endif %}{{ verein.name }}</title>
+  <meta name="description" content="{{ beschreibung or 'Brettspielclub in 53902 Bad Münstereifel: Komm einfach zum nächsten Spieleabend. Kostenlos, ohne Anmeldung, du brauchst kein Spiel mitzubringen.' }}">
+  <meta name="theme-color" content="#514859">
+  <link rel="icon" href="{{ '/assets/logo.svg' | url }}" type="image/svg+xml">
+  <link rel="preload" href="{{ '/assets/schriften/fraunces-latin-700-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <div class="wrap">
+      <a class="logo" href="{{ '/' | url }}">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="12" fill="#e19f42"/><g fill="#2b2530"><circle cx="20" cy="20" r="5"/><circle cx="44" cy="20" r="5"/><circle cx="32" cy="32" r="5"/><circle cx="20" cy="44" r="5"/><circle cx="44" cy="44" r="5"/></g></svg>
+        <span>Boardgames<br>Bad Münstereifel</span>
+      </a>
+      <nav aria-label="Hauptmenü">
+        <details class="nav-menue" id="nav">
+          <summary>Menü</summary>
+          <ul>
+            {%- set punkte = [["/", "Start"], ["/neu-hier/", "Neu hier?"], ["/termine/", "Termine"], ["/spiele/", "Spiele"], ["/kontakt/", "Über uns & Kontakt"]] %}
+            {%- for p in punkte %}
+            <li><a href="{{ p[0] | url }}"{% if page.url == p[0] or (p[0] == "/spiele/" and page.url.startsWith("/spiele/")) %} aria-current="page"{% endif %}>{{ p[1] }}</a></li>
+            {%- endfor %}
+          </ul>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+{{ content | safe }}
+  </main>
+
+  <footer class="fuss">
+    <div class="wrap">
+      <div class="spalten">
+        <div>
+          <h2>{{ verein.name }}</h2>
+          <p>Brettspielclub in 53902 Bad Münstereifel</p>
+        </div>
+        <div>
+          <h2>Folge uns</h2>
+          <ul>
+            <li><a href="{{ verein.instagram }}" rel="noopener">Instagram</a></li>
+            <li><a href="{{ verein.facebook }}" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Rechtliches</h2>
+          <ul>
+            <li><a href="{{ '/impressum/' | url }}">Impressum</a></li>
+            <li><a href="{{ '/datenschutz/' | url }}">Datenschutzerklärung</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="klein">Powered by <a href="https://boardgamegeek.com" rel="noopener">BGG</a>: Spielinfos von BoardGameGeek. Diese Seite setzt keine Cookies und lädt keine Tracker.</p>
+    </div>
+  </footer>
+  <script src="{{ '/assets/script.js' | url }}" defer></script>
+</body>
+</html>

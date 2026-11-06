@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termine – Boardgames Bad Münstereifel</title>
+  <meta name="description" content="Alle kommenden Spieleabende von Boardgames Bad Münstereifel mit Uhrzeit, Ort und Adresse.">
+  <meta name="theme-color" content="#514859">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <div class="proto-hinweis">Prototyp: Termine von der alten Website.</div>
+
+  <header class="kopf">
+    <div class="wrap">
+      <a class="logo" href="index.html">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="12" fill="#e19f42"/><g fill="#2b2530"><circle cx="20" cy="20" r="5"/><circle cx="44" cy="20" r="5"/><circle cx="32" cy="32" r="5"/><circle cx="20" cy="44" r="5"/><circle cx="44" cy="44" r="5"/></g></svg>
+        <span>Boardgames<br>Bad Münstereifel</span>
+      </a>
+      <nav aria-label="Hauptmenü">
+        <details class="nav-menue" id="nav">
+          <summary>Menü</summary>
+          <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="neu-hier.html">Neu hier?</a></li>
+            <li><a href="termine.html" aria-current="page">Termine</a></li>
+            <li><a href="spiele.html">Spiele</a></li>
+            <li><a href="index.html#kontakt">Über uns &amp; Kontakt</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <section class="sektion" aria-labelledby="h-termine">
+      <div class="wrap">
+        <h1 class="seiten-titel" id="h-termine">Termine</h1>
+        <p class="lead">Den Ort legen wir pro Termin fest, deshalb steht er immer direkt dabei.</p>
+        <ul class="termine" id="termin-liste" data-adresse="1"></ul>
+        <noscript><p>Die aktuellen Termine stehen in unserer WhatsApp-Gruppe.</p></noscript>
+        <div class="mehr"><a class="btn btn-rand" href="#">Kalender abonnieren</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fuss">
+    <div class="wrap">
+      <p>Brettspielclub in 53902 Bad Münstereifel · <a href="#">Impressum</a> · <a href="#">Datenschutzerklärung</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

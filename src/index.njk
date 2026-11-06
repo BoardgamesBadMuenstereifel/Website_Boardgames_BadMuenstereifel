@@ -1,0 +1,106 @@
+---
+layout: basis.njk
+---
+{% import "bausteine.njk" as b %}
+{% set naechster = daten.termine[0] %}
+<section class="hero" aria-labelledby="h-hero">
+  <div class="wrap">
+    <div>
+      <h1 id="h-hero">Komm einfach vorbei. <span>Wir spielen.</span></h1>
+      <p class="unter">Brettspielabende in Bad Münstereifel. Kostenlos, ohne Anmeldung, du brauchst kein Spiel mitzubringen.</p>
+      <img class="hero-bild" src="{{ '/assets/spieltisch.svg' | url }}" alt="" width="640" height="220">
+    </div>
+    <div class="naechster" aria-labelledby="h-next">
+      <span class="label" id="h-next">Nächster Spieleabend</span>
+      {%- if naechster %}
+      <div class="wann" id="next-wann"><span>{{ naechster.langText }}</span> <small>ab {{ naechster.zeit }}</small></div>
+      <p class="wo" id="next-wo">{{ naechster.ort }}</p>
+      <p class="adr" id="next-adr">{{ naechster.adresse or "Adresse folgt" }}</p>
+      {%- else %}
+      <div class="wann" id="next-wann"><span>Neue Termine folgen</span></div>
+      <p class="wo" id="next-wo">Den nächsten Termin erfährst du in der WhatsApp-Gruppe.</p>
+      <p class="adr" id="next-adr"></p>
+      {%- endif %}
+      <div class="aktionen">
+        <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>
+        <a class="btn btn-rand" href="{{ '/neu-hier/' | url }}">So läuft ein Abend</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sektion" id="termine" aria-labelledby="h-termine">
+  <div class="wrap">
+    <h2 id="h-termine">Die nächsten Termine</h2>
+    <p class="lead">Such dir einen Termin aus und komm vorbei. Wir erklären dir die Spiele, Regeln musst du nicht kennen.</p>
+    {%- if daten.termine.length %}
+    <ul class="termine" data-limit="3">
+      {%- for t in daten.termine | batch(3) | first %}{{ b.terminzeile(t, false) }}{% endfor %}
+    </ul>
+    {%- else %}
+    <p><b>Neue Termine folgen.</b> <a href="{{ verein.whatsapp }}" rel="noopener">Zur WhatsApp-Gruppe</a></p>
+    {%- endif %}
+    <div class="mehr">
+      <a class="btn btn-rand" href="{{ '/termine/' | url }}">Alle Termine</a>
+      <a class="btn btn-rand" href="{{ '/neu-hier/' | url }}">Alles für Neue</a>
+    </div>
+  </div>
+</section>
+
+{%- if daten.meist12.length %}
+<section class="sektion" id="spiele" aria-labelledby="h-spiele">
+  <div class="wrap">
+    <h2 id="h-spiele">Aktuell meist gespielt</h2>
+    <div class="liste-gruppe">
+      <div>
+        <h3 class="band-h">Letzte 12 Monate</h3>
+        <ol class="spiele drei">
+          {%- for e in daten.meist12 | batch(3) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
+        </ol>
+      </div>
+      {%- if daten.meist3.length %}
+      <aside class="hot" aria-labelledby="h-hot">
+        <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
+        <ol>
+          {%- for e in daten.meist3 | batch(3) | first %}
+          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.partien }}×</span></li>
+          {%- endfor %}
+        </ol>
+      </aside>
+      {%- endif %}
+    </div>
+    <div class="band-fuss">
+      <a class="btn btn-rand" href="{{ '/spiele/' | url }}">Alle Spiele ansehen</a>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if daten.vorstellungen.length %}
+<section class="sektion" id="vorgestellt" aria-labelledby="h-fokus">
+  <div class="wrap">
+    <h2 id="h-fokus">Spiel im Fokus</h2>
+    {{ b.fokus(daten.vorstellungen[0], true) }}
+  </div>
+</section>
+{%- endif %}
+
+{%- if daten.empfehlungen.length %}
+<section class="sektion" aria-label="Unsere Empfehlungen">
+  <div class="wrap teaser">
+    <a class="teaser-karte" href="{{ '/spiele/#empfehlungen' | url }}">
+      <span class="eyebrow">Unsere Empfehlungen</span>
+      <strong>Das passende Spiel finden</strong>
+      <span>Von Kindern bis Kenner &amp; Experten</span>
+    </a>
+  </div>
+</section>
+{%- endif %}
+
+<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.vorstellungen.length or daten.empfehlungen.length %} style="padding-top:0"{% endif %}>
+  <div class="wrap zweispaltig">
+    {% include "kontakt-block.njk" %}
+  </div>
+</section>
+
+<script type="application/json" id="termine-daten">{{ daten.termine | jsonSicher | safe }}</script>

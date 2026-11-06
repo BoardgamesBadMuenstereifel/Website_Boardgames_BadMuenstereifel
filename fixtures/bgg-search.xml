@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Erfundene Beispieldaten für Tests. -->
+<items total="2" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="2001">
+    <name type="primary" value="Gesuchtes Spiel" />
+    <yearpublished value="2020" />
+  </item>
+  <item type="boardgame" id="2002">
+    <name type="alternate" value="Gesuchtes Spiel: Erweiterung" />
+    <yearpublished value="2022" />
+  </item>
+</items>

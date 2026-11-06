@@ -1,0 +1,68 @@
+{# Wiederkehrende Bausteine der Seite #}
+
+{% macro infos(s) %}
+{%- if s.bgg %}
+<ul class="chips">
+  {%- if s.bgg | spieler %}<li>{{ s.bgg | spieler }}</li>{% endif %}
+  {%- if s.bgg | dauer %}<li>{{ s.bgg | dauer }}</li>{% endif %}
+  {%- if s.bgg.komplexitaet %}<li>Komplexität {{ s.bgg.komplexitaet | zahlDe }}/5</li>{% endif %}
+</ul>
+{%- endif %}
+{% endmacro %}
+
+{% macro cover(s, klasse) %}
+{%- if s.bgg and s.bgg.cover %}<img class="{{ klasse }}" src="{{ s.bgg.cover | url }}" alt="" loading="lazy">
+{%- else %}<div class="{{ klasse }}" aria-hidden="true">{{ s.name | first | upper }}</div>{% endif %}
+{% endmacro %}
+
+{% macro spielkarte(eintrag, platz) %}
+<li class="spiel">
+  <span class="rang" aria-label="Platz {{ platz }}">{{ platz }}</span>
+  {{ cover(eintrag.spiel, "bild") }}
+  <div>
+    <h3><a href="{{ ('/spiele/' + eintrag.spiel.slug + '/') | url }}">{{ eintrag.spiel.name }}</a></h3>
+    <p class="partien">{{ eintrag.partien }} {{ "Partie" if eintrag.partien == 1 else "Partien" }}</p>
+    {{ infos(eintrag.spiel) }}
+  </div>
+</li>
+{% endmacro %}
+
+{% macro terminzeile(t, mitAdresse) %}
+<li>
+  <time datetime="{{ t.datum }}"><span class="tag">{{ t.teile.tag }}</span><span class="zahl">{{ t.teile.zahl }}</span><span class="monat">{{ t.teile.monat }}</span></time>
+  <div>
+    <div class="ort">{{ t.ort }}</div>
+    <div class="info">ab {{ t.zeit }} · {{ t.art }}</div>
+    {%- if t.hinweis %}<div class="hinweis">{{ t.hinweis }}</div>{% endif %}
+    {%- if mitAdresse %}<div class="info">{{ t.adresse or "Adresse folgt" }}</div>{% endif %}
+    {%- if t.adresse %}<a href="https://www.openstreetmap.org/search?query={{ t.adresse | urlencode }}" rel="noopener" aria-label="Route zu {{ t.ort }}">Route</a>{% endif %}
+  </div>
+</li>
+{% endmacro %}
+
+{% macro fokus(v, gross) %}
+<article class="fokus{% if gross %} gross{% endif %}">
+  {%- if gross %}{{ cover(v.spiel, "fokus-bild") }}{% endif %}
+  <div class="fokus-text">
+    <p class="eyebrow">{{ "Unsere neueste Vorstellung" if gross else "Kurz vorgestellt" }}</p>
+    <h3><a href="{{ ('/spiele/' + v.spiel.slug + '/') | url }}">{{ v.spiel.name }}</a></h3>
+    {{ infos(v.spiel) }}
+    <p>{{ v.beschreibung }}</p>
+    {%- if v.fuerWen %}<p><b>Für wen?</b> {{ v.fuerWen }}</p>{% endif %}
+    {%- if gross %}<a href="{{ '/spiele/#vorgestellt' | url }}">Alle Spielvorstellungen</a>{% endif %}
+  </div>
+  {%- if v.wertungen.length %}
+  <div class="fokus-wertung">
+    <h4>Unsere Wertungen</h4>
+    <ul class="wertungen">
+      {%- for w in v.wertungen %}
+      <li><div class="w-kopf"><b>{{ w.spieler }}</b><span>{{ w.note }}/10</span></div><div class="balken" aria-hidden="true"><i style="width:{{ w.note * 10 }}%"></i></div>{% if w.zitat %}<p>„{{ w.zitat }}“</p>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    <p class="schnitt">Unser Schnitt: <b>{{ v.schnitt }}/10</b></p>
+  </div>
+  {%- endif %}
+</article>
+{% endmacro %}
+
+{% macro flamme() %}<svg class="flamme" viewBox="0 0 24 24" aria-hidden="true"><path fill="#cf4639" d="M12 2c1 4 6 6.500 6 12a6 6 0 0 1-12 0c0-2.500 1.200-4 2.500-5.200.3 1.700 1 2.700 2 3.200C10 8.500 10.500 5 12 2z"/></svg>{% endmacro %}

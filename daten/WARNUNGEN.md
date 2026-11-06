@@ -4,5 +4,5 @@ Stand: 2026-11-06
 
 Die Website wurde trotzdem gebaut. Das hier solltest du dir ansehen:
 
-- 353 Spiele haben noch keine BGG-ID und erscheinen ohne Bild und Infos. Für 96 davon gibt es einen Vorschlag in daten/id-vorschlaege.json.
+- 353 Spiele haben noch keine BGG-ID und erscheinen ohne Bild und Infos. Für 193 davon gibt es einen Vorschlag in daten/id-vorschlaege.json.
 - Für „DGH, Lorbach“ fehlt die Adresse in termine.xlsx (Blatt Orte).

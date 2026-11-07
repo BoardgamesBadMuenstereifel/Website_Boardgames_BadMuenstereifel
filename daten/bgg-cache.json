@@ -15,6 +15,21 @@
    "cover": "/assets/cover/13.jpg",
    "abgerufen": "2026-11-07T07:16:51.195Z"
   },
+  "94": {
+   "id": "94",
+   "name": "Union Pacific",
+   "jahr": 1999,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 90,
+   "maxDauer": 90,
+   "alter": 12,
+   "bewertung": 7.2,
+   "komplexitaet": 2.5,
+   "beschreibung": "Union Pacific is a train-themed stock market game. On each turn, players must choose between expanding a company to increase its value and adding a share of stock to their hand, or playing stock onto the table from their hand to increase their ownership of one or two companies. There are four semi-random scoring events, in which the first and second place share holder in each company are paid dividends. Only stock that has been previously played onto the table is considered during the scoring rounds. Union Pacific is a special company whose shares are claimed according to special rules.",
+   "cover": "/assets/cover/94.jpg",
+   "abgerufen": "2026-11-07T07:53:01.178Z"
+  },
   "120": {
    "id": "120",
    "name": "Hoity Toity",
@@ -29,6 +44,51 @@
    "beschreibung": "What do bored English noblemen do with their free time? Well, according to this Spiel des Jahres (1990) winner by Klaus Teuber, they like collecting old junk and then showing it off. Players buy or steal various pieces of junk in the form of cards, trying to form the largest and oldest collection. Built on a 'rock-paper-scissors' mechanism, this game gives all players a couple of choices each turn.",
    "cover": "/assets/cover/120.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
+  },
+  "125": {
+   "id": "125",
+   "name": "Money!",
+   "jahr": 1999,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 15,
+   "maxDauer": 30,
+   "alter": 10,
+   "bewertung": 6.6,
+   "komplexitaet": 1.6,
+   "beschreibung": "Your goal in Money! is to trade currencies with the bank and other players so that you end up with more value than anyone else. Each player starts with a hand of six cards from a deck that contains cards in seven currencies ranging in value from 20-60, along with coins worth 10. Four cards from the deck are placed face up to its left and to its right. In a round, each player chooses a bid of one or more cards from their hand, then everyone reveals their bid simultaneously.",
+   "cover": "/assets/cover/125.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
+  "171": {
+   "id": "171",
+   "name": "Chess",
+   "jahr": 1475,
+   "minSpieler": 2,
+   "maxSpieler": 2,
+   "minDauer": null,
+   "maxDauer": null,
+   "alter": 6,
+   "bewertung": 7.2,
+   "komplexitaet": 3.6,
+   "beschreibung": "Chess is a two-player, abstract strategy board game that represents medieval warfare on an 8x8 board with alternating light and dark squares. Opposing pieces, traditionally designated White and Black, are initially lined up on either side of the board. Each type of piece has a unique form of movement and capturing occurs when a piece, via its movement, occupies the square of an opposing piece. Players take turns moving one of their pieces in an attempt to capture, attack, defend, or develop their positions.",
+   "cover": "/assets/cover/171.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
+  "190": {
+   "id": "190",
+   "name": "Dolce Vita",
+   "jahr": 1999,
+   "minSpieler": 3,
+   "maxSpieler": 5,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 10,
+   "bewertung": 6.1,
+   "komplexitaet": 1.7,
+   "beschreibung": "Players are socialites who are trying to take as many high-value luxuries as they can manage. A number of luxuries (boats, mansions, watches, boats, etc.) of values varying from one million to seven million are laid out in a matrix. Players take turn placing power cards in the columns, and after five of the six cards have been played, the highest bid takes the first luxury in the column, the second highest gets the next one up, and so on.",
+   "cover": "/assets/cover/190.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "215": {
    "id": "215",
@@ -150,6 +210,21 @@
    "cover": "/assets/cover/2633.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "2651": {
+   "id": "2651",
+   "name": "Power Grid",
+   "jahr": 2004,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 120,
+   "maxDauer": 120,
+   "alter": 12,
+   "bewertung": 7.8,
+   "komplexitaet": 3.2,
+   "beschreibung": "Power Grid is the updated release of the Friedemann Friese crayon game Funkenschlag. It removes the crayon aspect from network building in the original edition, while retaining the fluctuating commodities market like Crude: The Oil Game and an auction round intensity reminiscent of The Princes of Florence. The objective of Power Grid is to supply the most cities with power when someone's network gains a predetermined size.",
+   "cover": "/assets/cover/2651.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "3294": {
    "id": "3294",
    "name": "Dumm gelaufen!",
@@ -179,6 +254,36 @@
    "beschreibung": "The Munchkins are back – but now they're Mutants, Androids, and Cat People in space, grabbing Lasers, Vibroswords, and Nova Grenades and fighting Fanged Fuzzballs, Bionic Bimbos, and the Brain In A Jar. Star Munchkin is a complete game using the best-selling Munchkin rules (with a few new twists like Sidekicks), and it can be combined with any other Munchkin items. Part of the Munchkin series. Munchkin is a satirical card game based on the clich&eacute;s and oddities of Dungeons and Dragons and other role-playing games.",
    "cover": "/assets/cover/4095.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "5770": {
+   "id": "5770",
+   "name": "Orchard",
+   "jahr": 1986,
+   "minSpieler": 2,
+   "maxSpieler": 8,
+   "minDauer": 10,
+   "maxDauer": 10,
+   "alter": 3,
+   "bewertung": 6.3,
+   "komplexitaet": 1,
+   "beschreibung": "Obstgarten is a cooperative game for two or more players aged 3 and up. Only a quick harvesting of the trees carrying crunchy cherries, juicy apples, sweet pears and marvellous plums prevents the snitching of fruits by the impudent and insatiable raven. All players work together to harvest the fruits.",
+   "cover": "/assets/cover/5770.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
+  "9209": {
+   "id": "9209",
+   "name": "Ticket to Ride",
+   "jahr": 2004,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 30,
+   "maxDauer": 60,
+   "alter": 8,
+   "bewertung": 7.4,
+   "komplexitaet": 1.8,
+   "beschreibung": "With elegantly simple gameplay, Ticket to Ride can be learned in under 15 minutes. Players collect cards of various types of train cars they then use to claim railway routes in North America. The longer the routes, the more points they earn. Additional points come to those who fulfill Destination Tickets – goal cards that connect distant cities; and to the player who builds the longest continuous route. \"The rules are simple enough to write on a train ticket – each turn you either draw more cards, claim a route, or get additional Destination Tickets,\" says Ticket to Ride author, Alan R. Moon.",
+   "cover": "/assets/cover/9209.jpg",
+   "abgerufen": "2026-11-07T07:53:01.178Z"
   },
   "11971": {
    "id": "11971",
@@ -225,6 +330,21 @@
    "cover": "/assets/cover/12942.jpg",
    "abgerufen": "2026-11-07T07:18:26.777Z"
   },
+  "14557": {
+   "id": "14557",
+   "name": "Schnitzeljagd",
+   "jahr": 1998,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 10,
+   "bewertung": 5.7,
+   "komplexitaet": 1.3,
+   "beschreibung": "From the game rules: \"Today a treasure hunt is taking place at the camp. Of course all of the groups want to cross the finishing line first. So they need to split up in order to be quicker. Sometimes they even have to help others to move faster, although they might not want to.\" Listed on the box for ages 10+, this is a no-luck race game, where your movement is based on it's position in the race. Shorter faster version of Das glorreiche Manöver ______ _______________ Before millenium, SIMBA Toys published a bunch of board games in their Series of \"Happy Games&ldquo;.",
+   "cover": "/assets/cover/14557.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "15818": {
    "id": "15818",
    "name": "Pick-omino",
@@ -239,6 +359,36 @@
    "beschreibung": "In Pickomino, two to seven players, ages 8 and up try to obtain fried worms for their chickens, so that they don't go hungry. Of course, anyone who doesn't manage to grab a worm off of the grill can help himself to those of his opponents. This fast-paced game by Reiner Knizia is, like Hick Hack im Gackelwack, a gambling game in the finest chicken tradition. Each turn players roll their dice and set aside all those matching any single value. The remaining dice are rolled and any value is set aside again until the player stops and takes a tile or busts and puts their last tile back.",
    "cover": "/assets/cover/15818.jpg",
    "abgerufen": "2026-11-07T07:17:38.880Z"
+  },
+  "15987": {
+   "id": "15987",
+   "name": "Arkham Horror",
+   "jahr": 2005,
+   "minSpieler": 1,
+   "maxSpieler": 8,
+   "minDauer": 120,
+   "maxDauer": 240,
+   "alter": 14,
+   "bewertung": 7.2,
+   "komplexitaet": 3.6,
+   "beschreibung": "The year is 1926, and it is the height of the Roaring Twenties. Flappers dance till dawn in smoke-filled speakeasies drinking alcohol supplied by rum runners and the mob. It's a celebration to end all celebrations in the aftermath of the war to end all wars. Yet a dark shadow grows in the city of Arkham. Alien entities known as Ancient Ones lurk in the emptiness beyond space and time, writhing at the gates between worlds. These gates have begun to open and must be closed before the Ancient Ones make our world their ruined domination.",
+   "cover": "/assets/cover/15987.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "20204": {
+   "id": "20204",
+   "name": "Drunter und Drüber",
+   "jahr": 1973,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 6.3,
+   "komplexitaet": 2,
+   "beschreibung": "Players maneuver their pieces to all be on their color spaces. The pieces cover the spaces, so the player must remember where his color spaces are. _________ Not to be confused with Drunter & Drüber , a game from Klaus Teuber, published by HiG in 1991.",
+   "cover": "/assets/cover/20204.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "27588": {
    "id": "27588",
@@ -285,6 +435,36 @@
    "cover": "/assets/cover/31260.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
   },
+  "33160": {
+   "id": "33160",
+   "name": "Endeavor",
+   "jahr": 2009,
+   "minSpieler": 3,
+   "maxSpieler": 5,
+   "minDauer": 90,
+   "maxDauer": 90,
+   "alter": 12,
+   "bewertung": 7.4,
+   "komplexitaet": 2.9,
+   "beschreibung": "It is a time when the maps of the world are still being filled in. Seagoing empires expand their frontiers by sending ships to the farthest reaches of the globe in search of new lands, new alliances, and new conquests. The wealth of the newly-discovered worlds abroad is a tempting prize for those with the strength and the cunning to seize it... and to hold it! You represent a growing empire engaged in a glorious endeavor to expand your influence and status at home and across the great oceans of the world.",
+   "cover": "/assets/cover/33160.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "36808": {
+   "id": "36808",
+   "name": "Worms",
+   "jahr": 2007,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 10,
+   "maxDauer": 10,
+   "alter": null,
+   "bewertung": 6.2,
+   "komplexitaet": 2,
+   "beschreibung": "Worms is a Board Game inspired by the Team17 game of the same name. It brings the strange combination of utter silliness and tactics from the computer game to the table top. Worms is game for two to four players and usually on takes about 10 minutes to play. Each player controls one team of four combat ready Worms. Each worm comes equipped with a variety of weapons from the lowly Pistol to the awesome and lethal Sheep. (copied from the rulebook) (Not available online at this time)",
+   "cover": "/assets/cover/36808.jpg",
+   "abgerufen": "2026-11-07T07:53:01.178Z"
+  },
   "39856": {
    "id": "39856",
    "name": "Dixit",
@@ -314,6 +494,21 @@
    "beschreibung": "Spot it!, a.k.a. Dobble, is a simple pattern recognition game in which players try to find an image shown on two cards. Each card in original Spot it! features eight different symbols, with the symbols varying in size from one card to the next. Any two cards have exactly one symbol in common. For the basic Spot it! game, reveal one card, then another. Whoever spots the symbol in common on both cards claims the first card, then another card is revealed for players to search, and so on. Whoever has collected the most cards when the 55-card deck runs out wins!",
    "cover": "/assets/cover/63268.jpg",
    "abgerufen": "2026-11-07T07:17:06.986Z"
+  },
+  "63975": {
+   "id": "63975",
+   "name": "Mountain Goats",
+   "jahr": 2010,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 8,
+   "bewertung": 6.9,
+   "komplexitaet": 1.2,
+   "beschreibung": "In Mountain Goats you work to move your goats to the top of 6 different mountains where they can score points as long as they stay there. You can share spaces with other goats on the way up, but there is only room for one goat at the top of each mountain. If someone else's goat moves to the mountain top, they will kick you off and you'll have to start your trek over. It's a game about timing. You need to not just get to the top of the mountain, but get there when no one else is in position to knock you off. It's a game about keeping your eye on your opponents.",
+   "cover": "/assets/cover/63975.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "68448": {
    "id": "68448",
@@ -390,6 +585,21 @@
    "cover": "/assets/cover/84876.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "102680": {
+   "id": "102680",
+   "name": "Trajan",
+   "jahr": 2011,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 12,
+   "bewertung": 7.7,
+   "komplexitaet": 3.6,
+   "beschreibung": "Set in ancient Rome, Trajan is a development game in which players try to increase their influence and power in various areas of Roman life such as political influence, trading, military dominion and other important parts of Roman culture. The central mechanism of the game uses a system similar to that in Mancala or pit-and-pebbles games. In Trajan, a player has six possible actions: building, trading, taking tiles from the forum, using the military, influencing the Senate, and placing Trajan tiles on his tableau.",
+   "cover": "/assets/cover/102680.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "107529": {
    "id": "107529",
    "name": "Kingdom Builder",
@@ -465,6 +675,21 @@
    "cover": "/assets/cover/129622.jpg",
    "abgerufen": "2026-11-07T07:18:10.695Z"
   },
+  "133038": {
+   "id": "133038",
+   "name": "Pathfinder Adventure Card Game: Rise of the Runelords – Base Set",
+   "jahr": 2013,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 90,
+   "maxDauer": 90,
+   "alter": 13,
+   "bewertung": 7.2,
+   "komplexitaet": 2.7,
+   "beschreibung": "A forgotten evil stirs in the ancient land of Varisia. Dark magic once more thrums amid crumbling ruins, giants gather in titanic armies, cultists murder in the name of foul deities, and maniacal goblins plot a fiery end for the peaceful town of Sandpoint. Launch a campaign to strike back against the evils plaguing Varisia with the Pathfinder Adventure Card Game: Rise of the Runelords - Base Set.",
+   "cover": "/assets/cover/133038.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "144344": {
    "id": "144344",
    "name": "Rococo",
@@ -524,6 +749,36 @@
    "beschreibung": "Skull King is a trick-taking game similar to Oh Hell!, Wizard, Euchre and Spades, with players needing to state how many tricks they think they'll win each round. A unique element of this game is that bidding takes place simultaneously, leading to rounds that are sometimes over, or under-bid. As players must win the exact number of tricks that they bid to earn points, winning too many tricks is just as bad as winning too few and this leads to intense competition where losing a trick can be as exciting as winning one.",
    "cover": "/assets/cover/150145.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "154906": {
+   "id": "154906",
+   "name": "Isle of Trains",
+   "jahr": 2014,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 13,
+   "bewertung": 6.7,
+   "komplexitaet": 2,
+   "beschreibung": "In Isle of Trains, players are train operators, building trains with the right mix of freight cars needed to complete delivery contracts before your opponents. Cards are used in multiple ways: they can be built as train cars or buildings supporting your train line, used as currency to pay the cost of building those new train cars and buildings, or used as cargo to load on available train cars.",
+   "cover": "/assets/cover/154906.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "156009": {
+   "id": "156009",
+   "name": "Port Royal",
+   "jahr": 2014,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 20,
+   "maxDauer": 50,
+   "alter": 8,
+   "bewertung": 7.1,
+   "komplexitaet": 1.6,
+   "beschreibung": "The merchant players in Port Royal, which won the Austrian Game Designers Competition under the title H&auml;ndler der Karibik, are trying to earn as much as they can out of the Caribbean Sea, but if they set their goals too high, they might take home nothing for the day. The 120-card deck depicts a coin on the back of each card — with players earning and paying coins throughout the game — and different items on the card fronts. On a turn, a player can first draw as many cards as he likes, one at a time from the deck, placing them in the harbor (an area near the deck).",
+   "cover": "/assets/cover/156009.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "157354": {
    "id": "157354",
@@ -599,6 +854,21 @@
    "beschreibung": "In the most distant reaches of the world, magic still exists, embodied by spirits of the land, of the sky, and of every natural thing. As the great powers of Europe stretch their colonial empires further and further, they will inevitably lay claim to a place where spirits still hold power - and when they do, the land itself will fight back alongside the islanders who live there. Spirit Island is a complex and thematic co-operative game about defending your island home from colonizing Invaders. Players are different spirits of the land, each with its own unique elemental powers.",
    "cover": "/assets/cover/162886.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "163068": {
+   "id": "163068",
+   "name": "Trickerion: Legends of Illusion",
+   "jahr": 2015,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 180,
+   "alter": 14,
+   "bewertung": 8,
+   "komplexitaet": 4.3,
+   "beschreibung": "Trickerion is a competitive Euro-style strategy game set in a fictional world inspired by the late 19th century urban life and culture, spiced with a pinch of supernatural. Players take on the roles of rival stage illusionists, each with their own strengths and characteristics. They are striving for fortune and fame in a competition hosted by a legendary magician, looking for a successor worthy of the mighty Trickerion Stone, which is fabled to grant supernatural power to its owner.",
+   "cover": "/assets/cover/163068.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "163412": {
    "id": "163412",
@@ -720,6 +990,21 @@
    "cover": "/assets/cover/172309.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
   },
+  "176494": {
+   "id": "176494",
+   "name": "Isle of Skye: From Chieftain to King",
+   "jahr": 2015,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 30,
+   "maxDauer": 50,
+   "alter": 8,
+   "bewertung": 7.4,
+   "komplexitaet": 2.3,
+   "beschreibung": "Isle of Skye is one of the most beautiful places in the world, with soft sand beaches, gently sloping hills, and impressive mountains. The landscape of Isle of Skye is breathtaking and fascinates everyone. In the tile-laying game Isle of Skye: From Chieftain to King, 2–5 players are chieftains of famous clans and want to build their kingdoms to score as many points as possible—but in each game only four of the sixteen scoring tiles will be scored.",
+   "cover": "/assets/cover/176494.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "177478": {
    "id": "177478",
    "name": "IKI",
@@ -810,6 +1095,21 @@
    "cover": "/assets/cover/184921.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "188920": {
+   "id": "188920",
+   "name": "This War of Mine: The Board Game",
+   "jahr": 2017,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 45,
+   "maxDauer": 120,
+   "alter": 18,
+   "bewertung": 7.8,
+   "komplexitaet": 3.3,
+   "beschreibung": "This War Of Mine: The Board Game is the tabletop adaptation of the award-winning video game that pictures the drama of civilians trapped in a war-torn city. You will enter this experience as a group of civilians trapped in a besieged and conflict-ridden city, enduring many hardships that often test the essence of humanity. During your struggle as the survivors, you will experience dramas connected with making extremely difficult decisions and choices and have to face the consequences of your actions sooner or later.",
+   "cover": "/assets/cover/188920.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "191071": {
    "id": "191071",
    "name": "Mythical Dice",
@@ -869,6 +1169,21 @@
    "beschreibung": "A small card game where you have cards from 1-8 in 4 colors. You have Aid cards from 1-8 laid out in the center of the table and play cards below those cards (corresponding to the number on the help cards). You try to lay out 3 cards in a row (i.e. 2-4 same color) or column (1,1,1 in 3 different colors). If you manage to lay down the third card you can draw another card from the stack. When laying down cards you have to lay down 2 together when you start something new in the centre of the table. When adding you can put down just 1 card to already played cards on the table.",
    "cover": "/assets/cover/194387.jpg",
    "abgerufen": "2026-11-07T07:17:06.986Z"
+  },
+  "199042": {
+   "id": "199042",
+   "name": "Harry Potter: Hogwarts Battle",
+   "jahr": 2016,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 60,
+   "alter": 11,
+   "bewertung": 7.3,
+   "komplexitaet": 2.1,
+   "beschreibung": "The forces of evil are threatening to overrun Hogwarts castle in Harry Potter: Hogwarts Battle, a cooperative deck-building game, and it's up to four students to ensure the safety of the school by defeating villains and consolidating their defenses. In the game, players take on the role of a Hogwarts student: Harry, Ron, Hermione or Neville, each with their own personal deck of cards that's used to acquire resources. By gaining influence, players add more cards to their deck in the form of iconic characters, spells, and magical items.",
+   "cover": "/assets/cover/199042.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "199792": {
    "id": "199792",
@@ -945,6 +1260,21 @@
    "cover": "/assets/cover/207830.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
   },
+  "214484": {
+   "id": "214484",
+   "name": "HEXplore It: The Valley of the Dead King",
+   "jahr": 2017,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 60,
+   "maxDauer": 180,
+   "alter": 12,
+   "bewertung": 7.7,
+   "komplexitaet": 3.2,
+   "beschreibung": "HEXplore It is a hero building adventure board game. Enter a realm teeming with fantasy creatures, heroes and villains. Select your hero by combining two character options: your Role and Race. Your Role is your profession and your Race is your heritage and species. This combination drives your Hero's strengths, weaknesses and defines their special abilities. You'll use dry erase markers to keep track of your hero's strength. Travel across the map earning power ups by completing quests and battling opponents of several different types.",
+   "cover": "/assets/cover/214484.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "218208": {
    "id": "218208",
    "name": "Ticket to Ride: First Journey (Europe)",
@@ -1005,6 +1335,36 @@
    "cover": "/assets/cover/224517.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "225694": {
+   "id": "225694",
+   "name": "Decrypto",
+   "jahr": 2018,
+   "minSpieler": 3,
+   "maxSpieler": 8,
+   "minDauer": 15,
+   "maxDauer": 45,
+   "alter": 12,
+   "bewertung": 7.8,
+   "komplexitaet": 1.8,
+   "beschreibung": "Players compete in two teams in Decrypto, with each trying to correctly interpret the coded messages presented to them by their teammates while cracking the codes they intercept from the opposing team. In more detail, each team has its own screen, and in this screen they tuck four cards in pockets numbered 1-4, letting everyone on the same team see the words on these cards while hiding the words from the opposing team. In the first round, each team does the following: one team member takes a code card that shows three of the digits 1-4 in some order, e.g., 4-2-1.",
+   "cover": "/assets/cover/225694.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "228943": {
+   "id": "228943",
+   "name": "Barbaria",
+   "jahr": 2017,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 12,
+   "bewertung": 6.7,
+   "komplexitaet": 2.1,
+   "beschreibung": "Description from the publisher: In Barbaria, you become mighty barbarians and set out searching for dangerous and great adventures. Wrestle monsters and warlocks, hunt for treasures, look for assistance, and collect ancient runes, which will give you the victory. Game author Peter Rustemeyer is an archeologist from Germany who has loved barbarians and everything about them from childhood. He has developed not only the mechanisms of Barbari but he's hand-painted spicy watercolor illustrations, too, which will definitely be a standalone topic for discussion during the game session.",
+   "cover": "/assets/cover/228943.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "230802": {
    "id": "230802",
    "name": "Azul",
@@ -1034,6 +1394,36 @@
    "beschreibung": "The Royal Monstrological Society counts among its members the most renowned and respected experts in monster lore throughout the entire empire. Each year the Society permits only a single new member to join, so applicants compete to prove their worth with the most magnificent menagerie of monstrous beasts they can find... and capture. To aid in these quests of discovery the Society grants every aspiring monstrologist a small stipend, which they can use to hire additional experts and fund their journeys to the magical lands where the most exotic beasts reside.",
    "cover": "/assets/cover/231484.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
+  },
+  "233262": {
+   "id": "233262",
+   "name": "Tidal Blades: Heroes of the Reef",
+   "jahr": 2020,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 90,
+   "alter": 14,
+   "bewertung": 7.4,
+   "komplexitaet": 2.9,
+   "beschreibung": "Welcome Heroes! Many magnificent contestants have signed up for the tournament but only a handful will be chosen to join the Tidal Blades, the elite guards of our island realm. To succeed in the Tournament and be chosen as a Tidal Blade, you must compete in Challenges held in the 3 Arenas, rise to the top of the Champion&rsquo;s Board, and protect the realm from the ever increasing threat of the Monsters from the mysterious Fold.",
+   "cover": "/assets/cover/233262.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
+  "233371": {
+   "id": "233371",
+   "name": "Clank! In! Space!: A Deck-Building Adventure",
+   "jahr": 2017,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 90,
+   "alter": 12,
+   "bewertung": 7.8,
+   "komplexitaet": 2.6,
+   "beschreibung": "The evil Lord Eradikus has all but conquered the galaxy and is now on a victory lap across the sector in his flagship, Eradikus Prime. He may rule with an iron grip, but his most prized artifacts are about to slip through his cyborg claws. You and your fellow thieves have challenged each other to sneak aboard his ship, hack your way into its command module, and steal from him. Along the way, you'll recruit allies and snatch up extra loot. But one false step and — Clank! Careless noise draws the attention of Lord Eradikus.",
+   "cover": "/assets/cover/233371.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "235922": {
    "id": "235922",
@@ -1515,6 +1905,21 @@
    "cover": "/assets/cover/274049.jpg",
    "abgerufen": "2026-11-07T07:18:26.777Z"
   },
+  "274841": {
+   "id": "274841",
+   "name": "Cóatl",
+   "jahr": 2020,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 6.8,
+   "komplexitaet": 2,
+   "beschreibung": "The election of the Aztec High Priest is imminent. In order to prove their value and merit, the contenders engage in a race for prestige to win the favor of the gods. Will you be able to make the most beautiful sculptures of feathered snakes (called C&oacute;atl) to stand out and gain access to the coveted title of High Priest? In C&oacute;atl, players work to build the most beautiful and valuable serpents. The serpents, or C&oacute;atl, are constructed with a head, a tail, and a number of body tiles, each made from chunky, colorful plastic.",
+   "cover": "/assets/cover/274841.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "277700": {
    "id": "277700",
    "name": "Merchants Cove",
@@ -1620,6 +2025,21 @@
    "cover": "/assets/cover/283948.jpg",
    "abgerufen": "2026-11-07T07:18:10.695Z"
   },
+  "284108": {
+   "id": "284108",
+   "name": "Pictures",
+   "jahr": 2019,
+   "minSpieler": 3,
+   "maxSpieler": 5,
+   "minDauer": 20,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 7.2,
+   "komplexitaet": 1,
+   "beschreibung": "Pictures is a quick-playing family game with very simple rules. Form the image on your secret picture card with one set of components, either shoelaces, color cubes, icon cards, sticks and stones or building blocks in such a way that the other players guess what image you have pictured: Pull out a marker from the bag that determines your secret picture card. Then form that image with your components in such a way that it is recognizable. And finally guess what image each other player has pictured.",
+   "cover": "/assets/cover/284108.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "284435": {
    "id": "284435",
    "name": "Nova Luna",
@@ -1679,6 +2099,51 @@
    "beschreibung": "At the turn of the 16th Century, King Manuel I commissioned Portugal's greatest artisans to construct grandiose buildings. After completing the Palaces of Evora and Sintra, the king sought to build a summer pavilion to honor the most famous members of the royal family. This construction was intended for the most talented artisans — whose skills meet the splendor that the royal family deserves. Sadly, King Manuel I died before construction ever began. In Azul: Summer Pavilion, players return to Portugal to accomplish the task that never began.",
    "cover": "/assets/cover/287954.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
+  },
+  "290236": {
+   "id": "290236",
+   "name": "Canvas",
+   "jahr": 2021,
+   "minSpieler": 1,
+   "maxSpieler": 5,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 10,
+   "bewertung": 7.2,
+   "komplexitaet": 1.7,
+   "beschreibung": "In Canvas, you play as a painter competing in an art competition. Players will collect art cards, layering 3 of them together to create their own unique Painting. Each card contains a piece of artwork as well as a set of icons used during scoring. Icons will be revealed or hidden based on the way players choose to layer the cards making for an exciting puzzle. Paintings are scored based on a set of Scoring cards which will change each game. Once players have created and scored 3 paintings the game ends. On your turn you may take an Art card or make a painting.",
+   "cover": "/assets/cover/290236.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "291453": {
+   "id": "291453",
+   "name": "SCOUT",
+   "jahr": 2019,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 9,
+   "bewertung": 7.8,
+   "komplexitaet": 1.4,
+   "beschreibung": "SCOUT is a ladder-climbing game in which cards have two potential values, players may not rearrange their hand of cards, and players may pass their turn to take a card from the current high set of cards into their hand. More specifically, cards are dual-indexed, with different values on each half of the card, with the 45 cards having all possible combinations of the numbers 1-10. During set-up, whoever is shuffling the cards should randomize both the order of the cards in the deck and their orientation.",
+   "cover": "/assets/cover/291453.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
+  "292375": {
+   "id": "292375",
+   "name": "The Great Wall",
+   "jahr": 2021,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 120,
+   "maxDauer": 180,
+   "alter": 13,
+   "bewertung": 7.8,
+   "komplexitaet": 3.9,
+   "beschreibung": "The Great Wall is a new asymmetric worker/soldier placement game with engine building themes and a twist in form of a constantly attacking AI (Mongolian Horde) that requires players to sometimes cooperate in order to defeat it. This is a new major board game from Awaken Realms. Players will control ancient clans in China trying to defend against invading Mongolian hordes and build a Great Wall. While every player will want to win (by earning VP = Honor) they also need to sometimes cooperate to defend against the hordes.",
+   "cover": "/assets/cover/292375.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "294263": {
    "id": "294263",
@@ -1815,6 +2280,21 @@
    "cover": "/assets/cover/300327.jpg",
    "abgerufen": "2026-11-07T07:16:51.195Z"
   },
+  "300531": {
+   "id": "300531",
+   "name": "Paleo",
+   "jahr": 2020,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7.6,
+   "komplexitaet": 2.7,
+   "beschreibung": "Paleo is a co-operative adventure game set in the stone age, a game in which players try to keep the human beings in their care alive while completing missions. Sometimes you need a fur, sometimes a tent, but these are all minor quests compared to your long-term goal: Painting a woolly mammoth on the wall so that humans thousands of years later will know that you once existed. (Okay, you just think the mammoth painting looks cool. Preserving a record of your past existence is gravy.) What might keep you from painting that mammoth? Death, in all its many forms.",
+   "cover": "/assets/cover/300531.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "300905": {
    "id": "300905",
    "name": "Top Ten",
@@ -1920,6 +2400,21 @@
    "cover": "/assets/cover/310873.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "311193": {
+   "id": "311193",
+   "name": "Anno 1800: The Board Game",
+   "jahr": 2020,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 120,
+   "maxDauer": 120,
+   "alter": 12,
+   "bewertung": 7.7,
+   "komplexitaet": 3.1,
+   "beschreibung": "In Anno 1800, a board game based on the popular PC game from Ubisoft, you continuously build up your own industry to develop your home island. Ship fleets allow for lively trade and the development of new islands in the Old and New World. You have to fulfill the wishes of your own population. While the inhabitants are initially satisfied with bread and clothing, they soon demand valuable luxury goods. You must plan production chains sensibly and keep an eye on the specialization of your population.",
+   "cover": "/assets/cover/311193.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "311322": {
    "id": "311322",
    "name": "Herd Mentality",
@@ -1950,6 +2445,36 @@
    "cover": "/assets/cover/312484.jpg",
    "abgerufen": "2026-11-07T07:17:06.986Z"
   },
+  "314503": {
+   "id": "314503",
+   "name": "Codex Naturalis",
+   "jahr": 2021,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 20,
+   "maxDauer": 30,
+   "alter": 7,
+   "bewertung": 7.2,
+   "komplexitaet": 1.8,
+   "beschreibung": "In Codex Naturalis, you must continue the work of the illuminating monk Tybor Kwelein, assembling the pages of a manuscript that lists the living species in primary forests. Can you put the pages together in the best order possible? And are you prepared to sacrifice a species to develop your manuscript? In the game, each player starts with a single card on the table, a card that shows some combination of the four possible resources in the middle of the card, in the corners of the card, or both.",
+   "cover": "/assets/cover/314503.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
+  "315610": {
+   "id": "315610",
+   "name": "Massive Darkness 2: Hellscape",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 14,
+   "bewertung": 8,
+   "komplexitaet": 2.8,
+   "beschreibung": "Ten years have passed since the Lightbringers drove back the hordes of the Darkness and sealed the Portal from whence they came. The heroes thought their job done, but the newfound peace was never meant to last. Dangerous new Portals have suddenly opened up all across the land. The Darkness and its hordes are flooding through, stronger than ever. It will not be enough to simply close the Portals this time. The Lightbringers must travel through them into the unknown to destroy the Darkness once and for all. Either Light will triumph, or the Darkness will consume every being in the world.",
+   "cover": "/assets/cover/315610.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "315727": {
    "id": "315727",
    "name": "Last Light",
@@ -1979,6 +2504,21 @@
    "beschreibung": "When all you can identify in the horizon for many long days is the line that detaches the sea from the sky, the glimpse of a distant shore appearing before you will make you shiver at the understanding that the adventure is about to begin. You find yourself astonished, landing on the shore that will be the origin of an extensive exploration through the Galapagos, a magic place of inconceivable beauty and endless biodiversity. There, you will gather repertoires and expand your knowledge of the natural sciences.",
    "cover": "/assets/cover/322289.jpg",
    "abgerufen": "2026-11-07T07:16:51.195Z"
+  },
+  "324342": {
+   "id": "324342",
+   "name": "Boogeyman: The Board Game",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 13,
+   "bewertung": 6.4,
+   "komplexitaet": 2,
+   "beschreibung": "In Boogeyman you will play intrepid kids struggling with the classic nightmare: The Boogeyman. Nobody knows who he is and what he wants, but he certainly loves children who, however, do not intend to become a part of his dinner. No one knows his real face, but it is said that he is scary beyond the wildest imagination and, as if that were not enough, the kids will have to try and escape from the clutches of Jennifer, a psychopathic babysitter. What will happen? Will they be able to survive the long night? Will they manage not to get caught by the Babysitter and overcome their fears?",
+   "cover": "/assets/cover/324342.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "325628": {
    "id": "325628",
@@ -2055,6 +2595,21 @@
    "cover": "/assets/cover/334065.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
   },
+  "337787": {
+   "id": "337787",
+   "name": "Summer Camp",
+   "jahr": 2021,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7.1,
+   "komplexitaet": 1.8,
+   "beschreibung": "Find your cabin assignment, wring out your swimsuit, and relive the days of canoeing, friendship bracelets, and s'mores with Summer Camp, a competitive deck-building game in which players race to earn merit badges and collect the most experience points to win. Each player has their own deck of cards to play, and as the game progresses you add new cards to your deck to make it even stronger. Summer Camp differs each playing as the game includes seven different merit badge decks along with the base deck: adventure, arts & crafts, cooking, friendship, games, outdoors, and water sports.",
+   "cover": "/assets/cover/337787.jpg",
+   "abgerufen": "2026-11-07T07:53:01.178Z"
+  },
   "338960": {
    "id": "338960",
    "name": "Slay the Spire: The Board Game",
@@ -2069,6 +2624,21 @@
    "beschreibung": "Slay the Spire: The Board Game is a co-operative deck-building, dungeon-crawling adventure. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and finally become strong enough to slay the Spire! Each player starts with a character with unique abilities and a simple deck of cards that they can improve by adding and removing cards during the game. Slay the Spire is also a rogue-like. That means that when you die (and you will die!), start over from the beginning. Take the lessons you learned and try again! The game is divided into Acts.",
    "cover": "/assets/cover/338960.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "341289": {
+   "id": "341289",
+   "name": "Magistrar: Duel of the Mages",
+   "jahr": 2021,
+   "minSpieler": 2,
+   "maxSpieler": 2,
+   "minDauer": 10,
+   "maxDauer": 15,
+   "alter": 8,
+   "bewertung": 6.6,
+   "komplexitaet": 2,
+   "beschreibung": "&ldquo;Magistrar&rdquo;, the realm of mages, is in turmoil. Once a year, the most powerful mages of the country come together to compete in a spectacular contest, the Magicus Pugna. Here everyone joins in who thinks highly of himself and his magic skills. In a huge arena you will fight as two of these mages against each other for fame and glory. Can you harness the magical energy of the arena for yourself and defeat your opponent with your spells? In this magical competition, you want to earn the title of the most respected mage.",
+   "cover": "/assets/cover/341289.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "342070": {
    "id": "342070",
@@ -2100,6 +2670,21 @@
    "cover": "/assets/cover/342444.jpg",
    "abgerufen": "2026-11-07T07:16:34.731Z"
   },
+  "342810": {
+   "id": "342810",
+   "name": "Marrakesh",
+   "jahr": 2022,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 120,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 8.1,
+   "komplexitaet": 3.5,
+   "beschreibung": "Compete with other influential families in the city to achieve the most honorable titles through the skillful use of assistants and resources at your disposal. The player who succeeds in doing this best becomes the new \"Obermufti\" of Marrakesh. Marrakesh is played over three rounds, with each round consisting of four turns. On each turn, players simultaneously and secretly choose three colored cylinders from behind their screen.",
+   "cover": "/assets/cover/342810.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "342942": {
    "id": "342942",
    "name": "Ark Nova",
@@ -2114,6 +2699,21 @@
    "beschreibung": "In Ark Nova, you will plan and design a modern, scientifically managed zoo. With the ultimate goal of owning the most successful zoological establishment, you will build enclosures, accommodate animals, and support conservation projects all over the world. Specialists and unique buildings will help you in achieving this goal. Each player has a set of five action cards to manage their gameplay, and the power of an action is determined by the slot the card currently occupies. The cards in question are: CARDS: Allows you to gain new zoo cards (animals, sponsors, and conservation project cards).",
    "cover": "/assets/cover/342942.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
+  },
+  "345868": {
+   "id": "345868",
+   "name": "Federation",
+   "jahr": 2022,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 7.8,
+   "komplexitaet": 3.8,
+   "beschreibung": "The universe is organized into many federations which trade, intrigue, develop… One of these federations, still not fully developed yet (5 member planets so far) wants a new delegation to join them, but you are not the only one having your sights set on the federation. The Federation challenges you to prove your worth for 5 years. During these 5 years, you must develop strategies, deploy tactics, take the best opportunities but also form the right alliances at the right time… In the end, only 1 delegation will be chosen: the one with the most prestige!",
+   "cover": "/assets/cover/345868.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "346501": {
    "id": "346501",
@@ -2220,6 +2820,21 @@
    "cover": "/assets/cover/355093.jpg",
    "abgerufen": "2026-11-07T07:19:46.197Z"
   },
+  "357563": {
+   "id": "357563",
+   "name": "Akropolis",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 20,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 7.4,
+   "komplexitaet": 1.8,
+   "beschreibung": "The most talented architects in ancient Greece stand ready to achieve this goal. Build housing, temples, markets, gardens and barracks, so you can grow your city and ensure it triumphs over the others. Raise its prestige with harmonious planning that conforms to specific rules, and enhance it by building plazas. Stone is an essential resource, so make sure you do not neglect it. You&rsquo;ll need enough quarries so you can build higher up, making your city stretch towards the sky.",
+   "cover": "/assets/cover/357563.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "358737": {
    "id": "358737",
    "name": "Leviathan Wilds",
@@ -2250,6 +2865,21 @@
    "cover": "/assets/cover/359029.jpg",
    "abgerufen": "2026-11-07T07:18:26.777Z"
   },
+  "359152": {
+   "id": "359152",
+   "name": "Marvel: Remix",
+   "jahr": 2022,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 12,
+   "bewertung": 7.3,
+   "komplexitaet": 1.8,
+   "beschreibung": "In Marvel: Remix, players build a team of heroes and allies to take on infamous villains. They are dealt a hand of seven cards that will contain characters, items, or locations from throughout the Marvel Universe. Then, players go about can arming their characters with powerful equipment or maneuvers and use their cards to pull off epic combos. The player that has the most points at the end of the game wins. The game box comes with 61 Remix cards, 18 Villain cards, a score pad, and a rulebook. This game is for two to six players, ages 12 and up, and plays in 20 minutes.",
+   "cover": "/assets/cover/359152.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "359406": {
    "id": "359406",
    "name": "Ecosystem: Coral Reef",
@@ -2279,6 +2909,21 @@
    "beschreibung": "Welcome, city planners! Design the best city block using patterns from the new and exciting \"Cube Shaker\". You'll place a mix of tiles to help grow the thriving city. The best design wins the game! Shake That City is a family puzzly tile-laying game for 1-4 players, that plays under an hour! The game is played over a series of rounds. The active player shakes the Cube Shaker and presses its slider to reveal a 3x3 pattern, based on which they need to place the corresponding building tiles of a single color of their choice on their board.",
    "cover": "/assets/cover/359764.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "359970": {
+   "id": "359970",
+   "name": "Challengers!",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 8,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 8,
+   "bewertung": 7,
+   "komplexitaet": 1.8,
+   "beschreibung": "Challengers! is an interactive deck-management game for 1-8 players that plays in about 45 minutes independent of player count. With the tournament gameplay style, you meet another opponent every round. In the Deck Phase, you choose new members and add them to your deck, which might consist of a wizard, alien, cat, gangster and kraken. 75 distinct characters with more than 40 exciting effects create a unique experience every game. Choose from six different sets and discover new strategies and synergies every game. In the Match Phase, stay in flag possession to win the trophy of that round.",
+   "cover": "/assets/cover/359970.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "360625": {
    "id": "360625",
@@ -2400,6 +3045,21 @@
    "cover": "/assets/cover/369341.jpg",
    "abgerufen": "2026-11-07T07:17:38.880Z"
   },
+  "370591": {
+   "id": "370591",
+   "name": "Dorfromantik: The Board Game",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 60,
+   "alter": 8,
+   "bewertung": 7.6,
+   "komplexitaet": 1.6,
+   "beschreibung": "Rippling rivers, rustling forests, wheat fields swaying in the wind and here and there a cute little village - that's Dorfromantik! The video game from the small developer studio Toukana Interactive has been thrilling the gaming community since its Early Access in March 2021 and has already won all kinds of prestigious awards. Now Michael Palm and Lukas Zach are transforming the popular building strategy and puzzle game into a family game for young and old with Dorfromantik: The Board Game.",
+   "cover": "/assets/cover/370591.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
+  },
   "370789": {
    "id": "370789",
    "name": "Nova Roma",
@@ -2474,6 +3134,21 @@
    "beschreibung": "Sky Team is a co-operative game, exclusively for two players, in which you play a pilot and co-pilot at the controls of an airliner. Your goal is to work together as a team to land your airplane in different airports around the world. To land your plane, you need to silently assign your dice to the correct spaces in your cockpit to balance the axis of your plane, control its speed, deploy the flaps, extend the landing gear, contact the control tower to clear your path, and even have a little coffee to improve your concentration enough to change the value of your dice.",
    "cover": "/assets/cover/373106.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "374595": {
+   "id": "374595",
+   "name": "Kelp: Shark vs Octopus",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 2,
+   "minDauer": 40,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7.4,
+   "komplexitaet": 2.5,
+   "beschreibung": "Kelp is a two-player asymmetrical game that offers players a unique opportunity to delve into the natural world of Pyjama Sharks and Common Octopuses, set in a South African kelp forest. Hide and seek meets bluffing and manipulation. Deck builder meets dice bag builder. As players take on the roles of these iconic sea creatures, they will discover that the gameplay mechanics closely mirror their real-life counterparts. Each has a unique path to victory.",
+   "cover": "/assets/cover/374595.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "375651": {
    "id": "375651",
@@ -2565,6 +3240,36 @@
    "cover": "/assets/cover/379078.jpg",
    "abgerufen": "2026-11-07T07:17:23.066Z"
   },
+  "379153": {
+   "id": "379153",
+   "name": "Pacifica",
+   "jahr": 2023,
+   "minSpieler": 2,
+   "maxSpieler": 2,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 10,
+   "bewertung": 6.5,
+   "komplexitaet": 1.7,
+   "beschreibung": "The sunken city of Pacifica is coming back to life — and two people get to determine what the city will look like in the future. To do this, they collect art treasures, build paths, and promote inventions. Whoever gains the upper hand in a discipline receives an idol. Who can advance the construction of the underwater city in Pacifica as quickly as possible? Who will have the right strategy...along with a bit of luck?",
+   "cover": "/assets/cover/379153.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
+  "381188": {
+   "id": "381188",
+   "name": "Kauri",
+   "jahr": 2023,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 40,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7.2,
+   "komplexitaet": 2.2,
+   "beschreibung": "Kauri is a strategic, asymmetric board game with high replayability that brings the historical settlement of New Zealand to life on a beautifully crafted game board with detailed wooden pieces. In this board game, four unique factions with distinct abilities, their own decks of cards, objectives, and gameplay mechanics battle for dominance: the Māori, the Englishman, the Possums, and the Kiwis. At the heart of the conflict stands the Kauri tree, the island&rsquo;s iconic symbol — but each faction follows a different strategy and scores points in its own way.",
+   "cover": "/assets/cover/381188.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "381248": {
    "id": "381248",
    "name": "Nemesis: Retaliation",
@@ -2609,6 +3314,21 @@
    "beschreibung": "Deadly Dowagers is a game of marriage, murder, and money. You compete with the other lovely ladies in your town by strategically growing your dowry, while being careful not to gain too much infamy, or the duke may pass you over for another bride! You play as a middle-class Victorian woman who would kill to be a duchess. Since you were not lucky enough to be born into the aristocracy, the only way to attract a noble is to have a large enough dowry. Fortunately, when your parents died, they left you with a small dowry and some land.",
    "cover": "/assets/cover/381790.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
+  },
+  "382549": {
+   "id": "382549",
+   "name": "Biome",
+   "jahr": 2024,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 90,
+   "alter": 10,
+   "bewertung": 7.5,
+   "komplexitaet": 2.6,
+   "beschreibung": "Build a thriving Biome in this highly thematic nature themed tableau builder for 1-4 players. Compete for biodiversity achievements and outmaneuver your opponents by activating the special abilities of your plants and animals. Each action can only be activated once, so think carefully about which actions you take and when. Rounds of the game move through the seasons, each season having its own thematic impact on the Biome. In the simultaneous gameplay phase, draw cards and collect resources to play a plant or animal into your Biome and earn points.",
+   "cover": "/assets/cover/382549.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "383109": {
    "id": "383109",
@@ -2714,6 +3434,21 @@
    "beschreibung": "Foxpaw is a highly interactive worker-placement board game where where players, as aspiring talents of a magic school, compete with their Magical Beasts over 5 school-years for the victory of their house. Through strategic decisions and tactical moves, players gather victory points for their houses, with the aim of having more points than all others at the end. On the way, players will encounter many challenges. The first step is to choose a house, each with its own unique abilities.",
    "cover": "/assets/cover/385757.jpg",
    "abgerufen": "2026-11-07T07:17:38.880Z"
+  },
+  "385761": {
+   "id": "385761",
+   "name": "Faraway",
+   "jahr": 2023,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 25,
+   "maxDauer": 25,
+   "alter": 10,
+   "bewertung": 7.5,
+   "komplexitaet": 2,
+   "beschreibung": "Welcome to Alula, a mysterious continent with ever-changing geography, shaped after the rhythm of the seasons. Beyond the Sea of Mists lies the mysterious continent of Alula. Roam across the land in search of its secrets, meet its inhabitants, and list its wonders in order to gain more fame than your opponents. Throughout a game of Faraway, you will play a row of 8 cards in front of you, from left to right. These cards represent the regions you will come across while exploring the lands. Characters on these cards will grant you victory points if you later fulfill the conditions they demand.",
+   "cover": "/assets/cover/385761.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "385765": {
    "id": "385765",
@@ -2850,6 +3585,21 @@
    "cover": "/assets/cover/391163.jpg",
    "abgerufen": "2026-11-07T07:18:10.695Z"
   },
+  "392023": {
+   "id": "392023",
+   "name": "Mycelia",
+   "jahr": 2023,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 9,
+   "bewertung": 7.4,
+   "komplexitaet": 1.9,
+   "beschreibung": "Each player starts with the same set of cards in Mycelia, improving their deck with better cards over the course of play as they race to clear their playing field of dewdrops first. In this deck-building game, you need the support of mysterious forest dwellers to improve your deck, develop new and better skills, and bring the sacred dewdrops from your forest to the Shrine of Life in order to receive the forest goddess' support. The game includes double-sided player boards for increased variability.",
+   "cover": "/assets/cover/392023.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "392492": {
    "id": "392492",
    "name": "Stupor Mundi",
@@ -2864,6 +3614,36 @@
    "beschreibung": "Frederick II, Holy Roman Emperor and King of Germany and Italy, was a man of extraordinary culture, energy, and ability. His contemporaries called him \"stupor mundi\" (\"the wonder of the world\"), and many historians consider him Europe's first modern ruler. The kingdom Frederick established in Sicily and southern Italy ran on an efficient bureaucracy similar to modern, centrally governed kingdoms. As one of Frederick II's vassals in Stupor Mundi, you will summon allies from around the Mediterranean, build structures in your castle, and promote specialists to improve your kingdom.",
    "cover": "/assets/cover/392492.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "393165": {
+   "id": "393165",
+   "name": "Inferno",
+   "jahr": 2024,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 7.8,
+   "komplexitaet": 3.6,
+   "beschreibung": "In the Divine Comedy, the poet Dante Alighieri enters Hell in search of his beloved Beatrice. Guided by Virgil, he descends through the nine circles, witnessing how each sinner is eternally punished in a manner as horrifying as the sin they committed in life. Inferno is a soul management game where each player must guide sinners to their respective circles in Hell. The central board consists of two parts: one displaying all 9 circles and the soul registry, while the other represents Florence in the early 14th century, where Dante lived, with its power games and palace intrigues.",
+   "cover": "/assets/cover/393165.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
+  "393307": {
+   "id": "393307",
+   "name": "Tower Up",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 8,
+   "bewertung": 7.3,
+   "komplexitaet": 1.8,
+   "beschreibung": "Congratulations! Your architectural firm has been selected to renovate the city's downtown...but you're not the only ones. To pip your opponents at the post, you need to manage your resources and carefully plan your constructions. Be careful not to leave too many opportunities to your competitors! Each turn in Tower Up, you either: Pick a card and take the corresponding resources, or Use your resources to construct a new building: choose an empty spot, pay the cost to adjacent buildings, place a roof, and earn the corresponding points.",
+   "cover": "/assets/cover/393307.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "393325": {
    "id": "393325",
@@ -2955,6 +3735,21 @@
    "cover": "/assets/cover/395181.jpg",
    "abgerufen": "2026-11-07T07:17:23.066Z"
   },
+  "396542": {
+   "id": "396542",
+   "name": "The Same Game",
+   "jahr": 2023,
+   "minSpieler": 3,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7.1,
+   "komplexitaet": 1.6,
+   "beschreibung": "Is a microwave more important to humanity than diapers? How differently does a rocking horse move compared to a windshield wiper? And don't a pizza cutter and a unicycle look similar in some way? Your goal in The Same Game is to help your fellow players avoid falling into a trap. To set up, choose a difficulty level (1-4), then randomly choose the 6-9 category cards (e.g., length, material, price, movement, duration of use, etc.) and lay them on the table.",
+   "cover": "/assets/cover/396542.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "396543": {
    "id": "396543",
    "name": "Havalandi",
@@ -3029,6 +3824,21 @@
    "beschreibung": "From the Spine of the World Mountains to the bustling fishing villages of Earthquake Fish Bay flows a river where fortunes can be made and lowly traders can brush shoulders with Rokugan's elite. Will your clan become the dominant force along this River of Gold? In River of Gold, players take on the role of river merchants allied with legendary samurai clans, each vying to exploit the river to earn wealth, glory, and wisdom. Will you invest in developing ports, markets, shrines, and more along the banks of the busy river?",
    "cover": "/assets/cover/399941.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
+  },
+  "400058": {
+   "id": "400058",
+   "name": "It's a Balloon!?",
+   "jahr": 2023,
+   "minSpieler": 3,
+   "maxSpieler": 8,
+   "minDauer": 15,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 6.1,
+   "komplexitaet": 1,
+   "beschreibung": "It's a Balloon!? is a competitive yet family-friendly drawing-game. When it's your turn, draw 2 cards and explain one of the words using only basic forms and lines. Explain it well enough so others make a correct guess. Be quick to guess when others explain to score the most points. - A cooperative variant is also included in the rulebook.",
+   "cover": "/assets/cover/400058.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "400205": {
    "id": "400205",
@@ -3149,6 +3959,21 @@
    "beschreibung": "Tonight, the queen holds a banquet that everyone will attend. Will they leave a good impression? Backstabbing is fair game, and no trick is too dirty if it allows you to place your favorite families in the spotlight. In Courtisans, you receive and play three cards on each of your turns. One is played at the Queen's table to sway a family's influence, whether in a positive or negative manner. The two other cards are played in your domain and in an opponent's domain, and they can be worth positive or negative points, depending on their family's status at the end of the game.",
    "cover": "/assets/cover/402283.jpg",
    "abgerufen": "2026-11-07T07:17:38.880Z"
+  },
+  "402676": {
+   "id": "402676",
+   "name": "Cities",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 14,
+   "bewertung": 7.3,
+   "komplexitaet": 1.9,
+   "beschreibung": "You've been tasked by the city council to put together a plan to transform a whole neighborhood in the city. You have the opportunity to build new housing, office buildings, parks, and leisure areas near the waterfront. It is in your hands to make the city a better place. Cities is a city-building game in which you draft the best projects and arrange them in your own playing area. With action and resource draft mechanisms, it will give you the opportunity to visit the cities of Sydney, Venice, New York, Barcelona, Rio de Janeiro, Lisbon, Mexico City, and Buenos Aires.",
+   "cover": "/assets/cover/402676.jpg",
+   "abgerufen": "2026-11-07T07:52:11.946Z"
   },
   "403754": {
    "id": "403754",
@@ -3390,6 +4215,21 @@
    "cover": "/assets/cover/417197.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
   },
+  "418059": {
+   "id": "418059",
+   "name": "SETI: Search for Extraterrestrial Intelligence",
+   "jahr": 2024,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 40,
+   "maxDauer": 160,
+   "alter": 14,
+   "bewertung": 8.4,
+   "komplexitaet": 3.8,
+   "beschreibung": "In SETI: Search for Extraterrestrial Intelligence, you lead a scientific institution tasked with searching for traces of life beyond planet Earth. The game draws inspiration from current or emerging technologies and efforts in space exploration. Players will explore nearby planets and their moons by launching probes from Earth while taking advantage of ever-shifting planetary positions. Decide whether to land on their surfaces to collect valuable samples or stay in orbit for a broader survey.",
+   "cover": "/assets/cover/418059.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
+  },
   "418062": {
    "id": "418062",
    "name": "Railroad Tiles",
@@ -3465,6 +4305,21 @@
    "cover": "/assets/cover/420498.jpg",
    "abgerufen": "2026-11-07T07:19:46.197Z"
   },
+  "422126": {
+   "id": "422126",
+   "name": "Intarsia",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 40,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7.1,
+   "komplexitaet": 2,
+   "beschreibung": "For countless years, the Caf&eacute; de Paris has offered moments of carefree relaxation and a wonderful opportunity to pause and breathe amid a bustling city. Unfortunately, the caf&eacute; must close for emergency renovation to ensure that it continues to attract numerous guests. In Intarsia, players compete for the contract for the coveted redesign work on the parquet, embellishing it with stylish intarsias. To win the contract, players have to prove their skills by refining the floor with stylish inlays and outdoing their competitors with new tools.",
+   "cover": "/assets/cover/422126.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "422732": {
    "id": "422732",
    "name": "Agent Avenue",
@@ -3495,6 +4350,21 @@
    "cover": "/assets/cover/422898.jpg",
    "abgerufen": "2026-11-07T07:16:51.195Z"
   },
+  "423401": {
+   "id": "423401",
+   "name": "Minos: Dawn of the Bronze Age",
+   "jahr": 2024,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 90,
+   "maxDauer": 150,
+   "alter": 14,
+   "bewertung": 7.5,
+   "komplexitaet": 3.7,
+   "beschreibung": "In the ancient realm of Crete, amidst the sun-drenched shores and labyrinthine corridors of Knossos, the fate of the Minoan civilization is yet to be determined. As a member of one of the four illustrious Minoan clans, your destiny beckons you to vie for the prestigious title of Minos, the ultimate leader of your people. But keep in mind - unlike the tumultuous conquests of other civilizations, the Minoans are renowned for their pursuit of peace and prosperity.",
+   "cover": "/assets/cover/423401.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "423517": {
    "id": "423517",
    "name": "3 Chapters",
@@ -3524,6 +4394,21 @@
    "beschreibung": "In Pergola, players develop their gardens, grow new plants, and attract insects and small animals. On their turn, a player chooses one of the four available tools, picks the presented items, and arranges them in their garden. Then they perform the action corresponding to the chosen tool. Since players have a lot of freedom in arranging plants in their gardens, after fifteen rounds each garden looks completely different and scores differently. The player who accumulates the most points wins. —description from the publisher",
    "cover": "/assets/cover/424573.jpg",
    "abgerufen": "2026-11-07T07:18:42.736Z"
+  },
+  "425235": {
+   "id": "425235",
+   "name": "Point of View: Lost Places",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 8,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7,
+   "komplexitaet": 1.4,
+   "beschreibung": "Point of View: Lost Places features four large folding maps that show a scene with hidden objects in a 3D style — but each map shows this scene from a different perspective, and each player (or pair of players) sees only one map at a time. As a result, no one has a complete overview of what's in the scene, so you'll need to pool your information together, which means that communication is key. The game includes 4x40 puzzle cards that challenge you with a wide variety of tasks. What do the others see that you don't see yourself?",
+   "cover": "/assets/cover/425235.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "425549": {
    "id": "425549",
@@ -3599,6 +4484,21 @@
    "beschreibung": "From the void between dimensions, an ancient cosmic entity emerged—corrupting, consuming, and devouring all in its path. In the wake of the cataclysm known as Voidfall, the admirals of the fallen galactic empire, the Domineum, forged a desperate contingency plan. To preserve the legacy of the human civilization from the Voidborn threat, a former imperial flagship, the Revenant, was retrofitted to carry vast databanks containing the accumulated knowledge of humanity and escape the fallen empire.",
    "cover": "/assets/cover/428099.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
+  },
+  "429608": {
+   "id": "429608",
+   "name": "Mü & more: Revised Edition",
+   "jahr": 2024,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 20,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 7.7,
+   "komplexitaet": 2.1,
+   "beschreibung": "M&uuml; is regarded by many as one of the best offerings in the trick-taking genre. Players reveal cards to declare their bids: the highest bidder becomes the Crown and the second highest bidder is the Shield. Both the Shield and Crown choose a trump (either number or suit), then players try to capture tricks to score the most points. The Crown chooses a partner and tries to cover the bid to score bonus points, while the Shield and remaining players seek to stop the Crown from reaching their goal.",
+   "cover": "/assets/cover/429608.jpg",
+   "abgerufen": "2026-11-07T07:52:44.851Z"
   },
   "431493": {
    "id": "431493",
@@ -3689,6 +4589,21 @@
    "beschreibung": "You are a marine researcher seeking to find and observe an array of aquatic life in the colorful Sunlight Zone, ghostly Twilight Zone, and pitch-black Midnight Zone of the world's seas and oceans. In Finspan, the fish you discover over four weeks will generate a series of benefits as you dive deeper into the ocean. Each dive site specializes in a key aspect of expanding your research: Grow your collection of fish. Discover freshly laid eggs. Hatch eggs into young and consolidate young to form schools.",
    "cover": "/assets/cover/436126.jpg",
    "abgerufen": "2026-11-07T07:17:23.066Z"
+  },
+  "436161": {
+   "id": "436161",
+   "name": "Koi",
+   "jahr": 2025,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7.5,
+   "komplexitaet": 2,
+   "beschreibung": "In Koi, you build an authentic 3D koi pond, so the challenge is to bring your reservoir to life and make the most of the actions at your disposal to create something truly magnificent. From the creators of Bonsai comes a brand-new, serene, strategic journey through nature. The Japanese term &ldquo;Koi&rdquo; means multicolored carp, known as &ldquo;swimming flowers&rdquo;, considered living jewels, and a symbol of perseverance and virtue. Now you can welcome them into your pond and contemplate them to achieve luck and success!",
+   "cover": "/assets/cover/436161.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "436205": {
    "id": "436205",
@@ -4005,6 +4920,36 @@
    "cover": "/assets/cover/453526.jpg",
    "abgerufen": "2026-11-07T07:17:38.880Z"
   },
+  "453986": {
+   "id": "453986",
+   "name": "Über den Wolken",
+   "jahr": 2025,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 6.6,
+   "komplexitaet": 2,
+   "beschreibung": "Winter is coming, so it's time to head south! In &Uuml;ber den Wolken (\"Above the Clouds\"), players maneuver their birds to ideal starting points for their great migratory journey, whether that's at the front of the flock or nestled somewhere amongst their companions. To set up, shuffle three birds for each player with three neutral birds, then place them at random on the rows of the game board. On a turn, you either take one of the four standard actions — with the cost of an action increasing for each subsequent player — or pay the cost of a a maneuver card in hand, then play it.",
+   "cover": "/assets/cover/453986.jpg",
+   "abgerufen": "2026-11-07T07:53:01.178Z"
+  },
+  "454103": {
+   "id": "454103",
+   "name": "Magical Athlete",
+   "jahr": 2025,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 6,
+   "bewertung": 7.7,
+   "komplexitaet": 1.2,
+   "beschreibung": "Magical Athlete is a racing game of pure chaos! Roll a die and move your racer that many spaces — but all the racers have wacky, game-breaking abilities. Race four times, then whoever has the most points wins! Before the racing begins, players will draft the four racers they will have in the game and choose before each race which to use. Races alternate between the \"mild\" side of the board and the \"wild\" side of the board. A race ends once two racers have crossed the finish line — with, generally, only these two players receiving points. —description from the publisher",
+   "cover": "/assets/cover/454103.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "454672": {
    "id": "454672",
    "name": "Boss Fighters QR",
@@ -4065,6 +5010,21 @@
    "cover": "/assets/cover/461990.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
   },
+  "463783": {
+   "id": "463783",
+   "name": "Las Vegas",
+   "jahr": 2026,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 40,
+   "maxDauer": 40,
+   "alter": 8,
+   "bewertung": 7.4,
+   "komplexitaet": 1.2,
+   "beschreibung": "Try your luck in the colorful glittering world of Las Vegas. Visit 6 different casinos and try to rake in as much money as possible. Roll all your available dice. Then choose exactly one of the numbers you rolled. Place all of the dice showing this number on the corresponding casino. Then the next player will roll. Continue until you've all placed all your dice. At the end of each round players will assess each casino in turn. Ties cancel out, and the players remaining with the first and second most dice will claim their rewards.",
+   "cover": "/assets/cover/463783.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
+  },
   "464279": {
    "id": "464279",
    "name": "Paleolino",
@@ -4094,6 +5054,21 @@
    "beschreibung": "In Sneaky, with a little luck and good timing, you try to win the most valuable thieves for yourself. If you throw a thief into the center of the table, you take it, but not all of them are immediately safe. Thieves with a value of 1 are considered safe and are placed face down. More valuable thieves, with values of 2 and 3, are placed face up in front of you. This is where the suspense begins, because only the top card of a stack is vulnerable and can be stolen by your opponents. In a two-player game, you even manage two face-up stacks.",
    "cover": "/assets/cover/465496.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "466729": {
+   "id": "466729",
+   "name": "Happy Holiday",
+   "jahr": 2026,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 6.9,
+   "komplexitaet": 1.6,
+   "beschreibung": "Barcelona, ​​Paris – and then a side trip to Amsterdam? Three weeks of vacation in Europe call for careful planning. Players choose city tiles from seven popular European destinations in three different categories and enter them into their weekly planner. The tiles depict sights, shopping ideas, cultural tips, local dishes, and much more. They determine whether a city is visited during the week, on the weekend, or on a specific day. Longer stays earn more points, while the clever choice of transportation ensures smooth travel between cities. The best planning is rewarded with victory.",
+   "cover": "/assets/cover/466729.jpg",
+   "abgerufen": "2026-11-07T07:52:28.395Z"
   },
   "469594": {
    "id": "469594",

@@ -79,7 +79,9 @@ export function zeitText(uhrzeit) {
 }
 
 // Rang nach Partien, bei Gleichstand zuerst das zuletzt gespielte Spiel.
-export function rangliste(partien, abDatum) {
+// Mit maxDauer (Schlüssel -> Minuten) zählt die Spielzeit: Partien × maximale Dauer laut BGG.
+// Spiele ohne bekannte Dauer stehen dann hinter allen anderen.
+export function rangliste(partien, abDatum, maxDauer) {
   const zaehler = new Map();
   for (const p of partien) {
     if (abDatum && p.datum < abDatum) continue;
@@ -88,8 +90,10 @@ export function rangliste(partien, abDatum) {
     if (p.datum > z.zuletzt) z.zuletzt = p.datum;
     zaehler.set(p.schluessel, z);
   }
-  return [...zaehler.values()].sort(
-    (a, b) => b.partien - a.partien || b.zuletzt.localeCompare(a.zuletzt) || a.schluessel.localeCompare(b.schluessel)
+  const liste = [...zaehler.values()];
+  if (maxDauer) for (const z of liste) z.spielzeit = maxDauer(z.schluessel) ? z.partien * maxDauer(z.schluessel) : null;
+  return liste.sort(
+    (a, b) => (b.spielzeit ?? -1) - (a.spielzeit ?? -1) || b.partien - a.partien || b.zuletzt.localeCompare(a.zuletzt) || a.schluessel.localeCompare(b.schluessel)
   );
 }
 
@@ -199,8 +203,9 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   }
 
   const mitSpiel = (r) => ({ ...r, spiel: spiele.get(r.schluessel) });
-  const meist12 = rangliste(partien, monateZurueck(heute, 12)).map(mitSpiel);
-  const meist3 = rangliste(partien, monateZurueck(heute, 3)).map(mitSpiel);
+  const maxDauer = (schluessel) => spiele.get(schluessel)?.bgg?.maxDauer || null;
+  const meist12 = rangliste(partien, monateZurueck(heute, 12), maxDauer).map(mitSpiel);
+  const meist3 = rangliste(partien, monateZurueck(heute, 3), maxDauer).map(mitSpiel);
   const abende = [...new Set(partien.map((p) => p.datum))].sort();
   const letzterAbend = abende.at(-1);
   const zaehle = (ab) => {

@@ -15,6 +15,11 @@ export default function (config) {
     if (!b?.maxDauer && !b?.minDauer) return "";
     return b.minDauer && b.maxDauer && b.minDauer !== b.maxDauer ? `${b.minDauer}–${b.maxDauer} Min.` : `ca. ${b.maxDauer ?? b.minDauer} Min.`;
   });
+  config.addFilter("spielzeit", (minuten) => {
+    if (!minuten) return "";
+    if (minuten < 60) return `${minuten} Min.`;
+    return `${String(Math.round(minuten / 6) / 10).replace(".", ",")} Std.`;
+  });
   config.addFilter("jsonSicher", (wert) => JSON.stringify(wert).replace(/</g, "\\u003c"));
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },

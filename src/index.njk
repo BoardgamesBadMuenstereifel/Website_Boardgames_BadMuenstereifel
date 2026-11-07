@@ -63,7 +63,7 @@ layout: basis.njk
         <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
         <ol>
           {%- for e in daten.meist3 | batch(3) | first %}
-          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.partien }}×</span></li>
+          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
           {%- endfor %}
         </ol>
       </aside>

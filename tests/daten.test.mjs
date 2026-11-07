@@ -48,6 +48,15 @@ test("Rangliste: nach Partien, bei Gleichstand das zuletzt gespielte zuerst", ()
   assert.deepEqual(rangliste(p, "2025-01-01").map((r) => r.schluessel), ["c", "a", "b"]);
 });
 
+test("Rangliste mit Spieldauer: Partien × maximale Dauer, ohne Dauer ans Ende", () => {
+  const p = [["kurz", "2026-01-01"], ["kurz", "2026-01-02"], ["kurz", "2026-01-03"], ["lang", "2026-01-01"], ["unbekannt", "2026-01-01"], ["unbekannt", "2026-01-02"], ["unbekannt", "2026-01-03"], ["unbekannt", "2026-01-04"]]
+    .map(([schluessel, datum]) => ({ schluessel, datum }));
+  const dauer = { kurz: 20, lang: 90 };
+  const r = rangliste(p, "2025-01-01", (s) => dauer[s]);
+  assert.deepEqual(r.map((x) => x.schluessel), ["lang", "kurz", "unbekannt"]);
+  assert.deepEqual(r.map((x) => x.spielzeit), [90, 60, null]);
+});
+
 test("Slug: Umlaute und Sonderzeichen", () => {
   assert.equal(slug("Flügelschlag"), "fluegelschlag");
   assert.equal(slug("Mü & mehr"), "mue-mehr");

@@ -8,7 +8,7 @@ permalink: /spiele/
 <section class="sektion" aria-labelledby="h-spiele">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-spiele">Spiele</h1>
-    <p class="lead">Das kommt bei uns am häufigsten auf den Tisch. Du musst keine Regeln kennen, wir erklären sie dir.</p>
+    <p class="lead">Mit diesen Spielen verbringen wir die meiste Zeit. Gezählt wird Partien × maximale Spieldauer laut BoardGameGeek. Du musst keine Regeln kennen, wir erklären sie dir.</p>
     <div class="liste-gruppe">
       <div>
         <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Abende, {{ daten.zahlen12.partien }} Partien</span></h2>
@@ -21,7 +21,7 @@ permalink: /spiele/
         <p class="klein-info">{{ daten.zahlen3.abende }} Abende, {{ daten.zahlen3.partien }} Partien</p>
         <ol>
           {%- for e in daten.meist3 | batch(5) | first %}
-          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.partien }}×</span></li>
+          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
           {%- endfor %}
         </ol>
       </aside>

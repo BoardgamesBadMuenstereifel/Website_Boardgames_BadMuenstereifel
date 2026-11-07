@@ -39,7 +39,7 @@ Pro Partie eine Zeile mit Datum und Spiel. Mehr nicht.
 |---|---|
 | 22.10.2026 | Bomb Busters |
 
-Die Rangliste, die Hotlist und „Zuletzt gespielt“ berechnet die Seite daraus selbst. Der Spielname sollte genauso geschrieben sein wie in `spiele.xlsx`, Groß- und Kleinschreibung ist egal.
+Die Rangliste, die Hotlist und „Zuletzt gespielt“ berechnet die Seite daraus selbst. Rangliste und Hotlist sind nach Spielzeit sortiert: Anzahl der Partien × maximale Spieldauer laut BGG. Spiele ohne BGG-ID stehen deshalb hinten. Der Spielname sollte genauso geschrieben sein wie in `spiele.xlsx`, Groß- und Kleinschreibung ist egal.
 
 ## Neues Spiel ergänzen: `spiele.xlsx`
 

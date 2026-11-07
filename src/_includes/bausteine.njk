@@ -21,7 +21,7 @@
   {{ cover(eintrag.spiel, "bild") }}
   <div>
     <h3><a href="{{ ('/spiele/' + eintrag.spiel.slug + '/') | url }}">{{ eintrag.spiel.name }}</a></h3>
-    <p class="partien">{{ eintrag.partien }} {{ "Partie" if eintrag.partien == 1 else "Partien" }}</p>
+    <p class="partien">{{ eintrag.partien }} {{ "Partie" if eintrag.partien == 1 else "Partien" }}{% if eintrag.spielzeit %} · {{ eintrag.spielzeit | spielzeit }}{% endif %}</p>
     {{ infos(eintrag.spiel) }}
   </div>
 </li>

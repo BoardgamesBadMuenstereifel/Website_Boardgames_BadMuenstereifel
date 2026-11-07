@@ -3019,5 +3019,88 @@
    "name": "Zug um Zug: Meine erste Reise",
    "jahr": 2017
   }
+ ],
+ "Bluff": [
+  {
+   "id": "34450",
+   "name": "Bluff",
+   "jahr": 1973
+  },
+  {
+   "id": "92127",
+   "name": "Bluff",
+   "jahr": null
+  },
+  {
+   "id": "104285",
+   "name": "Bluff",
+   "jahr": 1963
+  }
+ ],
+ "Dito": [
+  {
+   "id": "22045",
+   "name": "Dito",
+   "jahr": 1998
+  }
+ ],
+ "First Rat": [
+  {
+   "id": "347703",
+   "name": "First Rat",
+   "jahr": 2022
+  }
+ ],
+ "Greenwood": [
+  {
+   "id": "469383",
+   "name": "Greenwood",
+   "jahr": 2026
+  }
+ ],
+ "Last Lemming": [
+  {
+   "id": "472329",
+   "name": "Last Lemming",
+   "jahr": 2026
+  }
+ ],
+ "Morty Sorty": [
+  {
+   "id": "462742",
+   "name": "Morty Sorty Magic Shop",
+   "jahr": 2026
+  }
+ ],
+ "Robo Rally": [
+  {
+   "id": "216201",
+   "name": "Robo Rally",
+   "jahr": 2016
+  },
+  {
+   "id": "381327",
+   "name": "Robo Rally",
+   "jahr": 2023
+  },
+  {
+   "id": "18",
+   "name": "Robo Rally",
+   "jahr": 1994
+  }
+ ],
+ "Voll Schaf": [
+  {
+   "id": "54137",
+   "name": "Voll Schaf",
+   "jahr": 2010
+  }
+ ],
+ "Wild World": [
+  {
+   "id": "461255",
+   "name": "Wild World",
+   "jahr": 2026
+  }
  ]
 }

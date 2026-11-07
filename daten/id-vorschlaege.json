@@ -1,5 +1,4 @@
 {
- "18 Loch": [],
  "3 Chapters": [
   {
    "id": "423517",
@@ -152,23 +151,6 @@
    "jahr": 2005
   }
  ],
- "Arnak": [
-  {
-   "id": "312484",
-   "name": "Lost Ruins of Arnak",
-   "jahr": 2020
-  },
-  {
-   "id": "349330",
-   "name": "Lost Ruins of Arnak: Alicorn Promo Card",
-   "jahr": 2021
-  },
-  {
-   "id": "341254",
-   "name": "Lost Ruins of Arnak: Expedition Leaders",
-   "jahr": 2021
-  }
- ],
  "Arschmallows": [
   {
    "id": "394430",
@@ -230,7 +212,6 @@
    "jahr": 2014
   }
  ],
- "Beet Hupferl": [],
  "Biome": [
   {
    "id": "382549",
@@ -272,23 +253,6 @@
    "id": "375936",
    "name": "Boogeyman: The Mysterious Visitor",
    "jahr": 2022
-  }
- ],
- "Boss Fighters": [
-  {
-   "id": "454672",
-   "name": "Boss Fighters QR",
-   "jahr": 2025
-  },
-  {
-   "id": "482201",
-   "name": "Boss Fighters QR: Bens Todeswürfel",
-   "jahr": 2026
-  },
-  {
-   "id": "474431",
-   "name": "Boss Fighters QR: Jungle Fever",
-   "jahr": 2026
   }
  ],
  "Boss Fighters QR": [
@@ -600,7 +564,6 @@
    "jahr": 2022
   }
  ],
- "Crazy Pics": [],
  "Cryptid": [
   {
    "id": "246784",
@@ -794,7 +757,6 @@
    "jahr": 2019
   }
  ],
- "Dragolino": [],
  "Dragomino": [
   {
    "id": "300010",
@@ -1240,7 +1202,6 @@
    "jahr": 2020
   }
  ],
- "Herdentiere": [],
  "Herr der Ringe: Schicksal der Gemeinschaft": [
   {
    "id": "436217",
@@ -1858,7 +1819,6 @@
    "jahr": 2025
   }
  ],
- "Moon Colony Bloodsport": [],
  "Mountain Goats": [
   {
    "id": "63975",
@@ -2442,13 +2402,6 @@
    "id": "347112",
    "name": "Secret Identity",
    "jahr": 2022
-  }
- ],
- "Seti": [
-  {
-   "id": "17785",
-   "name": "Seti",
-   "jahr": 1979
   }
  ],
  "Shackleton Base": [

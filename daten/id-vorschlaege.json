@@ -1771,5 +1771,825 @@
    "name": "Men at Work",
    "jahr": 2018
   }
+ ],
+ "Men-Nefer": [
+  {
+   "id": "404431",
+   "name": "Men-Nefer",
+   "jahr": 2024
+  }
+ ],
+ "Menara": [
+  {
+   "id": "244608",
+   "name": "Menara",
+   "jahr": 2018
+  }
+ ],
+ "Merchants Cove": [
+  {
+   "id": "277700",
+   "name": "Merchants Cove",
+   "jahr": 2021
+  }
+ ],
+ "Mille Fiori": [
+  {
+   "id": "346501",
+   "name": "Mille Fiori",
+   "jahr": 2021
+  }
+ ],
+ "Minos": [
+  {
+   "id": "751",
+   "name": "Minos",
+   "jahr": 1991
+  }
+ ],
+ "Mischwald": [
+  {
+   "id": "391163",
+   "name": "Mischwald",
+   "jahr": 2023
+  }
+ ],
+ "Mischwald Dartmoor": [
+  {
+   "id": "438402",
+   "name": "Mischwald: Dartmoor",
+   "jahr": 2025
+  },
+  {
+   "id": "455389",
+   "name": "Mischwald: Dartmoor – Dartmoor Rennpferd/Wolpertinger Promokarte",
+   "jahr": 2025
+  },
+  {
+   "id": "463201",
+   "name": "Mischwald: Dartmoor – Exmoor",
+   "jahr": 2026
+  }
+ ],
+ "Mlem": [
+  {
+   "id": "387378",
+   "name": "MLEM: Space Agency",
+   "jahr": 2024
+  },
+  {
+   "id": "409704",
+   "name": "MLEM: Space Agency – BLEP: Cosmic Pioneers",
+   "jahr": 2024
+  }
+ ],
+ "Money": [
+  {
+   "id": "15589",
+   "name": "Money",
+   "jahr": 1987
+  }
+ ],
+ "Monsters to the Moon": [],
+ "Moon Colony Bloodbath": [
+  {
+   "id": "425549",
+   "name": "Moon Colony Bloodbath",
+   "jahr": 2025
+  }
+ ],
+ "Moon Colony Bloodsport": [],
+ "Mountain Goats": [
+  {
+   "id": "63975",
+   "name": "Mountain Goats",
+   "jahr": 2010
+  }
+ ],
+ "Mü & mehr": [
+  {
+   "id": "152",
+   "name": "Mü & Mehr",
+   "jahr": 1995
+  },
+  {
+   "id": "429608",
+   "name": "Mü & mehr",
+   "jahr": 2024
+  }
+ ],
+ "Mücken Drücken": [
+  {
+   "id": "457881",
+   "name": "Mücken Drücken: Ein Hauen und Stechen",
+   "jahr": 2025
+  }
+ ],
+ "Munchkin": [
+  {
+   "id": "1927",
+   "name": "Munchkin",
+   "jahr": 2001
+  }
+ ],
+ "Mycelia": [
+  {
+   "id": "378476",
+   "name": "Mycelia",
+   "jahr": 2024
+  },
+  {
+   "id": "392023",
+   "name": "Mycelia",
+   "jahr": 2023
+  }
+ ],
+ "Mythical Dice": [
+  {
+   "id": "191071",
+   "name": "Mythical Dice",
+   "jahr": 2016
+  }
+ ],
+ "Naschfabrik": [
+  {
+   "id": "302281",
+   "name": "Naschfabrik",
+   "jahr": 2020
+  }
+ ],
+ "Nekojima": [
+  {
+   "id": "359029",
+   "name": "Nekojima",
+   "jahr": 2023
+  }
+ ],
+ "Nemesis: Retaliation": [
+  {
+   "id": "381248",
+   "name": "Nemesis: Retaliation",
+   "jahr": 2025
+  }
+ ],
+ "Nicht lustig: Superlemminge": [],
+ "Nightshift": [
+  {
+   "id": "383172",
+   "name": "Nightshift",
+   "jahr": 2025
+  }
+ ],
+ "Ninja Academy": [
+  {
+   "id": "270269",
+   "name": "Ninja Academy",
+   "jahr": 2019
+  }
+ ],
+ "No Thanks": [
+  {
+   "id": "12942",
+   "name": "No Thanks!",
+   "jahr": 2004
+  },
+  {
+   "id": "260588",
+   "name": "Tanks, but no thanks!",
+   "jahr": 2018
+  }
+ ],
+ "Noch mal!": [
+  {
+   "id": "206931",
+   "name": "Noch mal!",
+   "jahr": 2016
+  }
+ ],
+ "Nope!": [
+  {
+   "id": "274049",
+   "name": "Nope!",
+   "jahr": 2019
+  }
+ ],
+ "Nova Luna": [
+  {
+   "id": "284435",
+   "name": "Nova Luna",
+   "jahr": 2019
+  }
+ ],
+ "Nova Roma": [
+  {
+   "id": "370789",
+   "name": "Nova Roma",
+   "jahr": 2024
+  }
+ ],
+ "Obstgarten": [
+  {
+   "id": "41302",
+   "name": "Erster Obstgarten",
+   "jahr": 2009
+  },
+  {
+   "id": "32711",
+   "name": "Im Obstgarten",
+   "jahr": 1980
+  },
+  {
+   "id": "59309",
+   "name": "Jubiläumsausgabe Obstgarten",
+   "jahr": 2009
+  }
+ ],
+ "Ohne Furcht und Adel": [
+  {
+   "id": "478",
+   "name": "Ohne Furcht und Adel",
+   "jahr": 2000
+  }
+ ],
+ "Ökosystem": [
+  {
+   "id": "271519",
+   "name": "Ökosystem",
+   "jahr": 2019
+  }
+ ],
+ "Ökosystem Korallenriff": [
+  {
+   "id": "359406",
+   "name": "Ökosystem: Korallenriff",
+   "jahr": 2022
+  }
+ ],
+ "One-Hit Heroes": [
+  {
+   "id": "412731",
+   "name": "One-Hit Heroes",
+   "jahr": 2025
+  }
+ ],
+ "Onitama": [
+  {
+   "id": "160477",
+   "name": "Onitama",
+   "jahr": 2014
+  }
+ ],
+ "Orléans": [
+  {
+   "id": "164928",
+   "name": "Orléans",
+   "jahr": 2014
+  }
+ ],
+ "Pacifica": [
+  {
+   "id": "379153",
+   "name": "Pacifica",
+   "jahr": 2023
+  },
+  {
+   "id": "436826",
+   "name": "Pacifica",
+   "jahr": 2025
+  }
+ ],
+ "Paleo": [
+  {
+   "id": "38865",
+   "name": "Paleo",
+   "jahr": 2008
+  },
+  {
+   "id": "300531",
+   "name": "Paleo",
+   "jahr": 2020
+  }
+ ],
+ "Paleolino": [
+  {
+   "id": "464279",
+   "name": "Paleolino",
+   "jahr": 2026
+  }
+ ],
+ "Pan Am": [
+  {
+   "id": "303057",
+   "name": "Pan Am",
+   "jahr": 2020
+  }
+ ],
+ "Pandemic": [
+  {
+   "id": "30549",
+   "name": "Pandemic",
+   "jahr": 2008
+  }
+ ],
+ "Patchwork": [
+  {
+   "id": "163412",
+   "name": "Patchwork",
+   "jahr": 2014
+  },
+  {
+   "id": "41585",
+   "name": "Patchwork",
+   "jahr": 2009
+  }
+ ],
+ "Path of Civilization": [
+  {
+   "id": "385680",
+   "name": "Path of Civilization",
+   "jahr": 2023
+  }
+ ],
+ "Pathfinder Abenteuerkartenspiel": [
+  {
+   "id": "142423",
+   "name": "Pathfinder Abenteuerkartenspiel: Das Erwachen der Runenherrscher – Abenteuerset 2: Die Häutermorde",
+   "jahr": 2013
+  },
+  {
+   "id": "144873",
+   "name": "Pathfinder Abenteuerkartenspiel: Das Erwachen der Runenherrscher – Abenteuerset 3: Massaker am Grossen Haken",
+   "jahr": 2013
+  },
+  {
+   "id": "149261",
+   "name": "Pathfinder Abenteuerkartenspiel: Das Erwachen der Runenherrscher – Abenteuerset 4: Die Festung der Steinriesen",
+   "jahr": 2014
+  }
+ ],
+ "Pearls": [
+  {
+   "id": "269069",
+   "name": "Pearls",
+   "jahr": 2019
+  }
+ ],
+ "Pergola": [
+  {
+   "id": "424573",
+   "name": "Pergola",
+   "jahr": 2025
+  }
+ ],
+ "Phase 10": [
+  {
+   "id": "1258",
+   "name": "Phase 10",
+   "jahr": 1982
+  }
+ ],
+ "Pictures": [
+  {
+   "id": "98026",
+   "name": "Pictures",
+   "jahr": 1994
+  },
+  {
+   "id": "284108",
+   "name": "Pictures",
+   "jahr": 2019
+  }
+ ],
+ "Piep!": [
+  {
+   "id": "387560",
+   "name": "Piep!",
+   "jahr": 2025
+  }
+ ],
+ "Pirates of Maracaibo": [
+  {
+   "id": "397385",
+   "name": "Pirates of Maracaibo",
+   "jahr": 2023
+  }
+ ],
+ "Plankenplumbser": [],
+ "Planta Nubo": [
+  {
+   "id": "388339",
+   "name": "Planta Nubo",
+   "jahr": 2023
+  }
+ ],
+ "Point of View": [
+  {
+   "id": "374385",
+   "name": "Dixit: Point of View Puzzle Promo Card",
+   "jahr": 2022
+  },
+  {
+   "id": "448171",
+   "name": "Point of View: 1 Session – Clash Club",
+   "jahr": 2025
+  },
+  {
+   "id": "425238",
+   "name": "Point of View: Circus Island – Mini-Testspiel",
+   "jahr": 2024
+  }
+ ],
+ "Port Royal": [
+  {
+   "id": "565",
+   "name": "Port Royal",
+   "jahr": 2000
+  },
+  {
+   "id": "156009",
+   "name": "Port Royal",
+   "jahr": 2014
+  }
+ ],
+ "Power Hungry Pets": [
+  {
+   "id": "411404",
+   "name": "Power Hungry Pets",
+   "jahr": 2024
+  }
+ ],
+ "Primal: The Awakening": [
+  {
+   "id": "303731",
+   "name": "Primal: The Awakening",
+   "jahr": 2024
+  }
+ ],
+ "Project L": [
+  {
+   "id": "260180",
+   "name": "Project L",
+   "jahr": 2020
+  }
+ ],
+ "Quacks und Co": [],
+ "Quacksalber von Quedlinburg": [
+  {
+   "id": "244521",
+   "name": "Die Quacksalber von Quedlinburg",
+   "jahr": 2018
+  },
+  {
+   "id": "326869",
+   "name": "Die Quacksalber von Quedlinburg: Big-Box",
+   "jahr": 2020
+  },
+  {
+   "id": "409496",
+   "name": "Die Quacksalber von Quedlinburg: Das Duell",
+   "jahr": 2024
+  }
+ ],
+ "Railroad Tiles": [
+  {
+   "id": "418062",
+   "name": "Railroad Tiles",
+   "jahr": 2025
+  }
+ ],
+ "Rainforest": [
+  {
+   "id": "365698",
+   "name": "Rainforest",
+   "jahr": 2022
+  }
+ ],
+ "Räuber aus Skythien": [
+  {
+   "id": "301880",
+   "name": "Räuber aus Skythien",
+   "jahr": 2020
+  }
+ ],
+ "Rebel Princess": [
+  {
+   "id": "381249",
+   "name": "Rebel Princess",
+   "jahr": 2023
+  }
+ ],
+ "Rebirth": [
+  {
+   "id": "417197",
+   "name": "Rebirth",
+   "jahr": 2024
+  }
+ ],
+ "Reef": [
+  {
+   "id": "244228",
+   "name": "Reef",
+   "jahr": 2018
+  }
+ ],
+ "Revenant": [
+  {
+   "id": "428099",
+   "name": "Revenant",
+   "jahr": 2026
+  }
+ ],
+ "Rewild: South America": [
+  {
+   "id": "436205",
+   "name": "Rewild: South America",
+   "jahr": 2025
+  }
+ ],
+ "Robinson Crusoe: Abenteuer auf der verfluchten Insel": [
+  {
+   "id": "121921",
+   "name": "Robinson Crusoe: Abenteuer auf der verfluchten Insel",
+   "jahr": 2012
+  }
+ ],
+ "Rokoko": [
+  {
+   "id": "144344",
+   "name": "Rokoko",
+   "jahr": 2013
+  }
+ ],
+ "Root": [
+  {
+   "id": "237182",
+   "name": "Root",
+   "jahr": 2018
+  }
+ ],
+ "Rune Stones": [
+  {
+   "id": "285265",
+   "name": "Rune Stones",
+   "jahr": 2019
+  }
+ ],
+ "Sattgrün": [
+  {
+   "id": "334065",
+   "name": "Sattgrün",
+   "jahr": 2022
+  }
+ ],
+ "Schach": [
+  {
+   "id": "22367",
+   "name": "3er Schach",
+   "jahr": 1960
+  },
+  {
+   "id": "2393",
+   "name": "Chinesisches Schach",
+   "jahr": 762
+  },
+  {
+   "id": "171",
+   "name": "DC Superheroes Chess: Schach",
+   "jahr": 1475
+  }
+ ],
+ "Schnitzeljagd": [
+  {
+   "id": "14557",
+   "name": "Schnitzeljagd",
+   "jahr": 1998
+  },
+  {
+   "id": "37377",
+   "name": "Schnitzeljagd",
+   "jahr": 1954
+  },
+  {
+   "id": "343989",
+   "name": "Schnitzeljagd",
+   "jahr": 1985
+  }
+ ],
+ "Schwarze Witwen": [
+  {
+   "id": "381790",
+   "name": "Schwarze Witwen",
+   "jahr": 2023
+  }
+ ],
+ "Schwingenschlag": [
+  {
+   "id": "410201",
+   "name": "Schwingenschlag",
+   "jahr": 2024
+  }
+ ],
+ "Scotland Yard": [
+  {
+   "id": "438",
+   "name": "Scotland Yard",
+   "jahr": 1983
+  },
+  {
+   "id": "37391",
+   "name": "Scotland Yard",
+   "jahr": 1982
+  },
+  {
+   "id": "129417",
+   "name": "Scotland Yard",
+   "jahr": 1990
+  }
+ ],
+ "Scout": [
+  {
+   "id": "26681",
+   "name": "Scout",
+   "jahr": 1985
+  },
+  {
+   "id": "155918",
+   "name": "Scout",
+   "jahr": 2013
+  },
+  {
+   "id": "291453",
+   "name": "SCOUT",
+   "jahr": 2019
+  }
+ ],
+ "Scythe": [
+  {
+   "id": "169786",
+   "name": "Scythe",
+   "jahr": 2016
+  }
+ ],
+ "Sea Salt & Paper": [
+  {
+   "id": "367220",
+   "name": "Sea Salt & Paper",
+   "jahr": 2022
+  }
+ ],
+ "Secret Identity": [
+  {
+   "id": "347112",
+   "name": "Secret Identity",
+   "jahr": 2022
+  }
+ ],
+ "Seti": [
+  {
+   "id": "17785",
+   "name": "Seti",
+   "jahr": 1979
+  }
+ ],
+ "Shackleton Base": [
+  {
+   "id": "408180",
+   "name": "Shackleton Base: A Journey to the Moon",
+   "jahr": 2024
+  },
+  {
+   "id": "453037",
+   "name": "Shackleton Base: Below. Within. Above.",
+   "jahr": 2026
+  }
+ ],
+ "Shake That City": [
+  {
+   "id": "359764",
+   "name": "Shake That City",
+   "jahr": 2023
+  }
+ ],
+ "Skip-Bo": [
+  {
+   "id": "1269",
+   "name": "Skip-Bo",
+   "jahr": 1967
+  }
+ ],
+ "Skitter": [
+  {
+   "id": "385765",
+   "name": "skitter",
+   "jahr": 2025
+  }
+ ],
+ "Skull King": [
+  {
+   "id": "150145",
+   "name": "Skull King",
+   "jahr": 2013
+  }
+ ],
+ "Sky Team": [
+  {
+   "id": "373106",
+   "name": "Sky Team",
+   "jahr": 2023
+  }
+ ],
+ "Skyjo": [
+  {
+   "id": "204135",
+   "name": "Skyjo",
+   "jahr": 2015
+  }
+ ],
+ "Slay the Spire": [
+  {
+   "id": "338960",
+   "name": "Slay the Spire: The Board Game",
+   "jahr": 2024
+  },
+  {
+   "id": "454971",
+   "name": "Slay the Spire: The Board Game – Downfall",
+   "jahr": 2027
+  },
+  {
+   "id": "463513",
+   "name": "Slay the Spire: The Board Game – Exclusives",
+   "jahr": 2024
+  }
+ ],
+ "Slide": [
+  {
+   "id": "415836",
+   "name": "Slide",
+   "jahr": 2024
+  }
+ ],
+ "Smartphone Inc.": [
+  {
+   "id": "246684",
+   "name": "Smartphone Inc.",
+   "jahr": 2018
+  }
+ ],
+ "Snackaroo": [
+  {
+   "id": "461990",
+   "name": "Snackaroo",
+   "jahr": 2026
+  }
+ ],
+ "Sneaky": [
+  {
+   "id": "465496",
+   "name": "Sneaky",
+   "jahr": 2026
+  }
+ ],
+ "Solstis": [
+  {
+   "id": "411255",
+   "name": "Solstis",
+   "jahr": 2024
+  }
+ ],
+ "Spicy": [
+  {
+   "id": "299169",
+   "name": "Spicy",
+   "jahr": 2020
+  }
+ ],
+ "Spirit Island": [
+  {
+   "id": "162886",
+   "name": "Spirit Island",
+   "jahr": 2017
+  }
+ ],
+ "Splendor": [
+  {
+   "id": "148228",
+   "name": "Splendor",
+   "jahr": 2014
+  }
+ ],
+ "Splendor Duel": [
+  {
+   "id": "364073",
+   "name": "Splendor Duel",
+   "jahr": 2022
+  }
+ ],
+ "Star Munchkin": [
+  {
+   "id": "4095",
+   "name": "Star Munchkin",
+   "jahr": 2002
+  }
  ]
 }

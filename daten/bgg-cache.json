@@ -1,0 +1,19 @@
+{
+ "spiele": {
+  "378955": {
+   "id": "378955",
+   "name": "Beethupferl",
+   "jahr": 2023,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 15,
+   "maxDauer": 20,
+   "alter": 4,
+   "bewertung": 6.4,
+   "komplexitaet": 1,
+   "beschreibung": "Beethupferl is an exciting nature experience for young vegetables. The vegetable patch has dried out. The players grab their watering cans to lure the plants out of the ground. The fascinating mechanism is based on the fact that the pearl-shaped water drops sink into hollows in the game board and thus turn over the tiles on it. This causes different types of vegetables to appear. If a type is seen three times, it is harvested. But voracious snails also hide in the ground. If you can remember what is hiding under which tile, you can avoid snails and prove your green thumb.",
+   "cover": "/assets/cover/378955.jpg",
+   "abgerufen": "2026-11-07T07:06:40.333Z"
+  }
+ }
+}

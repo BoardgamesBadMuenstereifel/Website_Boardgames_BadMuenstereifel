@@ -450,6 +450,21 @@
    "cover": "/assets/cover/33160.jpg",
    "abgerufen": "2026-11-07T07:52:11.946Z"
   },
+  "34450": {
+   "id": "34450",
+   "name": "Bluff",
+   "jahr": 1973,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": null,
+   "bewertung": 6.5,
+   "komplexitaet": 1,
+   "beschreibung": "Content: 1 board, 5 pawns, 1 Buddha, 1 block, 60 playing cards The idea of the game: To reach the buddha with one pawn, and if this pawn is the secret favorite of one player, the game is over. In the left upper corner the 5 pawns of the agents were located. At the field with the star the buddha is placed. Each player gets around 15 cards. The players write down secretly which of the pawns will reach the buddha. The motor of the game are the palyed cards.",
+   "cover": "/assets/cover/34450.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
+  },
   "36808": {
    "id": "36808",
    "name": "Worms",
@@ -479,6 +494,21 @@
    "beschreibung": "Each turn in Dixit, one player is the storyteller who chooses one of the six cards in their hand, then expresses an idea, with sounds or words, that is reflected on that card's image, and places the card face down on the playing surface. Each other player then selects the card that best matches that expression, and passes the selected card to the storyteller, face down. The storyteller shuffles all the cards together, then turns them over to reveal them. Each player other than the storyteller then secretly guesses which card belongs to the storyteller.",
    "cover": "/assets/cover/39856.jpg",
    "abgerufen": "2026-11-07T07:17:06.986Z"
+  },
+  "54137": {
+   "id": "54137",
+   "name": "Battle Sheep",
+   "jahr": 2010,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 15,
+   "maxDauer": 15,
+   "alter": 7,
+   "bewertung": 6.6,
+   "komplexitaet": 1.5,
+   "beschreibung": "In Battle Sheep (first released as Splits), players start the game by constructing the board from identical four-hex tiles, then each player places his/her tall stack of discs on one of the border hexes. Players take turns removing some number of discs from the top of one of their stacks, moving that new stack of discs as far away as it can go in a straight line. Players must leave at least one disc behind when moving, so the board gradually fills up and movement opportunities become more and more scarce. The player occupying the most spaces at the end of the game wins!",
+   "cover": "/assets/cover/54137.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
   },
   "63268": {
    "id": "63268",
@@ -2760,6 +2790,21 @@
    "cover": "/assets/cover/347112.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
   },
+  "347703": {
+   "id": "347703",
+   "name": "First Rat",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 5,
+   "minDauer": 30,
+   "maxDauer": 75,
+   "alter": 10,
+   "bewertung": 7.5,
+   "komplexitaet": 2.3,
+   "beschreibung": "For generations, the rats in the old junkyard have been telling each other the great legend about a moon made out of cheese and they want nothing more than to reach this inexhaustible treasure. One day, the little rat children discovered a comic in the junkyard that described the first landing on the moon, and thus the plan was born: Build a rocket and take over the cheese moon! Fortunately, the junkyard has everything the rats need to build their rocket, and the other animals are willing to support this daring venture — at least if they're well paid.",
+   "cover": "/assets/cover/347703.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
+  },
   "350933": {
    "id": "350933",
    "name": "The Guild of Merchant Explorers",
@@ -3314,6 +3359,21 @@
    "beschreibung": "Snow White, The Little Mermaid, Cinderella, and many other fairy tale princesses are celebrating a five-day party. The prince charmings, who have not been invited, will try to infiltrate the ball to propose marriage to the girls. As a princess, you have to avoid marriage proposals and remain single and independent after the celebrations. Rebel Princess takes place over five rounds, representing the five days of a party, and each round has a special rule that makes each game totally different.",
    "cover": "/assets/cover/381249.jpg",
    "abgerufen": "2026-11-07T07:18:58.410Z"
+  },
+  "381327": {
+   "id": "381327",
+   "name": "Robo Rally",
+   "jahr": 2023,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 45,
+   "maxDauer": 90,
+   "alter": 12,
+   "bewertung": 7.4,
+   "komplexitaet": 2.3,
+   "beschreibung": "If you thought that factory robots took the weekend off like you do (well, most of you), then you haven't seen a robo rally yet. When the supervisors are gone and the cameras have been angled to watch the ceiling, the robots take charge and participate in exciting and deadly race-battles. Robo Rally is a competitive racing game full of robotic chaos! Program your robot to tag checkpoints, attach powerful upgrades, and turn this dreary old warehouse into a fabulous fast and frenzied fun factory!",
+   "cover": "/assets/cover/381327.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
   },
   "381790": {
    "id": "381790",
@@ -3899,6 +3959,21 @@
    "beschreibung": "Welcome to the world full of fantastic creatures! You are an admirer, a creature enthusiast who will join the journey of forming the world&rsquo;s leading creature reserve. To win Wondrous Creatures, you must create the most harmonious reserve. To do this, you will need to collect various Creature Cards and Eggs in your reserve. As each Creature Card holds its own unique ability, it's important to bring cards into your reserve that fit and synergize with your strategy. Additionally, it is very important to create a reserve that helps complete the Achievements faster than other players.",
    "cover": "/assets/cover/400366.jpg",
    "abgerufen": "2026-11-07T07:19:46.197Z"
+  },
+  "400495": {
+   "id": "400495",
+   "name": "JinxO",
+   "jahr": 2024,
+   "minSpieler": 3,
+   "maxSpieler": 7,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7.3,
+   "komplexitaet": 1.1,
+   "beschreibung": "JinxO is a competitive word-association game. The aim: to score the most points by writing down answers that matches other people in the group. Be careful with your words! If your answer doesn't match anybody in the group, you receive no points. However, if only one other person matches with you, JINX! You score more points - it's a JinxO!",
+   "cover": "/assets/cover/400495.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
   },
   "400602": {
    "id": "400602",
@@ -5010,6 +5085,21 @@
    "cover": "/assets/cover/460963.jpg",
    "abgerufen": "2026-11-07T07:16:18.665Z"
   },
+  "461255": {
+   "id": "461255",
+   "name": "Wild World",
+   "jahr": 2026,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 45,
+   "maxDauer": 90,
+   "alter": 14,
+   "bewertung": 7.1,
+   "komplexitaet": 2.6,
+   "beschreibung": "Wild World is a dynamic 1–4 player strategy game that blends worker placement, multi-use cards, engine-building, and tactical monster combat into one seamless, combo-driven experience. Set across five elemental realms — Forest, Ocean, Fire, Frost, and Magic — players gather fantastical creatures, explore vivid regions, evolve their champions, and brew powerful potions as they race to score the most points over three rounds. What makes Wild World stand out is the freedom and flexibility baked into every turn.",
+   "cover": "/assets/cover/461255.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
+  },
   "461990": {
    "id": "461990",
    "name": "Snackaroo",
@@ -5024,6 +5114,21 @@
    "beschreibung": "The animals need their favorite snacks! Help them find them by memorizing your cards and turning them over as quickly as possible. The fastest player to turn over the animal with the matching snack will score points and win this snack hunt!",
    "cover": "/assets/cover/461990.jpg",
    "abgerufen": "2026-11-07T07:19:14.291Z"
+  },
+  "462742": {
+   "id": "462742",
+   "name": "Morty Sorty Magic Shop",
+   "jahr": 2026,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 7.1,
+   "komplexitaet": 1.7,
+   "beschreibung": "The 2 to 4 aspiring sorting masters must skillfully arrange the ingredient jars on the shelves. Competing for the owner's favor, the young magical talents gradually fill their own shelf board, which consists of three rows, with an ingredient jar from the selection drawn for the round. Everyone takes turns choosing a tile. Strict but simple rules apply: The lid color determines which shelf the jar can be placed on, while the numbers in each row must be in ascending order.",
+   "cover": "/assets/cover/462742.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
   },
   "463783": {
    "id": "463783",
@@ -5085,6 +5190,21 @@
    "cover": "/assets/cover/466729.jpg",
    "abgerufen": "2026-11-07T07:52:28.395Z"
   },
+  "469383": {
+   "id": "469383",
+   "name": "Greenwood",
+   "jahr": 2026,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 40,
+   "maxDauer": 160,
+   "alter": 14,
+   "bewertung": 8.1,
+   "komplexitaet": 3.2,
+   "beschreibung": "The beautiful peninsula of Greenwood is run by a circle of druids and advertised as a sanctuary for magical animals and ideal vacation spot. But that version of Greenwood is a lie. In Greenwood, you play as Primal Spirits and lead your companions to save Greenwood. On each turn, you face the difficult decision of whether to use the abilities of your own companions, to use the abilities of other players&rsquo; companions, or to send one of your companions into the forest to improve your wayfinding and rescue mystical creatures.",
+   "cover": "/assets/cover/469383.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
+  },
   "469594": {
    "id": "469594",
    "name": "Carcassonne Labyrinth",
@@ -5129,6 +5249,21 @@
    "beschreibung": "In Fantastique, each player starts with a hand of ten cards from a deck that contains cards valued 1-8. At the start of each of seven rounds, reveal cards from the deck face up, placing matching numbers in the same pile (with up to three cards per pile) until you create a fifth pile. Then, each player in turn lays down one or more cards of the same value from their hand, with the only restriction being that you can't lay down the same set as another player. Whoever plays the set with the most cards — with a higher value being the tiebreaker — claims the gold medal available that round.",
    "cover": "/assets/cover/472031.jpg",
    "abgerufen": "2026-11-07T07:17:23.066Z"
+  },
+  "472329": {
+   "id": "472329",
+   "name": "Last Lemming",
+   "jahr": 2026,
+   "minSpieler": 3,
+   "maxSpieler": 6,
+   "minDauer": 40,
+   "maxDauer": 40,
+   "alter": 10,
+   "bewertung": 7.3,
+   "komplexitaet": 2,
+   "beschreibung": "The lemmings are on the loose! On their way to the cliff, they push and shove because everyone wants to be at the front. In this funny trick-taking game, every card played is crucial. Whoever wins tricks moves toward the cliff. However, if you run too fast, you risk falling down and experiencing a real trick-taking tragedy. Over the course of four rounds, the rules governing the lemmings' movements change several times. Sometimes the aim is to win tricks, other times to avoid them. Depending on the cards played, several lemmings may follow suit.",
+   "cover": "/assets/cover/472329.jpg",
+   "abgerufen": "2026-11-07T09:32:02.665Z"
   },
   "475369": {
    "id": "475369",

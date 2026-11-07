@@ -1815,6 +1815,21 @@
    "cover": "/assets/cover/269069.jpg",
    "abgerufen": "2026-11-07T07:18:42.736Z"
   },
+  "269207": {
+   "id": "269207",
+   "name": "The Taverns of Tiefenthal",
+   "jahr": 2019,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 12,
+   "bewertung": 7.6,
+   "komplexitaet": 2.7,
+   "beschreibung": "In the village of Tiefenthal lies \"The Tavern of the Deep Valley\". There, all citizens from the area gather, but it's important to attract new, wealthy guests for only then is there enough money to expand the tavern, which will then lure nobles into the tavern as well. But which tavern expansion is best? Should you focus on money? Or rather ensure that the beer will keep flowing? In The Taverns of Tiefenthal, the challenge is to skillfully choose the dice and develop your personal deck of cards as profitably as possible.",
+   "cover": "/assets/cover/269207.jpg",
+   "abgerufen": "2026-11-07T07:58:46.256Z"
+  },
   "270269": {
    "id": "270269",
    "name": "Ninja Academy",

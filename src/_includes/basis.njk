@@ -6,7 +6,8 @@
   <title>{% if titel %}{{ titel }} – {% endif %}{{ verein.name }}</title>
   <meta name="description" content="{{ beschreibung or 'Brettspielclub in 53902 Bad Münstereifel: Komm einfach zum nächsten Spieleabend. Kostenlos, ohne Anmeldung, du brauchst kein Spiel mitzubringen.' }}">
   <meta name="theme-color" content="#514859">
-  <link rel="icon" href="{{ '/assets/logo.svg' | url }}" type="image/svg+xml">
+  <link rel="icon" href="{{ '/assets/logo/favicon-32.png' | url }}" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ '/assets/logo/apple-touch-icon.png' | url }}">
   <link rel="preload" href="{{ '/assets/schriften/fraunces-latin-700-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
@@ -15,7 +16,7 @@
   <header class="kopf">
     <div class="wrap">
       <a class="logo" href="{{ '/' | url }}">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="52" height="52" rx="12" fill="#e19f42"/><g fill="#2b2530"><circle cx="20" cy="20" r="5"/><circle cx="44" cy="20" r="5"/><circle cx="32" cy="32" r="5"/><circle cx="20" cy="44" r="5"/><circle cx="44" cy="44" r="5"/></g></svg>
+        <img src="{{ '/assets/logo/logo-112.webp' | url }}" width="124" height="112" alt="">
         <span>Boardgames<br>Bad Münstereifel</span>
       </a>
       <nav aria-label="Hauptmenü">
@@ -39,7 +40,8 @@
   <footer class="fuss">
     <div class="wrap">
       <div class="spalten">
-        <div>
+        <div class="fuss-marke">
+          <img src="{{ '/assets/logo/logo-256.webp' | url }}" width="282" height="256" alt="" loading="lazy">
           <h2>{{ verein.name }}</h2>
           <p>Brettspielclub in 53902 Bad Münstereifel</p>
         </div>

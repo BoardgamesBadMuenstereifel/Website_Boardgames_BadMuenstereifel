@@ -58,7 +58,7 @@ h3 { font-size: 1.2rem; }
 .kopf { background: var(--aubergine); color: var(--creme); }
 .kopf .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
 .logo { display: inline-flex; align-items: center; gap: .6rem; color: var(--creme); text-decoration: none; font-family: var(--schrift-titel); font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
-.logo svg { width: 2rem; height: 2rem; flex: none; }
+.logo img { height: 2.9rem; width: auto; flex: none; }
 .nav-menue summary { list-style: none; cursor: pointer; padding: .55rem .9rem; border: 2px solid var(--creme); border-radius: 999px; font-weight: 700; }
 .nav-menue summary::-webkit-details-marker { display: none; }
 .nav-menue { position: relative; }
@@ -145,6 +145,7 @@ h3 { font-size: 1.2rem; }
 .fuss li { margin: .1rem 0; }
 .fuss li a, .ort-karte a, .bgg a { display: inline-block; padding: .3rem 0; }
 .fuss .klein { margin-top: 1.4rem; font-size: .88rem; color: var(--hellgrau); }
+.fuss-marke img { display: block; width: 7.5rem; height: auto; margin-bottom: .8rem; }
 
 /* Ablauf-Formate */
 .lead { max-width: 42rem; margin: 0 0 1.2rem; }
@@ -283,7 +284,7 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .spiele { grid-template-columns: repeat(3, 1fr); }
   .kopf .wrap { min-height: 4.2rem; }
   .logo { font-size: 1.2rem; }
-  .logo svg { width: 2.4rem; height: 2.4rem; }
+  .logo img { height: 3.4rem; }
   .nav-menue summary { display: none; }
   .nav-menue::details-content { content-visibility: visible; display: contents; }
   .nav-menue ul, .nav-menue[open] ul { position: static; display: flex; gap: .25rem; background: none; box-shadow: none; padding: 0; min-width: 0; }

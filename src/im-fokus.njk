@@ -1,0 +1,29 @@
+---
+layout: basis.njk
+titel: Spiel im Fokus
+beschreibung: Wir bewerten Spiele gemeinsam nach der Bewertungsskala von BoardGameGeek. Mit Zusammenfassung, Stärken, Schwächen und der Abstimmung unserer Mitglieder.
+permalink: /im-fokus/
+---
+{% import "bausteine.njk" as b %}
+<section class="sektion" aria-labelledby="h-im-fokus">
+  <div class="wrap">
+    <h1 class="seiten-titel" id="h-im-fokus">Spiel im Fokus</h1>
+    <p class="lead">Regelmäßig nehmen wir ein Spiel genauer unter die Lupe. Unsere Mitglieder bewerten es nach der Skala von BoardGameGeek, von 1 (für mich kein Spiel) bis 10 (herausragend). Hier siehst du, wie wir abgestimmt haben und was uns gefällt.</p>
+    <details class="skala">
+      <summary>Was bedeuten die Noten?</summary>
+      <dl>
+        {%- for s in daten.bggSkala %}
+        <div><dt><b>{{ s.note }}</b> {{ s.kurz }}</dt><dd>{{ s.lang }}</dd></div>
+        {%- endfor %}
+      </dl>
+      <p class="klein-info">Nach der Bewertungsskala von <a href="https://boardgamegeek.com" rel="noopener">BoardGameGeek</a>, von uns übersetzt.</p>
+    </details>
+    {%- if daten.fokus.length %}
+    <div class="fokus-liste">
+      {%- for f in daten.fokus %}{{ b.bewertung(f, false, 2) }}{% endfor %}
+    </div>
+    {%- else %}
+    <p><b>Das erste Spiel im Fokus folgt bald.</b></p>
+    {%- endif %}
+  </div>
+</section>

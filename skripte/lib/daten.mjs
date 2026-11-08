@@ -9,6 +9,20 @@ const MONATE = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", 
 const TAGE = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
 const MONATE_LANG = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
+// Bewertungsskala von BoardGameGeek, eigene deutsche Übersetzung
+const BGG_SKALA = [
+  [10, "Herausragend", "Spiele ich immer gern, und das wird sich nicht ändern."],
+  [9, "Ausgezeichnet", "Spiele ich sehr gern."],
+  [8, "Sehr gut", "Spiele ich gern und würde es empfehlen."],
+  [7, "Gut", "Spiele ich meistens gern mit."],
+  [6, "Okay", "Spiele ich, wenn ich gerade Lust darauf habe."],
+  [5, "Mittelmäßig", "Kann ich spielen, muss ich aber nicht."],
+  [4, "Nicht so gut", "Würde ich aber noch einmal spielen."],
+  [3, "Schlecht", "Spiele ich wahrscheinlich nicht mehr."],
+  [2, "Sehr schlecht", "Spiele ich nie wieder."],
+  [1, "Kein Spiel", "Nicht spielbar, für mich kein Spiel."],
+].map(([note, kurz, lang]) => ({ note, kurz, lang }));
+
 export function heuteBerlin() {
   if (process.env.BUILD_HEUTE) return process.env.BUILD_HEUTE;
   return new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Berlin" });
@@ -291,27 +305,49 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     gruppe.spiele.push({ spiel: neuesSpiel(z["Spiel"]), grund: z["Kurzbegründung"] ? String(z["Kurzbegründung"]) : "" });
   }
 
-  // Vorstellungen, die neueste zuerst
-  const wertungsZeilen = await leseBlatt(pfad("vorstellungen.xlsx"), "Wertungen", warnungen, false);
-  const vorstellungen = [];
-  for (const z of await leseBlatt(pfad("vorstellungen.xlsx"), "Vorstellungen", warnungen, false)) {
+  // Spiel im Fokus: Bewertungen nach der BGG-Skala, die neueste zuerst.
+  // Stimmen stehen einzeln in der Liste, optional mit neutralem Kürzel (M01 …). Die Seite zeigt nur die Verteilung.
+  const stimmenZeilen = await leseBlatt(pfad("fokus.xlsx"), "Stimmen", warnungen, false);
+  const otonZeilen = await leseBlatt(pfad("fokus.xlsx"), "O-Töne", warnungen, false);
+  const punkte = (wert) => String(wert ?? "").split(/\r?\n/).map((s) => s.replace(/^\s*[-–•*]\s*/, "").trim()).filter(Boolean);
+  const fokus = [];
+  for (const z of await leseBlatt(pfad("fokus.xlsx"), "Spiele im Fokus", warnungen, false)) {
     if (!entwurf && !ja(z["Freigegeben"])) continue;
-    if (!z["Spiel"] || !z["Beschreibung"]) { warnungen.push(`vorstellungen.xlsx, Zeile ${z._zeile}: Spiel oder Beschreibung fehlt.`); continue; }
+    if (!z["Spiel"] || !z["Zusammenfassung"]) { warnungen.push(`fokus.xlsx, Zeile ${z._zeile}: Spiel oder Zusammenfassung fehlt.`); continue; }
     const name = String(z["Spiel"]).trim();
-    const wertungen = [];
-    for (const w of wertungsZeilen.filter((w) => namensSchluessel(w["Spiel"]) === namensSchluessel(name))) {
-      const note = Number(w["Note"]);
-      if (!(note >= 1 && note <= 10)) { warnungen.push(`vorstellungen.xlsx (Wertungen), Zeile ${w._zeile}: Die Note muss zwischen 1 und 10 liegen.`); continue; }
-      wertungen.push({ spieler: String(w["Spieler"] ?? "").trim(), note, zitat: w["Zitat"] ? String(w["Zitat"]) : "" });
+    const schluessel = namensSchluessel(name);
+    const ohneKuerzel = [];
+    const proMitglied = new Map();
+    for (const s of stimmenZeilen.filter((s) => namensSchluessel(s["Spiel"]) === schluessel)) {
+      const note = Number(s["Note"]);
+      if (!Number.isInteger(note) || note < 1 || note > 10) { warnungen.push(`fokus.xlsx (Stimmen), Zeile ${s._zeile}: Die Note muss eine ganze Zahl von 1 bis 10 sein.`); continue; }
+      const mitglied = String(s["Mitglied"] ?? "").trim().toUpperCase();
+      if (!mitglied) { ohneKuerzel.push(note); continue; }
+      if (proMitglied.has(mitglied)) warnungen.push(`fokus.xlsx (Stimmen): ${mitglied} hat bei „${name}“ mehrfach abgestimmt. Gezählt wird nur die letzte Stimme.`);
+      proMitglied.set(mitglied, note);
     }
-    const schnitt = wertungen.length ? wertungen.reduce((s, w) => s + w.note, 0) / wertungen.length : null;
-    vorstellungen.push({
-      spiel: neuesSpiel(name), datum: leseDatum(z["Datum"]) ?? "",
-      beschreibung: String(z["Beschreibung"]), fuerWen: z["Für wen"] ? String(z["Für wen"]) : "",
-      wertungen, schnitt: schnitt === null ? null : schnitt.toFixed(1).replace(".", ","),
+    const noten = [...ohneKuerzel, ...proMitglied.values()];
+    const meiste = Math.max(1, ...BGG_SKALA.map((b) => noten.filter((n) => n === b.note).length));
+    const verteilung = BGG_SKALA.map((b) => {
+      const anzahl = noten.filter((n) => n === b.note).length;
+      return { ...b, anzahl, anteil: Math.round((anzahl / meiste) * 100) };
+    });
+    const schnitt = noten.length ? noten.reduce((a, n) => a + n, 0) / noten.length : null;
+    const datum = leseDatum(z["Datum"]) ?? "";
+    const otoene = otonZeilen
+      .filter((o) => namensSchluessel(o["Spiel"]) === schluessel && o["Zitat"] && (entwurf || ja(o["Freigegeben"])))
+      .map((o) => ({ name: String(o["Name"] ?? "").trim(), zitat: String(o["Zitat"]).trim() }));
+    fokus.push({
+      spiel: neuesSpiel(name), datum,
+      monatText: datum ? `${MONATE_LANG[Number(datum.slice(5, 7)) - 1]} ${datum.slice(0, 4)}` : "",
+      zusammenfassung: String(z["Zusammenfassung"]).trim(),
+      fuerWen: z["Für wen"] ? String(z["Für wen"]).trim() : "",
+      positiv: punkte(z["Positiv"]), negativ: punkte(z["Negativ"]),
+      stimmen: noten.length, verteilung, otoene,
+      schnitt: schnitt === null ? null : schnitt.toFixed(1).replace(".", ","),
     });
   }
-  vorstellungen.sort((a, b) => b.datum.localeCompare(a.datum));
+  fokus.sort((a, b) => b.datum.localeCompare(a.datum));
 
   // Spiele, die erst durch Empfehlungen dazukamen, brauchen noch eine Adresse
   for (const s of spiele.values()) {
@@ -334,7 +370,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
       spiele: [...new Set(partien.filter((p) => p.datum === letzterAbend).map((p) => p.schluessel))].map((k) => spiele.get(k)),
     } : null,
     empfehlungen: empfehlungen.filter((g) => g.spiele.length),
-    vorstellungen, sammlung, kategorienSammlung,
+    fokus, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
     alleSpiele: [...spiele.values()].sort((a, b) => a.name.localeCompare(b.name, "de")),
     warnungen,
   };

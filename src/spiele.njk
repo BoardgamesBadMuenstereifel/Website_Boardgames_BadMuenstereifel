@@ -1,7 +1,7 @@
 ---
 layout: basis.njk
 titel: Spiele
-beschreibung: Was bei uns auf den Tisch kommt. Meist gespielte Spiele, Empfehlungen nach Alter und Erfahrung und Spielvorstellungen.
+beschreibung: Was bei uns auf den Tisch kommt. Meist gespielte Spiele, Empfehlungen nach Alter und Erfahrung.
 permalink: /spiele/
 ---
 {% import "bausteine.njk" as b %}
@@ -63,13 +63,3 @@ permalink: /spiele/
 </section>
 {%- endif %}
 
-{%- if daten.vorstellungen.length %}
-<section class="sektion" id="vorgestellt" aria-labelledby="h-fokus" style="padding-top:0">
-  <div class="wrap">
-    <h2 id="h-fokus">Spielvorstellungen</h2>
-    <div class="fokus-liste">
-      {%- for v in daten.vorstellungen %}{{ b.fokus(v, false) }}{% endfor %}
-    </div>
-  </div>
-</section>
-{%- endif %}

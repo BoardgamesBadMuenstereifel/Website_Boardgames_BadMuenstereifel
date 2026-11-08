@@ -5,3 +5,5 @@ _site/
 # Ausgangslisten, ihr Inhalt steht in daten/
 /Boardgames_Gepsielt_Liste.xlsx
 /Brettspielsammlung.xlsx
+# Zuordnung der Mitglieder-Kürzel: nie veröffentlichen
+Mitglieder-Kuerzel*.xlsx

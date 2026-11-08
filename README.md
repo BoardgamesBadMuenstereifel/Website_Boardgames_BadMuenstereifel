@@ -75,12 +75,18 @@ Eine Zeile pro Spiel. Das machst du nur einmal je Spiel.
 
 Spalten: Kategorie, Spiel, Kurzbegründung, Freigegeben. Erlaubte Kategorien sind Kinder 3–6, Kinder 6–10, Jugendliche, Familien sowie Kenner & Experten. Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
 
-## Spielvorstellungen: `vorstellungen.xlsx`
+## Spiel im Fokus: `fokus.xlsx`
 
-- **Blatt Vorstellungen:** Spiel, Datum, Beschreibung, Für wen, Freigegeben. Die Vorstellung mit dem neuesten Datum erscheint groß auf der Startseite. Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
-- **Blatt Wertungen:** Spiel, Spieler, Note (1 bis 10), Zitat. Der Schnitt wird berechnet. Hole vorher das Einverständnis der genannten Personen ein.
+Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Sie stehen auf der Seite „Im Fokus“, die neueste zusätzlich auf der Startseite. Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung freigegeben ist.
 
-Die mitgelieferte Vorstellung zu Bomb Busters ist ein Beispiel. Text, Noten und Zitate sind erfunden. Ersetze sie, bevor du „Ja“ einträgst.
+- **Blatt Spiele im Fokus:** Spiel, Datum, Zusammenfassung, Für wen, Positiv, Negativ, Freigegeben.
+  - Bei **Positiv** und **Negativ** steht jeder Punkt in einer eigenen Zeile der Zelle. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
+  - Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
+- **Blatt Stimmen:** Eine Zeile pro Stimme: Spiel, Mitglied, Note (ganze Zahl von 1 bis 10). Die Seite zeigt nur die Verteilung und den Schnitt, nie das Kürzel.
+  - **Mitglied** ist ein neutrales Kürzel wie M01, M02. Wer dahinter steckt, steht nur in deiner Datei `Mitglieder-Kuerzel.xlsx` auf deinem Rechner. **Diese Datei nie auf GitHub hochladen**, das Repository ist öffentlich.
+  - Gibt ein Kürzel bei einem Spiel mehrere Stimmen ab, zählt die letzte. So kann jemand seine Note ändern.
+  - Das Kürzel darf leer bleiben, wenn du nicht weißt, von wem die Stimme ist.
+- **Blatt O-Töne:** Spiel, Name, Zitat, Freigegeben. Auf der Seite steht dann z. B. „Spieler MF sagt: …“. Den Namen bzw. die Initialen wählt die Person selbst, und es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**. Frag vorher, ob das Zitat mit diesem Namen veröffentlicht werden darf.
 
 ## Etwas stimmt nicht: Warnungen ansehen
 
@@ -117,5 +123,5 @@ npm run vorschau
 ```
 
 - `BGG_FIXTURES=1 npm run daten` nutzt erfundene Beispiel-XML aus `fixtures/` statt BGG.
-- `ENTWURF=1 npm run vorschau` zeigt auch nicht freigegebene Empfehlungen und Vorstellungen.
+- `ENTWURF=1 npm run vorschau` zeigt auch nicht freigegebene Empfehlungen, Spiele im Fokus und O-Töne.
 - `skripte/einmalig-daten-anlegen.mjs` hat die Listen einmalig aus den Ausgangsdateien erzeugt und überschreibt nichts.

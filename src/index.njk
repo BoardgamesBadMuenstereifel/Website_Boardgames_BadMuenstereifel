@@ -78,11 +78,12 @@ layout: basis.njk
 </section>
 {%- endif %}
 
-{%- if daten.vorstellungen.length %}
-<section class="sektion" id="vorgestellt" aria-labelledby="h-fokus">
+{%- if daten.fokus.length %}
+<section class="sektion" id="im-fokus" aria-labelledby="h-fokus">
   <div class="wrap">
     <h2 id="h-fokus">Spiel im Fokus</h2>
-    {{ b.fokus(daten.vorstellungen[0], true) }}
+    {{ b.bewertung(daten.fokus[0], true, 3) }}
+    <div class="band-fuss"><a class="btn btn-rand" href="{{ '/im-fokus/' | url }}">Alle Spiele im Fokus</a></div>
   </div>
 </section>
 {%- endif %}
@@ -99,7 +100,7 @@ layout: basis.njk
 </section>
 {%- endif %}
 
-<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.vorstellungen.length or daten.empfehlungen.length %} style="padding-top:0"{% endif %}>
+<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.fokus.length or daten.empfehlungen.length %} style="padding-top:0"{% endif %}>
   <div class="wrap zweispaltig">
     {% include "kontakt-block.njk" %}
   </div>

@@ -23,10 +23,10 @@
         <details class="nav-menue" id="nav">
           <summary>Menü</summary>
           <ul>
-            {%- set punkte = [["/", "Start"], ["/neu-hier/", "Neu hier?"], ["/termine/", "Termine"], ["/spiele/", "Spiele"], ["/kontakt/", "Über uns & Kontakt"]] %}
-            {%- for p in punkte %}
+            {%- set punkte = [["/", "Start"], ["/neu-hier/", "Neu hier?"], ["/termine/", "Termine"], ["/spiele/", "Spiele"], ["/im-fokus/", "Im Fokus"], ["/kontakt/", "Über uns & Kontakt"]] %}
+            {%- for p in punkte %}{% if p[0] != "/im-fokus/" or daten.fokus.length %}
             <li><a href="{{ p[0] | url }}"{% if page.url == p[0] or (p[0] == "/spiele/" and page.url.startsWith("/spiele/")) %} aria-current="page"{% endif %}>{{ p[1] }}</a></li>
-            {%- endfor %}
+            {%- endif %}{% endfor %}
           </ul>
         </details>
       </nav>

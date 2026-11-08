@@ -200,7 +200,6 @@ h2.unter-h { font-size: 1.2rem; }
 .teaser-karte { display: grid; gap: .1rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1rem 1.1rem; text-decoration: none; border-left: 6px solid var(--gold); }
 .teaser-karte:only-child { grid-column: 1 / -1; }
 .fokus-bild { aspect-ratio: 16 / 9; border-radius: 12px; background: repeating-linear-gradient(45deg, var(--creme), var(--creme) 12px, #e6d3b6 12px, #e6d3b6 24px); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 4rem; font-weight: 700; color: var(--aubergine); }
-.fokus.gross h3 { font-size: clamp(2rem, 7vw, 2.8rem); }
 .teaser-karte strong { font-family: var(--schrift-titel); font-size: 1.3rem; line-height: 1.2; color: var(--aubergine); }
 .teaser-karte:hover { color: var(--tinte); background: #fffaf0; }
 
@@ -240,20 +239,10 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .dummy { display: inline-block; font-size: .8rem; background: var(--tinte); color: var(--creme); padding: .05rem .55rem; border-radius: 999px; margin-left: .3rem; font-weight: 400; vertical-align: .1em; }
 
 /* Spiel im Fokus */
-.fokus { display: grid; gap: 1.2rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1.2rem; box-shadow: 0 6px 0 var(--gold); }
-.fokus h3 { font-size: 1.8rem; margin: .1rem 0 .4rem; color: var(--aubergine); }
-.fokus h3 a { color: inherit; text-decoration: none; }
-.fokus h3 a:hover { text-decoration: underline; }
 .eyebrow { margin: 0; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; color: var(--aubergine); }
 .fokus-wertung { background: var(--petrol); color: var(--creme); border-radius: 12px; padding: 1rem 1.1rem; }
-.fokus-wertung h4 { margin: 0 0 .6rem; font-family: var(--schrift-titel); font-size: 1.15rem; }
-.wertungen { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
-.w-kopf { display: flex; justify-content: space-between; font-size: 1.05rem; }
-.w-kopf span { font-family: var(--schrift-titel); font-weight: 700; font-size: 1.3rem; color: var(--gold); }
-.balken { height: .55rem; background: #17333a; border-radius: 999px; overflow: hidden; margin: .2rem 0 .4rem; }
+.balken { display: block; height: .55rem; background: #17333a; border-radius: 999px; overflow: hidden; }
 .balken i { display: block; height: 100%; background: var(--gold); border-radius: 999px; }
-.wertungen p { margin: 0; font-style: italic; font-size: .98rem; }
-.schnitt { margin: .9rem 0 0; padding-top: .7rem; border-top: 1px solid #7a6f84; }
 
 @media (min-width: 40rem) {
   .formate { grid-template-columns: 1fr 1fr; }
@@ -261,9 +250,7 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .filter { grid-template-columns: repeat(4, 1fr); }
   .sammlung { grid-template-columns: 1fr 1fr; }
   .spiel-seite { grid-template-columns: 20rem 1fr; }
-  .fokus.gross .fokus-bild { grid-column: 1 / -1; aspect-ratio: 3 / 1; }
   .empf { grid-template-columns: repeat(3, 1fr); }
-  .fokus { grid-template-columns: 1.4fr 1fr; padding: 1.6rem; }
   .zweispaltig { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .schritte { grid-template-columns: repeat(3, 1fr); }
   .spiele { grid-template-columns: 1fr 1fr; }
@@ -275,8 +262,6 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   /* Die Matte läuft links bis an den Bildschirmrand */
   .hero-bild { --rand: calc((100vw - min(100vw - 2rem, 68rem)) / 2); width: calc(100% + var(--rand)); margin: 1.4rem 0 0 calc(-1 * var(--rand)); }
   .liste-gruppe { grid-template-columns: 2.2fr 1fr; gap: 2rem; }
-  .fokus.gross { grid-template-columns: 1fr 1.3fr 1fr; gap: 1.8rem; }
-  .fokus.gross .fokus-bild { grid-column: auto; aspect-ratio: auto; min-height: 100%; font-size: 6rem; }
   .liste-gruppe .spiele { grid-template-columns: 1fr 1fr; }
   .empf { grid-template-columns: repeat(5, 1fr); }
   .termine { grid-template-columns: 1fr 1fr; }
@@ -316,3 +301,51 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .monat { margin-top: 1.2rem; }
 .monat-h { position: sticky; top: 0; z-index: 2; margin: 0; padding: .6rem 0 .4rem; font-size: 1.4rem; color: var(--aubergine); background: var(--creme) var(--papier); border-bottom: 3px solid var(--aubergine); }
 .monat .termine li:last-child { border-bottom: 0; }
+
+/* Spiel im Fokus */
+.bewertung { display: grid; gap: 1.2rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1.2rem; box-shadow: 0 6px 0 var(--gold); scroll-margin-top: 1rem; }
+.bew-text > p { margin: .7rem 0 0; }
+.bew-kopf { display: flex; gap: 1rem; align-items: center; }
+.bew-bild { width: 6rem; height: 6rem; flex: none; border-radius: 12px; object-fit: cover; background: var(--creme); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 2.6rem; font-weight: 700; color: var(--aubergine); }
+.bew-name { font-size: clamp(1.6rem, 6vw, 2.2rem); margin: .1rem 0 .2rem; color: var(--aubergine); }
+.bew-name a { color: inherit; text-decoration: none; }
+.bew-name a:hover { text-decoration: underline; }
+.plusminus { display: grid; gap: .8rem; margin-top: 1rem; }
+.plus, .minus { background: var(--creme); border-radius: 12px; padding: .8rem 1rem; border-left: 6px solid var(--farbe); }
+.plus { --farbe: #2e6b3c; }
+.minus { --farbe: #a63a30; }
+.plus h3, .plus h4, .minus h3, .minus h4 { font-size: 1.05rem; margin: 0 0 .35rem; color: var(--farbe); }
+.plus ul, .minus ul { margin: 0; padding-left: 1.3rem; }
+.plus li, .minus li { margin: .15rem 0; }
+.plus li::marker { content: "+  "; color: var(--farbe); font-weight: 700; }
+.minus li::marker { content: "–  "; color: var(--farbe); font-weight: 700; }
+.fokus-wertung { background: var(--petrol); color: var(--creme); border-radius: 12px; padding: 1rem 1.1rem; align-self: start; }
+.w-titel { margin: 0; font-family: var(--schrift-titel); font-size: 1.1rem; color: var(--creme); }
+.note { margin: .2rem 0 0; font-family: var(--schrift-titel); font-weight: 700; font-size: 1.1rem; }
+.note-zahl { font-size: 3.2rem; line-height: 1; color: var(--gold); }
+.w-info { margin: .2rem 0 .8rem; font-size: .95rem; }
+.verteilung { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.verteilung caption { text-align: left; font-weight: 700; padding-bottom: .35rem; border-top: 1px solid #4d6c73; padding-top: .7rem; }
+.verteilung th { text-align: left; font-weight: 400; white-space: nowrap; padding: .12rem .6rem .12rem 0; }
+.verteilung th b { display: inline-block; min-width: 1.3em; text-align: right; margin-right: .3rem; color: var(--gold); }
+.verteilung td { padding: .12rem 0; }
+.verteilung td:nth-child(2) { width: 100%; }
+.verteilung .anz { text-align: right; padding-left: .6rem; font-weight: 700; min-width: 1.5rem; }
+.otoene { background: var(--creme); border-radius: 12px; padding: .5rem 1rem; }
+.otoene summary { cursor: pointer; font-weight: 700; color: var(--aubergine); padding: .4rem 0; }
+.otoene ul { list-style: none; margin: .3rem 0 .6rem; padding: 0; display: grid; gap: .7rem; }
+.otoene q { font-style: italic; }
+.skala { margin: 0 0 1.4rem; background: var(--creme-hell); border-radius: 12px; padding: .5rem 1rem; max-width: 42rem; }
+.skala summary { cursor: pointer; font-weight: 700; color: var(--aubergine); padding: .4rem 0; }
+.skala dl { margin: .4rem 0 .6rem; display: grid; gap: .35rem; }
+.skala dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: .6rem; }
+.skala dt b { display: inline-block; min-width: 1.3em; text-align: right; margin-right: .3rem; color: var(--aubergine); }
+.skala dd { margin: 0; }
+@media (min-width: 40rem) {
+  .plusminus { grid-template-columns: 1fr 1fr; }
+  .bew-bild { width: 7.5rem; height: 7.5rem; }
+}
+@media (min-width: 60rem) {
+  .bewertung { grid-template-columns: 1.7fr 1fr; gap: 1.6rem; padding: 1.6rem; }
+  .otoene { grid-column: 1 / -1; }
+}

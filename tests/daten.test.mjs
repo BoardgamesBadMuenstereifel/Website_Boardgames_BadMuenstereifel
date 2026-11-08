@@ -118,6 +118,29 @@ test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => 
   assert.doesNotMatch(text, /fehlt die Adresse/);
 });
 
+test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", async () => {
+  const ordner = await testOrdner({ spiele: [KOPF_SPIELE, ["Mycelia", null, null, null, null, null]], partien: [["Datum", "Spiel"]], termine: [KOPF_TERMINE] });
+  await writeExcelFile([
+    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Für wen", "Positiv", "Negativ", "Freigegeben"],
+      ["Mycelia", "08.11.2026", "Text", "Alle", "Gut\n- Kurz", null, "Ja"],
+      ["Entwurf", "09.11.2026", "Noch nicht fertig", null, null, null, null]]),
+    tabelle("Stimmen", [["Spiel", "Mitglied", "Note"], ["Mycelia", null, 8], ["Mycelia", "m01", 3], ["Mycelia", "M01", 6], ["Mycelia", null, 11]]),
+    tabelle("O-Töne", [["Spiel", "Name", "Zitat", "Freigegeben"], ["Mycelia", "MF", "Schön", "Ja"], ["Mycelia", "XY", "Geheim", null]]),
+  ]).toFile(path.join(ordner, "fokus.xlsx"));
+  const d = await ladeDaten({ ordner, heute: "2026-10-30" });
+  assert.equal(d.fokus.length, 1);
+  const f = d.fokus[0];
+  assert.deepEqual([f.stimmen, f.schnitt, f.monatText], [2, "7,0", "November 2026"]);
+  assert.deepEqual(f.verteilung.filter((v) => v.anzahl).map((v) => [v.note, v.anzahl, v.anteil]), [[8, 1, 100], [6, 1, 100]]);
+  assert.deepEqual(f.positiv, ["Gut", "Kurz"]);
+  assert.deepEqual(f.otoene, [{ name: "MF", zitat: "Schön" }]);
+  const text = d.warnungen.join("\n");
+  assert.match(text, /M01 hat bei „Mycelia“ mehrfach abgestimmt/);
+  assert.match(text, /Note muss eine ganze Zahl von 1 bis 10 sein/);
+  const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
+  assert.equal(e.fokus.length, 2);
+});
+
 test("BGG-XML: Felder, Entitäten, leere Werte", () => {
   const [a, b] = leseThings(fs.readFileSync("fixtures/bgg-thing.xml", "utf8"));
   assert.equal(a.id, "1001");

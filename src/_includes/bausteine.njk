@@ -42,27 +42,60 @@
 </li>
 {% endmacro %}
 
-{% macro fokus(v, gross) %}
-<article class="fokus{% if gross %} gross{% endif %}">
-  {%- if gross %}{{ cover(v.spiel, "fokus-bild") }}{% endif %}
-  <div class="fokus-text">
-    <p class="eyebrow">{{ "Unsere neueste Vorstellung" if gross else "Kurz vorgestellt" }}</p>
-    <h3><a href="{{ ('/spiele/' + v.spiel.slug + '/') | url }}">{{ v.spiel.name }}</a></h3>
-    {{ infos(v.spiel) }}
-    <p>{{ v.beschreibung }}</p>
-    {%- if v.fuerWen %}<p><b>Für wen?</b> {{ v.fuerWen }}</p>{% endif %}
-    {%- if gross %}<a href="{{ '/spiele/#vorgestellt' | url }}">Alle Spielvorstellungen</a>{% endif %}
+{# Spiel im Fokus. kurz = Startseite (ohne Plus/Minus und O-Töne), h = Stufe der Spiel-Überschrift #}
+{% macro bewertung(f, kurz, h) %}
+{%- set h2 = h + 1 %}
+<article class="bewertung" id="{{ f.spiel.slug }}">
+  <div class="bew-text">
+    <div class="bew-kopf">
+      {{ cover(f.spiel, "bew-bild") }}
+      <div>
+        {%- if f.monatText %}<p class="eyebrow">Im Fokus: {{ f.monatText }}</p>{% endif %}
+        <h{{ h }} class="bew-name"><a href="{{ ('/spiele/' + f.spiel.slug + '/') | url }}">{{ f.spiel.name }}</a></h{{ h }}>
+        {{ infos(f.spiel) }}
+      </div>
+    </div>
+    <p>{{ f.zusammenfassung }}</p>
+    {%- if f.fuerWen %}<p><b>Für wen?</b> {{ f.fuerWen }}</p>{% endif %}
+    {%- if not kurz and (f.positiv.length or f.negativ.length) %}
+    <div class="plusminus">
+      {%- if f.positiv.length %}
+      <div class="plus"><h{{ h2 }}>Das gefällt uns</h{{ h2 }}><ul>{% for p in f.positiv %}<li>{{ p }}</li>{% endfor %}</ul></div>
+      {%- endif %}
+      {%- if f.negativ.length %}
+      <div class="minus"><h{{ h2 }}>Das gefällt uns weniger</h{{ h2 }}><ul>{% for p in f.negativ %}<li>{{ p }}</li>{% endfor %}</ul></div>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    {%- if kurz %}<p><a href="{{ ('/im-fokus/#' + f.spiel.slug) | url }}">Ganze Bewertung lesen</a></p>{% endif %}
   </div>
-  {%- if v.wertungen.length %}
   <div class="fokus-wertung">
-    <h4>Unsere Wertungen</h4>
-    <ul class="wertungen">
-      {%- for w in v.wertungen %}
-      <li><div class="w-kopf"><b>{{ w.spieler }}</b><span>{{ w.note }}/10</span></div><div class="balken" aria-hidden="true"><i style="width:{{ w.note * 10 }}%"></i></div>{% if w.zitat %}<p>„{{ w.zitat }}“</p>{% endif %}</li>
+    <h{{ h2 }} class="w-titel">Unsere Note</h{{ h2 }}>
+    {%- if f.schnitt %}
+    <p class="note"><span class="note-zahl">{{ f.schnitt }}</span> von 10</p>
+    <p class="w-info">{{ f.stimmen }} {{ "Stimme" if f.stimmen == 1 else "Stimmen" }}{% if f.spiel.bgg and f.spiel.bgg.bewertung %} · BGG-Schnitt {{ f.spiel.bgg.bewertung | zahlDe }}{% endif %}</p>
+    <table class="verteilung">
+      <caption>So haben wir abgestimmt</caption>
+      <thead class="nur-sr"><tr><th scope="col">Note</th><th scope="col">Anteil</th><th scope="col">Stimmen</th></tr></thead>
+      <tbody>
+        {%- for v in f.verteilung %}
+        <tr><th scope="row"><b>{{ v.note }}</b> {{ v.kurz }}</th><td><span class="balken" aria-hidden="true"><i style="width:{{ v.anteil }}%"></i></span></td><td class="anz">{{ v.anzahl }}</td></tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+    {%- else %}
+    <p class="w-info">Die Abstimmung läuft noch.</p>
+    {%- endif %}
+  </div>
+  {%- if not kurz and f.otoene.length %}
+  <details class="otoene">
+    <summary>O-Töne aus unserer Runde ({{ f.otoene.length }})</summary>
+    <ul>
+      {%- for o in f.otoene %}
+      <li><b>{{ ("Spieler " + o.name) if o.name else "Ein Mitglied" }}</b> sagt: <q>{{ o.zitat }}</q></li>
       {%- endfor %}
     </ul>
-    <p class="schnitt">Unser Schnitt: <b>{{ v.schnitt }}/10</b></p>
-  </div>
+  </details>
   {%- endif %}
 </article>
 {% endmacro %}

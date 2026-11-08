@@ -25,7 +25,7 @@ Blatt **Termine**, eine Zeile pro Termin:
 |---|---|---|---|---|---|
 | 13.01.2027 | | 18:00 | Kupferkessel, Schönau | Spieleabend | Erst Essen, Spielbeginn ca. 19 Uhr |
 | 23.01.2027 | | 16:00 | DGH, Lorbach | WE-Spielabend | Ohne Essen, wir spielen gleich los |
-| 05.03.2027 | 07.03.2027 | | | Spielekloster | Sonderveranstaltung |
+| 05.03.2027 | 07.03.2027 | | Kloster Steinfeld | Brettspielkloster | Sonderveranstaltung |
 
 - **Bis** nutzt du nur bei mehrtägigen Terminen.
 - **Uhrzeit** und **Ort** darfst du leer lassen, solange sie noch nicht feststehen. Auf der Seite steht dann „Uhrzeit folgt“ bzw. „Ort folgt“.
@@ -40,7 +40,7 @@ Blatt **Arten**, eine Zeile pro Terminart. Kosten und Anmeldung stehen nur hier,
 | Spieleabend | kostenlos | | Grün |
 | WE-Spielabend | 5 € pro Abend | | Blau |
 | Social Deduction | 5 € pro Abend | | Rot |
-| Spielekloster | kostenpflichtig | Ja | Lila |
+| Brettspielkloster | kostenpflichtig | Ja | Lila |
 
 - **Anmeldung:** „Ja“, dann steht beim Termin „nur mit Anmeldung“.
 - **Farbe:** Grün, Blau, Rot oder Lila. Die Farbe erscheint als Streifen am Datum und als Etikett mit dem Namen der Art. Bedeutung: Grün = Spieleabende unter der Woche, Blau = Wochenende, Rot = Social Deduction, Lila = Sondertermine. Eine neue Sonderveranstaltung bekommt also „Lila“. Andere Farben gibt es nicht, ein Tippfehler erscheint in den Warnungen.

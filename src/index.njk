@@ -56,15 +56,15 @@ layout: basis.njk
     <div class="liste-gruppe">
       <div>
         <h3 class="band-h">Letzte 12 Monate</h3>
-        <ol class="spiele drei">
-          {%- for e in daten.meist12 | batch(3) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
+        <ol class="spiele einspaltig">
+          {%- for e in daten.meist12 | batch(5) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
         </ol>
       </div>
       {%- if daten.meist3.length %}
       <aside class="hot" aria-labelledby="h-hot">
         <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
         <ol>
-          {%- for e in daten.meist3 | batch(3) | first %}
+          {%- for e in daten.meist3 | batch(10) | first %}
           <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
           {%- endfor %}
         </ol>

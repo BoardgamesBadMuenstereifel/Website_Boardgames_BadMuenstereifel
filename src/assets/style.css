@@ -195,7 +195,7 @@ h2.unter-h { font-size: 1.2rem; }
 .termine a { display: inline-block; padding: .25rem 0; }
 .termin-leer { display: block !important; padding: 1rem 1.1rem !important; }
 .flamme { width: 1.1em; height: 1.1em; vertical-align: -.15em; }
-.spiele.drei { grid-template-columns: 1fr !important; }
+.spiele.einspaltig { grid-template-columns: 1fr !important; }
 .teaser { display: grid; gap: .9rem; }
 .teaser-karte { display: grid; gap: .1rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1rem 1.1rem; text-decoration: none; border-left: 6px solid var(--gold); }
 .teaser-karte:only-child { grid-column: 1 / -1; }

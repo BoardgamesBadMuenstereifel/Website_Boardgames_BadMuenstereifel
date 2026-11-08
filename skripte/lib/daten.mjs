@@ -111,7 +111,7 @@ async function leseBlatt(pfad, blatt, warnungen, pflicht = true) {
   }
   const gefunden = blatt ? blaetter.find((b) => b.sheet === blatt) : blaetter[0];
   if (!gefunden) {
-    warnungen.push(`${path.basename(pfad)}: Blatt „${blatt}“ fehlt.`);
+    if (pflicht) warnungen.push(`${path.basename(pfad)}: Blatt „${blatt}“ fehlt.`);
     return [];
   }
   const [kopf, ...zeilen] = gefunden.data;
@@ -220,31 +220,46 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   for (const z of await leseBlatt(pfad("termine.xlsx"), "Orte", warnungen)) {
     if (z["Ort"]) orte.set(String(z["Ort"]).trim(), z["Adresse"] ? String(z["Adresse"]).trim() : "");
   }
+  // Kosten und Anmeldung stehen einmal je Terminart (Blatt Arten), nicht bei jedem Termin
+  const arten = new Map();
+  for (const z of await leseBlatt(pfad("termine.xlsx"), "Arten", warnungen, false)) {
+    if (z["Art"]) arten.set(String(z["Art"]).trim().toLowerCase(), { kosten: String(z["Kosten"] ?? "").trim(), anmeldung: ja(z["Anmeldung"]) });
+  }
   const termine = [];
   const ohneAdresse = new Set();
+  const ohneArt = new Set();
   for (const z of await leseBlatt(pfad("termine.xlsx"), "Termine", warnungen)) {
     const datum = leseDatum(z["Datum"]);
     const bis = z["Bis"] ? leseDatum(z["Bis"]) : null;
-    const uhrzeit = leseUhrzeit(z["Uhrzeit"]);
+    // Uhrzeit und Ort dürfen leer sein, dann steht „folgt“ auf der Seite
+    const leer = (wert) => wert === null || wert === undefined || String(wert).trim() === "";
+    const uhrzeit = leer(z["Uhrzeit"]) ? null : leseUhrzeit(z["Uhrzeit"]);
     const ort = String(z["Ort"] ?? "").trim();
-    if (!datum || !uhrzeit || !ort) {
-      warnungen.push(`termine.xlsx, Zeile ${z._zeile}: Datum, Uhrzeit oder Ort fehlt oder ist ungültig. Der Termin wurde übersprungen.`);
+    if (!datum || (!leer(z["Uhrzeit"]) && !uhrzeit) || (z["Bis"] && !bis)) {
+      warnungen.push(`termine.xlsx, Zeile ${z._zeile}: Datum, Bis oder Uhrzeit ist ungültig. Der Termin wurde übersprungen.`);
       continue;
     }
     if ((bis ?? datum) < heute) continue;
     const adresse = orte.get(ort) ?? "";
-    if (!adresse) ohneAdresse.add(ort);
+    if (ort && !adresse) ohneAdresse.add(ort);
+    const art = String(z["Art"] ?? "Spieleabend").trim();
+    const artInfo = arten.get(art.toLowerCase());
+    if (arten.size && !artInfo) ohneArt.add(art);
     const teile = datumTeile(datum);
     termine.push({
-      datum, bis, uhrzeit, ort, adresse, teile,
-      zeit: zeitText(uhrzeit),
-      art: String(z["Art"] ?? "Spieleabend").trim(),
+      datum, bis, uhrzeit, ort, adresse, teile, art,
+      zeit: uhrzeit ? zeitText(uhrzeit) : "",
+      kosten: artInfo?.kosten ?? "",
+      anmeldung: artInfo?.anmeldung ?? false,
+      kostenText: [artInfo?.kosten, artInfo?.anmeldung && "nur mit Anmeldung"].filter(Boolean).join(" · "),
       hinweis: z["Hinweis"] ? String(z["Hinweis"]).trim() : "",
       langText: bis ? `${teile.lang} bis ${datumTeile(bis).lang}` : teile.lang,
+      bisText: bis ? `bis ${datumTeile(bis).lang}` : "",
     });
   }
-  termine.sort((a, b) => a.datum.localeCompare(b.datum) || a.uhrzeit.localeCompare(b.uhrzeit));
+  termine.sort((a, b) => a.datum.localeCompare(b.datum) || (a.uhrzeit ?? "").localeCompare(b.uhrzeit ?? ""));
   for (const ort of ohneAdresse) warnungen.push(`Für „${ort}“ fehlt die Adresse in termine.xlsx (Blatt Orte).`);
+  for (const art of ohneArt) warnungen.push(`Die Terminart „${art}“ steht nicht auf dem Blatt Arten in termine.xlsx. Kosten und Anmeldung fehlen deshalb beim Termin.`);
   if (!termine.length) warnungen.push("Es gibt keine kommenden Termine. Die Seite zeigt „Neue Termine folgen“.");
 
   // Empfehlungen

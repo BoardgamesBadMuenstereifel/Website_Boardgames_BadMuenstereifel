@@ -33,15 +33,17 @@
     wann.appendChild(span);
     wann.appendChild(document.createTextNode(" "));
     var klein = document.createElement("small");
-    klein.textContent = "ab " + n.zeit;
+    klein.textContent = n.zeit ? "ab " + n.zeit : "Uhrzeit folgt";
     wann.appendChild(klein);
-    document.getElementById("next-wo").textContent = n.ort;
-    document.getElementById("next-adr").textContent = n.adresse || "Adresse folgt";
+    document.getElementById("next-wo").textContent = n.ort || "Ort folgt";
+    document.getElementById("next-adr").textContent = n.ort ? n.adresse || "Adresse folgt" : "";
+    document.getElementById("next-art").textContent = n.art + (n.kostenText ? " · " + n.kostenText : "");
   } else {
     span.textContent = "Neue Termine folgen";
     wann.appendChild(span);
     document.getElementById("next-wo").textContent = "Den nächsten Termin erfährst du in der WhatsApp-Gruppe.";
     document.getElementById("next-adr").textContent = "";
+    document.getElementById("next-art").textContent = "";
   }
 })();
 

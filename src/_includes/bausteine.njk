@@ -31,10 +31,11 @@
 <li>
   <time datetime="{{ t.datum }}"><span class="tag">{{ t.teile.tag }}</span><span class="zahl">{{ t.teile.zahl }}</span><span class="monat">{{ t.teile.monat }}</span></time>
   <div>
-    <div class="ort">{{ t.ort }}</div>
-    <div class="info">ab {{ t.zeit }} · {{ t.art }}</div>
+    <div class="ort">{{ t.ort or "Ort folgt" }}</div>
+    <div class="info">{% if t.bisText %}{{ t.bisText }} · {% endif %}{{ ("ab " + t.zeit) if t.zeit else "Uhrzeit folgt" }} · {{ t.art }}</div>
+    {%- if t.kostenText %}<div class="kosten">{{ t.kostenText }}</div>{% endif %}
     {%- if t.hinweis %}<div class="hinweis">{{ t.hinweis }}</div>{% endif %}
-    {%- if mitAdresse %}<div class="info">{{ t.adresse or "Adresse folgt" }}</div>{% endif %}
+    {%- if mitAdresse and t.ort %}<div class="info">{{ t.adresse or "Adresse folgt" }}</div>{% endif %}
     {%- if t.adresse %}<a href="https://www.openstreetmap.org/search?query={{ t.adresse | urlencode }}" rel="noopener" aria-label="Route zu {{ t.ort }}">Route</a>{% endif %}
   </div>
 </li>

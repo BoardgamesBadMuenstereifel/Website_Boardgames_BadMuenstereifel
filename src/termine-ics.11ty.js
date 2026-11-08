@@ -7,17 +7,27 @@ const stempel = (datum, uhrzeit) => `${datum.replace(/-/g, "")}T${uhrzeit.replac
 export function render({ daten }) {
   const zeilen = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Boardgames Bad Muenstereifel//Termine//DE", "CALSCALE:GREGORIAN", "X-WR-CALNAME:Boardgames Bad Münstereifel", "X-WR-TIMEZONE:Europe/Berlin"];
   for (const t of daten.termine) {
-    const [h, m] = t.uhrzeit.split(":");
-    const ende = stempel(t.bis ?? t.datum, `${String(Math.min(Number(h) + 4, 23)).padStart(2, "0")}:${m}`);
+    let zeit;
+    if (t.uhrzeit) {
+      const [h, m] = t.uhrzeit.split(":");
+      const ende = stempel(t.bis ?? t.datum, `${String(Math.min(Number(h) + 4, 23)).padStart(2, "0")}:${m}`);
+      zeit = [`DTSTART:${stempel(t.datum, t.uhrzeit)}`, `DTEND:${ende}`];
+    } else {
+      // Uhrzeit steht noch nicht fest: ganztägig, Ende ist exklusiv der Folgetag
+      const folgetag = new Date((t.bis ?? t.datum) + "T12:00:00Z");
+      folgetag.setUTCDate(folgetag.getUTCDate() + 1);
+      zeit = [`DTSTART;VALUE=DATE:${t.datum.replace(/-/g, "")}`, `DTEND;VALUE=DATE:${folgetag.toISOString().slice(0, 10).replace(/-/g, "")}`];
+    }
+    const beschreibung = [t.kostenText, t.hinweis].filter(Boolean).join("\n");
+    const ort = t.ort ? (t.adresse ? `${t.ort}, ${t.adresse}` : t.ort) : "Ort folgt";
     zeilen.push(
       "BEGIN:VEVENT",
-      `UID:${t.datum}-${t.uhrzeit.replace(":", "")}@boardgames-muenstereifel.club`,
+      `UID:${t.datum}-${t.uhrzeit ? t.uhrzeit.replace(":", "") : "ganztags"}@boardgames-muenstereifel.club`,
       `DTSTAMP:${t.datum.replace(/-/g, "")}T000000Z`,
-      `DTSTART:${stempel(t.datum, t.uhrzeit)}`,
-      `DTEND:${ende}`,
+      ...zeit,
       `SUMMARY:${text(t.art)}`,
-      `LOCATION:${text(t.adresse ? `${t.ort}, ${t.adresse}` : t.ort)}`,
-      ...(t.hinweis ? [`DESCRIPTION:${text(t.hinweis)}`] : []),
+      `LOCATION:${text(ort)}`,
+      ...(beschreibung ? [`DESCRIPTION:${text(beschreibung)}`] : []),
       "END:VEVENT"
     );
   }

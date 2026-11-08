@@ -11,11 +11,11 @@ import { leseThings, leseSuche } from "../skripte/lib/bgg.mjs";
 
 const tabelle = (sheet, zeilen) => ({ sheet, data: zeilen.map((z) => z.map((value) => (value === null ? null : { value }))) });
 
-async function testOrdner({ spiele, partien, termine, orte = [["Ort", "Adresse"]], cache }) {
+async function testOrdner({ spiele, partien, termine, orte = [["Ort", "Adresse"]], arten, cache }) {
   const ordner = fs.mkdtempSync(path.join(os.tmpdir(), "bgg-test-"));
   await writeExcelFile([tabelle("Spiele", spiele)]).toFile(path.join(ordner, "spiele.xlsx"));
   await writeExcelFile([tabelle("Partien", partien)]).toFile(path.join(ordner, "partien.xlsx"));
-  await writeExcelFile([tabelle("Termine", termine), tabelle("Orte", orte)]).toFile(path.join(ordner, "termine.xlsx"));
+  await writeExcelFile([tabelle("Termine", termine), tabelle("Orte", orte), ...(arten ? [tabelle("Arten", arten)] : [])]).toFile(path.join(ordner, "termine.xlsx"));
   if (cache) fs.writeFileSync(path.join(ordner, "bgg-cache.json"), JSON.stringify(cache));
   return ordner;
 }
@@ -91,6 +91,29 @@ test("Fehlende Dateien und vergangene Termine: Die Seite bleibt baubar", async (
   const o2 = await testOrdner({ spiele: [KOPF_SPIELE], partien: [["Datum", "Spiel"]], termine: [KOPF_TERMINE, ["01.01.2026", null, "18:00", "A", null, null], ["01.10.2026", "01.11.2026", "11:00", "B", null, null]] });
   const d2 = await ladeDaten({ ordner: o2, heute: "2026-10-30" });
   assert.deepEqual(d2.termine.map((t) => t.ort), ["B"]);
+});
+
+test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => {
+  const ordner = await testOrdner({
+    spiele: [KOPF_SPIELE], partien: [["Datum", "Spiel"]],
+    termine: [KOPF_TERMINE,
+      ["05.03.2027", "07.03.2027", null, null, "Kloster", null],
+      ["10.03.2027", null, "18:00", "A", "Spieleabend", null],
+      ["11.03.2027", null, "18:00", "A", "Neu erfunden", null],
+      ["12.03.2027", null, "abends", "A", "Spieleabend", null]],
+    orte: [["Ort", "Adresse"], ["A", "Straße 1"]],
+    arten: [["Art", "Kosten", "Anmeldung"], ["Spieleabend", "kostenlos", null], ["kloster", "kostenpflichtig", "Ja"]],
+  });
+  const d = await ladeDaten({ ordner, heute: "2026-10-30" });
+  assert.deepEqual(d.termine.map((t) => [t.datum, t.uhrzeit, t.ort, t.kostenText]), [
+    ["2027-03-05", null, "", "kostenpflichtig · nur mit Anmeldung"],
+    ["2027-03-10", "18:00", "A", "kostenlos"],
+    ["2027-03-11", "18:00", "A", ""],
+  ]);
+  const text = d.warnungen.join("\n");
+  assert.match(text, /„Neu erfunden“ steht nicht auf dem Blatt Arten/);
+  assert.match(text, /Zeile 5: Datum, Bis oder Uhrzeit ist ungültig/);
+  assert.doesNotMatch(text, /fehlt die Adresse/);
 });
 
 test("BGG-XML: Felder, Entitäten, leere Werte", () => {

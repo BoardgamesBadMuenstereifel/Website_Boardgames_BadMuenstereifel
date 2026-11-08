@@ -23,13 +23,28 @@ Blatt **Termine**, eine Zeile pro Termin:
 
 | Datum | Bis | Uhrzeit | Ort | Art | Hinweis |
 |---|---|---|---|---|---|
-| 04.11.2026 | | 18:00 | Kupferkessel, Schönau | Spieleabend | Erst Essen, Spielbeginn ca. 19 Uhr |
-| 14.11.2026 | | 16:00 | DGH, Lorbach | Spieleabend | Ohne Essen, wir spielen gleich los |
-| 19.09.2027 | 20.09.2027 | 11:00 | ERFTWERK4, Bad Münstereifel | WE mit Erklärbären | |
+| 13.01.2027 | | 18:00 | Kupferkessel, Schönau | Spieleabend | Erst Essen, Spielbeginn ca. 19 Uhr |
+| 23.01.2027 | | 16:00 | DGH, Lorbach | WE-Spielabend | Ohne Essen, wir spielen gleich los |
+| 05.03.2027 | 07.03.2027 | | | Spielekloster | Sonderveranstaltung |
 
 - **Bis** nutzt du nur bei mehrtägigen Terminen.
+- **Uhrzeit** und **Ort** darfst du leer lassen, solange sie noch nicht feststehen. Auf der Seite steht dann „Uhrzeit folgt“ bzw. „Ort folgt“.
 - Der **Ort** muss genauso geschrieben sein wie auf dem Blatt **Orte**. Dort steht die Adresse.
+- Die **Art** muss genauso geschrieben sein wie auf dem Blatt **Arten** (Groß- und Kleinschreibung ist egal).
 - Vergangene Termine musst du nicht löschen, die Seite blendet sie aus.
+
+Blatt **Arten**, eine Zeile pro Terminart. Kosten und Anmeldung stehen nur hier, die Seite zeigt sie bei jedem Termin dieser Art an:
+
+| Art | Kosten | Anmeldung |
+|---|---|---|
+| Spieleabend | kostenlos | |
+| WE-Spielabend | 5 € pro Abend | |
+| Social Deduction | 5 € pro Abend | |
+| Spielekloster | kostenpflichtig | Ja |
+
+- **Anmeldung:** „Ja“, dann steht beim Termin „nur mit Anmeldung“.
+- Ändern sich die Preise, änderst du sie nur hier. Die Texte auf den Seiten „Start“, „Neu hier?“ und „Termine“ („unter der Woche kostenlos, am Wochenende 5 €“) musst du dann allerdings im Code anpassen lassen.
+- Für Social-Deduction-Abende wie Blood on the Clocktower trägst du einen Termin mit der Art „Social Deduction“ ein, sobald er in der WhatsApp-Gruppe abgestimmt ist.
 
 ## Spiele eines Abends eintragen: `partien.xlsx`
 

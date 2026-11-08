@@ -7,19 +7,21 @@ layout: basis.njk
   <div class="wrap">
     <div>
       <h1 id="h-hero">Komm einfach vorbei. <span>Wir spielen.</span></h1>
-      <p class="unter">Brettspielabende in Bad Münstereifel. Kostenlos, ohne Anmeldung, du brauchst kein Spiel mitzubringen.</p>
+      <p class="unter">Brettspielabende in Bad Münstereifel. Unter der Woche kostenlos und ohne Anmeldung. Du brauchst kein Spiel mitzubringen.</p>
       <img class="hero-bild" src="{{ '/assets/spieltisch.svg' | url }}" alt="" width="640" height="220">
     </div>
     <div class="naechster" aria-labelledby="h-next">
-      <span class="label" id="h-next">Nächster Spieleabend</span>
+      <span class="label" id="h-next">Nächster Termin</span>
       {%- if naechster %}
-      <div class="wann" id="next-wann"><span>{{ naechster.langText }}</span> <small>ab {{ naechster.zeit }}</small></div>
-      <p class="wo" id="next-wo">{{ naechster.ort }}</p>
-      <p class="adr" id="next-adr">{{ naechster.adresse or "Adresse folgt" }}</p>
+      <div class="wann" id="next-wann"><span>{{ naechster.langText }}</span> <small>{{ ("ab " + naechster.zeit) if naechster.zeit else "Uhrzeit folgt" }}</small></div>
+      <p class="wo" id="next-wo">{{ naechster.ort or "Ort folgt" }}</p>
+      <p class="adr" id="next-adr">{{ (naechster.adresse or "Adresse folgt") if naechster.ort }}</p>
+      <p class="art" id="next-art">{{ naechster.art }}{% if naechster.kostenText %} · {{ naechster.kostenText }}{% endif %}</p>
       {%- else %}
       <div class="wann" id="next-wann"><span>Neue Termine folgen</span></div>
       <p class="wo" id="next-wo">Den nächsten Termin erfährst du in der WhatsApp-Gruppe.</p>
       <p class="adr" id="next-adr"></p>
+      <p class="art" id="next-art"></p>
       {%- endif %}
       <div class="aktionen">
         <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>

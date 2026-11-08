@@ -256,7 +256,7 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .schnitt { margin: .9rem 0 0; padding-top: .7rem; border-top: 1px solid #7a6f84; }
 
 @media (min-width: 40rem) {
-  .formate { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+  .formate { grid-template-columns: 1fr 1fr; }
   .teaser { grid-template-columns: 1fr 1fr; }
   .filter { grid-template-columns: repeat(4, 1fr); }
   .sammlung { grid-template-columns: 1fr 1fr; }
@@ -294,3 +294,20 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .nav-menue a:hover, .nav-menue a[aria-current] { background: var(--aubergine-dunkel); }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Farbcode der Terminarten (Blatt Arten in termine.xlsx). Weiße Schrift auf allen vier Farben mind. 6:1, als Text auf Creme mind. 4,8:1.
+   Die Farbe ist nie die einzige Information: Art und Kosten stehen immer als Text dabei. */
+.farbe-gruen { --farbe: #2e6b3c; }
+.farbe-blau { --farbe: #2b5c9e; }
+.farbe-rot { --farbe: #a63a30; }
+.farbe-lila { --farbe: #6b3fa0; }
+.etikett { display: inline-block; background: var(--farbe, var(--aubergine)); color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .02em; padding: .1rem .6rem; border-radius: 999px; margin-bottom: .3rem; }
+.termine li[class*="farbe-"] time { color: var(--farbe); border-left: 5px solid var(--farbe); padding-left: .5rem; }
+.termine li { grid-template-columns: 4.9rem 1fr; }
+.format[class*="farbe-"] { border-top-color: var(--farbe); }
+.naechster .art { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .5rem; }
+.naechster .art .etikett { margin: 0; }
+.naechster .art[hidden] { display: none; }
+.legende { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; list-style: none; margin: 0 0 1rem; padding: 0; font-size: .95rem; font-weight: 700; }
+.legende li { display: inline-flex; align-items: center; gap: .45rem; }
+.legende li::before { content: ""; width: 1rem; height: 1rem; border-radius: 4px; background: var(--farbe); }

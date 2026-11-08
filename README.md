@@ -35,14 +35,15 @@ Blatt **Termine**, eine Zeile pro Termin:
 
 Blatt **Arten**, eine Zeile pro Terminart. Kosten und Anmeldung stehen nur hier, die Seite zeigt sie bei jedem Termin dieser Art an:
 
-| Art | Kosten | Anmeldung |
-|---|---|---|
-| Spieleabend | kostenlos | |
-| WE-Spielabend | 5 € pro Abend | |
-| Social Deduction | 5 € pro Abend | |
-| Spielekloster | kostenpflichtig | Ja |
+| Art | Kosten | Anmeldung | Farbe |
+|---|---|---|---|
+| Spieleabend | kostenlos | | Grün |
+| WE-Spielabend | 5 € pro Abend | | Blau |
+| Social Deduction | 5 € pro Abend | | Rot |
+| Spielekloster | kostenpflichtig | Ja | Lila |
 
 - **Anmeldung:** „Ja“, dann steht beim Termin „nur mit Anmeldung“.
+- **Farbe:** Grün, Blau, Rot oder Lila. Die Farbe erscheint als Streifen am Datum und als Etikett mit dem Namen der Art. Bedeutung: Grün = Spieleabende unter der Woche, Blau = Wochenende, Rot = Social Deduction, Lila = Sondertermine. Eine neue Sonderveranstaltung bekommt also „Lila“. Andere Farben gibt es nicht, ein Tippfehler erscheint in den Warnungen.
 - Ändern sich die Preise, änderst du sie nur hier. Die Texte auf den Seiten „Start“, „Neu hier?“ und „Termine“ („unter der Woche kostenlos, am Wochenende 5 €“) musst du dann allerdings im Code anpassen lassen.
 - Für Social-Deduction-Abende wie Blood on the Clocktower trägst du einen Termin mit der Art „Social Deduction“ ein, sobald er in der WhatsApp-Gruppe abgestimmt ist.
 

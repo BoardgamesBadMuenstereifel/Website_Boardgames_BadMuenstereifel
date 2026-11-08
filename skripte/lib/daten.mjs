@@ -127,6 +127,9 @@ async function leseBlatt(pfad, blatt, warnungen, pflicht = true) {
 
 const ja = (wert) => /^(ja|x|1|true)$/i.test(String(wert ?? "").trim());
 
+// Farbcode der Terminarten: Eintrag im Blatt Arten -> CSS-Klasse farbe-…
+const FARBEN = { "grün": "gruen", "gruen": "gruen", "blau": "blau", "rot": "rot", "lila": "lila", "violett": "lila" };
+
 export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", heute = heuteBerlin(), entwurf = process.env.ENTWURF === "1" } = {}) {
   const warnungen = [];
   const pfad = (name) => path.join(ordner, name);
@@ -223,7 +226,11 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   // Kosten und Anmeldung stehen einmal je Terminart (Blatt Arten), nicht bei jedem Termin
   const arten = new Map();
   for (const z of await leseBlatt(pfad("termine.xlsx"), "Arten", warnungen, false)) {
-    if (z["Art"]) arten.set(String(z["Art"]).trim().toLowerCase(), { kosten: String(z["Kosten"] ?? "").trim(), anmeldung: ja(z["Anmeldung"]) });
+    if (!z["Art"]) continue;
+    const farbText = String(z["Farbe"] ?? "").trim();
+    const farbe = FARBEN[farbText.toLowerCase()] ?? "";
+    if (farbText && !farbe) warnungen.push(`termine.xlsx, Blatt Arten, Zeile ${z._zeile}: Die Farbe „${farbText}“ kennt die Seite nicht. Erlaubt sind Grün, Blau, Rot und Lila.`);
+    arten.set(String(z["Art"]).trim().toLowerCase(), { kosten: String(z["Kosten"] ?? "").trim(), anmeldung: ja(z["Anmeldung"]), farbe });
   }
   const termine = [];
   const ohneAdresse = new Set();
@@ -251,6 +258,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
       zeit: uhrzeit ? zeitText(uhrzeit) : "",
       kosten: artInfo?.kosten ?? "",
       anmeldung: artInfo?.anmeldung ?? false,
+      farbe: artInfo?.farbe ?? "",
       kostenText: [artInfo?.kosten, artInfo?.anmeldung && "nur mit Anmeldung"].filter(Boolean).join(" · "),
       hinweis: z["Hinweis"] ? String(z["Hinweis"]).trim() : "",
       langText: bis ? `${teile.lang} bis ${datumTeile(bis).lang}` : teile.lang,

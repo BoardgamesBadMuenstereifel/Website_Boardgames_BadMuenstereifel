@@ -37,13 +37,17 @@
     wann.appendChild(klein);
     document.getElementById("next-wo").textContent = n.ort || "Ort folgt";
     document.getElementById("next-adr").textContent = n.ort ? n.adresse || "Adresse folgt" : "";
-    document.getElementById("next-art").textContent = n.art + (n.kostenText ? " · " + n.kostenText : "");
+    var etikett = document.getElementById("next-etikett");
+    etikett.textContent = n.art;
+    etikett.className = "etikett" + (n.farbe ? " farbe-" + n.farbe : "");
+    document.getElementById("next-kosten").textContent = n.kostenText;
+    document.getElementById("next-art").hidden = false;
   } else {
     span.textContent = "Neue Termine folgen";
     wann.appendChild(span);
     document.getElementById("next-wo").textContent = "Den nächsten Termin erfährst du in der WhatsApp-Gruppe.";
     document.getElementById("next-adr").textContent = "";
-    document.getElementById("next-art").textContent = "";
+    document.getElementById("next-art").hidden = true;
   }
 })();
 

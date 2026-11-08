@@ -9,6 +9,12 @@ permalink: /termine/
   <div class="wrap">
     <h1 class="seiten-titel" id="h-termine">Termine</h1>
     <p class="lead">Den Ort legen wir pro Termin fest, deshalb steht er immer direkt dabei. Die Abende unter der Woche sind kostenlos, am Wochenende kostet ein Abend 5 €. Termine für Social-Deduction-Spiele wie Blood on the Clocktower stimmen wir zusätzlich in der <a href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a> ab.</p>
+    <ul class="legende" aria-label="Farben der Terminarten">
+      <li class="farbe-gruen">Spieleabende unter der Woche</li>
+      <li class="farbe-blau">Wochenende</li>
+      <li class="farbe-rot">Social Deduction</li>
+      <li class="farbe-lila">Sondertermine</li>
+    </ul>
     {%- if daten.termine.length %}
     <ul class="termine" data-adresse="1">
       {%- for t in daten.termine %}{{ b.terminzeile(t, true) }}{% endfor %}

@@ -102,15 +102,16 @@ test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => 
       ["11.03.2027", null, "18:00", "A", "Neu erfunden", null],
       ["12.03.2027", null, "abends", "A", "Spieleabend", null]],
     orte: [["Ort", "Adresse"], ["A", "Straße 1"]],
-    arten: [["Art", "Kosten", "Anmeldung"], ["Spieleabend", "kostenlos", null], ["kloster", "kostenpflichtig", "Ja"]],
+    arten: [["Art", "Kosten", "Anmeldung", "Farbe"], ["Spieleabend", "kostenlos", null, "Grün"], ["kloster", "kostenpflichtig", "Ja", "Pink"]],
   });
   const d = await ladeDaten({ ordner, heute: "2026-10-30" });
-  assert.deepEqual(d.termine.map((t) => [t.datum, t.uhrzeit, t.ort, t.kostenText]), [
-    ["2027-03-05", null, "", "kostenpflichtig · nur mit Anmeldung"],
-    ["2027-03-10", "18:00", "A", "kostenlos"],
-    ["2027-03-11", "18:00", "A", ""],
+  assert.deepEqual(d.termine.map((t) => [t.datum, t.uhrzeit, t.ort, t.kostenText, t.farbe]), [
+    ["2027-03-05", null, "", "kostenpflichtig · nur mit Anmeldung", ""],
+    ["2027-03-10", "18:00", "A", "kostenlos", "gruen"],
+    ["2027-03-11", "18:00", "A", "", ""],
   ]);
   const text = d.warnungen.join("\n");
+  assert.match(text, /Farbe „Pink“ kennt die Seite nicht/);
   assert.match(text, /„Neu erfunden“ steht nicht auf dem Blatt Arten/);
   assert.match(text, /Zeile 5: Datum, Bis oder Uhrzeit ist ungültig/);
   assert.doesNotMatch(text, /fehlt die Adresse/);

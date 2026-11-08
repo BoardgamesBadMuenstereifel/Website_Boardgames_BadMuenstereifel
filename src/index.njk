@@ -16,12 +16,12 @@ layout: basis.njk
       <div class="wann" id="next-wann"><span>{{ naechster.langText }}</span> <small>{{ ("ab " + naechster.zeit) if naechster.zeit else "Uhrzeit folgt" }}</small></div>
       <p class="wo" id="next-wo">{{ naechster.ort or "Ort folgt" }}</p>
       <p class="adr" id="next-adr">{{ (naechster.adresse or "Adresse folgt") if naechster.ort }}</p>
-      <p class="art" id="next-art">{{ naechster.art }}{% if naechster.kostenText %} · {{ naechster.kostenText }}{% endif %}</p>
+      <p class="art" id="next-art"><span class="etikett{% if naechster.farbe %} farbe-{{ naechster.farbe }}{% endif %}" id="next-etikett">{{ naechster.art }}</span> <span id="next-kosten">{{ naechster.kostenText }}</span></p>
       {%- else %}
       <div class="wann" id="next-wann"><span>Neue Termine folgen</span></div>
       <p class="wo" id="next-wo">Den nächsten Termin erfährst du in der WhatsApp-Gruppe.</p>
       <p class="adr" id="next-adr"></p>
-      <p class="art" id="next-art"></p>
+      <p class="art" id="next-art" hidden><span class="etikett" id="next-etikett"></span> <span id="next-kosten"></span></p>
       {%- endif %}
       <div class="aktionen">
         <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>

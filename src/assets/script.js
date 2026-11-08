@@ -23,6 +23,10 @@
       el.closest("li").remove();
     }
   });
+  // Monate ohne verbleibende Termine samt Überschrift ausblenden
+  document.querySelectorAll(".monat").forEach(function (m) {
+    if (!m.querySelector(".termine li")) m.remove();
+  });
   var wann = document.getElementById("next-wann");
   if (!wann) return;
   wann.textContent = "";

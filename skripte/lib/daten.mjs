@@ -7,6 +7,7 @@ import readExcelFile from "read-excel-file/node";
 const KATEGORIEN = ["Kinder 3–6", "Kinder 6–10", "Jugendliche", "Familien", "Kenner & Experten"];
 const MONATE = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
 const TAGE = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+const MONATE_LANG = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
 export function heuteBerlin() {
   if (process.env.BUILD_HEUTE) return process.env.BUILD_HEUTE;
@@ -266,6 +267,16 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     });
   }
   termine.sort((a, b) => a.datum.localeCompare(b.datum) || (a.uhrzeit ?? "").localeCompare(b.uhrzeit ?? ""));
+  // Für die Terminseite: nach Monat gruppiert, mit Überschrift wie „Januar 2027“
+  const termineNachMonat = [];
+  for (const t of termine) {
+    const schluessel = t.datum.slice(0, 7);
+    if (termineNachMonat.at(-1)?.schluessel !== schluessel) {
+      const [j, m] = schluessel.split("-").map(Number);
+      termineNachMonat.push({ schluessel, name: `${MONATE_LANG[m - 1]} ${j}`, termine: [] });
+    }
+    termineNachMonat.at(-1).termine.push(t);
+  }
   for (const ort of ohneAdresse) warnungen.push(`Für „${ort}“ fehlt die Adresse in termine.xlsx (Blatt Orte).`);
   for (const art of ohneArt) warnungen.push(`Die Terminart „${art}“ steht nicht auf dem Blatt Arten in termine.xlsx. Kosten und Anmeldung fehlen deshalb beim Termin.`);
   if (!termine.length) warnungen.push("Es gibt keine kommenden Termine. Die Seite zeigt „Neue Termine folgen“.");
@@ -315,7 +326,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const kategorienSammlung = [...new Set(sammlung.map((s) => s.kategorie).filter(Boolean))];
 
   return {
-    heute, termine,
+    heute, termine, termineNachMonat,
     meist12, meist3,
     zahlen12: zaehle(monateZurueck(heute, 12)), zahlen3: zaehle(monateZurueck(heute, 3)),
     letzterAbend: letzterAbend ? {

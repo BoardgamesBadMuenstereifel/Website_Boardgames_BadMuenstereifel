@@ -110,6 +110,7 @@ test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => 
     ["2027-03-10", "18:00", "A", "kostenlos", "gruen"],
     ["2027-03-11", "18:00", "A", "", ""],
   ]);
+  assert.deepEqual(d.termineNachMonat.map((m) => [m.name, m.termine.length]), [["März 2027", 3]]);
   const text = d.warnungen.join("\n");
   assert.match(text, /Farbe „Pink“ kennt die Seite nicht/);
   assert.match(text, /„Neu erfunden“ steht nicht auf dem Blatt Arten/);

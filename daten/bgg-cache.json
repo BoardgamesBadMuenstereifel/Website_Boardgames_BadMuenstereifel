@@ -180,6 +180,21 @@
    "cover": "/assets/cover/1269.jpg",
    "abgerufen": "2026-11-09T10:24:58.412Z"
   },
+  "1465": {
+   "id": "1465",
+   "name": "Wizard",
+   "jahr": 1984,
+   "minSpieler": 3,
+   "maxSpieler": 6,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7,
+   "komplexitaet": 1.7,
+   "beschreibung": "The trick-taking game Wizard uses a sixty-card deck that consists of the traditional 52-card deck (1-13 in four suits) along with four Wizards (high) and four Jesters (low). Players compete over multiple rounds based on the number of players, and whoever ends with the highest score wins. In each round, players are dealt a hand of cards — one card in the first round, two cards in the second, three in the third, etc.",
+   "cover": "/assets/cover/1465.jpg",
+   "abgerufen": "2026-11-09T18:29:17.556Z"
+  },
   "1927": {
    "id": "1927",
    "name": "Munchkin",

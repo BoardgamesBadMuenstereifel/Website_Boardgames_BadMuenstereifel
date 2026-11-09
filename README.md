@@ -73,14 +73,19 @@ Eine Zeile pro Spiel. Das machst du nur einmal je Spiel.
 
 ## Empfehlungen: `empfehlungen.xlsx`
 
-Spalten: Kategorie, Spiel, Kurzbegründung, Freigegeben. Erlaubte Kategorien sind Kinder 3–6, Kinder 6–10, Jugendliche, Familien sowie Kenner & Experten. Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
+Die Empfehlungen stehen auf der Seite „Im Fokus“, sortiert nach Einordnung, z. B. „Familien mit Kindern“. Jedes bewertete Spiel aus `fokus.xlsx` erscheint dort automatisch mit unserer Note, in jeder seiner Einordnungen. Dazu kommen kurze Tipps ohne ausführliche Bewertung aus dieser Datei.
+
+- **Blatt Empfehlungen:** Einordnung, Spiel, Kurzbegründung, Freigegeben. Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
+- **Blatt Einordnungen:** Einordnung, Text. Hier stehen alle erlaubten Einordnungen in der Reihenfolge, in der sie auf der Seite erscheinen. Der Text ist der Satz über der Gruppe, z. B. „Du willst mit deinem Kind ins Spielen einsteigen? Damit klappt der Anfang.“ Eine neue Einordnung legst du hier an. Eine Einordnung ohne Spiele erscheint nicht.
+- Eine Einordnung muss in beiden Dateien genauso geschrieben sein wie auf dem Blatt Einordnungen. Groß- und Kleinschreibung ist egal, ein Tippfehler erscheint in den Warnungen.
 
 ## Spiel im Fokus: `fokus.xlsx`
 
-Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Sie stehen auf der Seite „Im Fokus“, die neueste zusätzlich auf der Startseite. Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung freigegeben ist.
+Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Die neueste steht oben auf der Seite „Im Fokus“ und auf der Startseite. Jede Bewertung steht außerdem dauerhaft auf der Seite des Spiels, z. B. `/spiele/mycelia/`. Darauf verweisen die Seite „Im Fokus“ unter „Frühere Spiele im Fokus“, die Empfehlungen und die Ranglisten („Im Fokus · unsere Note …“). Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung oder Empfehlung freigegeben ist.
 
-- **Blatt Spiele im Fokus:** Spiel, Datum, Zusammenfassung, Für wen, Positiv, Negativ, Freigegeben.
-  - Bei **Positiv** und **Negativ** steht jeder Punkt in einer eigenen Zeile der Zelle. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
+- **Blatt Spiele im Fokus:** Spiel, Datum, Zusammenfassung, Einordnung, Für wen, Positiv, Negativ, Freigegeben.
+  - **Einordnung** ist die kurze Einordnung, für wen das Spiel passt, z. B. „Familien mit Kindern“. Erlaubt sind die Einordnungen vom Blatt Einordnungen in `empfehlungen.xlsx`. Mehrere Einordnungen schreibst du untereinander in die Zelle. **Für wen** ist der ausführliche Satz dazu.
+  - Bei **Einordnung**, **Positiv** und **Negativ** steht jeder Eintrag in einer eigenen Zeile der Zelle. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
   - Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
 - **Blatt Stimmen:** Eine Zeile pro Stimme: Spiel, Mitglied, Note (ganze Zahl von 1 bis 10). Die Seite zeigt nur die Verteilung und den Schnitt, nie das Kürzel.
   - **Mitglied** ist ein neutrales Kürzel wie M01, M02. Wer dahinter steckt, steht nur in deiner Datei `Mitglieder-Kuerzel.xlsx` auf deinem Rechner. **Diese Datei nie auf GitHub hochladen**, das Repository ist öffentlich.

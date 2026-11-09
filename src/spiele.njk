@@ -1,7 +1,7 @@
 ---
 layout: basis.njk
 titel: Spiele
-beschreibung: Was bei uns auf den Tisch kommt. Meist gespielte Spiele, Empfehlungen nach Alter und Erfahrung.
+beschreibung: Was bei uns auf den Tisch kommt. Die meist gespielten Spiele der letzten 12 Monate, die Hotlist und unsere Sammlung.
 permalink: /spiele/
 ---
 {% import "bausteine.njk" as b %}
@@ -20,9 +20,7 @@ permalink: /spiele/
         <h2 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h2>
         <p class="klein-info">{{ daten.zahlen3.abende }} Abende, {{ daten.zahlen3.partien }} Partien</p>
         <ol>
-          {%- for e in daten.meist3 | batch(10) | first %}
-          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
-          {%- endfor %}
+          {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
         </ol>
       </aside>
     </div>
@@ -43,22 +41,13 @@ permalink: /spiele/
 </section>
 
 {%- if daten.empfehlungen.length %}
-<section class="sektion" id="empfehlungen" aria-labelledby="h-emp">
-  <div class="wrap">
-    <h2 id="h-emp">Unsere Empfehlungen</h2>
-    <p class="lead">Du suchst ein Spiel zum Verschenken oder für den eigenen Spieltisch? Das empfehlen wir, sortiert nach Alter und Erfahrung.</p>
-    <div class="empf">
-      {%- for g in daten.empfehlungen %}
-      <article class="empf-karte">
-        <h3>{{ g.kategorie }}</h3>
-        <ul>
-          {%- for e in g.spiele %}
-          <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a>{% if e.grund %}<span>{{ e.grund }}</span>{% endif %}</li>
-          {%- endfor %}
-        </ul>
-      </article>
-      {%- endfor %}
-    </div>
+<section class="sektion" id="empfehlungen" aria-label="Unsere Empfehlungen" style="padding-top:0">
+  <div class="wrap teaser">
+    <a class="teaser-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
+      <span class="eyebrow">Unsere Empfehlungen</span>
+      <strong>Das passende Spiel finden</strong>
+      <span>Du suchst ein Spiel zum Verschenken oder für den eigenen Spieltisch? Unsere Tipps vom ersten Spiel mit Kindern bis zur Expertenrunde.</span>
+    </a>
   </div>
 </section>
 {%- endif %}

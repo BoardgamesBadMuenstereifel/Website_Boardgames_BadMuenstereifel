@@ -4,7 +4,6 @@ import fs from "node:fs";
 import path from "node:path";
 import readExcelFile from "read-excel-file/node";
 
-const KATEGORIEN = ["Kinder 3–6", "Kinder 6–10", "Jugendliche", "Familien", "Kenner & Experten"];
 const MONATE = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
 const TAGE = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
 const MONATE_LANG = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
@@ -295,15 +294,24 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   for (const art of ohneArt) warnungen.push(`Die Terminart „${art}“ steht nicht auf dem Blatt Arten in termine.xlsx. Kosten und Anmeldung fehlen deshalb beim Termin.`);
   if (!termine.length) warnungen.push("Es gibt keine kommenden Termine. Die Seite zeigt „Neue Termine folgen“.");
 
-  // Empfehlungen
-  const empfehlungen = KATEGORIEN.map((kategorie) => ({ kategorie, spiele: [] }));
-  for (const z of await leseBlatt(pfad("empfehlungen.xlsx"), null, warnungen, false)) {
-    if (!entwurf && !ja(z["Freigegeben"])) continue;
-    const gruppe = empfehlungen.find((g) => g.kategorie === String(z["Kategorie"] ?? "").trim());
-    if (!gruppe) { warnungen.push(`empfehlungen.xlsx, Zeile ${z._zeile}: Unbekannte Kategorie „${z["Kategorie"] ?? ""}“. Erlaubt sind: ${KATEGORIEN.join(", ")}.`); continue; }
-    if (!z["Spiel"]) continue;
-    gruppe.spiele.push({ spiel: neuesSpiel(z["Spiel"]), grund: z["Kurzbegründung"] ? String(z["Kurzbegründung"]) : "" });
+  // Einordnungen wie „Familien mit Kindern“: Blatt Einordnungen in empfehlungen.xlsx legt Namen, Reihenfolge und den
+  // Empfehlungssatz fest. Fehlt das Blatt, ist jede Einordnung erlaubt und erscheint in der Reihenfolge ihres Auftretens.
+  const einordnungen = new Map();
+  const neueEinordnung = (name, text = "") => {
+    const schluessel = namensSchluessel(name);
+    if (!einordnungen.has(schluessel)) einordnungen.set(schluessel, { name, anker: `empf-${slug(name)}`, text, spiele: [] });
+    return einordnungen.get(schluessel);
+  };
+  for (const z of await leseBlatt(pfad("empfehlungen.xlsx"), "Einordnungen", warnungen, false)) {
+    if (z["Einordnung"]) neueEinordnung(String(z["Einordnung"]).trim(), String(z["Text"] ?? "").trim());
   }
+  const festgelegt = einordnungen.size > 0;
+  const findeEinordnung = (name, wo) => {
+    const e = einordnungen.get(namensSchluessel(name));
+    if (e || !festgelegt) return e ?? neueEinordnung(String(name).trim());
+    warnungen.push(`${wo}: Die Einordnung „${name}“ steht nicht auf dem Blatt Einordnungen in empfehlungen.xlsx. Erlaubt sind: ${[...einordnungen.values()].map((x) => x.name).join(", ")}.`);
+    return null;
+  };
 
   // Spiel im Fokus: Bewertungen nach der BGG-Skala, die neueste zuerst.
   // Stimmen stehen einzeln in der Liste, optional mit neutralem Kürzel (M01 …). Die Seite zeigt nur die Verteilung.
@@ -337,25 +345,57 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     const otoene = otonZeilen
       .filter((o) => namensSchluessel(o["Spiel"]) === schluessel && o["Zitat"] && (entwurf || ja(o["Freigegeben"])))
       .map((o) => ({ name: String(o["Name"] ?? "").trim(), zitat: String(o["Zitat"]).trim() }));
+    const passtFuer = punkte(z["Einordnung"]).map((e) => findeEinordnung(e, `fokus.xlsx, Zeile ${z._zeile}`)).filter(Boolean);
     fokus.push({
       spiel: neuesSpiel(name), datum,
       monatText: datum ? `${MONATE_LANG[Number(datum.slice(5, 7)) - 1]} ${datum.slice(0, 4)}` : "",
       zusammenfassung: String(z["Zusammenfassung"]).trim(),
+      einordnungen: [...new Set(passtFuer)].map((e) => ({ name: e.name, anker: e.anker })),
       fuerWen: z["Für wen"] ? String(z["Für wen"]).trim() : "",
       positiv: punkte(z["Positiv"]), negativ: punkte(z["Negativ"]),
       stimmen: noten.length, verteilung, otoene,
       schnitt: schnitt === null ? null : schnitt.toFixed(1).replace(".", ","),
+      schnittZahl: schnitt,
     });
   }
   fokus.sort((a, b) => b.datum.localeCompare(a.datum));
 
-  // Spiele, die erst durch Empfehlungen dazukamen, brauchen noch eine Adresse
+  // Empfehlungen: bewertete Spiele erscheinen in jeder ihrer Einordnungen, dazu kurze Tipps ohne Bewertung
+  for (const f of [...fokus].sort((a, b) => (b.schnittZahl ?? 0) - (a.schnittZahl ?? 0))) {
+    for (const e of f.einordnungen) {
+      const gruppe = einordnungen.get(namensSchluessel(e.name));
+      if (!gruppe.spiele.some((x) => x.spiel === f.spiel)) gruppe.spiele.push({ spiel: f.spiel, note: f.schnitt, grund: "" });
+    }
+  }
+  for (const z of await leseBlatt(pfad("empfehlungen.xlsx"), "Empfehlungen", warnungen, false)) {
+    if (!entwurf && !ja(z["Freigegeben"])) continue;
+    if (!z["Spiel"] || !z["Einordnung"]) { warnungen.push(`empfehlungen.xlsx, Zeile ${z._zeile}: Einordnung oder Spiel fehlt.`); continue; }
+    const gruppe = findeEinordnung(String(z["Einordnung"]).trim(), `empfehlungen.xlsx, Zeile ${z._zeile}`);
+    if (!gruppe) continue;
+    const spiel = neuesSpiel(z["Spiel"]);
+    const grund = z["Kurzbegründung"] ? String(z["Kurzbegründung"]).trim() : "";
+    const vorhanden = gruppe.spiele.find((x) => x.spiel === spiel);
+    if (vorhanden) { vorhanden.grund ||= grund; continue; }
+    gruppe.spiele.push({ spiel, note: null, grund });
+  }
+  const empfehlungen = [...einordnungen.values()].filter((g) => g.spiele.length);
+
+  // Spiele, die erst durch Empfehlungen oder Spiel im Fokus dazukamen, brauchen noch eine Adresse
   for (const s of spiele.values()) {
     if (s.slug) continue;
     s.bgg = null;
     s.slug = slug(s.name);
     while (vergeben.has(s.slug)) s.slug += "-2";
     vergeben.add(s.slug);
+  }
+
+  // Jedes Spiel kennt seine neueste Bewertung, damit Ranglisten und Spielseite darauf verweisen können.
+  // Nur eine kleine Zusammenfassung am Spiel, sonst entstünde ein Kreisverweis Spiel -> Bewertung -> Spiel.
+  const fokusNachSlug = {};
+  for (const f of fokus) {
+    if (fokusNachSlug[f.spiel.slug]) continue;
+    fokusNachSlug[f.spiel.slug] = f;
+    f.spiel.bewertung = { schnitt: f.schnitt, monatText: f.monatText };
   }
 
   const sammlung = [...spiele.values()].filter((s) => s.sammlung).sort((a, b) => a.name.localeCompare(b.name, "de"));
@@ -369,8 +409,8 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
       datum: datumTeile(letzterAbend).lang,
       spiele: [...new Set(partien.filter((p) => p.datum === letzterAbend).map((p) => p.schluessel))].map((k) => spiele.get(k)),
     } : null,
-    empfehlungen: empfehlungen.filter((g) => g.spiele.length),
-    fokus, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
+    empfehlungen,
+    fokus, fokusNachSlug, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
     alleSpiele: [...spiele.values()].sort((a, b) => a.name.localeCompare(b.name, "de")),
     warnungen,
   };

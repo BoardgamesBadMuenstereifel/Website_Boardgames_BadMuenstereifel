@@ -121,9 +121,9 @@ test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => 
 test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", async () => {
   const ordner = await testOrdner({ spiele: [KOPF_SPIELE, ["Mycelia", null, null, null, null, null]], partien: [["Datum", "Spiel"]], termine: [KOPF_TERMINE] });
   await writeExcelFile([
-    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Für wen", "Positiv", "Negativ", "Freigegeben"],
-      ["Mycelia", "08.11.2026", "Text", "Alle", "Gut\n- Kurz", null, "Ja"],
-      ["Entwurf", "09.11.2026", "Noch nicht fertig", null, null, null, null]]),
+    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Einordnung", "Für wen", "Positiv", "Negativ", "Freigegeben"],
+      ["Mycelia", "08.11.2026", "Text", null, "Alle", "Gut\n- Kurz", null, "Ja"],
+      ["Entwurf", "09.11.2026", "Noch nicht fertig", null, null, null, null, null]]),
     tabelle("Stimmen", [["Spiel", "Mitglied", "Note"], ["Mycelia", null, 8], ["Mycelia", "m01", 3], ["Mycelia", "M01", 6], ["Mycelia", null, 11]]),
     tabelle("O-Töne", [["Spiel", "Name", "Zitat", "Freigegeben"], ["Mycelia", "MF", "Schön", "Ja"], ["Mycelia", "XY", "Geheim", null]]),
   ]).toFile(path.join(ordner, "fokus.xlsx"));
@@ -139,6 +139,40 @@ test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", as
   assert.match(text, /Note muss eine ganze Zahl von 1 bis 10 sein/);
   const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
   assert.equal(e.fokus.length, 2);
+});
+
+test("Empfehlungen: Einordnungen aus dem Blatt, bewertete Spiele mit Note zuerst, Tipps nur freigegeben", async () => {
+  const ordner = await testOrdner({
+    spiele: [KOPF_SPIELE, ["Mycelia", null, null, null, null, null], ["Azul", null, null, null, null, null]],
+    partien: [["Datum", "Spiel"], ["01.10.2026", "Mycelia"]], termine: [KOPF_TERMINE],
+  });
+  await writeExcelFile([
+    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Einordnung", "Freigegeben"],
+      ["Mycelia", "08.11.2026", "Text", "familien mit kindern\nFamilienspieler\nKennerspiele", "Ja"]]),
+    tabelle("Stimmen", [["Spiel", "Mitglied", "Note"], ["Mycelia", null, 6]]),
+  ]).toFile(path.join(ordner, "fokus.xlsx"));
+  await writeExcelFile([
+    tabelle("Empfehlungen", [["Einordnung", "Spiel", "Kurzbegründung", "Freigegeben"],
+      ["Familien mit Kindern", "Azul", "Schön bunt", "Ja"],
+      ["Familien mit Kindern", "Mycelia", "Deckbau für alle", "Ja"],
+      ["Kinder", "Geheimtipp", null, null],
+      ["Partyspiele", "Just One", null, "Ja"]]),
+    tabelle("Einordnungen", [["Einordnung", "Text"], ["Kinder", "Für Kinder."], ["Familien mit Kindern", "Für alle."], ["Familienspieler", null], ["Kennerspieler", null]]),
+  ]).toFile(path.join(ordner, "empfehlungen.xlsx"));
+  const d = await ladeDaten({ ordner, heute: "2026-10-30" });
+  assert.deepEqual(d.fokus[0].einordnungen.map((e) => [e.name, e.anker]), [["Familien mit Kindern", "empf-familien-mit-kindern"], ["Familienspieler", "empf-familienspieler"]]);
+  assert.deepEqual(d.empfehlungen.map((g) => [g.name, g.text, g.spiele.map((s) => [s.spiel.name, s.note, s.grund])]), [
+    ["Familien mit Kindern", "Für alle.", [["Mycelia", "6,0", "Deckbau für alle"], ["Azul", null, "Schön bunt"]]],
+    ["Familienspieler", "", [["Mycelia", "6,0", ""]]],
+  ]);
+  const text = d.warnungen.join("\n");
+  assert.match(text, /Einordnung „Kennerspiele“ steht nicht auf dem Blatt Einordnungen/);
+  assert.match(text, /Einordnung „Partyspiele“ steht nicht auf dem Blatt Einordnungen/);
+  // Ranglisten und Spielseite finden die Bewertung über das Spiel
+  assert.deepEqual(d.meist12[0].spiel.bewertung, { schnitt: "6,0", monatText: "November 2026" });
+  assert.equal(d.fokusNachSlug.mycelia.zusammenfassung, "Text");
+  const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
+  assert.deepEqual(e.empfehlungen.map((g) => g.name), ["Kinder", "Familien mit Kindern", "Familienspieler"]);
 });
 
 test("BGG-XML: Felder, Entitäten, leere Werte", () => {
@@ -170,6 +204,10 @@ test("Von der Liste zur Seite: Reihenfolge, BGG-Daten, Vorschlag statt Raten", a
     termine: [KOPF_TERMINE, ["04.11.2026", null, "18:00", "A", "Spieleabend", "Hinweis X"]],
     orte: [["Ort", "Adresse"], ["A", "Teststraße 1, 53902 Bad Münstereifel"]],
   });
+  await writeExcelFile([
+    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Einordnung", "Freigegeben"], ["Beispiel Eins", "01.10.2026", "Zusammenfassung X", "Kenner", "Ja"]]),
+    tabelle("Stimmen", [["Spiel", "Mitglied", "Note"], ["Beispiel Eins", null, 7], ["Beispiel Eins", null, 8]]),
+  ]).toFile(path.join(ordner, "fokus.xlsx"));
   const env = { DATEN_ORDNER: ordner, BGG_FIXTURES: "1", BUILD_HEUTE: "2026-10-30" };
   const abruf = await lauf(process.execPath, ["skripte/bgg-abruf.mjs"], env);
   assert.equal(abruf.code, 0, abruf.text);
@@ -184,9 +222,13 @@ test("Von der Liste zur Seite: Reihenfolge, BGG-Daten, Vorschlag statt Raten", a
   assert.match(start, /2–5 Spieler/);
   assert.match(start, /Komplexität 2,3\/5/);
   assert.match(start, /Hinweis X/);
+  assert.match(start, /Im Fokus · unsere Note 7,5/);
   const detail = fs.readFileSync(path.join(ausgabe, "spiele/beispiel-eins/index.html"), "utf8");
   assert.match(detail, /ab 10 Jahren/);
   assert.match(detail, /boardgamegeek\.com\/boardgame\/1001/);
+  assert.match(detail, /id="bewertung"[\s\S]*Unsere Bewertung[\s\S]*Zusammenfassung X/);
+  const imFokus = fs.readFileSync(path.join(ausgabe, "im-fokus/index.html"), "utf8");
+  assert.match(imFokus, /id="empf-kenner"[\s\S]*Beispiel Eins[\s\S]*unsere Note 7,5/);
   assert.match(fs.readFileSync(path.join(ausgabe, "termine.ics"), "utf8"), /DTSTART:20261104T180000/);
   assert.ok(!fs.readFileSync(path.join(ordner, "spiele.xlsx")).includes("2001"), "Vorschlag wird nicht automatisch übernommen");
 });

@@ -23,8 +23,27 @@
     <h3><a href="{{ ('/spiele/' + eintrag.spiel.slug + '/') | url }}">{{ eintrag.spiel.name }}</a></h3>
     <p class="partien">{{ eintrag.partien }} {{ "Partie" if eintrag.partien == 1 else "Partien" }}{% if eintrag.spielzeit %} · {{ eintrag.spielzeit | spielzeit }}{% endif %}</p>
     {{ infos(eintrag.spiel) }}
+    {%- if eintrag.spiel.bewertung %}
+    <a class="fokus-hinweis" href="{{ ('/spiele/' + eintrag.spiel.slug + '/#bewertung') | url }}">Im Fokus{% if eintrag.spiel.bewertung.schnitt %} · unsere Note {{ eintrag.spiel.bewertung.schnitt }}{% endif %}</a>
+    {%- endif %}
   </div>
 </li>
+{% endmacro %}
+
+{# Eine Zeile der Hotlist #}
+{% macro hotzeile(e) %}
+<li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a>
+  {%- if e.spiel.bewertung %} <a class="fokus-marke" href="{{ ('/spiele/' + e.spiel.slug + '/#bewertung') | url }}">Im Fokus{% if e.spiel.bewertung.schnitt %} {{ e.spiel.bewertung.schnitt }}<span class="nur-sr"> von 10</span>{% endif %}</a>{% endif %}
+  <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
+{% endmacro %}
+
+{# Kurze Einordnung wie „Familien mit Kindern“, verlinkt auf die passende Empfehlungsgruppe #}
+{% macro einordnung(f) %}
+{%- if f.einordnungen.length %}
+<ul class="einordnung" aria-label="Passt für">
+  {%- for e in f.einordnungen %}<li><a href="{{ ('/im-fokus/#' + e.anker) | url }}">{{ e.name }}</a></li>{% endfor %}
+</ul>
+{%- endif %}
 {% endmacro %}
 
 {% macro terminzeile(t, mitAdresse) %}
@@ -42,11 +61,17 @@
 </li>
 {% endmacro %}
 
-{# Spiel im Fokus. kurz = Startseite (ohne Plus/Minus und O-Töne), h = Stufe der Spiel-Überschrift #}
-{% macro bewertung(f, kurz, h) %}
+{# Spiel im Fokus. modus: "voll" (Seite Im Fokus), "kurz" (Startseite, ohne Plus/Minus und O-Töne),
+   "spielseite" (auf der Seite des Spiels, ohne Bild und Namen). h = Stufe der obersten Überschrift #}
+{% macro bewertung(f, modus, h) %}
 {%- set h2 = h + 1 %}
-<article class="bewertung" id="{{ f.spiel.slug }}">
+{%- set kurz = modus == "kurz" %}
+<article class="bewertung" id="{{ 'bewertung' if modus == 'spielseite' else f.spiel.slug }}">
   <div class="bew-text">
+    {%- if modus == "spielseite" %}
+    {%- if f.monatText %}<p class="eyebrow">Im Fokus: {{ f.monatText }}</p>{% endif %}
+    <h{{ h }} class="bew-name">Unsere Bewertung</h{{ h }}>
+    {%- else %}
     <div class="bew-kopf">
       {{ cover(f.spiel, "bew-bild") }}
       <div>
@@ -55,6 +80,8 @@
         {{ infos(f.spiel) }}
       </div>
     </div>
+    {%- endif %}
+    {{ einordnung(f) }}
     <p>{{ f.zusammenfassung }}</p>
     {%- if f.fuerWen %}<p><b>Für wen?</b> {{ f.fuerWen }}</p>{% endif %}
     {%- if not kurz and (f.positiv.length or f.negativ.length) %}
@@ -67,7 +94,7 @@
       {%- endif %}
     </div>
     {%- endif %}
-    {%- if kurz %}<p><a href="{{ ('/im-fokus/#' + f.spiel.slug) | url }}">Ganze Bewertung lesen</a></p>{% endif %}
+    {%- if kurz %}<p><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">Ganze Bewertung lesen</a></p>{% endif %}
   </div>
   <div class="fokus-wertung">
     <h{{ h2 }} class="w-titel">Unsere Note</h{{ h2 }}>

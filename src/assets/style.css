@@ -173,7 +173,7 @@ h3 { font-size: 1.2rem; }
 .hot h3 { color: var(--aubergine); margin-bottom: .1rem; font-size: 1.1rem; }
 .hot .klein-info { margin: 0 0 .5rem; display: block; }
 .hot ol { margin: 0; padding-left: 1.4rem; }
-.hot li { padding: .25rem 0; }
+.hot li { padding: .25rem 0; display: flow-root list-item; } /* lange Namen: Stundenzahl bleibt in ihrer Zeile */
 .hot li::marker { color: var(--aubergine); font-weight: 700; }
 .hot a { color: var(--tinte); }
 .hot li span { float: right; font-weight: 700; color: var(--aubergine); }
@@ -232,10 +232,39 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 
 /* Empfehlungen */
 .empf { display: grid; gap: .9rem; }
-.empf-karte { background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.empf-karte { background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem; scroll-margin-top: 1rem; }
 .empf-karte h3 { color: var(--aubergine); margin: 0 0 .4rem; padding-bottom: .4rem; border-bottom: 3px solid var(--gold); }
+.empf-satz { margin: 0 0 .3rem; font-size: .98rem; }
 .empf-karte ul { list-style: none; margin: 0; padding: 0; }
 .empf-karte li a { display: block; padding: .4rem 0; font-weight: 700; color: var(--tinte); }
+.empf-karte li .empf-note { display: inline-block; margin: -.2rem 0 .3rem; padding: 0 .5rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .82rem; font-weight: 700; }
+
+/* Hinweis auf eine Bewertung in Ranglisten und auf der Spielseite */
+.fokus-hinweis { position: relative; z-index: 1; display: inline-block; margin-top: .35rem; padding: .15rem .6rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .85rem; font-weight: 700; text-decoration: none; }
+.fokus-hinweis:hover { background: var(--tinte); color: var(--creme); }
+.hot .fokus-marke { display: inline-block; padding: 0 .45rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .78rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.hot .fokus-marke:hover { background: var(--tinte); }
+.fokus-hinweis-gross { margin: 0 0 .8rem; }
+.fokus-hinweis-gross a { display: inline-block; padding: .3rem .8rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-weight: 700; text-decoration: none; }
+.fokus-hinweis-gross a:hover { background: var(--tinte); }
+.spiel-bewertung { margin-top: 1.6rem; }
+.spiel-bewertung .bewertung { scroll-margin-top: 1rem; }
+
+/* Einordnung einer Bewertung, z. B. „Familien mit Kindern“ */
+.einordnung { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: .8rem 0 0; padding: 0; }
+.einordnung a { display: inline-block; padding: .15rem .7rem; border: 2px solid var(--aubergine); border-radius: 999px; color: var(--aubergine); font-size: .9rem; font-weight: 700; text-decoration: none; }
+.einordnung a:hover { background: var(--aubergine); color: var(--creme); }
+
+/* Frühere Spiele im Fokus */
+.fokus-archiv { display: grid; gap: .9rem; list-style: none; margin: 0; padding: 0; }
+.archiv-karte { position: relative; display: grid; grid-template-columns: 5.2rem 1fr; gap: .9rem; background: var(--creme-hell); border-radius: var(--radius); padding: .7rem; }
+.archiv-karte .bild { aspect-ratio: 1; border-radius: 10px; background: repeating-linear-gradient(45deg, var(--creme), var(--creme) 8px, #e6d3b6 8px, #e6d3b6 16px); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 1.6rem; color: var(--aubergine); font-weight: 700; }
+.archiv-karte h3 { margin: .1rem 0 .2rem; font-size: 1.1rem; }
+.archiv-karte h3 a { color: var(--tinte); text-decoration: none; }
+.archiv-karte h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.archiv-karte h3 a:hover { text-decoration: underline; }
+.archiv-note { margin: 0; font-weight: 700; color: var(--aubergine); }
+.archiv-einordnung { margin: .15rem 0 0; font-size: .9rem; color: var(--aubergine); }
 .dummy { display: inline-block; font-size: .8rem; background: var(--tinte); color: var(--creme); padding: .05rem .55rem; border-radius: 999px; margin-left: .3rem; font-weight: 400; vertical-align: .1em; }
 
 /* Spiel im Fokus */
@@ -250,7 +279,8 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .filter { grid-template-columns: repeat(4, 1fr); }
   .sammlung { grid-template-columns: 1fr 1fr; }
   .spiel-seite { grid-template-columns: 20rem 1fr; }
-  .empf { grid-template-columns: repeat(3, 1fr); }
+  .empf { grid-template-columns: repeat(2, 1fr); }
+  .fokus-archiv { grid-template-columns: 1fr 1fr; }
   .zweispaltig { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .schritte { grid-template-columns: repeat(3, 1fr); }
   .spiele { grid-template-columns: 1fr 1fr; }
@@ -263,7 +293,8 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .hero-bild { --rand: calc((100vw - min(100vw - 2rem, 68rem)) / 2); width: calc(100% + var(--rand)); margin: 1.4rem 0 0 calc(-1 * var(--rand)); }
   .liste-gruppe { grid-template-columns: 2.2fr 1fr; gap: 2rem; }
   .liste-gruppe .spiele { grid-template-columns: 1fr 1fr; }
-  .empf { grid-template-columns: repeat(5, 1fr); }
+  .empf { grid-template-columns: repeat(3, 1fr); }
+  .fokus-archiv { grid-template-columns: repeat(3, 1fr); }
   .termine { grid-template-columns: 1fr 1fr; }
   .termine[data-limit="3"] { grid-template-columns: repeat(3, 1fr); }
   .hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; padding-top: 1.5rem; }

@@ -104,7 +104,22 @@ Das muss nur einmal gemacht werden.
 2. **Veröffentlichung einschalten:** unter **Settings → Pages** bei **Source** die Option **GitHub Actions** wählen.
 3. **BGG-Token beantragen:** unter boardgamegeek.com/applications registrieren. Die Freigabe kann über eine Woche dauern.
 4. **Token hinterlegen:** unter **Settings → Secrets and variables → Actions → New repository secret**, Name `BGG_TOKEN`, Wert ist dein Token. Schreibe den Token nie in eine Datei.
-5. **Eigene Domain:** Trage die Domain unter **Settings → Pages → Custom domain** ein und richte die DNS-Einträge beim Domain-Anbieter ein, wie GitHub es dort anzeigt. Lege dann unter **Settings → Secrets and variables → Actions → Variables** die Variable `EIGENE_DOMAIN` mit dem Wert `ja` an.
+5. **Eigene Domain:** Die Domain `boardgames-muenstereifel.club` ist über Canva gekauft und bleibt dort. Du findest sie in Canva unter **Einstellungen → Web domains**. Sie verlängert sich jedes Jahr automatisch, das nächste Mal am 11.08.2027. So zeigt sie auf diese Seite:
+   1. **Domain bei GitHub bestätigen:** Auf GitHub oben rechts aufs Profilbild, dann **Settings → Pages → Add a domain**, `boardgames-muenstereifel.club` eintragen. Den angezeigten TXT-Eintrag legst du in Canva an: Domain auswählen, **Advanced settings → Manage**, DNS-Einträge. Ins Feld für den Namen gehört nur der Teil vor `.boardgames-muenstereifel.club`. Dann bei GitHub auf **Verify** klicken.
+   2. **In Canva umstellen:** Unter **Advanced settings** den Schalter **Connected to Canva** ausschalten. Ab dann ist die alte Canva-Seite offline. Lösche die A-Einträge `@` und `www` mit dem Wert `103.169.142.0` und lege diese an:
+
+      | Typ | Name | Wert |
+      |---|---|---|
+      | A | @ | 185.199.108.153 |
+      | A | @ | 185.199.109.153 |
+      | A | @ | 185.199.110.153 |
+      | A | @ | 185.199.111.153 |
+      | CNAME | www | boardgamesbadmuenstereifel.github.io |
+
+   3. **GitHub die Domain mitteilen:** Im Repository unter **Settings → Pages → Custom domain** `www.boardgames-muenstereifel.club` eintragen und speichern. Sobald die DNS-Prüfung grün ist, **Enforce HTTPS** anhaken.
+   4. **Seite umstellen:** Unter **Settings → Secrets and variables → Actions → Variables** die Variable `EIGENE_DOMAIN` mit dem Wert `ja` anlegen. Dann unter **Actions → Website bauen → Run workflow** neu bauen. Ohne diese Variable führen die Links auf der eigenen Domain ins Leere.
+
+   Schalte **Connected to Canva** danach nicht wieder ein, sonst zeigt die Domain womöglich wieder auf die alte Canva-Seite.
 
 ## Für Technik-Interessierte
 

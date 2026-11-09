@@ -3102,5 +3102,23 @@
    "name": "Wild World",
    "jahr": 2026
   }
+ ],
+ "Bossfighter QR": [],
+ "Wizard": [
+  {
+   "id": "1465",
+   "name": "Wizard",
+   "jahr": 1984
+  },
+  {
+   "id": "3463",
+   "name": "Wizard",
+   "jahr": 1978
+  },
+  {
+   "id": "108005",
+   "name": "Wizard",
+   "jahr": 1979
+  }
  ]
 }

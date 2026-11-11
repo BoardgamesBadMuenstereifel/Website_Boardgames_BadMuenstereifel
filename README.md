@@ -83,10 +83,10 @@ Die Empfehlungen stehen auf der Seite „Im Fokus“, sortiert nach Einordnung, 
 
 Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Die neueste steht oben auf der Seite „Im Fokus“ und auf der Startseite. Jede Bewertung steht außerdem dauerhaft auf der Seite des Spiels, z. B. `/spiele/mycelia/`. Darauf verweisen die Seite „Im Fokus“ unter „Frühere Spiele im Fokus“, die Empfehlungen und die Ranglisten („Im Fokus · unsere Note …“). Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung oder Empfehlung freigegeben ist.
 
-- **Blatt Spiele im Fokus:** Spiel, Datum, Einleitung, Einordnung, Thema, Spielablauf, Material, Für wen, Für wen nicht, Positiv, Negativ, Fazit, Freigegeben.
+- **Blatt Spiele im Fokus:** Spiel, Datum, Einleitung, Einordnung, Thema, Spielablauf, Material, Für wen, Positiv, Negativ, Fazit, Freigegeben.
   - **Einleitung** ist der erste Absatz, er steht auch auf der Startseite. Pflicht.
   - **Thema**, **Spielablauf** (erscheint als „So wird gespielt“), **Material** und **Fazit** sind die Teilbereiche der Bewertung. Leere Spalten erscheinen einfach nicht.
-  - **Für wen** und **Für wen nicht** stehen nebeneinander in zwei Kästen: „Für wen es passt“ und „Für wen eher nicht“.
+  - **Für wen** ist ein kurzer Satz, der nur in der Kurzfassung auf der Startseite erscheint („Für wen? …“). In der ganzen Bewertung zeigen die Einordnung, Plus/Minus und das Fazit, für wen das Spiel passt.
   - **Einordnung** ist die kurze Einordnung, für wen das Spiel passt, z. B. „Familien mit Kindern“. Erlaubt sind die Einordnungen vom Blatt Einordnungen in `empfehlungen.xlsx`. Mehrere Einordnungen schreibst du untereinander in die Zelle.
   - Bei **Einordnung**, **Positiv** und **Negativ** steht jeder Eintrag in einer eigenen Zeile der Zelle. Bei den Textfeldern wird jede Zeile ein eigener Absatz. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
   - Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.

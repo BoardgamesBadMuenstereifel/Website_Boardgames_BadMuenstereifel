@@ -360,8 +360,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
       abschnitte: [["Thema", "Thema"], ["Spielablauf", "So wird gespielt"], ["Material", "Material"]]
         .map(([spalte, titel]) => ({ titel, absaetze: punkte(z[spalte]) }))
         .filter((a) => a.absaetze.length),
-      fuerWen: punkte(z["Für wen"]).join(" "),
-      fuerWenNicht: punkte(z["Für wen nicht"]).join(" "),
+      fuerWen: punkte(z["Für wen"]).join(" "), // nur in der Kurzfassung auf der Startseite
       fazit: punkte(z["Fazit"]),
       positiv: punkte(z["Positiv"]), negativ: punkte(z["Negativ"]),
       stimmen: noten.length, verteilung, otoene,

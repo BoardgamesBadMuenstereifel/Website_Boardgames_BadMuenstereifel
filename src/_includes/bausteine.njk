@@ -106,12 +106,6 @@
       {%- for p in a.absaetze %}<p>{{ p }}</p>{% endfor %}
     </section>
     {%- endfor %}
-    {%- if f.fuerWen or f.fuerWenNicht %}
-    <div class="passt">
-      {%- if f.fuerWen %}<div class="passt-ja"><h{{ h2 }}>Für wen es passt</h{{ h2 }}><p>{{ f.fuerWen }}</p></div>{% endif %}
-      {%- if f.fuerWenNicht %}<div class="passt-nein"><h{{ h2 }}>Für wen eher nicht</h{{ h2 }}><p>{{ f.fuerWenNicht }}</p></div>{% endif %}
-    </div>
-    {%- endif %}
     {%- endif %}
     {%- if not kurz and (f.positiv.length or f.negativ.length) %}
     <div class="plusminus">

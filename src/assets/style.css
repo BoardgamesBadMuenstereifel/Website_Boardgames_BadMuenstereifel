@@ -346,18 +346,9 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .bew-abschnitt { margin-top: 1.3rem; }
 .bew-abschnitt h3, .bew-abschnitt h4, .bew-fazit h3, .bew-fazit h4 { font-size: 1.15rem; margin: 0 0 .3rem; color: var(--aubergine); }
 .bew-abschnitt p, .bew-fazit p { margin: 0 0 .6rem; }
-.passt { display: grid; gap: .8rem; margin-top: 1.3rem; }
-.passt-ja, .passt-nein { border: 2px solid var(--farbe); border-radius: 12px; padding: .8rem 1rem; }
-.passt-ja { --farbe: #2e6b3c; }
-.passt-nein { --farbe: #a63a30; }
-.passt h3, .passt h4 { font-size: 1.05rem; margin: 0 0 .3rem; color: var(--farbe); display: flex; align-items: center; gap: .45rem; }
-.passt-ja h3::before, .passt-ja h4::before { content: "✓"; }
-.passt-nein h3::before, .passt-nein h4::before { content: "✗"; }
-.passt p { margin: 0; }
 .bew-fazit { margin-top: 1.3rem; background: var(--aubergine); color: var(--creme-hell); border-radius: 12px; padding: 1rem 1.1rem; }
 .bew-fazit h3, .bew-fazit h4 { color: var(--gold); font-size: 1.25rem; } /* große Schrift: Gold auf Aubergine 3,8:1 */
 .bew-fazit p:last-child { margin-bottom: 0; }
-@media (min-width: 40rem) { .passt { grid-template-columns: 1fr 1fr; } }
 
 .plusminus { display: grid; gap: .8rem; margin-top: 1rem; }
 .plus, .minus { background: var(--creme); border-radius: 12px; padding: .8rem 1rem; border-left: 6px solid var(--farbe); }

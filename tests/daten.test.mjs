@@ -137,7 +137,7 @@ test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", as
   // Teilbereiche: leere fallen weg, jede Zeile ist ein Absatz
   assert.equal(f.zusammenfassung, "Text");
   assert.deepEqual(f.abschnitte, [{ titel: "Thema", absaetze: ["Wald", "Göttin"] }]);
-  assert.deepEqual([f.fuerWen, f.fuerWenNicht, f.fazit], ["Alle", "Profis", ["Schön"]]);
+  assert.deepEqual([f.fuerWen, f.fazit], ["Alle", ["Schön"]]);
   const text = d.warnungen.join("\n");
   assert.match(text, /M01 hat bei „Mycelia“ mehrfach abgestimmt/);
   assert.match(text, /Note muss eine ganze Zahl von 1 bis 10 sein/);

@@ -65,6 +65,18 @@ layout: basis.njk
 </section>
 {%- endif %}
 
+{%- if daten.empfehlungen.length %}
+<section class="sektion" id="einstieg" aria-label="Empfehlungen für den Einstieg ins Hobby" style="padding-bottom:0">
+  <div class="wrap teaser">
+    <a class="teaser-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
+      <span class="eyebrow">Neu im Hobby?</span>
+      <strong>Unsere Empfehlungen für deinen Einstieg</strong>
+      <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt, und was danach kommen kann.</span>
+    </a>
+  </div>
+</section>
+{%- endif %}
+
 {%- if daten.meist12.length %}
 <section class="sektion" id="spiele" aria-labelledby="h-spiele">
   <div class="wrap">
@@ -105,19 +117,7 @@ layout: basis.njk
 </section>
 {%- endif %}
 
-{%- if daten.empfehlungen.length %}
-<section class="sektion" aria-label="Unsere Empfehlungen">
-  <div class="wrap teaser">
-    <a class="teaser-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
-      <span class="eyebrow">Unsere Empfehlungen</span>
-      <strong>Das passende Spiel finden</strong>
-      <span>Vom ersten Spiel mit Kindern bis zur Expertenrunde</span>
-    </a>
-  </div>
-</section>
-{%- endif %}
-
-<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.fokus.length or daten.empfehlungen.length %} style="padding-top:0"{% endif %}>
+<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.fokus.length %} style="padding-top:0"{% endif %}>
   <div class="wrap zweispaltig">
     {% include "kontakt-block.njk" %}
   </div>

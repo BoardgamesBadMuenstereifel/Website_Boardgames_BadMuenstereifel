@@ -223,8 +223,8 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const maxDauer = (schluessel) => spiele.get(schluessel)?.bgg?.maxDauer || null;
   const meist12 = rangliste(partien, monateZurueck(heute, 12), maxDauer).map(mitSpiel);
   const meist3 = rangliste(partien, monateZurueck(heute, 3), maxDauer).map(mitSpiel);
-  // Hall of Fame: die meisten Partien seit Beginn der Aufzeichnung
-  const hallOfFame = rangliste(partien).slice(0, 5).map(mitSpiel);
+  // Hall of Fame: die meiste Spielzeit seit Beginn der Aufzeichnung (wie Hotlist: Partien × maximale Dauer)
+  const hallOfFame = rangliste(partien, null, maxDauer).slice(0, 5).map(mitSpiel);
   const erstesDatum = partien.reduce((min, p) => (!min || p.datum < min ? p.datum : min), "");
   const hallOfFameSeit = erstesDatum ? `${MONATE_LANG[Number(erstesDatum.slice(5, 7)) - 1]} ${erstesDatum.slice(0, 4)}` : "";
   const abende = [...new Set(partien.map((p) => p.datum))].sort();

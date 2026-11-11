@@ -167,10 +167,10 @@
 {%- if liste.length %}
 <aside class="ruhm" aria-labelledby="h-ruhm">
   <h{{ h }} id="h-ruhm"><svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg> Hall of Fame</h{{ h }}>
-  <p class="klein-info">Am häufigsten gespielt{% if seit %} seit {{ seit }}{% endif %}</p>
+  <p class="klein-info">Die meiste Spielzeit{% if seit %} seit {{ seit }}{% endif %}</p>
   <ol>
     {%- for e in liste %}
-    <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.partien }} Partien</span></li>
+    <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
     {%- endfor %}
   </ol>
 </aside>

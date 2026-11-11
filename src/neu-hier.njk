@@ -20,16 +20,20 @@ permalink: /neu-hier/
     {%- if daten.fotosNeuHier.length %}
     {% import "bausteine.njk" as b %}
     <h2 class="unter-h">So sieht ein Spieleabend aus</h2>
-    <ul class="sofortbilder" aria-label="Fotos von unseren Spieleabenden">
-      {%- for f in daten.fotosNeuHier %}
-      <li class="sofortbild" style="--i: {{ loop.index0 }}">
-        <figure>
-          {{ b.bild(f, "(min-width: 60rem) 28rem, (min-width: 40rem) 46vw, 80vw") }}
-          <figcaption><strong>{{ f.titel or "Bei uns" }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>
-        </figure>
-      </li>
-      {%- endfor %}
-    </ul>
+    <div class="streifen-rahmen">
+      <ul class="sofortbilder streifen" id="neu-streifen" aria-label="Fotos von unseren Spieleabenden">
+        {%- for f in daten.fotosNeuHier %}
+        <li class="sofortbild" style="--i: {{ loop.index0 }}">
+          <figure>
+            {{ b.bild(f, "(min-width: 60rem) 21rem, (min-width: 40rem) 42vw, 80vw") }}
+            <figcaption><strong>{{ f.titel or "Bei uns" }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>
+          </figure>
+        </li>
+        {%- endfor %}
+      </ul>
+      <button type="button" class="streifen-knopf zurueck" data-richtung="-1" aria-controls="neu-streifen" aria-label="Vorherige Fotos" hidden>‹</button>
+      <button type="button" class="streifen-knopf weiter" data-richtung="1" aria-controls="neu-streifen" aria-label="Weitere Fotos" hidden>›</button>
+    </div>
     {%- endif %}
 
     <h2 class="unter-h">So laufen unsere Termine ab</h2>

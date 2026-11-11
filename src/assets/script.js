@@ -99,3 +99,27 @@
   document.documentElement.classList.add("bewegt");
   bilder.forEach(function (b) { beobachter.observe(b); });
 })();
+
+// Bildstreifen „Vom Spieltisch“: Knöpfe zum Blättern, solange es links oder rechts weitergeht
+(function () {
+  document.querySelectorAll(".streifen-rahmen").forEach(function (rahmen) {
+    var streifen = rahmen.querySelector(".streifen");
+    var knoepfe = rahmen.querySelectorAll(".streifen-knopf");
+    if (!streifen || !knoepfe.length) return;
+    function pruefen() {
+      var max = streifen.scrollWidth - streifen.clientWidth - 2;
+      knoepfe.forEach(function (k) {
+        k.hidden = max <= 0;
+        k.disabled = k.dataset.richtung === "-1" ? streifen.scrollLeft <= 2 : streifen.scrollLeft >= max;
+      });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        streifen.scrollBy({ left: Number(k.dataset.richtung) * streifen.clientWidth * 0.9 });
+      });
+    });
+    streifen.addEventListener("scroll", pruefen, { passive: true });
+    window.addEventListener("resize", pruefen);
+    pruefen();
+  });
+})();

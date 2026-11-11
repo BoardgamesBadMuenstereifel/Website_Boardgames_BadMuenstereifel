@@ -54,9 +54,13 @@ layout: basis.njk
   <div class="wrap">
     <h2 id="h-tisch">Vom Spieltisch</h2>
     <p class="lead">So sieht es bei unseren Spieleabenden aus. Tipp auf ein Foto, dann erfährst du mehr über das Spiel.</p>
-    <ul class="sofortbilder" aria-label="Fotos von unseren Spieleabenden">
-      {%- for f in daten.fotosStart %}{{ b.sofortbild(f, "(min-width: 60rem) 28rem, (min-width: 40rem) 46vw, 80vw", loop.index0) }}{% endfor %}
-    </ul>
+    <div class="streifen-rahmen">
+      <ul class="sofortbilder streifen" id="tisch-streifen" aria-label="Fotos von unseren Spieleabenden">
+        {%- for f in daten.fotosStart %}{{ b.sofortbild(f, "(min-width: 60rem) 21rem, (min-width: 40rem) 42vw, 80vw", loop.index0) }}{% endfor %}
+      </ul>
+      <button type="button" class="streifen-knopf zurueck" data-richtung="-1" aria-controls="tisch-streifen" aria-label="Vorherige Fotos" hidden>‹</button>
+      <button type="button" class="streifen-knopf weiter" data-richtung="1" aria-controls="tisch-streifen" aria-label="Weitere Fotos" hidden>›</button>
+    </div>
   </div>
 </section>
 {%- endif %}
@@ -72,14 +76,17 @@ layout: basis.njk
           {%- for e in daten.meist12 | batch(5) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
         </ol>
       </div>
-      {%- if daten.meist3.length %}
-      <aside class="hot" aria-labelledby="h-hot">
-        <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
-        <ol>
-          {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
-        </ol>
-      </aside>
-      {%- endif %}
+      <div class="seitenleiste">
+        {%- if daten.meist3.length %}
+        <aside class="hot" aria-labelledby="h-hot">
+          <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
+          <ol>
+            {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
+          </ol>
+        </aside>
+        {%- endif %}
+        {{ b.ruhmesliste(daten.hallOfFame, daten.hallOfFameSeit, 3) }}
+      </div>
     </div>
     <div class="band-fuss">
       <a class="btn btn-rand" href="{{ '/spiele/' | url }}">Alle Spiele ansehen</a>

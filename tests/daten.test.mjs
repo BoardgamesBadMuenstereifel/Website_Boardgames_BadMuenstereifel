@@ -175,6 +175,9 @@ test("Empfehlungen: Einordnungen aus dem Blatt, bewertete Spiele mit Note zuerst
   // Ranglisten und Spielseite finden die Bewertung über das Spiel
   assert.deepEqual(d.meist12[0].spiel.bewertung, { schnitt: "6,0", monatText: "November 2026" });
   assert.equal(d.fokusNachSlug.mycelia.zusammenfassung, "Text");
+  // Hall of Fame: nach Partien über die ganze Zeit
+  assert.deepEqual(d.hallOfFame.map((e) => [e.spiel.name, e.partien]), [["Mycelia", 1]]);
+  assert.equal(d.hallOfFameSeit, "Oktober 2026");
   const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
   assert.deepEqual(e.empfehlungen.map((g) => g.name), ["Kinder", "Familien mit Kindern", "Familienspieler"]);
 });

@@ -16,13 +16,16 @@ permalink: /spiele/
           {%- for e in daten.meist12 | batch(10) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
         </ol>
       </div>
-      <aside class="hot" aria-labelledby="h-hot">
-        <h2 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h2>
-        <p class="klein-info">{{ daten.zahlen3.abende }} Abende, {{ daten.zahlen3.partien }} Partien</p>
-        <ol>
-          {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
-        </ol>
-      </aside>
+      <div class="seitenleiste">
+        <aside class="hot" aria-labelledby="h-hot">
+          <h2 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h2>
+          <p class="klein-info">{{ daten.zahlen3.abende }} Abende, {{ daten.zahlen3.partien }} Partien</p>
+          <ol>
+            {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
+          </ol>
+        </aside>
+        {{ b.ruhmesliste(daten.hallOfFame, daten.hallOfFameSeit, 2) }}
+      </div>
     </div>
     {%- if daten.letzterAbend %}
     <div class="letzter">

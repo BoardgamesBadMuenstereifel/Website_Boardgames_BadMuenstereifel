@@ -223,6 +223,10 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const maxDauer = (schluessel) => spiele.get(schluessel)?.bgg?.maxDauer || null;
   const meist12 = rangliste(partien, monateZurueck(heute, 12), maxDauer).map(mitSpiel);
   const meist3 = rangliste(partien, monateZurueck(heute, 3), maxDauer).map(mitSpiel);
+  // Hall of Fame: die meisten Partien seit Beginn der Aufzeichnung
+  const hallOfFame = rangliste(partien).slice(0, 5).map(mitSpiel);
+  const erstesDatum = partien.reduce((min, p) => (!min || p.datum < min ? p.datum : min), "");
+  const hallOfFameSeit = erstesDatum ? `${MONATE_LANG[Number(erstesDatum.slice(5, 7)) - 1]} ${erstesDatum.slice(0, 4)}` : "";
   const abende = [...new Set(partien.map((p) => p.datum))].sort();
   const letzterAbend = abende.at(-1);
   const zaehle = (ab) => {
@@ -446,7 +450,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
 
   return {
     heute, termine, termineNachMonat,
-    meist12, meist3,
+    meist12, meist3, hallOfFame, hallOfFameSeit,
     zahlen12: zaehle(monateZurueck(heute, 12)), zahlen3: zaehle(monateZurueck(heute, 3)),
     letzterAbend: letzterAbend ? {
       datum: datumTeile(letzterAbend).lang,

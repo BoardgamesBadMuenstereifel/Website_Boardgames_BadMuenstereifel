@@ -472,3 +472,44 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .stapel:hover .sofortbild:nth-child(1) figure { transform: translateX(-.6rem) rotate(-5deg); }
 .stapel:hover .sofortbild:nth-child(2) figure { transform: translate(1.4rem, .4rem) rotate(6deg); }
 .stapel .sofortbild:hover { z-index: 3; }
+
+/* Seitenleiste neben den Ranglisten: Hotlist und Hall of Fame untereinander */
+.seitenleiste { display: grid; gap: 1.2rem; align-self: start; }
+
+/* Hall of Fame: golden abgesetzt */
+.ruhm { position: relative; background: linear-gradient(160deg, #fff8e6, #f6dfae); border: 2px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: 0 4px 0 var(--gold-dunkel), inset 0 0 0 4px rgb(255 255 255 / .45); }
+.ruhm h2, .ruhm h3 { display: flex; align-items: center; gap: .4rem; margin: 0 0 .1rem; font-size: 1.2rem; color: var(--tinte); }
+.ruhm .krone { width: 1.3em; height: 1.3em; flex: none; }
+.ruhm .klein-info { margin: 0 0 .5rem; display: block; color: var(--tinte); }
+.ruhm ol { margin: 0; padding: 0; list-style: none; counter-reset: ruhm; }
+.ruhm li { counter-increment: ruhm; display: grid; grid-template-columns: 1.8rem 1fr auto; align-items: center; gap: .55rem; padding: .3rem 0; border-top: 1px dashed rgb(184 111 18 / .45); }
+.ruhm li:first-child { border-top: 0; }
+.ruhm li::before { content: counter(ruhm); display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; font-family: var(--schrift-titel); font-weight: 700; background: #fff; color: var(--tinte); box-shadow: inset 0 0 0 2px var(--gold); }
+.ruhm li:nth-child(1)::before { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--gold)); box-shadow: none; }
+.ruhm li:nth-child(2)::before { background: radial-gradient(circle at 35% 30%, #f4f4f4, #b9bcc0); box-shadow: none; }
+.ruhm li:nth-child(3)::before { background: radial-gradient(circle at 35% 30%, #f3c6a0, #c27c4a); box-shadow: none; }
+.ruhm a { color: var(--tinte); font-weight: 700; }
+.ruhm li span { font-weight: 700; color: var(--tinte); white-space: nowrap; font-size: .95rem; }
+
+/* Startseite: Fotos als Bildstreifen, auch am Computer nur wenige auf einmal */
+.streifen-rahmen { position: relative; }
+.sofortbilder.streifen { display: flex; gap: 1.4rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; margin: 1rem -1rem 0; padding: 1.2rem 1rem 2.2rem; scroll-padding-inline: 1rem; overscroll-behavior-x: contain; }
+.sofortbilder.streifen > .sofortbild { flex: 0 0 min(80vw, 22rem); grid-column: auto; margin-top: 0; scroll-snap-align: start; }
+.streifen-knopf { position: absolute; top: 42%; z-index: 4; width: 3rem; height: 3rem; border: 0; border-radius: 50%; background: var(--gold); color: var(--tinte); font-size: 2rem; line-height: 1; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgb(0 0 0 / .35); display: grid; place-items: center; padding: 0 0 .2rem; }
+.streifen-knopf:hover { background: #f0b45a; }
+.streifen-knopf:disabled { opacity: 0; pointer-events: none; }
+.streifen-knopf.zurueck { left: -.6rem; }
+.streifen-knopf.weiter { right: -.6rem; }
+.tisch .streifen-knopf:focus-visible { outline: 3px solid var(--creme-hell); outline-offset: 3px; }
+@media (min-width: 40rem) {
+  .sofortbilder.streifen { margin-inline: 0; padding-inline: .4rem; scroll-padding-inline: .4rem; }
+  .sofortbilder.streifen > .sofortbild { flex-basis: calc((100% - 1.4rem) / 2.15); }
+}
+@media (min-width: 60rem) {
+  .sofortbilder.streifen { gap: 2rem; }
+  .sofortbilder.streifen > .sofortbild { flex-basis: calc((100% - 4rem) / 3.2); }
+  .streifen-knopf.zurueck { left: -1.5rem; }
+  .streifen-knopf.weiter { right: -1.5rem; }
+}
+@media (hover: none) and (max-width: 39.99rem) { .streifen-knopf { display: none; } }
+@media (prefers-reduced-motion: reduce) { .sofortbilder.streifen { scroll-behavior: auto; } }

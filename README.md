@@ -102,7 +102,7 @@ Eigene Fotos erscheinen als Sofortbilder: auf der Startseite unter „Vom Spielt
 
 **Wichtig vor dem Hochladen:** Das Repository ist öffentlich, und Git vergisst nichts. Deshalb kommen **nie die Originalfotos ins Repository**, sondern nur die aufbereiteten Fassungen. Auf den Fotos dürfen keine Gesichter, Namensschilder, Tattoos oder privaten Wohnungen zu erkennen sein. Hände am Spieltisch sind in Ordnung.
 
-**Fotos mit Personen** legst du in den Unterordner `Fotos\Original mit Personen`. Die Stellen zum Verpixeln stehen in `Fotos\verpixeln.json` (Pixel im Original: links, oben, Breite, Höhe). `node skripte/verpixeln.mjs` legt die verpixelte Fassung in den Ordner `Fotos`. Erst diese Fassung trägst du wie unten in `fotos.xlsx` ein. Am einfachsten bittest du Claude darum und schaust dir das Ergebnis an, bevor es online geht.
+**Fotos mit Personen** legst du in den Unterordner `Fotos\Original mit Personen`. Die Stellen zum Verpixeln stehen in `Fotos\verpixeln.json` (Pixel im Original: links, oben, Breite, Höhe). `node skripte/verpixeln.mjs` legt die verpixelte Fassung in den Ordner `Fotos`. Statt nur zu verpixeln, kann auch unser Logo wie ein Sticker auf jedem Gesicht sitzen: Dafür schreibst du beim Foto `{ "art": "logo", "bereiche": [...] }`. Darunter wird trotzdem verpixelt, falls eine Ecke vorbeischaut. `node skripte/verpixeln.mjs --logo --muster` legt zum Vergleich von jedem Foto eine Fassung `…-mit-logo.jpg` an. Erst diese Fassung trägst du wie unten in `fotos.xlsx` ein. Am einfachsten bittest du Claude darum und schaust dir das Ergebnis an, bevor es online geht.
 
 So kommt ein neues Foto auf die Seite:
 

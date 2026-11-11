@@ -162,6 +162,21 @@
 </article>
 {% endmacro %}
 
+{#- Hall of Fame: die meistgespielten Spiele aller Zeiten, golden abgesetzt #}
+{% macro ruhmesliste(liste, seit, h) %}
+{%- if liste.length %}
+<aside class="ruhm" aria-labelledby="h-ruhm">
+  <h{{ h }} id="h-ruhm"><svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg> Hall of Fame</h{{ h }}>
+  <p class="klein-info">Am häufigsten gespielt{% if seit %} seit {{ seit }}{% endif %}</p>
+  <ol>
+    {%- for e in liste %}
+    <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a> <span>{{ e.partien }} Partien</span></li>
+    {%- endfor %}
+  </ol>
+</aside>
+{%- endif %}
+{% endmacro %}
+
 {% macro flamme() %}<svg class="flamme" viewBox="0 0 24 24" aria-hidden="true"><path fill="#cf4639" d="M12 2c1 4 6 6.500 6 12a6 6 0 0 1-12 0c0-2.500 1.200-4 2.500-5.200.3 1.700 1 2.700 2 3.200C10 8.500 10.500 5 12 2z"/></svg>{% endmacro %}
 
 {#- Eigenes Foto in passender Größe. „groessen“ sagt dem Browser, wie breit das Foto angezeigt wird. #}
@@ -175,7 +190,7 @@
 {#- Foto als Sofortbild mit Rahmen und Unterschrift, auf der Startseite als Link zur Spielseite #}
 {% macro sofortbild(f, groessen, index) %}
 <li class="sofortbild" style="--i: {{ index }}">
-  <a href="{{ (('/spiele/' + f.spielSlug + '/') if f.spielSlug else '/spiele/') | url }}">
+  <a href="{{ (('/spiele/' + f.spielSlug + '/') if f.spielSlug else ('/neu-hier/' if f.neuHier else '/spiele/')) | url }}">
     <figure>
       {{ bild(f, groessen) }}
       <figcaption><strong>{{ f.titel or "Bei uns" }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>

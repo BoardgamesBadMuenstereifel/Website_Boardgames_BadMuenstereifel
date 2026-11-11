@@ -3120,5 +3120,102 @@
    "name": "Wizard",
    "jahr": 1979
   }
+ ],
+ "Krazy Wordz": [
+  {
+   "id": "231962",
+   "name": "Krazy Wordz",
+   "jahr": 2016
+  }
+ ],
+ "La Cosa Nostra": [
+  {
+   "id": "40789",
+   "name": "La Cosa Nostra",
+   "jahr": 2006
+  },
+  {
+   "id": "151771",
+   "name": "La Cosa Nostra",
+   "jahr": 2014
+  }
+ ],
+ "Nox": [
+  {
+   "id": "123370",
+   "name": "Nox",
+   "jahr": 2012
+  }
+ ],
+ "Planet der Gnümies": [
+  {
+   "id": "457505",
+   "name": "Planet der Gnümies",
+   "jahr": 2025
+  }
+ ],
+ "Planet Unknown": [
+  {
+   "id": "258779",
+   "name": "Planet Unknown",
+   "jahr": 2022
+  }
+ ],
+ "QE": [
+  {
+   "id": "266830",
+   "name": "QE",
+   "jahr": 2019
+  }
+ ],
+ "Sabika": [
+  {
+   "id": "360265",
+   "name": "Sabika",
+   "jahr": 2022
+  }
+ ],
+ "Sechs Sekunden Kritzelei": [
+  {
+   "id": "351488",
+   "name": "Sechs-Sekunden-Kritzelei",
+   "jahr": 2021
+  },
+  {
+   "id": "457993",
+   "name": "Sechs-Sekunden-Kritzelei: Weihnachten",
+   "jahr": 2024
+  }
+ ],
+ "Small World": [
+  {
+   "id": "40692",
+   "name": "Small World",
+   "jahr": 2009
+  }
+ ],
+ "Super Mario": [
+  {
+   "id": "140455",
+   "name": "8Bit Flashback: Super Mario Bros 3",
+   "jahr": 2013
+  },
+  {
+   "id": "63268",
+   "name": "Dobble Super Mario",
+   "jahr": 2009
+  },
+  {
+   "id": "346143",
+   "name": "The Game of Life: Super Mario Edition",
+   "jahr": 2021
+  }
+ ],
+ "Unfinished Business": [
+  {
+   "id": "379343",
+   "name": "Unfinished Business",
+   "jahr": 2023
+  }
  ]
 }

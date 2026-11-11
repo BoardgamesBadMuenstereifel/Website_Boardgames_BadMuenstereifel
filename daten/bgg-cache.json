@@ -510,6 +510,21 @@
    "cover": "/assets/cover/39856.jpg",
    "abgerufen": "2026-11-11T04:25:23.580Z"
   },
+  "40692": {
+   "id": "40692",
+   "name": "Small World",
+   "jahr": 2009,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 40,
+   "maxDauer": 80,
+   "alter": 8,
+   "bewertung": 7.2,
+   "komplexitaet": 2.3,
+   "beschreibung": "In Small World, players vie for conquest and control of a world that is simply too small to accommodate them all. Designed by Philippe Keyaerts as a fantasy follow-up to his award-winning Vinci, Small World is inhabited by a zany cast of characters such as dwarves, wizards, amazons, giants, orcs, and even humans, who use their troops to occupy territory and conquer adjacent lands in order to push the other races off the face of the earth.",
+   "cover": "/assets/cover/40692.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
+  },
   "54137": {
    "id": "54137",
    "name": "Battle Sheep",
@@ -674,6 +689,21 @@
    "beschreibung": "Robinson Crusoe: Adventures on the Cursed Island is a game that takes the players to a deserted island, where they'll play the parts of shipwreck survivors confronted by an extraordinary adventure. They'll be faced with the challenges of building a shelter, finding food, fighting wild beasts, and protecting themselves from weather changes. The players decide in which direction the game will unfold and – after several in-game weeks of hard work – how their settlement will look. Will they manage to discover the secret of the island in the meantime?",
    "cover": "/assets/cover/121921.jpg",
    "abgerufen": "2026-11-11T04:26:11.953Z"
+  },
+  "123370": {
+   "id": "123370",
+   "name": "Nox",
+   "jahr": 2012,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 10,
+   "bewertung": 5.8,
+   "komplexitaet": 1.2,
+   "beschreibung": "The card game Nox features ninety cards, thirty each in orange, green and blue. Each player starts each round of play with three cards in hand. On a turn, a player either: Plays one card in front of herself or another player to expand that player's kitty, or Plays that card on top of a matching-colored card in any player's kitty. Any time that a player has two stacks topped with a card of the same number, those stacks are merged into a single stack. After playing, the player draws one card from the deck.",
+   "cover": "/assets/cover/123370.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
   },
   "124361": {
    "id": "124361",
@@ -1440,6 +1470,21 @@
    "cover": "/assets/cover/231484.jpg",
    "abgerufen": "2026-11-11T04:25:12.745Z"
   },
+  "231962": {
+   "id": "231962",
+   "name": "Krazy Wordz",
+   "jahr": 2016,
+   "minSpieler": 3,
+   "maxSpieler": 7,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 10,
+   "bewertung": 7.2,
+   "komplexitaet": 1.2,
+   "beschreibung": "In each round of Krazy Wordz, players have their own individual topic card not known to anyone else (e.g., \"something tiny\" or \"brand of chocolate bar\"), along with a few randomly drawn letters. They each create a word — or something resembling a word — from these letters, then place their word in the center of the table and their card face down. Once everyone has finished, shuffle the topic cards, then reveal them all. Players then secretly vote on which words are associated with which cards, scoring points when they guess correctly and when others correctly link their word with their card.",
+   "cover": "/assets/cover/231962.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
+  },
   "233262": {
    "id": "233262",
    "name": "Tidal Blades: Heroes of the Reef",
@@ -1740,6 +1785,21 @@
    "cover": "/assets/cover/254640.jpg",
    "abgerufen": "2026-11-11T04:25:39.389Z"
   },
+  "258779": {
+   "id": "258779",
+   "name": "Planet Unknown",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 6,
+   "minDauer": 60,
+   "maxDauer": 80,
+   "alter": 10,
+   "bewertung": 7.8,
+   "komplexitaet": 2.3,
+   "beschreibung": "Our planet has run out of resources, and we are forced to move. We have discovered a series of planets and sent our rovers to test their environment with the hope of colonization. Our rovers have confirmed 1-6 viable colonization options. Planet Unknown is a competitive game for 1-6 players in which players attempt to develop the best planet. Each round, each player places one polyomino-shaped, dual-resource tile on their planet. Each resource represents the infrastructure needed to support life on the planet.",
+   "cover": "/assets/cover/258779.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
+  },
   "260180": {
    "id": "260180",
    "name": "Project L",
@@ -1814,6 +1874,21 @@
    "beschreibung": "Wingspan is a competitive, medium-weight, card-driven, engine-building board game from Stonemaier Games. It's designed by Elizabeth Hargrave and features 180 birds illustrated by Natalia Rojas and Ana Maria Martinez. You are bird enthusiasts—researchers, bird watchers, ornithologists, and collectors—seeking to discover and attract the best birds to your network of wildlife preserves. Each bird extends a chain of powerful combinations in one of your habitats (actions).",
    "cover": "/assets/cover/266192.jpg",
    "abgerufen": "2026-11-11T04:25:34.152Z"
+  },
+  "266830": {
+   "id": "266830",
+   "name": "QE",
+   "jahr": 2019,
+   "minSpieler": 3,
+   "maxSpieler": 5,
+   "minDauer": 45,
+   "maxDauer": 45,
+   "alter": 8,
+   "bewertung": 7.3,
+   "komplexitaet": 1.6,
+   "beschreibung": "Financial crisis has occurred. Sixteen \"too big to fail\" companies from four countries need bailing out. The central banks have unlimited financial resources, so lots of money is going to be printed, but the central banks also face disaster — print too much money and the country they represent goes bust. In Q.E., a term that stands for \"quantitative easing\", you play the role of a central bank. You bid on different size companies to accumulate various levels of victory points. The amount you bid is unlimited since you are the central bank and you own the printing press!",
+   "cover": "/assets/cover/266830.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
   },
   "268201": {
    "id": "268201",
@@ -2835,6 +2910,21 @@
    "cover": "/assets/cover/350933.jpg",
    "abgerufen": "2026-11-11T04:25:18.093Z"
   },
+  "351488": {
+   "id": "351488",
+   "name": "Six Second Scribbles",
+   "jahr": 2021,
+   "minSpieler": 2,
+   "maxSpieler": 8,
+   "minDauer": 15,
+   "maxDauer": 30,
+   "alter": 8,
+   "bewertung": 7.1,
+   "komplexitaet": 1.3,
+   "beschreibung": "Everyone plays at once in this fast-paced party game. Players have one minute to draw up to ten things from their category card. But not every doodle will do! To win points, other players must be able to guess what was drawn. When the time is up, players pass around their drawings and try and guess what other players have drawn. If players guess a drawing right, then both the guesser and the artist score a point. After three rounds, the game ends and the player with the most points wins.",
+   "cover": "/assets/cover/351488.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
+  },
   "351913": {
    "id": "351913",
    "name": "Tiletum",
@@ -2999,6 +3089,21 @@
    "beschreibung": "Challengers! is an interactive deck-management game for 1-8 players that plays in about 45 minutes independent of player count. With the tournament gameplay style, you meet another opponent every round. In the Deck Phase, you choose new members and add them to your deck, which might consist of a wizard, alien, cat, gangster and kraken. 75 distinct characters with more than 40 exciting effects create a unique experience every game. Choose from six different sets and discover new strategies and synergies every game. In the Match Phase, stay in flag possession to win the trophy of that round.",
    "cover": "/assets/cover/359970.jpg",
    "abgerufen": "2026-11-11T04:25:12.745Z"
+  },
+  "360265": {
+   "id": "360265",
+   "name": "Sabika",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 7.7,
+   "komplexitaet": 3.9,
+   "beschreibung": "On the hill of Al-Sabika in Granada, the Nasrid dynasty created one of the most impressive constructions in history, the Alhambra. In Sabika, you play the role of one of the Nasrid nobles who contributed to the construction of the towers, gardens, and palaces of this ancient monument. In addition to this honorable task, you have to establish trade routes through Europe and the Maghreb. These routes will provide you with sufficient income to be able to take on the demanding tribute that has been commanded by the Catholic Monarchs.",
+   "cover": "/assets/cover/360265.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
   },
   "360625": {
    "id": "360625",
@@ -3329,6 +3434,21 @@
    "beschreibung": "The sunken city of Pacifica is coming back to life — and two people get to determine what the city will look like in the future. To do this, they collect art treasures, build paths, and promote inventions. Whoever gains the upper hand in a discipline receives an idol. Who can advance the construction of the underwater city in Pacifica as quickly as possible? Who will have the right strategy...along with a bit of luck?",
    "cover": "/assets/cover/379153.jpg",
    "abgerufen": "2026-11-11T04:26:01.313Z"
+  },
+  "379343": {
+   "id": "379343",
+   "name": "Unfinished Business",
+   "jahr": 2023,
+   "minSpieler": 3,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 45,
+   "alter": 12,
+   "bewertung": 5.8,
+   "komplexitaet": 4,
+   "beschreibung": "It is a fast-playing, emotionally-charged, confrontational and interactive card game with a coherent mafia theme. You compete as 3-6 dons of your mafia families in New York in 1914 for dominance of the city. The sources of income in these times are varied and so we try to accumulate the most possessions in the course of the game by collecting them honestly, or by capturing them from the trove of our fellow players with the right intuition. Who hides the key to the bank vault? Which possessions are in high demand in the betting office this round?",
+   "cover": "/assets/cover/379343.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
   },
   "381188": {
    "id": "381188",
@@ -5069,6 +5189,21 @@
    "beschreibung": "Dive into daring battles with 2 to 4 heroes as you face off against ten unique and intelligent boss monsters! What makes it special: All bosses are controlled by an app that dynamically responds to your actions. At the start of each battle, their tactics and abilities remain a mystery. Uncover their weaknesses, discover how to defeat them, and claim powerful loot cards to upgrade your deck and unlock new abilities! Boss Fighters QR is a cooperative fantasy campaign game where players battle against ten unique boss monsters that react tactically to their actions.",
    "cover": "/assets/cover/454672.jpg",
    "abgerufen": "2026-11-11T04:25:07.455Z"
+  },
+  "457505": {
+   "id": "457505",
+   "name": "Planet der Gnümies",
+   "jahr": 2025,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 20,
+   "maxDauer": 50,
+   "alter": 8,
+   "bewertung": 3.8,
+   "komplexitaet": 2,
+   "beschreibung": "The aim of this dynamic card-dice-board-game is to collect as many gnumie points as possible. To do this, you exchange knobble points, collect pets, dinofraurians and friends, and play freely flying particles. The secret star is the H&auml;h, a small, potato-like pet that is cute but doesn't understand anything. When it's drawn, it steals cards and must be quickly recaptured. Sounds crazy? That's exactly what makes it so good fun for all: kids, teens and adults of all age! The game ends when all 8 Groovy Grovers (tree cards) have been found.",
+   "cover": "/assets/cover/457505.jpg",
+   "abgerufen": "2026-11-11T14:25:16.806Z"
   },
   "457881": {
    "id": "457881",

@@ -121,9 +121,9 @@ test("Termine: Kosten je Art, Uhrzeit und Ort dürfen noch fehlen", async () => 
 test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", async () => {
   const ordner = await testOrdner({ spiele: [KOPF_SPIELE, ["Mycelia", null, null, null, null, null]], partien: [["Datum", "Spiel"]], termine: [KOPF_TERMINE] });
   await writeExcelFile([
-    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Zusammenfassung", "Einordnung", "Für wen", "Positiv", "Negativ", "Freigegeben"],
-      ["Mycelia", "08.11.2026", "Text", null, "Alle", "Gut\n- Kurz", null, "Ja"],
-      ["Entwurf", "09.11.2026", "Noch nicht fertig", null, null, null, null, null]]),
+    tabelle("Spiele im Fokus", [["Spiel", "Datum", "Einleitung", "Einordnung", "Thema", "Material", "Für wen", "Für wen nicht", "Positiv", "Negativ", "Fazit", "Freigegeben"],
+      ["Mycelia", "08.11.2026", "Text", null, "Wald\nGöttin", null, "Alle", "Profis", "Gut\n- Kurz", null, "Schön", "Ja"],
+      ["Entwurf", "09.11.2026", "Noch nicht fertig", null, null, null, null, null, null, null, null, null]]),
     tabelle("Stimmen", [["Spiel", "Mitglied", "Note"], ["Mycelia", null, 8], ["Mycelia", "m01", 3], ["Mycelia", "M01", 6], ["Mycelia", null, 11]]),
     tabelle("O-Töne", [["Spiel", "Name", "Zitat", "Freigegeben"], ["Mycelia", "MF", "Schön", "Ja"], ["Mycelia", "XY", "Geheim", null]]),
   ]).toFile(path.join(ordner, "fokus.xlsx"));
@@ -134,6 +134,10 @@ test("Spiel im Fokus: nur Freigegebenes, Verteilung, Kürzel zählen einmal", as
   assert.deepEqual(f.verteilung.filter((v) => v.anzahl).map((v) => [v.note, v.anzahl, v.anteil]), [[8, 1, 100], [6, 1, 100]]);
   assert.deepEqual(f.positiv, ["Gut", "Kurz"]);
   assert.deepEqual(f.otoene, [{ name: "MF", zitat: "Schön" }]);
+  // Teilbereiche: leere fallen weg, jede Zeile ist ein Absatz
+  assert.equal(f.zusammenfassung, "Text");
+  assert.deepEqual(f.abschnitte, [{ titel: "Thema", absaetze: ["Wald", "Göttin"] }]);
+  assert.deepEqual([f.fuerWen, f.fuerWenNicht, f.fazit], ["Alle", "Profis", ["Schön"]]);
   const text = d.warnungen.join("\n");
   assert.match(text, /M01 hat bei „Mycelia“ mehrfach abgestimmt/);
   assert.match(text, /Note muss eine ganze Zahl von 1 bis 10 sein/);
@@ -173,6 +177,27 @@ test("Empfehlungen: Einordnungen aus dem Blatt, bewertete Spiele mit Note zuerst
   assert.equal(d.fokusNachSlug.mycelia.zusammenfassung, "Text");
   const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
   assert.deepEqual(e.empfehlungen.map((g) => g.name), ["Kinder", "Familien mit Kindern", "Familienspieler"]);
+});
+
+test("Fotos: nur freigegebene und aufbereitete, mit Verweis aufs Spiel, Warnungen statt Abbruch", async () => {
+  const ordner = await testOrdner({ spiele: [KOPF_SPIELE, ["SETI", null, null, null, null, null]], partien: [["Datum", "Spiel"]], termine: [KOPF_TERMINE] });
+  await writeExcelFile([tabelle("Fotos", [["Datei", "Spiel", "Titel", "Beschreibung", "Bildunterschrift", "Ausschnitt", "Startseite", "Freigegeben"],
+    ["seti", "seti", null, "Runder Spielplan", "Wer findet Leben?", null, "Ja", "Ja"],
+    ["regal", null, "Aus unserem Regal", null, null, null, "Ja", "Ja"],
+    ["fehlt", "Gibt es nicht", null, "Text", null, null, null, "Ja"],
+    ["entwurf", "SETI", null, "Text", null, null, "Ja", null]])]).toFile(path.join(ordner, "fotos.xlsx"));
+  const masse = (b, h) => ({ breite: b, hoehe: h, breiten: [480, 800], jpg: 800, farbe: "#123456" });
+  fs.writeFileSync(path.join(ordner, "fotos-masse.json"), JSON.stringify({ seti: masse(1000, 600), regal: masse(900, 400), entwurf: masse(800, 600) }));
+  const d = await ladeDaten({ ordner, heute: "2026-10-30" });
+  assert.deepEqual(d.fotosStart.map((f) => [f.datei, f.titel, f.spielSlug, f.alt]), [["seti", "SETI", "seti", "Runder Spielplan"], ["regal", "Aus unserem Regal", null, ""]]);
+  const seti = d.alleSpiele.find((s) => s.name === "SETI");
+  assert.deepEqual(seti.fotos.map((f) => [f.datei, f.unterschrift, f.breite]), [["seti", "Wer findet Leben?", 1000]]);
+  const text = d.warnungen.join("\n");
+  assert.match(text, /Für „regal“ fehlt die Beschreibung/);
+  assert.match(text, /„fehlt“ ist noch nicht aufbereitet/);
+  assert.doesNotMatch(text, /entwurf/);
+  const e = await ladeDaten({ ordner, heute: "2026-10-30", entwurf: true });
+  assert.equal(e.alleSpiele.find((s) => s.name === "SETI").fotos.length, 2);
 });
 
 test("BGG-XML: Felder, Entitäten, leere Werte", () => {

@@ -17,6 +17,19 @@ permalink: /neu-hier/
       <li><b>Wir erklären dir die Spiele.</b> Du musst keine Regeln lesen.</li>
       <li><b>Neu hier?</b> Super: Du bist schnell mittendrin, die Runden bilden sich vor Ort.</li>
     </ul>
+    {%- if daten.fotosNeuHier.length %}
+    {% import "bausteine.njk" as b %}
+    <div class="vom-tisch">
+      {%- for f in daten.fotosNeuHier %}
+      <div class="sofortbild einzeln" style="--i: {{ loop.index0 }}">
+        <figure>
+          {{ b.bild(f, "(min-width: 46rem) 42rem, 92vw") }}
+          <figcaption><strong>{{ f.titel or "So sieht ein Spieleabend aus" }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>
+        </figure>
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
 
     <h2 class="unter-h">So laufen unsere Termine ab</h2>
     <p class="lead">Die Zeiten sind je nach Termin etwas anders. Hier die typischen Beispiele:</p>

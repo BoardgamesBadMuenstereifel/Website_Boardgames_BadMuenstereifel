@@ -104,7 +104,7 @@ h3 { font-size: 1.2rem; }
 
 /* Termine */
 .termine { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 2.2rem; }
-.termine li { display: grid; grid-template-columns: 4.4rem 1fr; gap: .9rem; align-items: start; padding: .9rem 0; border-bottom: 2px dotted #a98f68; }
+.termine > li { display: grid; grid-template-columns: 4.4rem 1fr; gap: .9rem; align-items: start; padding: .9rem 0; border-bottom: 2px dotted #a98f68; }
 .termine time { color: var(--aubergine); line-height: 1; }
 .termine time .tag { display: block; font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .termine time .zahl { display: block; font-family: var(--schrift-titel); font-size: 2.9rem; font-weight: 700; margin: .1rem 0; }
@@ -318,8 +318,8 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .farbe-rot { --farbe: #a63a30; }
 .farbe-lila { --farbe: #6b3fa0; }
 .etikett { display: inline-block; background: var(--farbe, var(--aubergine)); color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .02em; padding: .1rem .6rem; border-radius: 999px; margin-bottom: .3rem; }
-.termine li[class*="farbe-"] time { color: var(--farbe); border-left: 5px solid var(--farbe); padding-left: .5rem; }
-.termine li { grid-template-columns: 4.9rem 1fr; }
+.termine > li[class*="farbe-"] time { color: var(--farbe); border-left: 5px solid var(--farbe); padding-left: .5rem; }
+.termine > li { grid-template-columns: 4.9rem 1fr; }
 .format[class*="farbe-"] { border-top-color: var(--farbe); }
 .naechster .art { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .5rem; }
 .naechster .art .etikett { margin: 0; }
@@ -331,7 +331,7 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 /* Terminseite: Monatsüberschriften, die beim Scrollen oben stehen bleiben */
 .monat { margin-top: 1.2rem; }
 .monat-h { position: sticky; top: 0; z-index: 2; margin: 0; padding: .6rem 0 .4rem; font-size: 1.4rem; color: var(--aubergine); background: var(--creme) var(--papier); border-bottom: 3px solid var(--aubergine); }
-.monat .termine li:last-child { border-bottom: 0; }
+.monat .termine > li:last-child { border-bottom: 0; }
 
 /* Spiel im Fokus */
 .bewertung { display: grid; gap: 1.2rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1.2rem; box-shadow: 0 6px 0 var(--gold); scroll-margin-top: 1rem; }
@@ -341,6 +341,24 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .bew-name { font-size: clamp(1.6rem, 6vw, 2.2rem); margin: .1rem 0 .2rem; color: var(--aubergine); }
 .bew-name a { color: inherit; text-decoration: none; }
 .bew-name a:hover { text-decoration: underline; }
+/* Teilbereiche der Bewertung */
+.bew-text > p.bew-einleitung { font-size: 1.12rem; }
+.bew-abschnitt { margin-top: 1.3rem; }
+.bew-abschnitt h3, .bew-abschnitt h4, .bew-fazit h3, .bew-fazit h4 { font-size: 1.15rem; margin: 0 0 .3rem; color: var(--aubergine); }
+.bew-abschnitt p, .bew-fazit p { margin: 0 0 .6rem; }
+.passt { display: grid; gap: .8rem; margin-top: 1.3rem; }
+.passt-ja, .passt-nein { border: 2px solid var(--farbe); border-radius: 12px; padding: .8rem 1rem; }
+.passt-ja { --farbe: #2e6b3c; }
+.passt-nein { --farbe: #a63a30; }
+.passt h3, .passt h4 { font-size: 1.05rem; margin: 0 0 .3rem; color: var(--farbe); display: flex; align-items: center; gap: .45rem; }
+.passt-ja h3::before, .passt-ja h4::before { content: "✓"; }
+.passt-nein h3::before, .passt-nein h4::before { content: "✗"; }
+.passt p { margin: 0; }
+.bew-fazit { margin-top: 1.3rem; background: var(--aubergine); color: var(--creme-hell); border-radius: 12px; padding: 1rem 1.1rem; }
+.bew-fazit h3, .bew-fazit h4 { color: var(--gold); font-size: 1.25rem; } /* große Schrift: Gold auf Aubergine 3,8:1 */
+.bew-fazit p:last-child { margin-bottom: 0; }
+@media (min-width: 40rem) { .passt { grid-template-columns: 1fr 1fr; } }
+
 .plusminus { display: grid; gap: .8rem; margin-top: 1rem; }
 .plus, .minus { background: var(--creme); border-radius: 12px; padding: .8rem 1rem; border-left: 6px solid var(--farbe); }
 .plus { --farbe: #2e6b3c; }
@@ -378,5 +396,79 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 }
 @media (min-width: 60rem) {
   .bewertung { grid-template-columns: 1.7fr 1fr; gap: 1.6rem; padding: 1.6rem; }
+  .bewertung .fokus-wertung { align-self: start; position: sticky; top: 1rem; } /* die Note bleibt beim Lesen sichtbar */
   .otoene { grid-column: 1 / -1; }
 }
+
+/* Eigene Fotos: Sofortbilder, die auf dem Spieltisch liegen */
+.tisch { background: var(--petrol) var(--filz) 0 0 / 22px 22px; color: var(--creme-hell); overflow-x: clip; }
+.tisch h2 { color: var(--creme-hell); }
+.sofortbilder { list-style: none; margin: 1rem -1rem 0; padding: 1rem 1rem 2.2rem; display: flex; gap: 1.2rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+.sofortbild { --dreh: -2deg; --hoch: 0rem; flex: 0 0 min(80vw, 22rem); scroll-snap-align: center; }
+.sofortbild:nth-child(6n+2) { --dreh: 1.6deg; --hoch: .8rem; }
+.sofortbild:nth-child(6n+3) { --dreh: -1deg; --hoch: -.2rem; }
+.sofortbild:nth-child(6n+4) { --dreh: 2.2deg; --hoch: .4rem; }
+.sofortbild:nth-child(6n+5) { --dreh: -1.5deg; --hoch: .9rem; }
+.sofortbild:nth-child(6n) { --dreh: 1.1deg; --hoch: .2rem; }
+.sofortbild > a { display: block; color: var(--tinte); text-decoration: none; border-radius: 4px; }
+.sofortbild figure { position: relative; margin: 0; background: #fffdf7; color: var(--tinte); padding: .55rem .55rem .75rem; border-radius: 3px; box-shadow: 0 1px 2px rgb(0 0 0 / .25), 0 14px 26px -10px rgb(0 0 0 / .5); transform: translateY(var(--hoch)) rotate(var(--dreh)); transition: transform .35s cubic-bezier(.2, .8, .3, 1.2), box-shadow .35s; }
+/* Klebestreifen auf jedem zweiten Bild */
+.sofortbild:nth-child(odd) figure::before, .sofortbild.einzeln figure::before { content: ""; position: absolute; top: -.75rem; left: 50%; width: 5.5rem; height: 1.5rem; transform: translateX(-50%) rotate(calc(var(--dreh) * -2)); background: rgb(225 159 66 / .6); box-shadow: 0 1px 2px rgb(0 0 0 / .15); }
+.sofortbild img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1px; }
+.sofortbild figcaption { display: grid; gap: .1rem; padding: .6rem .25rem 0; line-height: 1.3; }
+.sofortbild figcaption strong { font-family: var(--schrift-titel); font-size: 1.15rem; color: var(--aubergine); }
+.sofortbild figcaption span { font-size: .95rem; }
+.sofortbild > a:hover figure, .sofortbild > a:focus-visible figure { transform: translateY(-.4rem) rotate(0deg) scale(1.03); box-shadow: 0 2px 4px rgb(0 0 0 / .25), 0 24px 38px -12px rgb(0 0 0 / .6); }
+.sofortbild > a:focus-visible { outline: none; }
+.sofortbild > a:focus-visible figure { outline: 3px solid var(--gold); outline-offset: 5px; }
+
+/* Auf der Spielseite: ein größeres Sofortbild, ganz statt im 4:3-Ausschnitt */
+.vom-tisch { display: grid; justify-items: center; gap: 2.4rem; margin: 2.6rem 0 1rem; }
+.sofortbild.einzeln { --dreh: -1.2deg; --hoch: 0rem; width: min(100%, 42rem); }
+.sofortbild.einzeln:nth-child(even) { --dreh: 1deg; }
+.sofortbild.einzeln figure { padding: .7rem .7rem .9rem; }
+.sofortbild.einzeln img { aspect-ratio: auto; }
+.sofortbild.einzeln figure:hover { transform: rotate(0deg); }
+
+/* Beim Herunterscrollen landen die Bilder sanft auf dem Tisch (nur mit JavaScript und ohne Wunsch nach weniger Bewegung) */
+@keyframes landen {
+  from { opacity: 0; transform: translateY(-2.2rem) rotate(5deg) scale(1.06); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bewegt .sofortbild:not(.ist-da) { opacity: 0; }
+  .bewegt .sofortbild.ist-da { animation: landen .75s cubic-bezier(.2, .9, .3, 1.15) calc(var(--i, 0) * 90ms) both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sofortbild figure { transition: none; }
+}
+@media print {
+  .bewegt .sofortbild { opacity: 1 !important; animation: none !important; }
+}
+
+@media (min-width: 40rem) {
+  .sofortbilder { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.2rem 1.8rem; overflow: visible; margin-inline: 0; padding: 1rem 0 1.2rem; }
+}
+@media (min-width: 60rem) {
+  .sofortbilder { grid-template-columns: repeat(12, 1fr); gap: 2.4rem 2rem; align-items: start; }
+  .sofortbilder > .sofortbild { grid-column: span 4; }
+  .sofortbilder > .sofortbild:nth-child(6n+1) { grid-column: span 5; }
+  .sofortbilder > .sofortbild:nth-child(6n+3) { grid-column: span 3; margin-top: 2.6rem; }
+  .sofortbilder > .sofortbild:nth-child(6n+4) { grid-column: span 3; }
+  .sofortbilder > .sofortbild:nth-child(6n) { grid-column: span 5; }
+}
+
+/* Fotos vom letzten Mal bei Sonderterminen: ein kleiner Stapel Sofortbilder */
+.termine > li.mit-fotos .stapel { grid-column: 2 / -1; }
+.stapel { list-style: none; margin: .6rem 0 .4rem; padding: .9rem 0 .4rem; display: grid; justify-items: start; }
+.stapel .sofortbild { grid-area: 1 / 1; width: min(78%, 15rem); }
+.stapel .sofortbild figure { padding: .4rem .4rem .6rem; }
+.stapel .sofortbild:nth-child(1) { --dreh: -3deg; --hoch: 0rem; z-index: 2; }
+.stapel .sofortbild:nth-child(2) { --dreh: 4deg; --hoch: .9rem; margin-left: 22%; z-index: 1; }
+.stapel .sofortbild:nth-child(3) { --dreh: -1deg; --hoch: 1.6rem; margin-left: 11%; z-index: 0; }
+.stapel .sofortbild figcaption strong { font-size: 1rem; }
+.stapel .sofortbild figcaption span { font-size: .88rem; }
+/* Beim Darüberfahren fächert der Stapel auf */
+.stapel:hover .sofortbild:nth-child(1) figure { transform: translateX(-.6rem) rotate(-5deg); }
+.stapel:hover .sofortbild:nth-child(2) figure { transform: translate(1.4rem, .4rem) rotate(6deg); }
+.stapel .sofortbild:hover { z-index: 3; }

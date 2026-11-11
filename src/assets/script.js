@@ -80,3 +80,22 @@
   form.addEventListener("change", anwenden);
   anwenden();
 })();
+
+// Fotos „landen“ beim Herunterscrollen auf dem Tisch. Ohne JavaScript oder bei
+// eingestelltem Wunsch nach weniger Bewegung sind sie einfach sofort da.
+(function () {
+  var bilder = document.querySelectorAll(".sofortbild");
+  if (!bilder.length || !("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var beobachter = new IntersectionObserver(function (eintraege) {
+    var n = 0; // Bilder, die gemeinsam auftauchen, landen kurz nacheinander
+    eintraege.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.style.setProperty("--i", n++);
+      e.target.classList.add("ist-da");
+      beobachter.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.15 });
+  document.documentElement.classList.add("bewegt");
+  bilder.forEach(function (b) { beobachter.observe(b); });
+})();

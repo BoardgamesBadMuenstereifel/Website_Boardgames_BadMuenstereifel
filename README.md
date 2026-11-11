@@ -83,15 +83,43 @@ Die Empfehlungen stehen auf der Seite „Im Fokus“, sortiert nach Einordnung, 
 
 Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Die neueste steht oben auf der Seite „Im Fokus“ und auf der Startseite. Jede Bewertung steht außerdem dauerhaft auf der Seite des Spiels, z. B. `/spiele/mycelia/`. Darauf verweisen die Seite „Im Fokus“ unter „Frühere Spiele im Fokus“, die Empfehlungen und die Ranglisten („Im Fokus · unsere Note …“). Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung oder Empfehlung freigegeben ist.
 
-- **Blatt Spiele im Fokus:** Spiel, Datum, Zusammenfassung, Einordnung, Für wen, Positiv, Negativ, Freigegeben.
-  - **Einordnung** ist die kurze Einordnung, für wen das Spiel passt, z. B. „Familien mit Kindern“. Erlaubt sind die Einordnungen vom Blatt Einordnungen in `empfehlungen.xlsx`. Mehrere Einordnungen schreibst du untereinander in die Zelle. **Für wen** ist der ausführliche Satz dazu.
-  - Bei **Einordnung**, **Positiv** und **Negativ** steht jeder Eintrag in einer eigenen Zeile der Zelle. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
+- **Blatt Spiele im Fokus:** Spiel, Datum, Einleitung, Einordnung, Thema, Spielablauf, Material, Für wen, Für wen nicht, Positiv, Negativ, Fazit, Freigegeben.
+  - **Einleitung** ist der erste Absatz, er steht auch auf der Startseite. Pflicht.
+  - **Thema**, **Spielablauf** (erscheint als „So wird gespielt“), **Material** und **Fazit** sind die Teilbereiche der Bewertung. Leere Spalten erscheinen einfach nicht.
+  - **Für wen** und **Für wen nicht** stehen nebeneinander in zwei Kästen: „Für wen es passt“ und „Für wen eher nicht“.
+  - **Einordnung** ist die kurze Einordnung, für wen das Spiel passt, z. B. „Familien mit Kindern“. Erlaubt sind die Einordnungen vom Blatt Einordnungen in `empfehlungen.xlsx`. Mehrere Einordnungen schreibst du untereinander in die Zelle.
+  - Bei **Einordnung**, **Positiv** und **Negativ** steht jeder Eintrag in einer eigenen Zeile der Zelle. Bei den Textfeldern wird jede Zeile ein eigener Absatz. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
   - Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
 - **Blatt Stimmen:** Eine Zeile pro Stimme: Spiel, Mitglied, Note (ganze Zahl von 1 bis 10). Die Seite zeigt nur die Verteilung und den Schnitt, nie das Kürzel.
   - **Mitglied** ist ein neutrales Kürzel wie M01, M02. Wer dahinter steckt, steht nur in deiner Datei `Mitglieder-Kuerzel.xlsx` auf deinem Rechner. **Diese Datei nie auf GitHub hochladen**, das Repository ist öffentlich.
   - Gibt ein Kürzel bei einem Spiel mehrere Stimmen ab, zählt die letzte. So kann jemand seine Note ändern.
   - Das Kürzel darf leer bleiben, wenn du nicht weißt, von wem die Stimme ist.
 - **Blatt O-Töne:** Spiel, Name, Zitat, Freigegeben. Auf der Seite steht dann z. B. „Spieler MF sagt: …“. Den Namen bzw. die Initialen wählt die Person selbst, und es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**. Frag vorher, ob das Zitat mit diesem Namen veröffentlicht werden darf.
+
+## Eigene Fotos: `fotos.xlsx`
+
+Eigene Fotos erscheinen als Sofortbilder: auf der Startseite unter „Vom Spieltisch“, auf der Seite des jeweiligen Spiels unter „Bei uns auf dem Tisch“, auf „Neu hier?“ und auf der Terminseite bei Sonderterminen als „So war es beim letzten Mal“.
+
+**Wichtig vor dem Hochladen:** Das Repository ist öffentlich, und Git vergisst nichts. Deshalb kommen **nie die Originalfotos ins Repository**, sondern nur die aufbereiteten Fassungen. Auf den Fotos dürfen keine Gesichter, Namensschilder, Tattoos oder privaten Wohnungen zu erkennen sein. Hände am Spieltisch sind in Ordnung.
+
+**Fotos mit Personen** legst du in den Unterordner `Fotos\Original mit Personen`. Die Stellen zum Verpixeln stehen in `Fotos\verpixeln.json` (Pixel im Original: links, oben, Breite, Höhe). `node skripte/verpixeln.mjs` legt die verpixelte Fassung in den Ordner `Fotos`. Erst diese Fassung trägst du wie unten in `fotos.xlsx` ein. Am einfachsten bittest du Claude darum und schaust dir das Ergebnis an, bevor es online geht.
+
+So kommt ein neues Foto auf die Seite:
+
+1. Leg das Original in den Ordner `Desktop\Boardgames Bad Münstereifel\Fotos` (außerhalb des Repositorys), z. B. `Spirit Island.jpg`.
+2. Trag es in `daten/fotos.xlsx` ein:
+   - **Datei:** der Dateiname ohne Endung, klein und mit Bindestrichen statt Leerzeichen, z. B. `spirit-island`.
+   - **Spiel:** so geschrieben wie in `spiele.xlsx`. Dann führt das Foto zur Spielseite. Leer lassen bei Fotos ohne bestimmtes Spiel.
+   - **Titel:** nur nötig, wenn über dem Foto etwas anderes stehen soll als der Spielname, z. B. „Aus unserem Regal“.
+   - **Beschreibung:** ein bis zwei Sätze, was auf dem Foto zu sehen ist. Das lesen Menschen vor, die das Foto nicht sehen können. Pflicht.
+   - **Bildunterschrift:** kurz und gern mit Augenzwinkern, z. B. „Wer findet zuerst Leben im All?“
+   - **Ausschnitt:** nur, wenn etwas weggeschnitten werden soll: links, oben, Breite, Höhe in Prozent, z. B. `5, 27, 90, 73`.
+   - **Startseite:** „Ja“, wenn das Foto auf der Startseite erscheinen soll. Drei pro Reihe, also 6 oder 9, wirken am besten.
+   - **Neu hier:** „Ja“, wenn das Foto auf der Seite „Neu hier?“ erscheinen soll.
+   - **Termin-Art:** eine Art vom Blatt Arten in `termine.xlsx`, z. B. „Brettspielkloster“. Dann erscheint das Foto auf der Terminseite bei jedem kommenden Termin dieser Art.
+   - **Freigegeben:** Es erscheinen **nur Zeilen mit „Ja“**.
+3. Starte `node skripte/fotos.mjs` (oder bitte Claude darum). Das Skript schneidet zu, verkleinert, entfernt versteckte Daten wie GPS-Ort und Uhrzeit und legt die fertigen Fassungen in `src/assets/fotos` ab.
+4. Lade `daten/fotos.xlsx`, `daten/fotos-masse.json` und den Ordner `src/assets/fotos` hoch.
 
 ## Etwas stimmt nicht: Warnungen ansehen
 

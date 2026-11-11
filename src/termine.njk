@@ -20,7 +20,7 @@ permalink: /termine/
     <section class="monat" aria-labelledby="m-{{ m.schluessel }}">
       <h2 class="monat-h" id="m-{{ m.schluessel }}">{{ m.name }}</h2>
       <ul class="termine" data-adresse="1">
-        {%- for t in m.termine %}{{ b.terminzeile(t, true) }}{% endfor %}
+        {%- for t in m.termine %}{{ b.terminzeile(t, true, daten.fotosNachArt) }}{% endfor %}
       </ul>
     </section>
     {%- endfor %}

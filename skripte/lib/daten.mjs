@@ -321,7 +321,8 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const fokus = [];
   for (const z of await leseBlatt(pfad("fokus.xlsx"), "Spiele im Fokus", warnungen, false)) {
     if (!entwurf && !ja(z["Freigegeben"])) continue;
-    if (!z["Spiel"] || !z["Zusammenfassung"]) { warnungen.push(`fokus.xlsx, Zeile ${z._zeile}: Spiel oder Zusammenfassung fehlt.`); continue; }
+    const einleitung = String(z["Einleitung"] ?? z["Zusammenfassung"] ?? "").trim();
+    if (!z["Spiel"] || !einleitung) { warnungen.push(`fokus.xlsx, Zeile ${z._zeile}: Spiel oder Einleitung fehlt.`); continue; }
     const name = String(z["Spiel"]).trim();
     const schluessel = namensSchluessel(name);
     const ohneKuerzel = [];
@@ -349,9 +350,15 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     fokus.push({
       spiel: neuesSpiel(name), datum,
       monatText: datum ? `${MONATE_LANG[Number(datum.slice(5, 7)) - 1]} ${datum.slice(0, 4)}` : "",
-      zusammenfassung: String(z["Zusammenfassung"]).trim(),
+      zusammenfassung: einleitung,
       einordnungen: [...new Set(passtFuer)].map((e) => ({ name: e.name, anker: e.anker })),
-      fuerWen: z["Für wen"] ? String(z["Für wen"]).trim() : "",
+      // Teilbereiche der Bewertung, jeweils optional. Jede Zeile in der Zelle wird ein eigener Absatz.
+      abschnitte: [["Thema", "Thema"], ["Spielablauf", "So wird gespielt"], ["Material", "Material"]]
+        .map(([spalte, titel]) => ({ titel, absaetze: punkte(z[spalte]) }))
+        .filter((a) => a.absaetze.length),
+      fuerWen: punkte(z["Für wen"]).join(" "),
+      fuerWenNicht: punkte(z["Für wen nicht"]).join(" "),
+      fazit: punkte(z["Fazit"]),
       positiv: punkte(z["Positiv"]), negativ: punkte(z["Negativ"]),
       stimmen: noten.length, verteilung, otoene,
       schnitt: schnitt === null ? null : schnitt.toFixed(1).replace(".", ","),
@@ -398,6 +405,42 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     f.spiel.bewertung = { schnitt: f.schnitt, monatText: f.monatText };
   }
 
+  // Eigene Fotos: Liste in fotos.xlsx, Maße schreibt skripte/fotos.mjs nach fotos-masse.json
+  let fotoMasse = {};
+  try {
+    if (fs.existsSync(pfad("fotos-masse.json"))) fotoMasse = JSON.parse(fs.readFileSync(pfad("fotos-masse.json"), "utf8"));
+  } catch {
+    warnungen.push("fotos-masse.json ist beschädigt. Die Seite zeigt vorerst keine eigenen Fotos.");
+  }
+  const fotos = [];
+  for (const z of await leseBlatt(pfad("fotos.xlsx"), "Fotos", warnungen, false)) {
+    if (!entwurf && !ja(z["Freigegeben"])) continue;
+    const wo = `fotos.xlsx, Zeile ${z._zeile}`;
+    const datei = String(z["Datei"] ?? "").trim();
+    if (!datei) { warnungen.push(`${wo}: Der Dateiname fehlt.`); continue; }
+    const m = fotoMasse[datei];
+    if (!m) { warnungen.push(`${wo}: Das Foto „${datei}“ ist noch nicht aufbereitet (node skripte/fotos.mjs).`); continue; }
+    const name = String(z["Spiel"] ?? "").trim();
+    const spiel = name ? spiele.get(namensSchluessel(name)) : null;
+    if (name && !spiel) warnungen.push(`${wo}: Das Spiel „${name}“ steht nicht in spiele.xlsx. Das Foto erscheint ohne Verweis auf eine Spielseite.`);
+    const beschreibung = String(z["Beschreibung"] ?? "").trim();
+    if (!beschreibung) warnungen.push(`${wo}: Für „${datei}“ fehlt die Beschreibung. Sie ist für Menschen wichtig, die das Foto nicht sehen können.`);
+    // Nur flache Werte, damit kein Kreisverweis Spiel -> Foto -> Spiel entsteht
+    const foto = {
+      datei, breite: m.breite, hoehe: m.hoehe, breiten: m.breiten, jpg: m.jpg, farbe: m.farbe || "transparent",
+      alt: beschreibung || (spiel ? `Foto von ${spiel.name} bei uns auf dem Tisch` : ""),
+      titel: String(z["Titel"] ?? "").trim() || spiel?.name || "",
+      unterschrift: String(z["Bildunterschrift"] ?? "").trim(),
+      spielSlug: spiel?.slug ?? null,
+      startseite: ja(z["Startseite"]),
+      neuHier: ja(z["Neu hier"]),
+      terminArt: String(z["Termin-Art"] ?? "").trim().toLowerCase(),
+    };
+    if (foto.terminArt && arten.size && !arten.has(foto.terminArt)) warnungen.push(`${wo}: Die Termin-Art „${z["Termin-Art"]}“ steht nicht auf dem Blatt Arten in termine.xlsx.`);
+    fotos.push(foto);
+    if (spiel) (spiel.fotos ??= []).push(foto);
+  }
+
   const sammlung = [...spiele.values()].filter((s) => s.sammlung).sort((a, b) => a.name.localeCompare(b.name, "de"));
   const kategorienSammlung = [...new Set(sammlung.map((s) => s.kategorie).filter(Boolean))];
 
@@ -411,6 +454,9 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     } : null,
     empfehlungen,
     fokus, fokusNachSlug, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
+    fotos, fotosStart: fotos.filter((f) => f.startseite), fotosNeuHier: fotos.filter((f) => f.neuHier),
+    // Fotos vom letzten Mal, nach Terminart (klein geschrieben), z. B. fotosNachArt["brettspielkloster"]
+    fotosNachArt: fotos.filter((f) => f.terminArt).reduce((m, f) => ((m[f.terminArt] ??= []).push(f), m), {}),
     alleSpiele: [...spiele.values()].sort((a, b) => a.name.localeCompare(b.name, "de")),
     warnungen,
   };

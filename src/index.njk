@@ -49,6 +49,18 @@ layout: basis.njk
   </div>
 </section>
 
+{%- if daten.fotosStart.length %}
+<section class="sektion tisch" id="vom-spieltisch" aria-labelledby="h-tisch">
+  <div class="wrap">
+    <h2 id="h-tisch">Vom Spieltisch</h2>
+    <p class="lead">So sieht es bei unseren Spieleabenden aus. Tipp auf ein Foto, dann erfährst du mehr über das Spiel.</p>
+    <ul class="sofortbilder" aria-label="Fotos von unseren Spieleabenden">
+      {%- for f in daten.fotosStart %}{{ b.sofortbild(f, "(min-width: 60rem) 28rem, (min-width: 40rem) 46vw, 80vw", loop.index0) }}{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
 {%- if daten.meist12.length %}
 <section class="sektion" id="spiele" aria-labelledby="h-spiele">
   <div class="wrap">

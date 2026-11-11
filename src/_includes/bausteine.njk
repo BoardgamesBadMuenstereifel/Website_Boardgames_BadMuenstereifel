@@ -46,8 +46,9 @@
 {%- endif %}
 {% endmacro %}
 
-{% macro terminzeile(t, mitAdresse) %}
-<li{% if t.farbe %} class="farbe-{{ t.farbe }}"{% endif %}>
+{% macro terminzeile(t, mitAdresse, fotosNachArt) %}
+{%- set vorher = fotosNachArt[t.art | lower | trim] if fotosNachArt else null %}
+<li class="{{ ('farbe-' + t.farbe) if t.farbe }}{{ ' mit-fotos' if vorher }}">
   <time datetime="{{ t.datum }}"><span class="tag">{{ t.teile.tag }}</span><span class="zahl">{{ t.teile.zahl }}</span><span class="monat">{{ t.teile.monat }}</span></time>
   <div>
     <span class="etikett">{{ t.art }}</span>
@@ -58,6 +59,19 @@
     {%- if mitAdresse and t.ort %}<div class="info">{{ t.adresse or "Adresse folgt" }}</div>{% endif %}
     {%- if t.adresse %}<a href="https://www.openstreetmap.org/search?query={{ t.adresse | urlencode }}" rel="noopener" aria-label="Route zu {{ t.ort }}">Route</a>{% endif %}
   </div>
+  {%- if vorher %}
+  {#- Fotos vom letzten Mal, als kleiner Stapel Sofortbilder #}
+  <ul class="stapel" aria-label="Fotos vom letzten Mal: {{ t.art }}">
+    {%- for f in vorher %}
+    <li class="sofortbild" style="--i: {{ loop.index0 }}">
+      <figure>
+        {{ bild(f, "(min-width: 40rem) 18rem, 70vw") }}
+        <figcaption><strong>{{ f.titel or t.art }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>
+      </figure>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
 </li>
 {% endmacro %}
 
@@ -82,8 +96,23 @@
     </div>
     {%- endif %}
     {{ einordnung(f) }}
-    <p>{{ f.zusammenfassung }}</p>
+    <p class="bew-einleitung">{{ f.zusammenfassung }}</p>
+    {%- if kurz %}
     {%- if f.fuerWen %}<p><b>Für wen?</b> {{ f.fuerWen }}</p>{% endif %}
+    {%- else %}
+    {%- for a in f.abschnitte %}
+    <section class="bew-abschnitt">
+      <h{{ h2 }}>{{ a.titel }}</h{{ h2 }}>
+      {%- for p in a.absaetze %}<p>{{ p }}</p>{% endfor %}
+    </section>
+    {%- endfor %}
+    {%- if f.fuerWen or f.fuerWenNicht %}
+    <div class="passt">
+      {%- if f.fuerWen %}<div class="passt-ja"><h{{ h2 }}>Für wen es passt</h{{ h2 }}><p>{{ f.fuerWen }}</p></div>{% endif %}
+      {%- if f.fuerWenNicht %}<div class="passt-nein"><h{{ h2 }}>Für wen eher nicht</h{{ h2 }}><p>{{ f.fuerWenNicht }}</p></div>{% endif %}
+    </div>
+    {%- endif %}
+    {%- endif %}
     {%- if not kurz and (f.positiv.length or f.negativ.length) %}
     <div class="plusminus">
       {%- if f.positiv.length %}
@@ -93,6 +122,12 @@
       <div class="minus"><h{{ h2 }}>Das gefällt uns weniger</h{{ h2 }}><ul>{% for p in f.negativ %}<li>{{ p }}</li>{% endfor %}</ul></div>
       {%- endif %}
     </div>
+    {%- endif %}
+    {%- if not kurz and f.fazit.length %}
+    <section class="bew-fazit">
+      <h{{ h2 }}>Unser Fazit</h{{ h2 }}>
+      {%- for p in f.fazit %}<p>{{ p }}</p>{% endfor %}
+    </section>
     {%- endif %}
     {%- if kurz %}<p><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">Ganze Bewertung lesen</a></p>{% endif %}
   </div>
@@ -128,3 +163,23 @@
 {% endmacro %}
 
 {% macro flamme() %}<svg class="flamme" viewBox="0 0 24 24" aria-hidden="true"><path fill="#cf4639" d="M12 2c1 4 6 6.500 6 12a6 6 0 0 1-12 0c0-2.500 1.200-4 2.500-5.200.3 1.700 1 2.700 2 3.200C10 8.500 10.500 5 12 2z"/></svg>{% endmacro %}
+
+{#- Eigenes Foto in passender Größe. „groessen“ sagt dem Browser, wie breit das Foto angezeigt wird. #}
+{% macro bild(f, groessen, laden) %}
+<picture>
+  <source type="image/webp" sizes="{{ groessen }}" srcset="{% for w in f.breiten %}{{ ('/assets/fotos/' + f.datei + '-' + w + '.webp') | url }} {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}">
+  <img src="{{ ('/assets/fotos/' + f.datei + '-' + f.jpg + '.jpg') | url }}" width="{{ f.breite }}" height="{{ f.hoehe }}" alt="{{ f.alt }}" loading="{{ laden or 'lazy' }}" decoding="async" style="background-color: {{ f.farbe }}">
+</picture>
+{% endmacro %}
+
+{#- Foto als Sofortbild mit Rahmen und Unterschrift, auf der Startseite als Link zur Spielseite #}
+{% macro sofortbild(f, groessen, index) %}
+<li class="sofortbild" style="--i: {{ index }}">
+  <a href="{{ (('/spiele/' + f.spielSlug + '/') if f.spielSlug else '/spiele/') | url }}">
+    <figure>
+      {{ bild(f, groessen) }}
+      <figcaption><strong>{{ f.titel or "Bei uns" }}</strong>{% if f.unterschrift %} <span>{{ f.unterschrift }}</span>{% endif %}</figcaption>
+    </figure>
+  </a>
+</li>
+{% endmacro %}

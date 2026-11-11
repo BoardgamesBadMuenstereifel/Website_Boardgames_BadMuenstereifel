@@ -504,3 +504,9 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 }
 @media (hover: none) and (max-width: 39.99rem) { .streifen-knopf { display: none; } }
 @media (prefers-reduced-motion: reduce) { .sofortbilder.streifen { scroll-behavior: auto; } }
+
+/* Startseite am Handy: Spiel im Fokus nur mit Name, Link zur ganzen Bewertung und unserer Note */
+@media (max-width: 39.99rem) {
+  .bewertung.kurz .einordnung, .bewertung.kurz .bew-einleitung, .bewertung.kurz .bew-fuer-wen { display: none; }
+  .bewertung.kurz .bew-text > p:last-child { margin-top: .5rem; }
+}

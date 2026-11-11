@@ -80,7 +80,7 @@
 {% macro bewertung(f, modus, h) %}
 {%- set h2 = h + 1 %}
 {%- set kurz = modus == "kurz" %}
-<article class="bewertung" id="{{ 'bewertung' if modus == 'spielseite' else f.spiel.slug }}">
+<article class="bewertung{{ ' kurz' if kurz }}" id="{{ 'bewertung' if modus == 'spielseite' else f.spiel.slug }}">
   <div class="bew-text">
     {%- if modus == "spielseite" %}
     {%- if f.monatText %}<p class="eyebrow">Im Fokus: {{ f.monatText }}</p>{% endif %}
@@ -98,7 +98,7 @@
     {{ einordnung(f) }}
     <p class="bew-einleitung">{{ f.zusammenfassung }}</p>
     {%- if kurz %}
-    {%- if f.fuerWen %}<p><b>Für wen?</b> {{ f.fuerWen }}</p>{% endif %}
+    {%- if f.fuerWen %}<p class="bew-fuer-wen"><b>Für wen?</b> {{ f.fuerWen }}</p>{% endif %}
     {%- else %}
     {%- for a in f.abschnitte %}
     <section class="bew-abschnitt">

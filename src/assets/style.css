@@ -381,13 +381,18 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .skala dl div { display: grid; grid-template-columns: 9.5rem 1fr; gap: .6rem; }
 .skala dt b { display: inline-block; min-width: 1.3em; text-align: right; margin-right: .3rem; color: var(--aubergine); }
 .skala dd { margin: 0; }
+/* Notenerklärung direkt unter „Unsere Note“: schmale Spalte, Erklärung unter der Note */
+.bew-seite { display: grid; gap: .8rem; align-self: start; }
+.bew-seite .skala { margin: 0; max-width: none; background: var(--creme); }
+.bew-seite .skala dl div { grid-template-columns: 1fr; gap: 0; }
+.bew-seite .skala dd { font-size: .92rem; padding-left: 1.6rem; }
 @media (min-width: 40rem) {
   .plusminus { grid-template-columns: 1fr 1fr; }
   .bew-bild { width: 7.5rem; height: 7.5rem; }
 }
 @media (min-width: 60rem) {
   .bewertung { grid-template-columns: 1.7fr 1fr; gap: 1.6rem; padding: 1.6rem; }
-  .bewertung .fokus-wertung { align-self: start; position: sticky; top: 1rem; } /* die Note bleibt beim Lesen sichtbar */
+  .bewertung .bew-seite { position: sticky; top: 1rem; } /* die Note bleibt beim Lesen sichtbar */
   .otoene { grid-column: 1 / -1; }
 }
 
@@ -509,4 +514,25 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 @media (max-width: 39.99rem) {
   .bewertung.kurz .einordnung, .bewertung.kurz .bew-einleitung, .bewertung.kurz .bew-fuer-wen { display: none; }
   .bewertung.kurz .bew-text > p:last-child { margin-top: .5rem; }
+}
+
+/* Startseite: deutliche Knöpfe unter den Terminen */
+.btn-gross { min-height: 3.5rem; padding: .85rem 1.6rem; font-size: 1.12rem; box-shadow: 0 4px 0 rgb(43 37 48 / .25); }
+.btn-gross:active { transform: translateY(2px); box-shadow: 0 2px 0 rgb(43 37 48 / .25); }
+.btn-dunkel { background: var(--aubergine); color: var(--creme-hell); }
+.btn-dunkel:hover { background: var(--tinte); color: var(--creme-hell); }
+.mehr.gross { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .9rem; max-width: 34rem; margin-top: 1.4rem; }
+
+/* Startseite: „Neu im Hobby?“ als auffällige Karte */
+.einstieg-karte { display: grid; gap: 1.1rem; align-items: center; background: var(--aubergine) var(--filz) 0 0 / 22px 22px; color: var(--creme-hell); border-radius: var(--radius); padding: 1.4rem 1.3rem; text-decoration: none; box-shadow: 0 6px 0 var(--gold); }
+.einstieg-karte:hover { color: var(--creme-hell); }
+.einstieg-karte:hover .einstieg-knopf { background: #eab05d; }
+.einstieg-text { display: grid; gap: .45rem; justify-items: start; }
+.einstieg-marke { display: inline-block; background: var(--gold); color: var(--tinte); font-weight: 700; font-size: .9rem; letter-spacing: .04em; text-transform: uppercase; padding: .2rem .7rem; border-radius: 999px; }
+.einstieg-karte strong { font-family: var(--schrift-titel); font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.15; color: var(--creme-hell); }
+.einstieg-text > span:last-child { font-size: 1.08rem; max-width: 36rem; }
+.einstieg-knopf { justify-self: start; }
+.einstieg-karte:focus-visible { outline: 3px solid var(--tinte); outline-offset: 4px; }
+@media (min-width: 48rem) {
+  .einstieg-karte { grid-template-columns: 1fr auto; padding: 1.8rem 2rem; gap: 2rem; }
 }

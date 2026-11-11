@@ -9,17 +9,8 @@ permalink: /im-fokus/
   <div class="wrap">
     <h1 class="seiten-titel" id="h-im-fokus">Spiel im Fokus</h1>
     <p class="lead">Regelmäßig nehmen wir ein Spiel genauer unter die Lupe. Unsere Mitglieder bewerten es nach der Skala von BoardGameGeek, von 1 (für mich kein Spiel) bis 10 (herausragend). Hier siehst du, wie wir abgestimmt haben und was uns gefällt.</p>
-    <details class="skala">
-      <summary>Was bedeuten die Noten?</summary>
-      <dl>
-        {%- for s in daten.bggSkala %}
-        <div><dt><b>{{ s.note }}</b> {{ s.kurz }}</dt><dd>{{ s.lang }}</dd></div>
-        {%- endfor %}
-      </dl>
-      <p class="klein-info">Nach der Bewertungsskala von <a href="https://boardgamegeek.com" rel="noopener">BoardGameGeek</a>, von uns übersetzt.</p>
-    </details>
     {%- if daten.fokus.length %}
-    {{ b.bewertung(daten.fokus[0], "voll", 2) }}
+    {{ b.bewertung(daten.fokus[0], "voll", 2, daten.bggSkala) }}
     {%- else %}
     <p><b>Das erste Spiel im Fokus folgt bald.</b></p>
     {%- endif %}

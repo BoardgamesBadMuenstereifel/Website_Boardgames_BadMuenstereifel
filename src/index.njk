@@ -7,7 +7,7 @@ layout: basis.njk
   <div class="wrap">
     <div>
       <h1 id="h-hero">Komm einfach vorbei. <span>Wir spielen.</span></h1>
-      <p class="unter">Brettspielabende in Bad Münstereifel. Unter der Woche kostenlos und ohne Anmeldung. Du brauchst kein Spiel mitzubringen.</p>
+      <p class="unter">Brettspielabende in Bad Münstereifel. Kostenlos und ohne Anmeldung.</p>
       <img class="hero-bild" src="{{ '/assets/spieltisch.svg' | url }}" alt="" width="640" height="220">
     </div>
     <div class="naechster" aria-labelledby="h-next">
@@ -34,7 +34,6 @@ layout: basis.njk
 <section class="sektion" id="termine" aria-labelledby="h-termine">
   <div class="wrap">
     <h2 id="h-termine">Die nächsten Termine</h2>
-    <p class="lead">Such dir einen Termin aus und komm vorbei. Wir erklären dir die Spiele, Regeln musst du nicht kennen.</p>
     {%- if daten.termine.length %}
     <ul class="termine" data-limit="3">
       {%- for t in daten.termine | batch(3) | first %}{{ b.terminzeile(t, false) }}{% endfor %}
@@ -42,9 +41,9 @@ layout: basis.njk
     {%- else %}
     <p><b>Neue Termine folgen.</b> <a href="{{ verein.whatsapp }}" rel="noopener">Zur WhatsApp-Gruppe</a></p>
     {%- endif %}
-    <div class="mehr">
-      <a class="btn btn-rand" href="{{ '/termine/' | url }}">Alle Termine</a>
-      <a class="btn btn-rand" href="{{ '/neu-hier/' | url }}">Alles für Neue</a>
+    <div class="mehr gross">
+      <a class="btn btn-gold btn-gross" href="{{ '/termine/' | url }}">Alle Termine <span aria-hidden="true">→</span></a>
+      <a class="btn btn-dunkel btn-gross" href="{{ '/neu-hier/' | url }}">Alles für Neue <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -67,11 +66,14 @@ layout: basis.njk
 
 {%- if daten.empfehlungen.length %}
 <section class="sektion" id="einstieg" aria-label="Empfehlungen für den Einstieg ins Hobby" style="padding-bottom:0">
-  <div class="wrap teaser">
-    <a class="teaser-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
-      <span class="eyebrow">Neu im Hobby?</span>
-      <strong>Unsere Empfehlungen für deinen Einstieg</strong>
-      <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt, und was danach kommen kann.</span>
+  <div class="wrap">
+    <a class="einstieg-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
+      <span class="einstieg-text">
+        <span class="einstieg-marke">Neu im Hobby?</span>
+        <strong>Unsere Empfehlungen für deinen Einstieg</strong>
+        <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt.</span>
+      </span>
+      <span class="btn btn-gold btn-gross einstieg-knopf" aria-hidden="true">Zu den Empfehlungen →</span>
     </a>
   </div>
 </section>

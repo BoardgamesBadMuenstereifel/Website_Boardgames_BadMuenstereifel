@@ -77,7 +77,7 @@
 
 {# Spiel im Fokus. modus: "voll" (Seite Im Fokus), "kurz" (Startseite, ohne Plus/Minus und O-Töne),
    "spielseite" (auf der Seite des Spiels, ohne Bild und Namen). h = Stufe der obersten Überschrift #}
-{% macro bewertung(f, modus, h) %}
+{% macro bewertung(f, modus, h, skala) %}
 {%- set h2 = h + 1 %}
 {%- set kurz = modus == "kurz" %}
 <article class="bewertung{{ ' kurz' if kurz }}" id="{{ 'bewertung' if modus == 'spielseite' else f.spiel.slug }}">
@@ -125,6 +125,7 @@
     {%- endif %}
     {%- if kurz %}<p><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">Ganze Bewertung lesen</a></p>{% endif %}
   </div>
+  <div class="bew-seite">
   <div class="fokus-wertung">
     <h{{ h2 }} class="w-titel">Unsere Note</h{{ h2 }}>
     {%- if f.schnitt %}
@@ -142,6 +143,19 @@
     {%- else %}
     <p class="w-info">Die Abstimmung läuft noch.</p>
     {%- endif %}
+  </div>
+  {%- if skala %}
+  {#- Erklärung der Noten direkt unter unserer Note (Seite Im Fokus) #}
+  <details class="skala">
+    <summary>Was bedeuten die Noten?</summary>
+    <dl>
+      {%- for s in skala %}
+      <div><dt><b>{{ s.note }}</b> {{ s.kurz }}</dt><dd>{{ s.lang }}</dd></div>
+      {%- endfor %}
+    </dl>
+    <p class="klein-info">Nach der Bewertungsskala von <a href="https://boardgamegeek.com" rel="noopener">BoardGameGeek</a>, von uns übersetzt.</p>
+  </details>
+  {%- endif %}
   </div>
   {%- if not kurz and f.otoene.length %}
   <details class="otoene">

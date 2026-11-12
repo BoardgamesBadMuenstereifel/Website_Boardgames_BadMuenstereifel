@@ -1,65 +1,22 @@
 ---
-layout: basis.njk
-titel: Spiel im Fokus
-beschreibung: Wir bewerten Spiele gemeinsam nach der Skala von BoardGameGeek und empfehlen passende Spiele für Kinder, Familien, Partyrunden, Kenner und Experten.
 permalink: /im-fokus/
+eleventyExcludeFromCollections: true
 ---
-{% import "bausteine.njk" as b %}
-<section class="sektion" aria-labelledby="h-im-fokus">
-  <div class="wrap">
-    <h1 class="seiten-titel" id="h-im-fokus">Spiel im Fokus</h1>
-    <p class="lead">Regelmäßig nehmen wir ein Spiel genauer unter die Lupe. Unsere Mitglieder bewerten es nach der Skala von BoardGameGeek, von 1 (für mich kein Spiel) bis 10 (herausragend). Hier siehst du, wie wir abgestimmt haben und was uns gefällt.</p>
-    {%- if daten.fokus.length %}
-    {{ b.bewertung(daten.fokus[0], "voll", 2, daten.bggSkala) }}
-    {%- else %}
-    <p><b>Das erste Spiel im Fokus folgt bald.</b></p>
-    {%- endif %}
-  </div>
-</section>
-
-{%- if daten.empfehlungen.length %}
-<section class="sektion" id="empfehlungen" aria-labelledby="h-empf">
-  <div class="wrap">
-    <h2 id="h-empf">Unsere Empfehlungen für deinen Einstieg ins Hobby</h2>
-    <p class="lead">Du willst ins Hobby einsteigen? Mit diesen Spielen klappt der Anfang. Sortiert danach, mit wem du spielst, bis hin zu Ideen für den nächsten Schritt. Spiele mit Note haben wir ausführlich bewertet.</p>
-    <div class="empf">
-      {%- for g in daten.empfehlungen %}
-      <article class="empf-karte" id="{{ g.anker }}" aria-labelledby="h-{{ g.anker }}">
-        <h3 id="h-{{ g.anker }}">{{ g.name }}</h3>
-        {%- if g.text %}<p class="empf-satz">{{ g.text }}</p>{% endif %}
-        <ul>
-          {%- for e in g.spiele %}
-          <li>
-            <a href="{{ ('/spiele/' + e.spiel.slug + '/' + ('#bewertung' if e.spiel.bewertung else '')) | url }}">{{ e.spiel.name }}</a>
-            {%- if e.spiel.bewertung %}<span class="empf-note">Im Fokus{% if e.note %} · unsere Note {{ e.note }}{% endif %}</span>{% endif %}
-            {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
-          </li>
-          {%- endfor %}
-        </ul>
-      </article>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-{%- endif %}
-
-{%- if daten.fokus.length > 1 %}
-<section class="sektion" id="frueher" aria-labelledby="h-frueher">
-  <div class="wrap">
-    <h2 id="h-frueher">Frühere Spiele im Fokus</h2>
-    <ul class="fokus-archiv">
-      {%- for f in daten.fokus %}{% if not loop.first %}
-      <li class="archiv-karte">
-        {{ b.cover(f.spiel, "bild") }}
-        <div>
-          {%- if f.monatText %}<p class="eyebrow">{{ f.monatText }}</p>{% endif %}
-          <h3><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">{{ f.spiel.name }}</a></h3>
-          {%- if f.schnitt %}<p class="archiv-note">Unsere Note {{ f.schnitt }} von 10</p>{% endif %}
-          {%- if f.einordnungen.length %}<p class="archiv-einordnung">{% for e in f.einordnungen %}{{ e.name }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
-        </div>
-      </li>
-      {%- endif %}{% endfor %}
-    </ul>
-  </div>
-</section>
-{%- endif %}
+{#- Die Seite „Im Fokus“ gibt es nicht mehr: Empfehlungen stehen auf „Neu im Hobby?“, die Bewertung auf der Seite des Spiels.
+    Alte Links leiten hierher weiter. #}
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Seite umgezogen – {{ verein.name }}</title>
+  <script>
+    location.replace(/^#empf/.test(location.hash) ? "{{ '/neu-im-hobby/' | url }}" + location.hash : "{{ '/spiele/' | url }}#im-fokus");
+  </script>
+  <meta http-equiv="refresh" content="0; url={{ '/spiele/' | url }}#im-fokus">
+</head>
+<body>
+  <p>Diese Seite ist umgezogen: <a href="{{ '/spiele/' | url }}#im-fokus">Spiel im Fokus</a> · <a href="{{ '/neu-im-hobby/' | url }}">Neu im Hobby?</a></p>
+</body>
+</html>

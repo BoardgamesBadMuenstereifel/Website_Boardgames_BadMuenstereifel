@@ -1,12 +1,22 @@
 <div>
   <h2 id="h-kontakt">Fragen? Schreib uns.</h2>
-  <p>Martin Finder ist der Initiator der Spieleabende und freut sich über jede Nachricht. Am schnellsten geht es über WhatsApp.</p>
+  <p>Martin Finder ist der Initiator der Spieleabende und freut sich über jede Nachricht. Am schnellsten geht es per WhatsApp.</p>
   <div class="aktionen">
-    <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a>
+    <a class="btn btn-gold" href="{{ verein.whatsappDirekt }}" rel="noopener">Frag Martin per WhatsApp</a>
     <a class="btn btn-rand" href="tel:{{ verein.telefonLink }}">{{ verein.telefon }}</a>
+  </div>
+  <p>Lieber per E-Mail: <a href="mailto:{{ verein.mail }}">{{ verein.mail }}</a></p>
+  <p>In unserer <a href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a> stimmen wir Termine ab und sagen Änderungen an.</p>
+  <h3 class="folge-h">Folge uns</h3>
+  <div class="aktionen folge-uns">
+    <a class="btn btn-rand" href="{{ verein.instagram }}" rel="noopener">Instagram</a>
+    <a class="btn btn-rand" href="{{ verein.facebook }}" rel="noopener">Facebook</a>
   </div>
 </div>
 <div>
   <h2>Über uns</h2>
   <p>Wir sind eine offene Spielrunde in Bad Münstereifel. Gegründet haben wir uns im März 2022 mit 7 Leuten. Neue Gesichter sind immer willkommen, egal ob Einsteiger oder Vielspieler.</p>
+  {%- if daten.chronik.partien %}
+  <p class="chronik">Seit {{ daten.chronik.seit }} schreiben wir mit: <b>{{ daten.chronik.partien }} Partien</b> mit <b>{{ daten.chronik.spiele }} verschiedenen Spielen</b> bei <b>{{ daten.chronik.abende }} Spieletreffen</b>.</p>
+  {%- endif %}
 </div>

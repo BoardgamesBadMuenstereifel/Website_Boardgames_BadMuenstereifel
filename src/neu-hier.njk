@@ -1,24 +1,24 @@
 ---
 layout: basis.njk
 titel: Neu hier?
-beschreibung: So läuft ein Spieleabend bei Boardgames Bad Münstereifel. Abend- und Samstagstermine, Ablauf und was immer gilt.
+beschreibung: So läuft ein Spieleabend bei Boardgames Bad Münstereifel. Uhrzeiten, Kosten, Anmeldung und Antworten auf häufige Fragen.
 permalink: /neu-hier/
 ---
+{% import "bausteine.njk" as b %}
 <section class="sektion" aria-labelledby="h-neu">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-neu">Neu hier?</h1>
     <p class="lead">Du brauchst nichts vorzubereiten: Such dir einen Termin aus und komm vorbei.</p>
 
-    <h2 class="unter-h">Das Wichtigste in Kürze</h2>
     <ul class="haken">
-      <li><b>Unter der Woche kostenlos.</b> Die Spieleabende unter der Woche kosten nichts. Am Wochenende zahlst du 5 € pro Abend, damit bezahlen wir die Miete für die Räume.</li>
-      <li><b>Keine Anmeldung.</b> Zu den Spieleabenden kannst du spontan kommen. Nur die Social-Deduction-Abende und Sonderveranstaltungen wie das Brettspielkloster brauchen eine Anmeldung.</li>
-      <li><b>Spiele mitbringen:</b> kannst du, musst du nicht.</li>
-      <li><b>Wir erklären dir die Spiele.</b> Du musst keine Regeln lesen.</li>
-      <li><b>Neu hier?</b> Super: Du bist schnell mittendrin, die Runden bilden sich vor Ort.</li>
+      <li><b>Unter der Woche kostenlos.</b> Samstags kostet es 5 €, damit bezahlen wir die Miete für den Raum.</li>
+      <li><b>Keine Anmeldung.</b> Nur Social Deduction und Sonderveranstaltungen brauchen eine.</li>
+      <li><b>Keine Regeln nötig.</b> Wir erklären dir die Spiele.</li>
+      <li><b>Spiele mitbringen?</b> Kannst du, musst du nicht.</li>
+      <li><b>Trau dich!</b> Auch wenn du noch keine modernen Brettspiele kennst: Bei uns hat jede und jeder mal angefangen.</li>
     </ul>
+
     {%- if daten.fotosNeuHier.length %}
-    {% import "bausteine.njk" as b %}
     <h2 class="unter-h">So sieht ein Spieleabend aus</h2>
     <div class="streifen-rahmen">
       <ul class="sofortbilder streifen" id="neu-streifen" aria-label="Fotos von unseren Spieleabenden">
@@ -36,44 +36,76 @@ permalink: /neu-hier/
     </div>
     {%- endif %}
 
-    <h2 class="unter-h">So laufen unsere Termine ab</h2>
-    <p class="lead">Die Zeiten sind je nach Termin etwas anders. Hier die typischen Beispiele:</p>
-    <div class="formate">
-      <article class="format farbe-gruen">
-        <h3 class="format-titel">Abendtermine <span class="badge">meist Mi oder Do</span></h3>
-        <p class="format-zeit">ab 18 Uhr · kostenlos</p>
-        <ol class="ablauf">
-          <li><b>18:00</b> <span>Wir treffen uns, wer mag, isst etwas.</span></li>
-          <li><b>ca. 19:00</b> <span>Nach dem Essen geht das Spielen los. Die Runden bilden sich meist beim Essen.</span></li>
-        </ol>
-        <p class="tipp">Du willst nur zum Spielen kommen? Dann komm einfach gegen <b>18:30–18:45 Uhr</b> dazu.</p>
-      </article>
-      <article class="format farbe-blau">
-        <h3 class="format-titel">Samstagstermine <span class="badge">ohne Essen</span></h3>
-        <p class="format-zeit">ab 16 Uhr · 5 €</p>
-        <ol class="ablauf">
-          <li><b>16:00</b> <span>Kein gemeinsames Essen vorher: Du kommst und wir spielen gleich los.</span></li>
-          <li><b>dann</b> <span>Wir erklären dir ein Spiel und du spielst mit.</span></li>
-        </ol>
-        <p class="tipp">Warum 5 €? Für die Wochenendtermine mieten wir einen Raum. Mit deinem Beitrag bezahlen wir die Miete.</p>
-      </article>
-      <article class="format farbe-rot">
-        <h3 class="format-titel">Social Deduction <span class="badge">z. B. Blood on the Clocktower</span></h3>
-        <p class="format-zeit">ab 18 Uhr · kostenpflichtig · nur mit Anmeldung</p>
-        <p>Bluffen, verdächtigen, überzeugen: Spiele in großer Runde, bei denen ihr herausfinden müsst, wem ihr trauen könnt.</p>
-        <p class="tipp">Die Termine stimmen wir in der <a href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a> ab. Feste Termine stehen in der <a href="{{ '/termine/' | url }}">Terminliste</a>.</p>
-      </article>
-      <article class="format farbe-lila">
-        <h3 class="format-titel">Sondertermine <span class="badge">z. B. Brettspielkloster, Sommerfest, BAM-Spielt</span></h3>
-        <p class="format-zeit">eigene Zeiten</p>
-        <p>Besondere Veranstaltungen übers Jahr. Was sie kosten und ob du dich anmelden musst, steht beim jeweiligen Termin.</p>
-        <p class="tipp"><a href="{{ '/termine/' | url }}">Zu den Terminen</a></p>
-      </article>
+    <h2 class="unter-h" id="ueberblick">Unsere Termine auf einen Blick</h2>
+    <table class="ueberblick">
+      <thead>
+        <tr><th scope="col">Termin</th><th scope="col">Wann</th><th scope="col">Kosten</th><th scope="col">Anmeldung</th></tr>
+      </thead>
+      <tbody>
+        <tr class="farbe-gruen">
+          <th scope="row"><span class="etikett">Spieleabend</span> meist Mittwoch oder Donnerstag</th>
+          <td data-titel="Wann"><span>ab 18 Uhr: erst Essen, Spielbeginn ca. 19 Uhr<span class="ueb-tipp">Nur zum Spielen? Dann komm gegen 18:30–18:45 Uhr dazu.</span></span></td>
+          <td data-titel="Kosten">kostenlos</td>
+          <td data-titel="Anmeldung">nein</td>
+        </tr>
+        <tr class="farbe-blau">
+          <th scope="row"><span class="etikett">Samstagstermin</span> ohne Essen</th>
+          <td data-titel="Wann">ab 16 Uhr, wir spielen gleich los</td>
+          <td data-titel="Kosten">5 €</td>
+          <td data-titel="Anmeldung">nein</td>
+        </tr>
+        <tr class="farbe-rot">
+          <th scope="row"><span class="etikett">Social Deduction</span> Bluffen und Verdächtigen in großer Runde, z. B. Blood on the Clocktower</th>
+          <td data-titel="Wann">ab 18 Uhr</td>
+          <td data-titel="Kosten">kostenpflichtig</td>
+          <td data-titel="Anmeldung">ja</td>
+        </tr>
+        <tr class="farbe-lila">
+          <th scope="row"><span class="etikett">Sondertermine</span> z. B. Brettspielkloster, Sommerfest, BAM-Spielt</th>
+          <td data-titel="Wann" colspan="3">steht beim jeweiligen Termin</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="unter-h">Häufige Fragen</h2>
+    <div class="fragen">
+      <details>
+        <summary>Muss ich im Kupferkessel etwas essen oder bestellen?</summary>
+        <p>Nein, essen musst du nichts. Getränke bestellst du bitte dort und bringst sie nicht mit. Kaufen musst du aber nichts.</p>
+      </details>
+      <details>
+        <summary>Kann ich Kinder mitbringen?</summary>
+        <p>Ja. Wir empfehlen die Abende ab 16 Jahren. Mit jüngeren Kindern sag bitte vorher Bescheid, dann haben wir passende Spiele dabei.</p>
+      </details>
+      <details>
+        <summary>Wer kommt zu den Abenden?</summary>
+        <p>Meistens kommen um die 25 Spieler, zwischen 18 und 70 Jahren.</p>
+      </details>
+      <details>
+        <summary>Gibt es Parkplätze?</summary>
+        <p>Ja, an allen unseren Orten.</p>
+      </details>
+      <details>
+        <summary>Woran erkenne ich euch vor Ort?</summary>
+        <p>Wir sind nicht zu übersehen: Du erkennst uns an den vielen Brettspielen.</p>
+      </details>
+      <details>
+        <summary>Wie zahle ich die 5 € am Samstag?</summary>
+        <p>Bar vor Ort.</p>
+      </details>
     </div>
 
     <div class="aktionen">
-      <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>
-      <a class="btn btn-rand" href="{{ '/termine/' | url }}">Zu den Terminen</a>
+      <a class="btn btn-gold" href="{{ '/termine/' | url }}">Zu den Terminen</a>
+      <a class="btn btn-rand" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>
     </div>
   </div>
 </section>
+
+{%- if daten.empfehlungen.length %}
+<section class="sektion" aria-label="Empfehlungen für den Einstieg ins Hobby" style="padding-top:0">
+  <div class="wrap">
+    {{ b.einstiegKarte() }}
+  </div>
+</section>
+{%- endif %}

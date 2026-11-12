@@ -2,16 +2,17 @@
 layout: basis.njk
 ---
 {% import "bausteine.njk" as b %}
-{% set naechster = daten.termine[0] %}
+{#- Oben steht der nächste Abend, zu dem man ohne Anmeldung kommen kann #}
+{% set naechster = daten.naechsterOffen %}
 <section class="hero" aria-labelledby="h-hero">
   <div class="wrap">
     <div>
       <h1 id="h-hero">Komm einfach vorbei. <span>Wir spielen.</span></h1>
-      <p class="unter">Brettspielabende in Bad Münstereifel. Kostenlos und ohne Anmeldung.</p>
+      <p class="unter">Brettspielabende in Bad Münstereifel, in freundlicher Gesellschaft.</p>
       <img class="hero-bild" src="{{ '/assets/spieltisch.svg' | url }}" alt="" width="640" height="220">
     </div>
     <div class="naechster" aria-labelledby="h-next">
-      <span class="label" id="h-next">Nächster Termin</span>
+      <span class="label" id="h-next">Nächster Spieleabend</span>
       {%- if naechster %}
       <div class="wann" id="next-wann"><span>{{ naechster.langText }}</span> <small>{{ ("ab " + naechster.zeit) if naechster.zeit else "Uhrzeit folgt" }}</small></div>
       <p class="wo" id="next-wo">{{ naechster.ort or "Ort folgt" }}</p>
@@ -25,7 +26,6 @@ layout: basis.njk
       {%- endif %}
       <div class="aktionen">
         <a class="btn btn-gold" href="{{ verein.whatsapp }}" rel="noopener">In die WhatsApp-Gruppe</a>
-        <a class="btn btn-rand" href="{{ '/neu-hier/' | url }}">So läuft ein Abend</a>
       </div>
     </div>
   </div>
@@ -33,13 +33,16 @@ layout: basis.njk
 
 <section class="sektion" id="termine" aria-labelledby="h-termine">
   <div class="wrap">
-    <h2 id="h-termine">Die nächsten Termine</h2>
-    {%- if daten.termine.length %}
+    {%- if daten.termineStart.length %}
+    <h2 id="h-termine">Weitere Termine</h2>
     <ul class="termine" data-limit="3">
-      {%- for t in daten.termine | batch(3) | first %}{{ b.terminzeile(t, false) }}{% endfor %}
+      {%- for t in daten.termineStart %}{{ b.terminzeile(t, false) }}{% endfor %}
     </ul>
-    {%- else %}
+    {%- elif not naechster %}
+    <h2 id="h-termine">Termine</h2>
     <p><b>Neue Termine folgen.</b> <a href="{{ verein.whatsapp }}" rel="noopener">Zur WhatsApp-Gruppe</a></p>
+    {%- else %}
+    <h2 id="h-termine" class="nur-sr">Termine</h2>
     {%- endif %}
     <div class="mehr gross">
       <a class="btn btn-gold btn-gross" href="{{ '/termine/' | url }}">Alle Termine <span aria-hidden="true">→</span></a>
@@ -52,7 +55,7 @@ layout: basis.njk
 <section class="sektion tisch" id="vom-spieltisch" aria-labelledby="h-tisch">
   <div class="wrap">
     <h2 id="h-tisch">Vom Spieltisch</h2>
-    <p class="lead">So sieht es bei unseren Spieleabenden aus. Tipp auf ein Foto, dann erfährst du mehr über das Spiel.</p>
+    <p class="lead">So sieht es bei unseren Spieleabenden aus. Tipp auf ein Foto, dann erfährst du mehr.</p>
     <div class="streifen-rahmen">
       <ul class="sofortbilder streifen" id="tisch-streifen" aria-label="Fotos von unseren Spieleabenden">
         {%- for f in daten.fotosStart %}{{ b.sofortbild(f, "(min-width: 60rem) 21rem, (min-width: 40rem) 42vw, 80vw", loop.index0) }}{% endfor %}
@@ -67,62 +70,33 @@ layout: basis.njk
 {%- if daten.empfehlungen.length %}
 <section class="sektion" id="einstieg" aria-label="Empfehlungen für den Einstieg ins Hobby" style="padding-bottom:0">
   <div class="wrap">
-    <a class="einstieg-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
-      <span class="einstieg-text">
-        <span class="einstieg-marke">Neu im Hobby?</span>
-        <strong>Unsere Empfehlungen für deinen Einstieg</strong>
-        <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt.</span>
-      </span>
-      <span class="btn btn-gold btn-gross einstieg-knopf" aria-hidden="true">Zu den Empfehlungen →</span>
-    </a>
+    {{ b.einstiegKarte() }}
   </div>
 </section>
 {%- endif %}
 
-{%- if daten.meist12.length %}
+{%- if daten.meist3.length %}
 <section class="sektion" id="spiele" aria-labelledby="h-spiele">
   <div class="wrap">
     <h2 id="h-spiele">Aktuell meist gespielt</h2>
-    <div class="liste-gruppe">
-      <div>
-        <h3 class="band-h">Letzte 12 Monate</h3>
-        <ol class="spiele einspaltig">
-          {%- for e in daten.meist12 | batch(5) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
-        </ol>
-      </div>
-      <div class="seitenleiste">
-        {%- if daten.meist3.length %}
-        <aside class="hot" aria-labelledby="h-hot">
-          <h3 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
-          <ol>
-            {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
-          </ol>
-        </aside>
-        {%- endif %}
-        {{ b.ruhmesliste(daten.hallOfFame, daten.hallOfFameSeit, 3) }}
-      </div>
-    </div>
-    <div class="band-fuss">
-      <a class="btn btn-rand" href="{{ '/spiele/' | url }}">Alle Spiele ansehen</a>
+    <p class="unterzeile">Die meiste Spielzeit in den letzten 3 Monaten</p>
+    <ol class="cover-reihe">
+      {%- for e in daten.meist3 | batch(10) | first %}{{ b.coverKachel(e.spiel, e.spielzeit | spielzeit or (e.partien + "×")) }}{% endfor %}
+    </ol>
+    <div class="mehr gross">
+      <a class="btn btn-gold btn-gross" href="{{ '/spiele/' | url }}">Alle Spiele <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
 {%- endif %}
 
 {%- if daten.fokus.length %}
-<section class="sektion" id="im-fokus" aria-labelledby="h-fokus">
+<section class="sektion" id="spiel-im-fokus" aria-labelledby="h-fokus">
   <div class="wrap">
-    <h2 id="h-fokus">Spiel im Fokus</h2>
-    {{ b.bewertung(daten.fokus[0], "kurz", 3) }}
-    <div class="band-fuss"><a class="btn btn-rand" href="{{ '/im-fokus/' | url }}">Alle Spiele im Fokus</a></div>
+    <h2 id="h-fokus">Ausführliche Spielebewertung</h2>
+    {{ b.fokusKasten(daten.fokus[0], 3) }}
   </div>
 </section>
 {%- endif %}
-
-<section class="sektion" id="kontakt" aria-labelledby="h-kontakt"{% if daten.fokus.length %} style="padding-top:0"{% endif %}>
-  <div class="wrap zweispaltig">
-    {% include "kontakt-block.njk" %}
-  </div>
-</section>
 
 <script type="application/json" id="termine-daten">{{ daten.termine | jsonSicher | safe }}</script>

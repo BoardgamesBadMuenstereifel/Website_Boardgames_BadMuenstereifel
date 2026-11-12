@@ -5,29 +5,46 @@ beschreibung: Alle kommenden Spieleabende von Boardgames Bad Münstereifel mit U
 permalink: /termine/
 ---
 {% import "bausteine.njk" as b %}
+{#- Ein Monat mit Überschrift und seinen Terminen #}
+{% macro monat(m, fotosNachArt) %}
+{%- import "bausteine.njk" as b %}
+<section class="monat" aria-labelledby="m-{{ m.schluessel }}">
+  <h2 class="monat-h" id="m-{{ m.schluessel }}">{{ m.name }}</h2>
+  <ul class="termine" data-adresse="1">
+    {%- for t in m.termine %}{{ b.terminzeile(t, true, fotosNachArt) }}{% endfor %}
+  </ul>
+</section>
+{% endmacro %}
 <section class="sektion" aria-labelledby="h-termine">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-termine">Termine</h1>
-    <p class="lead">Den Ort legen wir pro Termin fest, deshalb steht er immer direkt dabei. Die Abende unter der Woche sind kostenlos. Am Wochenende kostet ein Abend 5 €, damit bezahlen wir die Miete für die Räume. Abende mit Social-Deduction-Spielen wie Blood on the Clocktower stimmen wir in der <a href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a> ab. Sobald sie feststehen, findest du sie hier mit dem roten Etikett „Social Deduction“.</p>
-    <ul class="legende" aria-label="Farben der Terminarten">
-      <li class="farbe-gruen">Spieleabende unter der Woche</li>
-      <li class="farbe-blau">Wochenende</li>
-      <li class="farbe-rot">Social Deduction</li>
-      <li class="farbe-lila">Sondertermine</li>
-    </ul>
+    <p class="lead">Alle kommenden Termine. Wie ein Abend abläuft und was er kostet, steht unter <a href="{{ '/neu-hier/' | url }}">Neu hier?</a></p>
     {%- if daten.termine.length %}
-    {%- for m in daten.termineNachMonat %}
-    <section class="monat" aria-labelledby="m-{{ m.schluessel }}">
-      <h2 class="monat-h" id="m-{{ m.schluessel }}">{{ m.name }}</h2>
-      <ul class="termine" data-adresse="1">
-        {%- for t in m.termine %}{{ b.terminzeile(t, true, daten.fotosNachArt) }}{% endfor %}
+    {%- for m in daten.termineNachMonat %}{% if loop.index0 < 3 %}{{ monat(m, daten.fotosNachArt) }}{% endif %}{% endfor %}
+    {%- if daten.termineNachMonat.length > 3 %}
+    {%- set letzter = daten.termineNachMonat | last %}
+    <details class="weitere-termine">
+      <summary>Weitere Termine bis {{ letzter.name }} <span class="klein-info">({{ daten.termineSpaeterAnzahl }})</span></summary>
+      {%- for m in daten.termineNachMonat %}{% if loop.index0 >= 3 %}{{ monat(m, daten.fotosNachArt) }}{% endif %}{% endfor %}
+    </details>
+    {%- endif %}
+
+    <details class="kalender">
+      <summary>Termine in deinen Kalender holen</summary>
+      <p>Als Abo bleibt dein Kalender von selbst auf dem neuesten Stand, auch wenn Termine dazukommen oder sich ändern.</p>
+      <p><a class="btn btn-rand" href="{{ seite.url | replace('https://', 'webcal://') }}/termine.ics">Kalender abonnieren</a></p>
+      <ul>
+        <li><b>iPhone, iPad, Mac:</b> Auf „Kalender abonnieren“ tippen und bestätigen.</li>
+        <li><b>Google Kalender:</b> Am Computer links bei „Weitere Kalender“ auf das Plus klicken, „Per URL“ wählen und diese Adresse einfügen: <code>{{ seite.url }}/termine.ics</code></li>
       </ul>
-    </section>
-    {%- endfor %}
-    <div class="mehr"><a class="btn btn-rand" href="{{ '/termine.ics' | url }}">Termine in den Kalender holen</a></div>
+      <p class="klein-info">Nur einmal übernehmen, ohne Abo: <a href="{{ '/termine.ics' | url }}">Kalenderdatei herunterladen</a></p>
+    </details>
     {%- else %}
     <p><b>Neue Termine folgen.</b> <a href="{{ verein.whatsapp }}" rel="noopener">Zur WhatsApp-Gruppe</a></p>
     {%- endif %}
   </div>
 </section>
 <script type="application/json" id="termine-daten">{{ daten.termine | jsonSicher | safe }}</script>
+{%- if daten.termine.length %}
+<script type="application/ld+json">{{ daten.termine | termineJsonLd(seite.url, verein) | safe }}</script>
+{%- endif %}

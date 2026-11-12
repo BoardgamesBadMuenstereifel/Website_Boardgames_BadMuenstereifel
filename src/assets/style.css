@@ -52,19 +52,19 @@ h2 { font-size: clamp(1.7rem, 5vw, 2.6rem); color: var(--aubergine); }
 h3 { font-size: 1.2rem; }
 
 /* Dummy-Hinweis (nur Prototyp) */
-.proto-hinweis { background: var(--tinte); color: var(--creme); font-size: .85rem; text-align: center; padding: .35rem 1rem; }
 
 /* Kopf */
 .kopf { background: var(--aubergine); color: var(--creme); }
 .kopf .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
 .logo { display: inline-flex; align-items: center; gap: .6rem; color: var(--creme); text-decoration: none; font-family: var(--schrift-titel); font-weight: 700; font-size: 1.05rem; line-height: 1.1; }
 .logo img { height: 2.9rem; width: auto; flex: none; }
-.nav-menue summary { list-style: none; cursor: pointer; padding: .55rem .9rem; border: 2px solid var(--creme); border-radius: 999px; font-weight: 700; }
-.nav-menue summary::-webkit-details-marker { display: none; }
-.nav-menue { position: relative; }
-.nav-menue ul { position: absolute; right: 0; top: calc(100% + .5rem); margin: 0; padding: .5rem; list-style: none; background: var(--creme-hell); border-radius: var(--radius); box-shadow: 0 10px 30px rgb(0 0 0 / .3); min-width: 14rem; z-index: 5; }
-.nav-menue a { display: block; padding: .75rem 1rem; color: var(--tinte); text-decoration: none; border-radius: 8px; font-weight: 700; }
-.nav-menue a:hover, .nav-menue a[aria-current] { background: var(--creme); }
+/* Hauptmenü: vier Punkte, auch am Handy ohne Aufklappen (dort in einer eigenen Zeile unter dem Logo) */
+.kopf .wrap { flex-wrap: wrap; row-gap: 0; padding-top: .45rem; }
+.hauptmenue { flex: 1 0 100%; }
+.hauptmenue ul { display: flex; justify-content: space-between; gap: .2rem; margin: 0 -.5rem; padding: 0; list-style: none; }
+.hauptmenue a { display: block; padding: .6rem .5rem .7rem; color: var(--creme); text-decoration: none; font-weight: 700; font-size: 1rem; border-bottom: 3px solid transparent; white-space: nowrap; }
+.hauptmenue a:hover { color: #fff; border-bottom-color: rgb(239 222 198 / .5); }
+.hauptmenue a[aria-current] { border-bottom-color: var(--gold); }
 
 /* Hero */
 .hero { position: relative; background: var(--aubergine) var(--filz) 0 0 / 22px 22px; color: var(--creme); padding: 1rem 0 2.8rem; overflow-x: clip; }
@@ -91,14 +91,6 @@ h3 { font-size: 1.2rem; }
 
 /* So kommst du dazu */
 .sektion { padding: 2.4rem 0; }
-.schritte { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; counter-reset: s; }
-.schritte li { counter-increment: s; position: relative; background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem 1rem 4rem; }
-.schritte li::before { content: counter(s); position: absolute; left: 1rem; top: 1rem; width: 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--gold); color: var(--tinte); font-family: var(--schrift-titel); font-weight: 700; display: grid; place-items: center; font-size: 1.2rem; }
-.schritte strong { display: block; font-family: var(--schrift-titel); font-size: 1.15rem; }
-.schritte p { margin: .15rem 0 0; }
-.zeitplan { margin: 1.2rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; }
-.zeitplan li { background: var(--aubergine); color: var(--creme); padding: .45rem .9rem; border-radius: 999px; font-size: .95rem; }
-.zeitplan b { color: var(--creme); }
 
 .zweispaltig { display: grid; gap: 1.2rem; }
 
@@ -116,49 +108,25 @@ h3 { font-size: 1.2rem; }
 .mehr { margin-top: 1rem; display: flex; gap: .7rem; flex-wrap: wrap; }
 
 /* Meist gespielt */
-.spiele { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; grid-template-columns: 1fr; }
-.spiel { background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); display: grid; grid-template-columns: 5.2rem 1fr; gap: .9rem; padding: .7rem; position: relative; }
-.spiel .rang { position: absolute; left: -.2rem; top: -.5rem; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; background: var(--gold); color: var(--tinte); font-weight: 700; border-radius: 50%; font-family: var(--schrift-titel); box-shadow: 0 2px 0 var(--aubergine-dunkel); }
-.spiel .bild { aspect-ratio: 1; border-radius: 10px; background: repeating-linear-gradient(45deg, var(--creme), var(--creme) 8px, #e6d3b6 8px, #e6d3b6 16px); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 1.6rem; color: var(--aubergine); font-weight: 700; }
-.spiel h3 { margin: 0 0 .2rem; font-size: 1.1rem; }
-.spiel h3 a { color: var(--tinte); text-decoration: none; }
-.spiel h3 a:hover { text-decoration: underline; }
-.spiel h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); } /* ganze Karte klickbar */
-.spiel .partien { font-weight: 700; color: var(--aubergine); margin: 0; }
 .chips { display: flex; flex-wrap: wrap; gap: 0 .35rem; margin: .3rem 0 0; padding: 0; list-style: none; font-size: .9rem; color: var(--aubergine); }
 .chips li + li::before { content: "·"; margin-right: .35rem; }
-.band-fuss { margin-top: 1.2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; }
-.bgg { font-size: .9rem; color: var(--aubergine); }
-.bgg a { color: var(--aubergine); }
 
 /* Ort */
-.orte { display: grid; gap: 1rem; }
-.ort-karte { background: var(--creme-hell); border-radius: var(--radius); padding: 1.1rem; }
-.ort-karte h3 { margin-bottom: .2rem; }
-.ort-karte address { font-style: normal; margin-bottom: .6rem; }
-.karte-platz { margin-top: .8rem; background: repeating-linear-gradient(135deg, #e6d3b6, #e6d3b6 10px, var(--creme) 10px, var(--creme) 20px); border-radius: 10px; min-height: 8rem; display: grid; place-items: center; text-align: center; padding: 1rem; font-size: .95rem; }
 
 /* Fuß */
-.fuss { background: var(--petrol); color: var(--creme); padding: 2rem 0 2.4rem; font-size: .98rem; }
+/* Fußzeile: schmal, mit Kontakt auf jeder Seite */
+.fuss { background: var(--petrol); color: var(--creme); padding: 1.4rem 0 1.6rem; font-size: .98rem; }
 .fuss a { color: var(--creme); }
-.fuss .spalten { display: grid; gap: 1.4rem; }
-.fuss h2 { color: var(--creme); font-size: 1.15rem; margin-bottom: .4rem; }
-.fuss ul { list-style: none; margin: 0; padding: 0; }
-.fuss li { margin: .1rem 0; }
-.fuss li a, .ort-karte a, .bgg a { display: inline-block; padding: .3rem 0; }
-.fuss .klein { margin-top: 1.4rem; font-size: .88rem; color: var(--hellgrau); }
-.fuss-marke img { display: block; width: 7.5rem; height: auto; margin-bottom: .8rem; }
+.fuss-kopf { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+.fuss-kopf img { width: 3.2rem; height: auto; flex: none; }
+.fuss-kopf p { margin: 0; line-height: 1.35; }
+.fuss-kopf strong { font-family: var(--schrift-titel); font-size: 1.1rem; }
+.fuss-links { display: flex; flex-wrap: wrap; gap: 0 1.2rem; list-style: none; margin: 0; padding: 0; }
+.fuss-links a { display: inline-block; padding: .35rem 0; }
+.fuss .klein { margin: .8rem 0 0; font-size: .88rem; color: var(--hellgrau); }
 
 /* Ablauf-Formate */
 .lead { max-width: 42rem; margin: 0 0 1.2rem; }
-.formate { display: grid; gap: 1rem; }
-.format { background: var(--creme-hell); border-radius: var(--radius); padding: 1.1rem 1.2rem; border-top: 6px solid var(--gold); }
-.format h3 { margin: 0; }
-.format-zeit { font-family: var(--schrift-titel); font-weight: 700; font-size: 1.6rem; color: var(--aubergine); margin: .1rem 0 .5rem; }
-.ablauf { list-style: none; margin: 0 0 .6rem; padding: 0; }
-.ablauf li { display: grid; grid-template-columns: 5.2rem 1fr; gap: .5rem; padding: .4rem 0; border-bottom: 1px dashed #c9b693; }
-.ablauf li:last-child { border-bottom: 0; }
-.ablauf b { color: var(--aubergine); }
 .tipp { margin: 0; padding: .6rem .8rem; background: var(--creme); border-radius: 10px; font-size: .98rem; }
 .unter-h { margin: 1.6rem 0 .6rem; color: var(--aubergine); }
 .haken { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
@@ -187,21 +155,13 @@ h3 { font-size: 1.2rem; }
 
 /* Kurzfassung und Teaser auf der Startseite */
 .seiten-titel { font-size: clamp(2rem, 7vw, 2.8rem); color: var(--aubergine); }
-.format-titel { font-size: 1.2rem; color: var(--tinte); margin: 0; }
 h2.unter-h { font-size: 1.2rem; }
 .letzter h2, .hot h2 { font-size: 1.1rem; color: var(--aubergine); }
 .hinweis { position: relative; padding-left: 1rem; color: var(--tinte); font-size: .95rem; font-weight: 700; margin: .15rem 0; }
 .hinweis::before { content: ""; position: absolute; left: 0; top: .5em; width: .55rem; height: .55rem; border-radius: 2px; background: var(--gold); outline: 1.5px solid var(--tinte); }
 .termine a { display: inline-block; padding: .25rem 0; }
-.termin-leer { display: block !important; padding: 1rem 1.1rem !important; }
 .flamme { width: 1.1em; height: 1.1em; vertical-align: -.15em; }
-.spiele.einspaltig { grid-template-columns: 1fr !important; }
-.teaser { display: grid; gap: .9rem; }
-.teaser-karte { display: grid; gap: .1rem; background: var(--creme-hell); color: var(--tinte); border-radius: var(--radius); padding: 1rem 1.1rem; text-decoration: none; border-left: 6px solid var(--gold); }
-.teaser-karte:only-child { grid-column: 1 / -1; }
 .fokus-bild { aspect-ratio: 16 / 9; border-radius: 12px; background: repeating-linear-gradient(45deg, var(--creme), var(--creme) 12px, #e6d3b6 12px, #e6d3b6 24px); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 4rem; font-weight: 700; color: var(--aubergine); }
-.teaser-karte strong { font-family: var(--schrift-titel); font-size: 1.3rem; line-height: 1.2; color: var(--aubergine); }
-.teaser-karte:hover { color: var(--tinte); background: #fffaf0; }
 
 /* Sammlung, Spieldetails, Rechtstexte */
 img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--creme); }
@@ -217,14 +177,11 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .sammel-karte h2 a { color: var(--tinte); }
 .sammel-karte .info { margin: 0; color: var(--aubergine); font-size: .95rem; }
 .sammel-karte .badge { margin: .3rem .3rem 0 0; }
-.spiel-seite { display: grid; gap: 1.4rem; }
-.spiel-seite .fokus-bild { aspect-ratio: 1; max-width: 20rem; width: 100%; }
 .fakten { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: .6rem; margin: 0 0 1rem; }
 .fakten div { background: var(--creme-hell); border-radius: 10px; padding: .5rem .7rem; }
 .fakten dt { font-size: .85rem; color: var(--aubergine); }
 .fakten dd { margin: 0; font-weight: 700; }
 .partien-info { font-weight: 700; color: var(--aubergine); }
-.fokus-liste { display: grid; gap: 1.4rem; }
 .empf-karte li span { display: block; font-size: .92rem; color: var(--aubergine); margin-top: -.2rem; padding-bottom: .3rem; }
 .rechtstext { overflow-wrap: anywhere; }
 .rechtstext .wrap { max-width: 44rem; }
@@ -233,7 +190,7 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 /* Empfehlungen */
 .empf { display: grid; gap: .9rem; }
 .empf-karte { background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem; scroll-margin-top: 1rem; }
-.empf-karte h3 { color: var(--aubergine); margin: 0 0 .4rem; padding-bottom: .4rem; border-bottom: 3px solid var(--gold); }
+.empf-karte h2, .empf-karte h3 { font-size: 1.2rem; color: var(--aubergine); margin: 0 0 .4rem; padding-bottom: .4rem; border-bottom: 3px solid var(--gold); }
 .empf-satz { margin: 0 0 .3rem; font-size: .98rem; }
 .empf-karte ul { list-style: none; margin: 0; padding: 0; }
 .empf-karte li a { display: block; padding: .4rem 0; font-weight: 700; color: var(--tinte); }
@@ -259,13 +216,12 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .fokus-archiv { display: grid; gap: .9rem; list-style: none; margin: 0; padding: 0; }
 .archiv-karte { position: relative; display: grid; grid-template-columns: 5.2rem 1fr; gap: .9rem; background: var(--creme-hell); border-radius: var(--radius); padding: .7rem; }
 .archiv-karte .bild { aspect-ratio: 1; border-radius: 10px; background: repeating-linear-gradient(45deg, var(--creme), var(--creme) 8px, #e6d3b6 8px, #e6d3b6 16px); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 1.6rem; color: var(--aubergine); font-weight: 700; }
-.archiv-karte h3 { margin: .1rem 0 .2rem; font-size: 1.1rem; }
-.archiv-karte h3 a { color: var(--tinte); text-decoration: none; }
-.archiv-karte h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
-.archiv-karte h3 a:hover { text-decoration: underline; }
+.archiv-karte h3, .archiv-karte h4 { margin: .1rem 0 .2rem; font-size: 1.1rem; }
+.archiv-karte h3 a, .archiv-karte h4 a { color: var(--tinte); text-decoration: none; }
+.archiv-karte h3 a::after, .archiv-karte h4 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.archiv-karte h3 a:hover, .archiv-karte h4 a:hover { text-decoration: underline; }
 .archiv-note { margin: 0; font-weight: 700; color: var(--aubergine); }
 .archiv-einordnung { margin: .15rem 0 0; font-size: .9rem; color: var(--aubergine); }
-.dummy { display: inline-block; font-size: .8rem; background: var(--tinte); color: var(--creme); padding: .05rem .55rem; border-radius: 999px; margin-left: .3rem; font-weight: 400; vertical-align: .1em; }
 
 /* Spiel im Fokus */
 .eyebrow { margin: 0; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; color: var(--aubergine); }
@@ -274,40 +230,33 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .balken i { display: block; height: 100%; background: var(--gold); border-radius: 999px; }
 
 @media (min-width: 40rem) {
-  .formate { grid-template-columns: 1fr 1fr; }
-  .teaser { grid-template-columns: 1fr 1fr; }
   .filter { grid-template-columns: repeat(4, 1fr); }
   .sammlung { grid-template-columns: 1fr 1fr; }
-  .spiel-seite { grid-template-columns: 20rem 1fr; }
   .empf { grid-template-columns: repeat(2, 1fr); }
   .fokus-archiv { grid-template-columns: 1fr 1fr; }
   .zweispaltig { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .schritte { grid-template-columns: repeat(3, 1fr); }
-  .spiele { grid-template-columns: 1fr 1fr; }
-  .orte { grid-template-columns: 1fr 1fr 1fr; }
-  .fuss .spalten { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 60rem) {
   .hero { padding: 1.5rem 0 3.4rem; }
   /* Die Matte läuft links bis an den Bildschirmrand */
   .hero-bild { --rand: calc((100vw - min(100vw - 2rem, 68rem)) / 2); width: calc(100% + var(--rand)); margin: 1.4rem 0 0 calc(-1 * var(--rand)); }
   .liste-gruppe { grid-template-columns: 2.2fr 1fr; gap: 2rem; }
-  .liste-gruppe .spiele { grid-template-columns: 1fr 1fr; }
   .empf { grid-template-columns: repeat(3, 1fr); }
   .fokus-archiv { grid-template-columns: repeat(3, 1fr); }
   .termine { grid-template-columns: 1fr 1fr; }
   .termine[data-limit="3"] { grid-template-columns: repeat(3, 1fr); }
   .hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2.5rem; align-items: center; padding-top: 1.5rem; }
   .hero .unter { margin-bottom: 0; }
-  .spiele { grid-template-columns: repeat(3, 1fr); }
   .kopf .wrap { min-height: 4.2rem; }
   .logo { font-size: 1.2rem; }
   .logo img { height: 3.4rem; }
-  .nav-menue summary { display: none; }
-  .nav-menue::details-content { content-visibility: visible; display: contents; }
-  .nav-menue ul, .nav-menue[open] ul { position: static; display: flex; gap: .25rem; background: none; box-shadow: none; padding: 0; min-width: 0; }
-  .nav-menue a { color: var(--creme); }
-  .nav-menue a:hover, .nav-menue a[aria-current] { background: var(--aubergine-dunkel); }
+  .kopf .wrap { flex-wrap: nowrap; padding-top: 0; }
+  .hauptmenue { flex: none; }
+  .hauptmenue ul { gap: .6rem; margin: 0; }
+  .hauptmenue a { font-size: 1.05rem; padding: .6rem .6rem; }
+}
+@media (min-width: 40rem) {
+  .hauptmenue ul { justify-content: flex-start; gap: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -320,13 +269,9 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .etikett { display: inline-block; background: var(--farbe, var(--aubergine)); color: #fff; font-size: .8rem; font-weight: 700; letter-spacing: .02em; padding: .1rem .6rem; border-radius: 999px; margin-bottom: .3rem; }
 .termine > li[class*="farbe-"] time { color: var(--farbe); border-left: 5px solid var(--farbe); padding-left: .5rem; }
 .termine > li { grid-template-columns: 4.9rem 1fr; }
-.format[class*="farbe-"] { border-top-color: var(--farbe); }
 .naechster .art { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .5rem; }
 .naechster .art .etikett { margin: 0; }
 .naechster .art[hidden] { display: none; }
-.legende { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; list-style: none; margin: 0 0 1rem; padding: 0; font-size: .95rem; font-weight: 700; }
-.legende li { display: inline-flex; align-items: center; gap: .45rem; }
-.legende li::before { content: ""; width: 1rem; height: 1rem; border-radius: 4px; background: var(--farbe); }
 
 /* Terminseite: Monatsüberschriften, die beim Scrollen oben stehen bleiben */
 .monat { margin-top: 1.2rem; }
@@ -536,3 +481,113 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 @media (min-width: 48rem) {
   .einstieg-karte { grid-template-columns: 1fr auto; padding: 1.8rem 2rem; gap: 2rem; }
 }
+
+/* ===== Schlichter (November 2026) ===== */
+
+/* Startseite: die Spieltisch-Zeichnung nur auf großen Bildschirmen */
+@media (max-width: 59.99rem) { .hero-bild { display: none; } }
+
+
+/* Abschluss eines Abschnitts: schlichter Textlink statt Knopf */
+.weiter-link { margin: 1.2rem 0 0; font-weight: 700; }
+.weiter-link a { display: inline-block; padding: .3rem 0; }
+.unterzeile { margin: -.3rem 0 1rem; color: var(--aubergine); }
+
+/* Startseite: die fünf aktuell meistgespielten Spiele als Cover-Reihe */
+.cover-reihe { list-style: none; margin: 0 -1rem; padding: .2rem 1rem .8rem; display: flex; gap: .9rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 1rem; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+.cover-reihe li { flex: 0 0 7.2rem; scroll-snap-align: start; }
+.cover-reihe a { display: grid; gap: .3rem; color: var(--tinte); text-decoration: none; }
+.cover-reihe .bild { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; background: var(--creme-hell); box-shadow: 0 3px 0 rgb(43 37 48 / .18); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 2rem; color: var(--aubergine); }
+.cr-name { font-weight: 700; line-height: 1.25; }
+.cover-reihe a:hover .cr-name { text-decoration: underline; }
+.cr-zeit { font-size: .92rem; color: var(--aubergine); margin-top: -.2rem; }
+@media (min-width: 40rem) {
+  .cover-reihe { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem; overflow: visible; margin: 0; padding: .2rem 0 .6rem; max-width: 48rem; }
+}
+
+/* Spiele-Seite: Rangliste als schmale Zeilen */
+.spielzeilen { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.spielzeile { position: relative; display: grid; grid-template-columns: 1.9rem 3.4rem 1fr; gap: .7rem; align-items: center; background: var(--creme-hell); border-radius: 12px; padding: .45rem .7rem .45rem .5rem; }
+.spielzeile .rang { width: 1.9rem; height: 1.9rem; display: grid; place-items: center; background: var(--gold); color: var(--tinte); font-weight: 700; border-radius: 50%; font-family: var(--schrift-titel); }
+.spielzeile .bild { width: 3.4rem; height: 3.4rem; object-fit: cover; border-radius: 8px; background: var(--creme); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 1.3rem; color: var(--aubergine); }
+.spielzeile h3 { margin: 0; font-size: 1.05rem; }
+.spielzeile h3 a { color: var(--tinte); text-decoration: none; }
+.spielzeile h3 a:hover { text-decoration: underline; }
+.spielzeile h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 12px; } /* ganze Zeile klickbar */
+.spielzeile .partien { margin: 0; font-size: .95rem; font-weight: 700; color: var(--aubergine); }
+.spielzeile .fokus-hinweis { margin-top: .2rem; }
+.ohne-einzug { display: block; margin: .7rem 0 0; }
+
+/* Spiele-Seite: kleiner Kasten „Spiel im Fokus“ */
+.fokus-kasten { display: flex; gap: 1rem; align-items: center; background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: 0 5px 0 var(--gold); margin: 0 0 2rem; max-width: 46rem; scroll-margin-top: 1rem; }
+.fokus-kasten .bew-name { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+.fk-note { margin: 0; color: var(--aubergine); }
+.fk-note b { color: var(--tinte); }
+.fk-link { margin: .2rem 0 0; font-weight: 700; }
+
+
+/* Aufklappbare Kästen: Kalender, weitere Termine, häufige Fragen */
+.kalender, .weitere-termine > summary, .fragen details { background: var(--creme-hell); border-radius: 12px; }
+.kalender { padding: .4rem 1rem; margin: 0 0 .6rem; max-width: 46rem; }
+.kalender summary, .fragen summary, .weitere-termine summary { cursor: pointer; font-weight: 700; color: var(--aubergine); padding: .5rem 0; }
+.kalender p, .kalender ul { margin: .3rem 0 .6rem; }
+.kalender ul { padding-left: 1.2rem; }
+.kalender li { margin: .2rem 0; }
+.kalender code { overflow-wrap: anywhere; font-size: .9rem; background: var(--creme); padding: 0 .3rem; border-radius: 4px; }
+.weitere-termine { margin-top: 1.6rem; }
+.weitere-termine > summary { padding: .8rem 1rem; font-size: 1.1rem; }
+
+/* Neu hier: Überblick als Tabelle, am Handy als Karten untereinander */
+.ueberblick { width: 100%; max-width: 52rem; border-collapse: separate; border-spacing: 0 .5rem; margin: -.3rem 0 .4rem; }
+.ueberblick thead th { text-align: left; font-size: .9rem; color: var(--aubergine); padding: 0 .8rem; }
+.ueberblick tbody th, .ueberblick td { background: var(--creme-hell); padding: .7rem .8rem; text-align: left; vertical-align: top; }
+.ueberblick tbody th { font-weight: 400; border-left: 6px solid var(--farbe, var(--gold)); border-radius: 12px 0 0 12px; width: 34%; }
+.ueberblick tbody th .etikett { display: table; margin-bottom: .3rem; }
+.ueberblick td:last-child { border-radius: 0 12px 12px 0; }
+.ueberblick td:nth-child(3), .ueberblick td:nth-child(4) { font-weight: 700; white-space: nowrap; }
+@media (max-width: 39.99rem) {
+  .ueberblick, .ueberblick tbody, .ueberblick tr, .ueberblick th, .ueberblick td { display: block; width: auto; }
+  .ueberblick thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ueberblick tr { background: var(--creme-hell); border-left: 6px solid var(--farbe, var(--gold)); border-radius: 12px; margin-bottom: .6rem; padding: .7rem .9rem; }
+  .ueberblick tbody th, .ueberblick td { background: none; padding: 0; border: 0; border-radius: 0; width: auto; }
+  .ueberblick td { display: grid; grid-template-columns: 6.5rem 1fr; gap: .5rem; padding-top: .25rem; white-space: normal !important; }
+  .ueberblick td::before { content: attr(data-titel); font-weight: 400; color: var(--aubergine); }
+  .ueberblick td[colspan]::before { content: "Alles"; }
+}
+.fragen { display: grid; gap: .5rem; max-width: 46rem; }
+.fragen details { padding: .2rem 1rem; }
+.fragen details p { margin: 0 0 .7rem; }
+.tipp { max-width: 46rem; margin-top: .6rem; }
+
+/* Spielseite: kleines Cover neben dem Namen */
+.spiel-seite { display: block; }
+.spiel-kopf { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.2rem; }
+.spiel-cover { width: 7.5rem; height: 7.5rem; flex: none; object-fit: cover; border-radius: 12px; background: var(--creme-hell); box-shadow: 0 4px 0 rgb(43 37 48 / .18); display: grid; place-items: center; font-family: var(--schrift-titel); font-size: 3rem; color: var(--aubergine); }
+.spiel-kopf .seiten-titel { margin-bottom: .3rem; }
+.spiel-bei-uns { list-style: none; margin: .4rem 0 0; padding: 0; color: var(--aubergine); font-weight: 700; font-size: .98rem; }
+.spiel-seite .fakten { max-width: 46rem; }
+
+/* Sammlung: Suchfeld über den Filtern */
+.filter .suche { grid-column: 1 / -1; }
+.filter input[type="search"] { font: inherit; min-height: 2.75rem; padding: .3rem .7rem; border: 2px solid var(--aubergine); border-radius: 10px; background: var(--creme-hell); color: var(--tinte); width: 100%; }
+
+/* Über uns: Zahlen aus den Partien */
+.chronik { background: var(--creme-hell); border-radius: 12px; padding: .7rem 1rem; }
+
+/* Neu hier: Tipp direkt beim Spieleabend */
+.ueb-tipp { display: block; margin-top: .3rem; font-size: .92rem; color: var(--aubergine); }
+
+/* Terminseite: Kalender-Abo am Ende */
+.kalender { margin-top: 1.6rem; }
+
+/* Spiele: Sammlung und Empfehlungen als gleich große Karten */
+.karten-paar .wrap { display: grid; gap: 1.4rem; }
+.sammlung-karte { background-color: var(--petrol); }
+.letzter .cover-reihe { margin-top: .4rem; }
+
+/* Kontakt: Folge uns */
+.folge-h { margin: 1.4rem 0 0; font-size: 1.15rem; color: var(--aubergine); }
+.folge-uns { margin-top: .6rem; }
+
+/* Spiele: alle Bewertungen in einem Abschnitt */
+#bewertungen .fokus-kasten { margin-bottom: 1.6rem; }

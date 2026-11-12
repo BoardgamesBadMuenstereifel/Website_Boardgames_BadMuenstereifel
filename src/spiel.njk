@@ -4,6 +4,7 @@ pagination:
   data: daten.alleSpiele
   size: 1
   alias: spiel
+  addAllPagesToCollections: true
 permalink: "/spiele/{{ spiel.slug }}/"
 eleventyComputed:
   titel: "{{ spiel.name }}"
@@ -14,25 +15,29 @@ eleventyComputed:
   <div class="wrap">
     <p class="brotkrume"><a href="{{ '/spiele/' | url }}">Zurück zu den Spielen</a></p>
     <article class="spiel-seite">
-      {{ b.cover(spiel, "fokus-bild") }}
-      <div>
-        <h1 class="seiten-titel" id="h-spiel">{{ spiel.name }}</h1>
-        {%- if fokus %}<p class="fokus-hinweis-gross"><a href="#bewertung">Im Fokus{% if fokus.schnitt %}: unsere Note {{ fokus.schnitt }} von 10{% endif %}</a></p>{% endif %}
-        {%- if spiel.bgg %}
-        <dl class="fakten">
-          {%- if spiel.bgg | spieler %}<div><dt>Spieleranzahl</dt><dd>{{ spiel.bgg | spieler }}</dd></div>{% endif %}
-          {%- if spiel.bgg | dauer %}<div><dt>Dauer</dt><dd>{{ spiel.bgg | dauer }}</dd></div>{% endif %}
-          {%- if spiel.bgg.alter %}<div><dt>Alter</dt><dd>ab {{ spiel.bgg.alter }} Jahren</dd></div>{% endif %}
-          {%- if spiel.bgg.komplexitaet %}<div><dt>Komplexität</dt><dd>{{ spiel.bgg.komplexitaet | zahlDe }} von 5</dd></div>{% endif %}
-          {%- if spiel.bgg.bewertung %}<div><dt>BGG-Bewertung</dt><dd>{{ spiel.bgg.bewertung | zahlDe }} von 10</dd></div>{% endif %}
-        </dl>
-        {%- if spiel.bgg.beschreibung %}<p lang="en">{{ spiel.bgg.beschreibung }}</p>{% endif %}
-        <p><a href="https://boardgamegeek.com/boardgame/{{ spiel.bggId }}" rel="noopener">Mehr bei BoardGameGeek</a></p>
-        {%- else %}
-        <p>Zu diesem Spiel haben wir noch keine weiteren Infos.</p>
-        {%- endif %}
-        {%- if spiel.partienGesamt %}<p class="partien-info">Bei uns {{ spiel.partienGesamt }}-mal gespielt.</p>{% endif %}
+      <div class="spiel-kopf">
+        {{ b.cover(spiel, "spiel-cover") }}
+        <div>
+          <h1 class="seiten-titel" id="h-spiel">{{ spiel.name }}</h1>
+          {%- if fokus %}<p class="fokus-hinweis-gross"><a href="#bewertung">Unsere Bewertung</a></p>{% endif %}
+          <ul class="spiel-bei-uns">
+            {%- if spiel.sammlung %}<li>Gehört zu unserer <a href="{{ '/spiele/sammlung/' | url }}">Sammlung</a></li>{% endif %}
+            {%- if spiel.partienGesamt %}<li>Bei uns {{ spiel.partienGesamt }}-mal gespielt, zuletzt am {{ spiel.zuletztGespielt }}</li>{% endif %}
+          </ul>
+        </div>
       </div>
+      {%- if spiel.bgg %}
+      <dl class="fakten">
+        {%- if spiel.bgg | spieler %}<div><dt>Spieleranzahl</dt><dd>{{ spiel.bgg | spieler }}</dd></div>{% endif %}
+        {%- if spiel.bgg | dauer %}<div><dt>Dauer</dt><dd>{{ spiel.bgg | dauer }}</dd></div>{% endif %}
+        {%- if spiel.bgg.alter %}<div><dt>Alter</dt><dd>ab {{ spiel.bgg.alter }} Jahren</dd></div>{% endif %}
+        {%- if spiel.bgg.komplexitaet %}<div><dt>Komplexität</dt><dd>{{ spiel.bgg.komplexitaet | zahlDe }} von 5</dd></div>{% endif %}
+        {%- if spiel.bgg.bewertung %}<div><dt>Bei BoardGameGeek</dt><dd>{{ spiel.bgg.bewertung | zahlDe }} von 10</dd></div>{% endif %}
+      </dl>
+      <p><a href="https://boardgamegeek.com/boardgame/{{ spiel.bggId }}" rel="noopener">Beschreibung und mehr bei BoardGameGeek</a></p>
+      {%- else %}
+      <p>Zu diesem Spiel haben wir noch keine weiteren Infos.</p>
+      {%- endif %}
     </article>
     {%- if spiel.fotos and spiel.fotos.length %}
     <div class="vom-tisch">
@@ -48,8 +53,7 @@ eleventyComputed:
     {%- endif %}
     {%- if fokus %}
     <div class="spiel-bewertung">
-      {{ b.bewertung(fokus, "spielseite", 2) }}
-      <p class="band-fuss"><a class="btn btn-rand" href="{{ '/im-fokus/' | url }}">Alle Spiele im Fokus und Empfehlungen</a></p>
+      {{ b.bewertung(fokus, "spielseite", 2, daten.bggSkala) }}
     </div>
     {%- endif %}
   </div>

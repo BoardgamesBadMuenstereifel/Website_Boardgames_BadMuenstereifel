@@ -3,8 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if titel %}{{ titel }} – {% endif %}{{ verein.name }}</title>
-  <meta name="description" content="{{ beschreibung or 'Brettspielclub in 53902 Bad Münstereifel: Komm einfach zum nächsten Spieleabend. Unter der Woche kostenlos und ohne Anmeldung, du brauchst kein Spiel mitzubringen.' }}">
+  {%- set seitenTitel = (titel + " – " if titel else "") + verein.name %}
+  {%- set seitenText = beschreibung or "Brettspielclub in 53902 Bad Münstereifel: Komm einfach zum nächsten Spieleabend. Unter der Woche kostenlos und ohne Anmeldung, du brauchst kein Spiel mitzubringen." %}
+  <title>{{ seitenTitel }}</title>
+  <meta name="description" content="{{ seitenText }}">
+  <link rel="canonical" href="{{ seite.url }}{{ page.url }}">
+  {#- Vorschau, wenn jemand den Link in WhatsApp, Facebook & Co. teilt #}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="{{ verein.name }}">
+  <meta property="og:title" content="{{ seitenTitel }}">
+  <meta property="og:description" content="{{ seitenText }}">
+  <meta property="og:url" content="{{ seite.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ seite.url }}/assets/vorschau.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo von {{ verein.name }}">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#514859">
   <link rel="icon" href="{{ '/assets/logo/favicon-32.png' | url }}" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="{{ '/assets/logo/apple-touch-icon.png' | url }}">
@@ -19,16 +34,13 @@
         <img src="{{ '/assets/logo/logo-112.webp' | url }}" width="124" height="112" alt="">
         <span>Boardgames<br>Bad Münstereifel</span>
       </a>
-      <nav aria-label="Hauptmenü">
-        <details class="nav-menue" id="nav">
-          <summary>Menü</summary>
-          <ul>
-            {%- set punkte = [["/", "Start"], ["/neu-hier/", "Neu hier?"], ["/termine/", "Termine"], ["/spiele/", "Spiele"], ["/im-fokus/", "Im Fokus"], ["/kontakt/", "Über uns & Kontakt"]] %}
-            {%- for p in punkte %}{% if p[0] != "/im-fokus/" or daten.fokus.length or daten.empfehlungen.length %}
-            <li><a href="{{ p[0] | url }}"{% if page.url == p[0] or (p[0] == "/spiele/" and page.url.startsWith("/spiele/")) %} aria-current="page"{% endif %}>{{ p[1] }}</a></li>
-            {%- endif %}{% endfor %}
-          </ul>
-        </details>
+      <nav class="hauptmenue" aria-label="Hauptmenü">
+        <ul>
+          {%- set punkte = [["/termine/", "Termine"], ["/neu-hier/", "Neu hier?"], ["/spiele/", "Spiele"], ["/kontakt/", "Kontakt"]] %}
+          {%- for p in punkte %}
+          <li><a href="{{ p[0] | url }}"{% if page.url == p[0] or (p[0] == "/spiele/" and page.url.startsWith("/spiele/")) %} aria-current="page"{% endif %}>{{ p[1] }}</a></li>
+          {%- endfor %}
+        </ul>
       </nav>
     </div>
   </header>
@@ -39,27 +51,22 @@
 
   <footer class="fuss">
     <div class="wrap">
-      <div class="spalten">
-        <div class="fuss-marke">
-          <img src="{{ '/assets/logo/logo-256.webp' | url }}" width="282" height="256" alt="" loading="lazy">
-          <h2>{{ verein.name }}</h2>
-          <p>Brettspielclub in 53902 Bad Münstereifel</p>
-        </div>
-        <div>
-          <h2>Folge uns</h2>
-          <ul>
-            <li><a href="{{ verein.instagram }}" rel="noopener">Instagram</a></li>
-            <li><a href="{{ verein.facebook }}" rel="noopener">Facebook</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2>Rechtliches</h2>
-          <ul>
-            <li><a href="{{ '/impressum/' | url }}">Impressum</a></li>
-            <li><a href="{{ '/datenschutz/' | url }}">Datenschutzerklärung</a></li>
-          </ul>
-        </div>
+      <div class="fuss-kopf">
+        <img src="{{ '/assets/logo/logo-112.webp' | url }}" width="124" height="112" alt="" loading="lazy">
+        <p><strong>{{ verein.name }}</strong><br>Brettspielclub in 53902 Bad Münstereifel</p>
       </div>
+      <ul class="fuss-links" aria-label="Kontakt">
+        <li><a href="{{ verein.whatsappDirekt }}" rel="noopener">Frag Martin per WhatsApp</a></li>
+        <li><a href="{{ verein.whatsapp }}" rel="noopener">WhatsApp-Gruppe</a></li>
+        <li><a href="tel:{{ verein.telefonLink }}">{{ verein.telefon }}</a></li>
+        <li><a href="mailto:{{ verein.mail }}">E-Mail</a></li>
+      </ul>
+      <ul class="fuss-links" aria-label="Weitere Links">
+        <li><a href="{{ verein.instagram }}" rel="noopener">Instagram</a></li>
+        <li><a href="{{ verein.facebook }}" rel="noopener">Facebook</a></li>
+        <li><a href="{{ '/impressum/' | url }}">Impressum</a></li>
+        <li><a href="{{ '/datenschutz/' | url }}">Datenschutz</a></li>
+      </ul>
       <p class="klein">Powered by <a href="https://boardgamegeek.com" rel="noopener">BGG</a>: Spielinfos von BoardGameGeek. Diese Seite setzt keine Cookies und lädt keine Tracker.</p>
     </div>
   </footer>

@@ -1,13 +1,3 @@
-// Menü: auf großen Bildschirmen immer offen, auf Handys per Knopf.
-(function () {
-  var nav = document.getElementById("nav");
-  var mq = window.matchMedia("(min-width: 60rem)");
-  function sync() { nav.open = mq.matches; }
-  sync();
-  mq.addEventListener("change", sync);
-  nav.addEventListener("click", function (e) { if (e.target.closest("a") && !mq.matches) nav.open = false; });
-})();
-
 // Die Seite wird täglich neu gebaut. Dieses Stück entfernt vergangene Termine
 // trotzdem sofort, falls ein Bau einmal ausfällt.
 (function () {
@@ -31,8 +21,10 @@
   if (!wann) return;
   wann.textContent = "";
   var span = document.createElement("span");
+  // Oben steht der nächste Abend, zu dem man ohne Anmeldung kommen kann
+  var offen = kommend.filter(function (t) { return !t.anmeldung; });
   if (kommend.length) {
-    var n = kommend[0];
+    var n = offen[0] || kommend[0];
     span.textContent = n.langText;
     wann.appendChild(span);
     wann.appendChild(document.createTextNode(" "));
@@ -64,6 +56,8 @@
   var treffer = document.getElementById("treffer");
   function passt(k, f) {
     var d = k.dataset;
+    var suche = (f.name || "").trim().toLowerCase();
+    if (suche && d.name.indexOf(suche) === -1) return false;
     if (f.kategorie && d.kategorie !== f.kategorie) return false;
     // Spiele ohne BGG-Daten bleiben bei diesen Filtern sichtbar: Wir wissen es schlicht nicht.
     if (f.spieler && d.min && (+f.spieler < +d.min || +f.spieler > +d.max)) return false;
@@ -78,6 +72,8 @@
     treffer.textContent = n + (n === 1 ? " Spiel" : " Spiele");
   }
   form.addEventListener("change", anwenden);
+  form.addEventListener("input", anwenden);
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
   anwenden();
 })();
 

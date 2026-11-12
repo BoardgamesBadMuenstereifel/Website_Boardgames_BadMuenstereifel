@@ -11,7 +11,10 @@ permalink: /spiele/sammlung/
     <h1 class="seiten-titel" id="h-sammlung">Unsere Sammlung</h1>
     <p class="lead">Diese {{ daten.sammlung.length }} Spiele gehören zum Club.</p>
 
-    <form class="filter" id="filter" hidden>
+    <form class="filter" id="filter" hidden role="search">
+      <label class="suche">Spiel suchen
+        <input type="search" name="name" placeholder="z. B. Azul" autocomplete="off" enterkeyhint="search">
+      </label>
       <label>Spieleranzahl
         <select name="spieler"><option value="">Egal</option>{% for n in [2,3,4,5,6,7,8] %}<option value="{{ n }}">{{ n }}{% if n == 8 %}+{% endif %}</option>{% endfor %}</select>
       </label>
@@ -29,7 +32,7 @@ permalink: /spiele/sammlung/
 
     <ul class="sammlung" id="sammlung">
       {%- for s in daten.sammlung %}
-      <li class="sammel-karte" data-kategorie="{{ s.kategorie }}" data-min="{{ s.bgg.minSpieler if s.bgg }}" data-max="{{ s.bgg.maxSpieler if s.bgg }}" data-dauer="{{ s.bgg.maxDauer if s.bgg }}" data-komplexitaet="{{ s.bgg.komplexitaet if s.bgg }}">
+      <li class="sammel-karte" data-name="{{ s.name | lower }}" data-kategorie="{{ s.kategorie }}" data-min="{{ s.bgg.minSpieler if s.bgg }}" data-max="{{ s.bgg.maxSpieler if s.bgg }}" data-dauer="{{ s.bgg.maxDauer if s.bgg }}" data-komplexitaet="{{ s.bgg.komplexitaet if s.bgg }}">
         {{ b.cover(s, "bild") }}
         <div>
           <h2><a href="{{ ('/spiele/' + s.slug + '/') | url }}">{{ s.name }}</a></h2>

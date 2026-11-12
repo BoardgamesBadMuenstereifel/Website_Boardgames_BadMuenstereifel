@@ -15,25 +15,10 @@
 {%- else %}<div class="{{ klasse }}" aria-hidden="true">{{ s.name | first | upper }}</div>{% endif %}
 {% endmacro %}
 
-{% macro spielkarte(eintrag, platz) %}
-<li class="spiel">
-  <span class="rang" aria-label="Platz {{ platz }}">{{ platz }}</span>
-  {{ cover(eintrag.spiel, "bild") }}
-  <div>
-    <h3><a href="{{ ('/spiele/' + eintrag.spiel.slug + '/') | url }}">{{ eintrag.spiel.name }}</a></h3>
-    <p class="partien">{{ eintrag.partien }} {{ "Partie" if eintrag.partien == 1 else "Partien" }}{% if eintrag.spielzeit %} · {{ eintrag.spielzeit | spielzeit }}{% endif %}</p>
-    {{ infos(eintrag.spiel) }}
-    {%- if eintrag.spiel.bewertung %}
-    <a class="fokus-hinweis" href="{{ ('/spiele/' + eintrag.spiel.slug + '/#bewertung') | url }}">Im Fokus{% if eintrag.spiel.bewertung.schnitt %} · unsere Note {{ eintrag.spiel.bewertung.schnitt }}{% endif %}</a>
-    {%- endif %}
-  </div>
-</li>
-{% endmacro %}
-
 {# Eine Zeile der Hotlist #}
 {% macro hotzeile(e) %}
 <li><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a>
-  {%- if e.spiel.bewertung %} <a class="fokus-marke" href="{{ ('/spiele/' + e.spiel.slug + '/#bewertung') | url }}">Im Fokus{% if e.spiel.bewertung.schnitt %} {{ e.spiel.bewertung.schnitt }}<span class="nur-sr"> von 10</span>{% endif %}</a>{% endif %}
+  {%- if e.spiel.bewertung %} <a class="fokus-marke" href="{{ ('/spiele/' + e.spiel.slug + '/#bewertung') | url }}">Unsere Bewertung</a>{% endif %}
   <span>{{ e.spielzeit | spielzeit or (e.partien + "×") }}</span></li>
 {% endmacro %}
 
@@ -41,7 +26,7 @@
 {% macro einordnung(f) %}
 {%- if f.einordnungen.length %}
 <ul class="einordnung" aria-label="Passt für">
-  {%- for e in f.einordnungen %}<li><a href="{{ ('/im-fokus/#' + e.anker) | url }}">{{ e.name }}</a></li>{% endfor %}
+  {%- for e in f.einordnungen %}<li><a href="{{ ('/neu-im-hobby/#' + e.anker) | url }}">{{ e.name }}</a></li>{% endfor %}
 </ul>
 {%- endif %}
 {% endmacro %}
@@ -83,13 +68,13 @@
 <article class="bewertung{{ ' kurz' if kurz }}" id="{{ 'bewertung' if modus == 'spielseite' else f.spiel.slug }}">
   <div class="bew-text">
     {%- if modus == "spielseite" %}
-    {%- if f.monatText %}<p class="eyebrow">Im Fokus: {{ f.monatText }}</p>{% endif %}
+    {%- if f.monatText %}<p class="eyebrow">Bewertet im {{ f.monatText }}</p>{% endif %}
     <h{{ h }} class="bew-name">Unsere Bewertung</h{{ h }}>
     {%- else %}
     <div class="bew-kopf">
       {{ cover(f.spiel, "bew-bild") }}
       <div>
-        {%- if f.monatText %}<p class="eyebrow">Im Fokus: {{ f.monatText }}</p>{% endif %}
+        {%- if f.monatText %}<p class="eyebrow">Bewertet im {{ f.monatText }}</p>{% endif %}
         <h{{ h }} class="bew-name"><a href="{{ ('/spiele/' + f.spiel.slug + '/') | url }}">{{ f.spiel.name }}</a></h{{ h }}>
         {{ infos(f.spiel) }}
       </div>
@@ -130,7 +115,7 @@
     <h{{ h2 }} class="w-titel">Unsere Note</h{{ h2 }}>
     {%- if f.schnitt %}
     <p class="note"><span class="note-zahl">{{ f.schnitt }}</span> von 10</p>
-    <p class="w-info">{{ f.stimmen }} {{ "Stimme" if f.stimmen == 1 else "Stimmen" }}{% if f.spiel.bgg and f.spiel.bgg.bewertung %} · BGG-Schnitt {{ f.spiel.bgg.bewertung | zahlDe }}{% endif %}</p>
+    <p class="w-info">{{ f.stimmen }} {{ "Stimme" if f.stimmen == 1 else "Stimmen" }}{% if f.spiel.bgg and f.spiel.bgg.bewertung %} · bei BoardGameGeek {{ f.spiel.bgg.bewertung | zahlDe }} von 10{% endif %}</p>
     <table class="verteilung">
       <caption>So haben wir abgestimmt</caption>
       <thead class="nur-sr"><tr><th scope="col">Note</th><th scope="col">Anteil</th><th scope="col">Stimmen</th></tr></thead>
@@ -205,4 +190,67 @@
     </figure>
   </a>
 </li>
+{% endmacro %}
+
+{#- „Neu im Hobby?“: dieselbe auffällige Karte auf allen Seiten #}
+{% macro einstiegKarte() %}
+<a class="einstieg-karte" href="{{ '/neu-im-hobby/' | url }}">
+  <span class="einstieg-text">
+    <span class="einstieg-marke">Neu im Hobby?</span>
+    <strong>Unsere Empfehlungen für deinen Einstieg</strong>
+    <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt.</span>
+  </span>
+  <span class="btn btn-gold btn-gross einstieg-knopf" aria-hidden="true">Zu den Empfehlungen →</span>
+</a>
+{% endmacro %}
+
+{#- Schlichte Zeile der Rangliste: Platz, kleines Cover, Name, Partien und Spielzeit #}
+{% macro spielzeile(e, platz) %}
+<li class="spielzeile">
+  <span class="rang" aria-label="Platz {{ platz }}">{{ platz }}</span>
+  {{ cover(e.spiel, "bild") }}
+  <div>
+    <h3><a href="{{ ('/spiele/' + e.spiel.slug + '/') | url }}">{{ e.spiel.name }}</a></h3>
+    <p class="partien">{{ e.partien }} {{ "Partie" if e.partien == 1 else "Partien" }}{% if e.spielzeit %} · {{ e.spielzeit | spielzeit }}{% endif %}</p>
+    {%- if e.spiel.bewertung %}
+    <a class="fokus-hinweis" href="{{ ('/spiele/' + e.spiel.slug + '/#bewertung') | url }}">Unsere Bewertung</a>
+    {%- endif %}
+  </div>
+</li>
+{% endmacro %}
+
+{#- Kleiner Kasten mit dem aktuellen Spiel im Fokus (Seite Spiele) #}
+{% macro fokusKasten(f, h) %}
+<article class="fokus-kasten" id="im-fokus" aria-labelledby="h-fokus-kasten">
+  {{ cover(f.spiel, "bew-bild") }}
+  <div>
+    {%- if f.monatText %}<p class="eyebrow">Bewertet im {{ f.monatText }}</p>{% endif %}
+    <h{{ h }} class="bew-name" id="h-fokus-kasten"><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">{{ f.spiel.name }}</a></h{{ h }}>
+    {%- if f.schnitt %}<p class="fk-note"><b>Unsere Note {{ f.schnitt }}</b> von 10 · {{ f.stimmen }} {{ "Stimme" if f.stimmen == 1 else "Stimmen" }}</p>{% endif %}
+    <p class="fk-link"><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">Ganze Bewertung lesen</a></p>
+  </div>
+</article>
+{% endmacro %}
+
+{#- Spiel als Cover mit Namen, z. B. „Aktuell meist gespielt“ und „Zuletzt gespielt“. zusatz: kleine Zeile darunter #}
+{% macro coverKachel(s, zusatz) %}
+<li>
+  <a href="{{ ('/spiele/' + s.slug + '/') | url }}">
+    {{ cover(s, "bild") }}
+    <span class="cr-name">{{ s.name }}</span>
+    {%- if zusatz %}<span class="cr-zeit">{{ zusatz }}</span>{% endif %}
+  </a>
+</li>
+{% endmacro %}
+
+{#- „Unsere Sammlung“: gleiche Kartenform wie „Neu im Hobby?“, in Petrol #}
+{% macro sammlungKarte(anzahl) %}
+<a class="einstieg-karte sammlung-karte" href="{{ '/spiele/sammlung/' | url }}">
+  <span class="einstieg-text">
+    <span class="einstieg-marke">Unsere Sammlung</span>
+    <strong>{{ anzahl }} Spiele zum Stöbern</strong>
+    <span>Such nach Namen oder filtere nach Spieleranzahl, Dauer und Komplexität.</span>
+  </span>
+  <span class="btn btn-gold btn-gross einstieg-knopf" aria-hidden="true">Zur Sammlung →</span>
+</a>
 {% endmacro %}

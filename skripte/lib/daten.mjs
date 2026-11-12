@@ -234,7 +234,11 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     return { partien: auswahl.length, abende: new Set(auswahl.map((p) => p.datum)).size };
   };
 
-  for (const r of rangliste(partien)) spiele.get(r.schluessel).partienGesamt = r.partien;
+  for (const r of rangliste(partien)) {
+    const s = spiele.get(r.schluessel);
+    s.partienGesamt = r.partien;
+    s.zuletztGespielt = datumTeile(r.zuletzt).lang;
+  }
 
   // Orte und Termine
   const orte = new Map();
@@ -447,8 +451,18 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const sammlung = [...spiele.values()].filter((s) => s.sammlung).sort((a, b) => a.name.localeCompare(b.name, "de"));
   const kategorienSammlung = [...new Set(sammlung.map((s) => s.kategorie).filter(Boolean))];
 
+  // Fotos vom letzten Mal, nach Terminart (klein geschrieben), z. B. fotosNachArt["brettspielkloster"]
+  const fotosNachArt = fotos.filter((f) => f.terminArt).reduce((m, f) => ((m[f.terminArt] ??= []).push(f), m), {});
+
+  // Startseite: oben der nächste Abend, zu dem man ohne Anmeldung kommen kann, darunter die drei Termine danach
+  const naechsterOffen = termine.find((t) => !t.anmeldung) ?? termine[0] ?? null;
+  const termineStart = termine.filter((t) => t !== naechsterOffen).slice(0, 3);
+
   return {
-    heute, termine, termineNachMonat,
+    heute, termine, termineNachMonat, naechsterOffen, termineStart,
+    // Auf der Terminseite sind die ersten drei Monate offen, der Rest ist eingeklappt
+    termineSpaeterAnzahl: termineNachMonat.slice(3).reduce((n, m) => n + m.termine.length, 0),
+    chronik: { partien: partien.length, spiele: new Set(partien.map((p) => p.schluessel)).size, abende: abende.length, seit: hallOfFameSeit },
     meist12, meist3, hallOfFame, hallOfFameSeit,
     zahlen12: zaehle(monateZurueck(heute, 12)), zahlen3: zaehle(monateZurueck(heute, 3)),
     letzterAbend: letzterAbend ? {
@@ -458,8 +472,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     empfehlungen,
     fokus, fokusNachSlug, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
     fotos, fotosStart: fotos.filter((f) => f.startseite), fotosNeuHier: fotos.filter((f) => f.neuHier),
-    // Fotos vom letzten Mal, nach Terminart (klein geschrieben), z. B. fotosNachArt["brettspielkloster"]
-    fotosNachArt: fotos.filter((f) => f.terminArt).reduce((m, f) => ((m[f.terminArt] ??= []).push(f), m), {}),
+    fotosNachArt,
     alleSpiele: [...spiele.values()].sort((a, b) => a.name.localeCompare(b.name, "de")),
     warnungen,
   };

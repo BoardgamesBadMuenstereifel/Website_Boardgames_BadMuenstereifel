@@ -1,25 +1,26 @@
 ---
 layout: basis.njk
 titel: Spiele
-beschreibung: Was bei uns auf den Tisch kommt. Die meist gespielten Spiele der letzten 12 Monate, die Hotlist und unsere Sammlung.
+beschreibung: Was bei uns auf den Tisch kommt. Die meist gespielten Spiele der letzten 12 Monate, Hotlist, Hall of Fame, unsere Bewertungen und unsere Sammlung.
 permalink: /spiele/
 ---
 {% import "bausteine.njk" as b %}
 <section class="sektion" aria-labelledby="h-spiele">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-spiele">Spiele</h1>
-    <p class="lead">Mit diesen Spielen verbringen wir die meiste Zeit. Gezählt wird Partien × maximale Spieldauer laut BoardGameGeek. Du musst keine Regeln kennen, wir erklären sie dir.</p>
+    <p class="lead">Mit diesen Spielen verbringen wir die meiste Zeit. Du musst keine Regeln kennen, wir erklären sie dir.</p>
     <div class="liste-gruppe">
       <div>
-        <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Abende, {{ daten.zahlen12.partien }} Partien</span></h2>
-        <ol class="spiele">
-          {%- for e in daten.meist12 | batch(10) | first %}{{ b.spielkarte(e, loop.index) }}{% endfor %}
+        <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Spieletreffen, {{ daten.zahlen12.partien }} Partien</span></h2>
+        <ol class="spielzeilen">
+          {%- for e in daten.meist12 | batch(10) | first %}{{ b.spielzeile(e, loop.index) }}{% endfor %}
         </ol>
+        <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek.</p>
       </div>
       <div class="seitenleiste">
         <aside class="hot" aria-labelledby="h-hot">
           <h2 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h2>
-          <p class="klein-info">{{ daten.zahlen3.abende }} Abende, {{ daten.zahlen3.partien }} Partien</p>
+          <p class="klein-info">{{ daten.zahlen3.abende }} Spieletreffen, {{ daten.zahlen3.partien }} Partien</p>
           <ol>
             {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
           </ol>
@@ -29,29 +30,43 @@ permalink: /spiele/
     </div>
     {%- if daten.letzterAbend %}
     <div class="letzter">
-      <h2>Zuletzt gespielt <span class="klein-info">Spieleabend am {{ daten.letzterAbend.datum }}</span></h2>
-      <ul class="chips gross">
-        {%- for s in daten.letzterAbend.spiele %}
-        <li><a href="{{ ('/spiele/' + s.slug + '/') | url }}">{{ s.name }}</a></li>
-        {%- endfor %}
+      <h2>Zuletzt gespielt <span class="klein-info">Spieletreffen am {{ daten.letzterAbend.datum }}</span></h2>
+      <ul class="cover-reihe">
+        {%- for s in daten.letzterAbend.spiele %}{{ b.coverKachel(s) }}{% endfor %}
       </ul>
     </div>
     {%- endif %}
-    <div class="band-fuss">
-      <a class="btn btn-rand" href="{{ '/spiele/sammlung/' | url }}">Unsere Sammlung durchsuchen</a>
-    </div>
   </div>
 </section>
 
-{%- if daten.empfehlungen.length %}
-<section class="sektion" id="empfehlungen" aria-label="Unsere Empfehlungen" style="padding-top:0">
-  <div class="wrap teaser">
-    <a class="teaser-karte" href="{{ '/im-fokus/#empfehlungen' | url }}">
-      <span class="eyebrow">Neu im Hobby?</span>
-      <strong>Unsere Empfehlungen für deinen Einstieg</strong>
-      <span>Du willst mit Brettspielen anfangen? Wir zeigen dir Spiele, mit denen der Einstieg leichtfällt.</span>
-    </a>
+{%- if daten.fokus.length %}
+<section class="sektion" id="bewertungen" aria-labelledby="h-bewertungen" style="padding-top:0">
+  <div class="wrap">
+    <h2 id="h-bewertungen">Unsere Bewertungen</h2>
+    {{ b.fokusKasten(daten.fokus[0], 3) }}
+    {%- if daten.fokus.length > 1 %}
+    <h3 class="band-h">Frühere Bewertungen</h3>
+    <ul class="fokus-archiv">
+      {%- for f in daten.fokus %}{% if not loop.first %}
+      <li class="archiv-karte">
+        {{ b.cover(f.spiel, "bild") }}
+        <div>
+          {%- if f.monatText %}<p class="eyebrow">{{ f.monatText }}</p>{% endif %}
+          <h4><a href="{{ ('/spiele/' + f.spiel.slug + '/#bewertung') | url }}">{{ f.spiel.name }}</a></h4>
+          {%- if f.schnitt %}<p class="archiv-note">Unsere Note {{ f.schnitt }} von 10</p>{% endif %}
+          {%- if f.einordnungen.length %}<p class="archiv-einordnung">{% for e in f.einordnungen %}{{ e.name }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+        </div>
+      </li>
+      {%- endif %}{% endfor %}
+    </ul>
+    {%- endif %}
   </div>
 </section>
 {%- endif %}
 
+<section class="sektion karten-paar" aria-label="Sammlung und Empfehlungen" style="padding-top:0">
+  <div class="wrap">
+    {{ b.sammlungKarte(daten.sammlung.length) }}
+    {%- if daten.empfehlungen.length %}{{ b.einstiegKarte() }}{% endif %}
+  </div>
+</section>

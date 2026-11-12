@@ -24,7 +24,7 @@ Blatt **Termine**, eine Zeile pro Termin:
 | Datum | Bis | Uhrzeit | Ort | Art | Hinweis |
 |---|---|---|---|---|---|
 | 13.01.2027 | | 18:00 | Kupferkessel, Schönau | Spieleabend | Erst Essen, Spielbeginn ca. 19 Uhr |
-| 23.01.2027 | | 16:00 | DGH, Lorbach | WE-Spielabend | Ohne Essen, wir spielen gleich los |
+| 23.01.2027 | | 16:00 | Dorfgemeinschaftshaus Lorbach | Samstagstermin | Ohne Essen, wir spielen gleich los |
 | 05.03.2027 | 07.03.2027 | | Kloster Steinfeld | Brettspielkloster | Sonderveranstaltung |
 
 - **Bis** nutzt du nur bei mehrtägigen Terminen.
@@ -33,18 +33,24 @@ Blatt **Termine**, eine Zeile pro Termin:
 - Die **Art** muss genauso geschrieben sein wie auf dem Blatt **Arten** (Groß- und Kleinschreibung ist egal).
 - Vergangene Termine musst du nicht löschen, die Seite blendet sie aus.
 
+So zeigt die Terminseite die Termine:
+
+- Die nächsten drei Monate sind offen, alle späteren Termine liegen unter „Weitere Termine“ zum Aufklappen.
+- Oben auf der Startseite steht der nächste Termin **ohne Anmeldung**, darunter die drei Termine danach.
+- Die Termine lassen sich als Kalender abonnieren (`termine.ics`). Für Google stehen sie zusätzlich maschinenlesbar auf der Terminseite, Termine ohne Ort fehlen dort.
+
 Blatt **Arten**, eine Zeile pro Terminart. Kosten und Anmeldung stehen nur hier, die Seite zeigt sie bei jedem Termin dieser Art an:
 
 | Art | Kosten | Anmeldung | Farbe |
 |---|---|---|---|
 | Spieleabend | kostenlos | | Grün |
-| WE-Spielabend | 5 € pro Abend | | Blau |
+| Samstagstermin | 5 € pro Abend | | Blau |
 | Social Deduction | 10 € pro Abend | | Rot |
 | Brettspielkloster | kostenpflichtig | Ja | Lila |
 
 - **Anmeldung:** „Ja“, dann steht beim Termin „nur mit Anmeldung“.
-- **Farbe:** Grün, Blau, Rot oder Lila. Die Farbe erscheint als Streifen am Datum und als Etikett mit dem Namen der Art. Bedeutung: Grün = Spieleabende unter der Woche, Blau = Wochenende, Rot = Social Deduction, Lila = Sondertermine. Eine neue Sonderveranstaltung bekommt also „Lila“. Andere Farben gibt es nicht, ein Tippfehler erscheint in den Warnungen.
-- Ändern sich die Preise, änderst du sie nur hier. Die Texte auf den Seiten „Start“, „Neu hier?“ und „Termine“ („unter der Woche kostenlos, am Wochenende 5 € für die Raummiete“, „Social Deduction 10 €“) musst du dann allerdings im Code anpassen lassen.
+- **Farbe:** Grün, Blau, Rot oder Lila. Die Farbe erscheint als Streifen am Datum und als Etikett mit dem Namen der Art. Bedeutung: Grün = Spieleabende unter der Woche, Blau = Samstagstermine, Rot = Social Deduction, Lila = Sondertermine. Eine neue Sonderveranstaltung bekommt also „Lila“. Andere Farben gibt es nicht, ein Tippfehler erscheint in den Warnungen.
+- Ändern sich die Preise, änderst du sie nur hier. Die Texte auf der Startseite und auf „Neu hier?“ (z. B. „Samstags kostet es 5 €“ und die Tabelle „Unsere Termine auf einen Blick“) musst du dann allerdings im Code anpassen lassen.
 - Für Social-Deduction-Abende wie Blood on the Clocktower trägst du einen Termin mit der Art „Social Deduction“ ein, sobald er in der WhatsApp-Gruppe abgestimmt ist.
 
 ## Spiele eines Abends eintragen: `partien.xlsx`
@@ -73,7 +79,7 @@ Eine Zeile pro Spiel. Das machst du nur einmal je Spiel.
 
 ## Empfehlungen: `empfehlungen.xlsx`
 
-Die Empfehlungen stehen auf der Seite „Im Fokus“, sortiert nach Einordnung, z. B. „Familien mit Kindern“. Jedes bewertete Spiel aus `fokus.xlsx` erscheint dort automatisch mit unserer Note, in jeder seiner Einordnungen. Dazu kommen kurze Tipps ohne ausführliche Bewertung aus dieser Datei.
+Die Empfehlungen stehen auf der Seite „Neu im Hobby?“ (`/neu-im-hobby/`), sortiert nach Einordnung, z. B. „Familien mit Kindern“. Jedes bewertete Spiel aus `fokus.xlsx` erscheint dort automatisch mit unserer Note, in jeder seiner Einordnungen. Dazu kommen kurze Tipps ohne ausführliche Bewertung aus dieser Datei.
 
 - **Blatt Empfehlungen:** Einordnung, Spiel, Kurzbegründung, Freigegeben. Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
 - **Blatt Einordnungen:** Einordnung, Text. Hier stehen alle erlaubten Einordnungen in der Reihenfolge, in der sie auf der Seite erscheinen. Der Text ist der Satz über der Gruppe, z. B. „Du willst mit deinem Kind ins Spielen einsteigen? Damit klappt der Anfang.“ Eine neue Einordnung legst du hier an. Eine Einordnung ohne Spiele erscheint nicht.
@@ -81,12 +87,12 @@ Die Empfehlungen stehen auf der Seite „Im Fokus“, sortiert nach Einordnung, 
 
 ## Spiel im Fokus: `fokus.xlsx`
 
-Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Die neueste steht oben auf der Seite „Im Fokus“ und auf der Startseite. Jede Bewertung steht außerdem dauerhaft auf der Seite des Spiels, z. B. `/spiele/mycelia/`. Darauf verweisen die Seite „Im Fokus“ unter „Frühere Spiele im Fokus“, die Empfehlungen und die Ranglisten („Im Fokus · unsere Note …“). Der Menüpunkt erscheint erst, wenn mindestens eine Bewertung oder Empfehlung freigegeben ist.
+Unsere Bewertungen nach der Skala von BoardGameGeek (1 bis 10). Die ganze Bewertung steht auf der Seite des Spiels, z. B. `/spiele/mycelia/`, mit der Erklärung der Noten. Die neueste erscheint als kleiner Kasten „Spiel im Fokus“ (Cover, Name, unsere Note) auf der Startseite und oben auf der Seite „Spiele“. Frühere Bewertungen stehen unten auf der Seite „Spiele“. Darauf verweisen außerdem die Empfehlungen und die Ranglisten („Unsere Bewertung“). Die alte Adresse `/im-fokus/` leitet automatisch weiter.
 
 - **Blatt Spiele im Fokus:** Spiel, Datum, Einleitung, Einordnung, Thema, Spielablauf, Material, Für wen, Positiv, Negativ, Fazit, Freigegeben.
   - **Einleitung** ist der erste Absatz, er steht auch auf der Startseite. Pflicht.
   - **Thema**, **Spielablauf** (erscheint als „So wird gespielt“), **Material** und **Fazit** sind die Teilbereiche der Bewertung. Leere Spalten erscheinen einfach nicht.
-  - **Für wen** ist ein kurzer Satz, der nur in der Kurzfassung auf der Startseite erscheint („Für wen? …“). In der ganzen Bewertung zeigen die Einordnung, Plus/Minus und das Fazit, für wen das Spiel passt.
+  - **Für wen** wird zurzeit nirgends angezeigt. In der Bewertung zeigen die Einordnung, Plus/Minus und das Fazit, für wen das Spiel passt.
   - **Einordnung** ist die kurze Einordnung, für wen das Spiel passt, z. B. „Familien mit Kindern“. Erlaubt sind die Einordnungen vom Blatt Einordnungen in `empfehlungen.xlsx`. Mehrere Einordnungen schreibst du untereinander in die Zelle.
   - Bei **Einordnung**, **Positiv** und **Negativ** steht jeder Eintrag in einer eigenen Zeile der Zelle. Bei den Textfeldern wird jede Zeile ein eigener Absatz. Eine neue Zeile in der Zelle bekommst du mit **Alt+Enter**.
   - Es erscheinen **nur Zeilen mit „Ja“ bei Freigegeben**.
@@ -120,6 +126,12 @@ So kommt ein neues Foto auf die Seite:
    - **Freigegeben:** Es erscheinen **nur Zeilen mit „Ja“**.
 3. Starte `node skripte/fotos.mjs` (oder bitte Claude darum). Das Skript schneidet zu, verkleinert, entfernt versteckte Daten wie GPS-Ort und Uhrzeit und legt die fertigen Fassungen in `src/assets/fotos` ab.
 4. Lade `daten/fotos.xlsx`, `daten/fotos-masse.json` und den Ordner `src/assets/fotos` hoch.
+
+## Kontaktdaten und Vorschaubild
+
+- WhatsApp-Gruppe, Martins WhatsApp-Nummer, Telefon, E-Mail, Instagram und Facebook stehen in `src/_data/verein.js`. Sie erscheinen in der Fußzeile jeder Seite und auf „Kontakt“. Die E-Mail-Adresse gilt auch für Impressum und Datenschutzerklärung.
+- Die Antworten unter „Häufige Fragen“ auf „Neu hier?“ stehen direkt in `src/neu-hier.njk`.
+- Teilt jemand einen Link, zeigen WhatsApp, Facebook & Co. das Bild `src/assets/vorschau.png` (Logo mit Namen, 1200 × 630 Pixel).
 
 ## Etwas stimmt nicht: Warnungen ansehen
 

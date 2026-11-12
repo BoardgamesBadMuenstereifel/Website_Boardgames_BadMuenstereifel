@@ -591,3 +591,19 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 
 /* Spiele: alle Bewertungen in einem Abschnitt */
 #bewertungen .fokus-kasten { margin-bottom: 1.6rem; }
+
+/* Spiele: Ranglisten als Cover-Reihen mit Platz */
+.rangliste { margin-bottom: 1.8rem; }
+.rangliste .band-h { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .5rem; }
+.rangliste .band-h .klein-info { margin-left: 0; }
+.rangliste .krone, .rangliste .flamme { width: 1.2em; height: 1.2em; }
+.cover-reihe a { position: relative; }
+.cr-platz { position: absolute; left: -.35rem; top: -.4rem; z-index: 1; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: var(--tinte); font-family: var(--schrift-titel); font-weight: 700; box-shadow: 0 2px 0 var(--aubergine-dunkel); }
+.rang-reihe { padding-top: .6rem; }
+.ruhm-reihe li:nth-child(1) .cr-platz { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--gold)); }
+.ruhm-reihe li:nth-child(2) .cr-platz { background: radial-gradient(circle at 35% 30%, #f4f4f4, #b9bcc0); }
+.ruhm-reihe li:nth-child(3) .cr-platz { background: radial-gradient(circle at 35% 30%, #f3c6a0, #c27c4a); }
+.ruhm-reihe { background: linear-gradient(160deg, #fff8e6, #f6dfae); border: 2px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.1rem .4rem; box-shadow: 0 4px 0 var(--gold-dunkel); }
+.ruhm-reihe .cover-reihe { margin-inline: -1.1rem; padding-inline: 1.1rem; scroll-padding-inline: 1.1rem; }
+@media (min-width: 40rem) { .ruhm-reihe .cover-reihe { margin-inline: 0; padding-inline: 0; } }
+.cr-zeit + .cr-zeit { margin-top: -.35rem; }

@@ -9,25 +9,30 @@ permalink: /spiele/
   <div class="wrap">
     <h1 class="seiten-titel" id="h-spiele">Spiele</h1>
     <p class="lead">Mit diesen Spielen verbringen wir die meiste Zeit. Du musst keine Regeln kennen, wir erklären sie dir.</p>
-    <div class="liste-gruppe">
-      <div>
-        <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Spieletreffen, {{ daten.zahlen12.partien }} Partien</span></h2>
-        <ol class="spielzeilen">
-          {%- for e in daten.meist12 | batch(10) | first %}{{ b.spielzeile(e, loop.index) }}{% endfor %}
-        </ol>
-        <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek.</p>
-      </div>
-      <div class="seitenleiste">
-        <aside class="hot" aria-labelledby="h-hot">
-          <h2 id="h-hot">{{ b.flamme() }} Hotlist: letzte 3 Monate</h2>
-          <p class="klein-info">{{ daten.zahlen3.abende }} Spieletreffen, {{ daten.zahlen3.partien }} Partien</p>
-          <ol>
-            {%- for e in daten.meist3 | batch(10) | first %}{{ b.hotzeile(e) }}{% endfor %}
-          </ol>
-        </aside>
-        {{ b.ruhmesliste(daten.hallOfFame, daten.hallOfFameSeit, 2) }}
-      </div>
+    {#- Ranglisten als Cover mit Platz, darunter Spielzeit und Partien #}
+    {%- macro rangreihe(liste, anzahl) %}
+    {%- import "bausteine.njk" as b %}
+    <ol class="cover-reihe rang-reihe">
+      {%- for e in liste | batch(anzahl) | first %}{{ b.coverKachel(e.spiel, e.spielzeit | spielzeit, loop.index, e.partien + (" Partie" if e.partien == 1 else " Partien")) }}{% endfor %}
+    </ol>
+    {%- endmacro %}
+    <div class="rangliste">
+      <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Spieletreffen, {{ daten.zahlen12.partien }} Partien</span></h2>
+      {{ rangreihe(daten.meist12, 10) }}
     </div>
+    {%- if daten.meist3.length %}
+    <div class="rangliste">
+      <h2 class="band-h">{{ b.flamme() }} Hotlist: letzte 3 Monate <span class="klein-info">{{ daten.zahlen3.abende }} Spieletreffen, {{ daten.zahlen3.partien }} Partien</span></h2>
+      {{ rangreihe(daten.meist3, 10) }}
+    </div>
+    {%- endif %}
+    {%- if daten.hallOfFame.length %}
+    <div class="rangliste ruhm-reihe">
+      <h2 class="band-h"><svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg> Hall of Fame <span class="klein-info">Die meiste Spielzeit seit {{ daten.hallOfFameSeit }}</span></h2>
+      {{ rangreihe(daten.hallOfFame, 5) }}
+    </div>
+    {%- endif %}
+    <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek.</p>
     {%- if daten.letzterAbend %}
     <div class="letzter">
       <h2>Zuletzt gespielt <span class="klein-info">Spieletreffen am {{ daten.letzterAbend.datum }}</span></h2>

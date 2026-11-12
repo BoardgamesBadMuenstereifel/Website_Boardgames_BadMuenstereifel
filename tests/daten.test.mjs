@@ -251,7 +251,7 @@ test("Von der Liste zur Seite: Reihenfolge, BGG-Daten, Vorschlag statt Raten", a
   assert.match(start, /Nächster Spieleabend[\s\S]*Mi, 04\.11\.2026/);
   const spieleSeite = fs.readFileSync(path.join(ausgabe, "spiele/index.html"), "utf8");
   assert.match(spieleSeite, /id="im-fokus"[\s\S]*Beispiel Eins[\s\S]*Unsere Note 7,5/);
-  assert.match(spieleSeite, /class="fokus-hinweis"[^>]*>Unsere Bewertung</);
+  assert.match(spieleSeite, /class="cr-platz" aria-label="Platz 1"[\s\S]*Beispiel Eins[\s\S]*2 Partien/);
   const termineSeite = fs.readFileSync(path.join(ausgabe, "termine/index.html"), "utf8");
   assert.match(termineSeite, /Hinweis X[\s\S]*Teststraße 1/);
   assert.match(termineSeite, /"@type":"Event"[^\]]*"startDate":"2026-11-04T18:00:00\+01:00"/);

@@ -232,13 +232,15 @@
 </article>
 {% endmacro %}
 
-{#- Spiel als Cover mit Namen, z. B. „Aktuell meist gespielt“ und „Zuletzt gespielt“. zusatz: kleine Zeile darunter #}
-{% macro coverKachel(s, zusatz) %}
+{#- Spiel als Cover mit Namen, z. B. Ranglisten und „Zuletzt gespielt“. zusatz: kleine Zeile darunter, platz: Rang auf dem Cover #}
+{% macro coverKachel(s, zusatz, platz, zusatz2) %}
 <li>
   <a href="{{ ('/spiele/' + s.slug + '/') | url }}">
+    {%- if platz %}<span class="cr-platz" aria-label="Platz {{ platz }}">{{ platz }}</span>{% endif %}
     {{ cover(s, "bild") }}
     <span class="cr-name">{{ s.name }}</span>
     {%- if zusatz %}<span class="cr-zeit">{{ zusatz }}</span>{% endif %}
+    {%- if zusatz2 %}<span class="cr-zeit">{{ zusatz2 }}</span>{% endif %}
   </a>
 </li>
 {% endmacro %}

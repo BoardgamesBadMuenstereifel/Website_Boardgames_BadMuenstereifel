@@ -24,7 +24,7 @@ Blatt **Termine**, eine Zeile pro Termin:
 | Datum | Bis | Uhrzeit | Ort | Art | Hinweis |
 |---|---|---|---|---|---|
 | 13.01.2027 | | 18:00 | Kupferkessel, Schönau | Spieleabend | Erst Essen, Spielbeginn ca. 19 Uhr |
-| 23.01.2027 | | 16:00 | Dorfgemeinschaftshaus Lorbach | Samstagstermin | Wir spielen gleich los, Essen kann vom Lieferdienst bestellt werden |
+| 23.01.2027 | | 16:00 | Dorfgemeinschaftshaus Lorbach | Samstagstermin | Wir spielen gleich los |
 | 05.03.2027 | 07.03.2027 | | Kloster Steinfeld | Brettspielkloster | Sonderveranstaltung |
 
 - **Bis** nutzt du nur bei mehrtägigen Terminen.

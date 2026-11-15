@@ -465,14 +465,17 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
     chronik: { partien: partien.length, spiele: new Set(partien.map((p) => p.schluessel)).size, abende: abende.length, seit: hallOfFameSeit },
     meist12, meist3, hallOfFame, hallOfFameSeit,
     zahlen12: zaehle(monateZurueck(heute, 12)), zahlen3: zaehle(monateZurueck(heute, 3)),
-    letzterAbend: letzterAbend ? {
-      datum: datumTeile(letzterAbend).lang,
-      spiele: [...new Set(partien.filter((p) => p.datum === letzterAbend).map((p) => p.schluessel))].map((k) => spiele.get(k)),
-      // Premiere: Spiele, die an diesem Abend zum allerersten Mal auf dem Tisch lagen
-      premieren: [...new Set(partien.filter((p) => p.datum === letzterAbend).map((p) => p.schluessel))]
-        .filter((k) => !partien.some((p) => p.schluessel === k && p.datum < letzterAbend))
-        .map((k) => spiele.get(k).slug),
-    } : null,
+    letzterAbend: letzterAbend ? (() => {
+      const schluessel = [...new Set(partien.filter((p) => p.datum === letzterAbend).map((p) => p.schluessel))];
+      // Premiere: Spiele, die an diesem Abend zum allerersten Mal auf dem Tisch lagen – sie stehen vorne
+      const istPremiere = (k) => !partien.some((p) => p.schluessel === k && p.datum < letzterAbend);
+      const sortiert = [...schluessel.filter(istPremiere), ...schluessel.filter((k) => !istPremiere(k))];
+      return {
+        datum: datumTeile(letzterAbend).lang,
+        spiele: sortiert.map((k) => spiele.get(k)),
+        premieren: sortiert.filter(istPremiere).map((k) => spiele.get(k).slug),
+      };
+    })() : null,
     empfehlungen,
     fokus, fokusNachSlug, bggSkala: BGG_SKALA, sammlung, kategorienSammlung,
     fotos, fotosStart: fotos.filter((f) => f.startseite), fotosNeuHier: fotos.filter((f) => f.neuHier),

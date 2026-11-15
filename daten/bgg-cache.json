@@ -660,6 +660,21 @@
    "cover": "/assets/cover/102680.jpg",
    "abgerufen": "2026-11-15T04:23:52.466Z"
   },
+  "106662": {
+   "id": "106662",
+   "name": "Power Grid: The First Sparks",
+   "jahr": 2011,
+   "minSpieler": 2,
+   "maxSpieler": 6,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 12,
+   "bewertung": 6.8,
+   "komplexitaet": 2.7,
+   "beschreibung": "In 2001, 2F-Spiele published the original Funkenschlag. In 2011, it is time to look back...a long time back! To celebrate the tenth anniversary of the original Funkenschlag, designer Friedemann Friese will take you back in time and let you relive the early beginnings of mankind. True to the name of the German edition (a literal translation of which is \"Flying Sparks\"), it is time for Funkenschlag: Die ersten Funken, or \"The First Sparks\". The First Sparks transports the Funkenschlag mechanisms into the Stone Age.",
+   "cover": "/assets/cover/106662.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
+  },
   "107529": {
    "id": "107529",
    "name": "Kingdom Builder",
@@ -674,6 +689,21 @@
    "beschreibung": "In Kingdom Builder, the players create their own kingdoms by skillfully building their settlements, aiming to earn the most gold at the end of the game. Nine different kinds of terrain are on the variable game board, including locations and castles. During his turn, a player plays his terrain card and builds three settlements on three hexes of this kind. If possible, a new settlement must be built next to one of that player&rsquo;s existing settlements. When building next to a location, the player may seize an extra action tile that he may use from his next turn on.",
    "cover": "/assets/cover/107529.jpg",
    "abgerufen": "2026-11-15T04:23:03.585Z"
+  },
+  "118410": {
+   "id": "118410",
+   "name": "Dirty Pig",
+   "jahr": 2012,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 10,
+   "maxDauer": 10,
+   "alter": 7,
+   "bewertung": 6.1,
+   "komplexitaet": 1.1,
+   "beschreibung": "Only a dirty pig is a happy pig! In Dirty Pig, first released as Drecksau, each player has 2-4 clean pigs in front of him and three cards in hand. Each turn one card is played. By playing a \"Dirty Your Pig\" card, one pig can be sent into the mud. One of the pig cards in front of you is flipped over to show a dirty pig on the back. Rain cards clean all pigs, even your own! Barn cards protect your pigs from the rain, while lightning cards destroy the barns – but lightning rod cards protect barns from lightning cards.",
+   "cover": "/assets/cover/118410.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
   },
   "121921": {
    "id": "121921",
@@ -1004,6 +1034,21 @@
    "beschreibung": "The animals are dressed up and ready to enter the \"Beasty Bar\" nightclub. Who will actually make it through the door? Beasty Bar is a fun \"take that\" card game about party animals. The players play animal cards into a line, and each animal has a special power that can manipulate the order of the cards. Whenever five animals are present at the end of a turn, the two animals up front get to party while the one at the rear has to go home. Whoever manages to send more of her animals to the party than anyone else wins.",
    "cover": "/assets/cover/165950.jpg",
    "abgerufen": "2026-11-15T04:22:19.559Z"
+  },
+  "167355": {
+   "id": "167355",
+   "name": "Nemesis",
+   "jahr": 2018,
+   "minSpieler": 1,
+   "maxSpieler": 5,
+   "minDauer": 90,
+   "maxDauer": 180,
+   "alter": 12,
+   "bewertung": 8.2,
+   "komplexitaet": 3.5,
+   "beschreibung": "Playing Nemesis will take you into the heart of sci-fi survival horror in all its terror. A soldier fires blindly down a corridor, trying to stop the alien advance. A scientist races to find a solution in his makeshift lab. A traitor steals the last escape pod in the very last moment. Intruders you meet on the ship are not only reacting to the noise you make but also evolve as the time goes by. The longer the game takes, the stronger they become. During the game, you control one of the crew members with a unique set of skills, personal deck of cards, and individual starting equipment.",
+   "cover": "/assets/cover/167355.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
   },
   "167791": {
    "id": "167791",
@@ -2160,6 +2205,21 @@
    "cover": "/assets/cover/283948.jpg",
    "abgerufen": "2026-11-15T04:23:08.923Z"
   },
+  "284083": {
+   "id": "284083",
+   "name": "The Crew: The Quest for Planet Nine",
+   "jahr": 2019,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 20,
+   "maxDauer": 20,
+   "alter": 10,
+   "bewertung": 7.7,
+   "komplexitaet": 2,
+   "beschreibung": "In the co-operative trick-taking game The Crew: The Quest for Planet Nine, the players set out as astronauts on an uncertain space adventure. What are the rumors regarding the unknown planet about? The eventful journey through space extends over 50 exciting missions. But this game can only be defeated by meeting common individual tasks of each player. In order to meet the varied challenges communication is essential in the team. But this is more difficult than expected in space. With each mission the game becomes more difficult. After each mission the game can be paused and continued later.",
+   "cover": "/assets/cover/284083.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
+  },
   "284108": {
    "id": "284108",
    "name": "Pictures",
@@ -2625,6 +2685,21 @@
    "cover": "/assets/cover/315727.jpg",
    "abgerufen": "2026-11-15T04:23:08.923Z"
   },
+  "317985": {
+   "id": "317985",
+   "name": "Beyond the Sun",
+   "jahr": 2020,
+   "minSpieler": 2,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 7.9,
+   "komplexitaet": 3.2,
+   "beschreibung": "Beyond the Sun is a space civilization game in which players collectively decide the technological progress of humankind at the dawn of the Spacefaring Era, while competing against each other to be the leading faction in economic development, science, and galactic influence. The game is played over a variable number of rounds until a number of game-end achievements are collectively claimed by the players.",
+   "cover": "/assets/cover/317985.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
+  },
   "322289": {
    "id": "322289",
    "name": "Darwin's Journey",
@@ -2684,6 +2759,21 @@
    "beschreibung": "In Living Forest, you play as a nature spirit who will try to save the forest and its sacred tree from the flames of Onibi. But you are not alone in your mission as the animal guardians have come together to lend a hand around the Circle of Spirits where you progress. Each turn, they bring you valuable elements, so try to combine your team of animal guardians as best as possible to carry out your actions, but be careful: some of them are solitary and do not like to be mixed with others...",
    "cover": "/assets/cover/328479.jpg",
    "abgerufen": "2026-11-15T04:23:08.923Z"
+  },
+  "329839": {
+   "id": "329839",
+   "name": "So Clover!",
+   "jahr": 2021,
+   "minSpieler": 3,
+   "maxSpieler": 6,
+   "minDauer": 30,
+   "maxDauer": 30,
+   "alter": 10,
+   "bewertung": 7.6,
+   "komplexitaet": 1.1,
+   "beschreibung": "So Clover! is a cooperative word-association game. Play as a team to get the highest score. Get Keywords and secretly write their common features on your Clover board; these are your Clues. Then work together to try to figure out each player&rsquo;s Keywords. At the end of the game, add up your score according to how many Keywords you found and write it in the Record of Legends. Try to beat your high score each game! -description from the publisher",
+   "cover": "/assets/cover/329839.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
   },
   "331106": {
    "id": "331106",
@@ -5070,6 +5160,21 @@
    "cover": "/assets/cover/447243.jpg",
    "abgerufen": "2026-11-15T04:22:37.021Z"
   },
+  "448740": {
+   "id": "448740",
+   "name": "Orapa Space",
+   "jahr": 2025,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 20,
+   "maxDauer": 25,
+   "alter": 8,
+   "bewertung": 7.9,
+   "komplexitaet": 1.9,
+   "beschreibung": "A Brilliant Laser-Based Deduction Challenge! The Aerospace Department has sent us a mission: use laser beams to uncover the hidden positions, directions, and colors of mysterious planet-shaped pieces. By carefully analyzing the laser signals that bounce back, players must deduce the exact setup of the planets. But beware—lasers don't always behave predictably! With just a few components—2 Space Boards, 2 Planet Sets, and a Solution Sheet—this game delivers a clever, quick-playing deduction puzzle for 2 to 5 players in around 20 minutes. Recommended for ages 8 and up.",
+   "cover": "/assets/cover/448740.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
+  },
   "449267": {
    "id": "449267",
    "name": "Käpt'n Memo",
@@ -5279,6 +5384,36 @@
    "beschreibung": "The 2 to 4 aspiring sorting masters must skillfully arrange the ingredient jars on the shelves. Competing for the owner's favor, the young magical talents gradually fill their own shelf board, which consists of three rows, with an ingredient jar from the selection drawn for the round. Everyone takes turns choosing a tile. Strict but simple rules apply: The lid color determines which shelf the jar can be placed on, while the numbers in each row must be in ascending order.",
    "cover": "/assets/cover/462742.jpg",
    "abgerufen": "2026-11-15T04:23:14.436Z"
+  },
+  "462932": {
+   "id": "462932",
+   "name": "Wildscape",
+   "jahr": 2026,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 30,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 8,
+   "komplexitaet": 3.2,
+   "beschreibung": "In Wildscape, you will restore barren lands in Africa with rich habitats -- woodlands, wetlands, savanna, deserts, and rivers -- to create areas for a diverse animal ecosystem to return and to thrive. Each player must expand their land and fill it with specific habitat tiles based on the needs of both common (but variable) objective cards and personal goal cards acquired throughout the game. Your habitats' size and type will attract various herbivores that grant end-game points and will support predators and primates that give powerful bonuses.",
+   "cover": "/assets/cover/462932.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
+  },
+  "463296": {
+   "id": "463296",
+   "name": "Forest Shuffle: Smoky Mountains",
+   "jahr": 2026,
+   "minSpieler": 2,
+   "maxSpieler": 5,
+   "minDauer": 60,
+   "maxDauer": 60,
+   "alter": 10,
+   "bewertung": 8,
+   "komplexitaet": 2.3,
+   "beschreibung": "A new continent awaits in the Forest Shuffle universe: After exploring Central Europe in Forest Shuffle and the wilds of southern England in Forest Shuffle – Dartmoor, this new standalone game invites players on a journey to North America. As the third standalone game in the Forest Shuffle series, Forest Shuffle - Smoky Mountains takes us to this popular North American National Park. Building on the familiar gameplay of the series, it introduces new species and clever twists in mechanics. This keeping the experience as fresh as the bubbling waters on the new terrain cards!",
+   "cover": "/assets/cover/463296.jpg",
+   "abgerufen": "2026-11-15T07:26:52.362Z"
   },
   "463783": {
    "id": "463783",

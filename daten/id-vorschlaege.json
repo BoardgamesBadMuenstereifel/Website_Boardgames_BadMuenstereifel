@@ -3217,5 +3217,109 @@
    "name": "Unfinished Business",
    "jahr": 2023
   }
+ ],
+ "Beyond the Sun": [
+  {
+   "id": "317985",
+   "name": "Beyond the Sun",
+   "jahr": 2020
+  }
+ ],
+ "Die Crew": [
+  {
+   "id": "311184",
+   "name": "Die Crew: Das Deimos-Abenteuer",
+   "jahr": 2020
+  },
+  {
+   "id": "307204",
+   "name": "Die Crew: Der Flug zur ISS",
+   "jahr": 2020
+  },
+  {
+   "id": "406299",
+   "name": "Die Crew: Family",
+   "jahr": 2024
+  }
+ ],
+ "Dreckssau": [],
+ "Funkenschlag: Die ersten Funken": [
+  {
+   "id": "106662",
+   "name": "Funkenschlag: Die ersten Funken",
+   "jahr": 2011
+  }
+ ],
+ "Mischwald Smoky Mountains": [
+  {
+   "id": "463296",
+   "name": "Mischwald: Smoky Mountains",
+   "jahr": 2026
+  },
+  {
+   "id": "477884",
+   "name": "Mischwald: Smoky Mountains – Boojum / Berglorbeer",
+   "jahr": 2026
+  },
+  {
+   "id": "478324",
+   "name": "Mischwald: Smoky Mountains – Hootin' Annie / Ostkreischeule",
+   "jahr": 2026
+  }
+ ],
+ "Nemesis": [
+  {
+   "id": "3481",
+   "name": "Nemesis",
+   "jahr": 1998
+  },
+  {
+   "id": "20818",
+   "name": "Nemesis",
+   "jahr": 1996
+  },
+  {
+   "id": "167355",
+   "name": "Nemesis",
+   "jahr": 2018
+  }
+ ],
+ "Orapa Space": [
+  {
+   "id": "448740",
+   "name": "Orapa Space",
+   "jahr": 2025
+  }
+ ],
+ "Snakes": [
+  {
+   "id": "61603",
+   "name": "Snakes",
+   "jahr": null
+  },
+  {
+   "id": "222239",
+   "name": "Snakes",
+   "jahr": null
+  },
+  {
+   "id": "311234",
+   "name": "Snakes",
+   "jahr": 1975
+  }
+ ],
+ "So Kleever!": [
+  {
+   "id": "329839",
+   "name": "So Kleever!",
+   "jahr": 2021
+  }
+ ],
+ "Wildscapes": [
+  {
+   "id": "381820",
+   "name": "River Wild: Wildscapes",
+   "jahr": 2023
+  }
  ]
 }

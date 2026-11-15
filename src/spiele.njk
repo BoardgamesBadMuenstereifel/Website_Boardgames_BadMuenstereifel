@@ -29,7 +29,7 @@ permalink: /spiele/
     {%- if daten.hallOfFame.length %}
     <div class="rangliste ruhm-reihe">
       <h2 class="band-h"><svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg> Hall of Fame <span class="klein-info">Die meiste Spielzeit seit {{ daten.hallOfFameSeit }}</span></h2>
-      {{ rangreihe(daten.hallOfFame, 5) }}
+      {{ rangreihe(daten.hallOfFame, 10) }}
     </div>
     {%- endif %}
     <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek.</p>
@@ -37,7 +37,7 @@ permalink: /spiele/
     <div class="letzter">
       <h2>Zuletzt gespielt <span class="klein-info">Spieletreffen am {{ daten.letzterAbend.datum }}</span></h2>
       <ul class="cover-reihe">
-        {%- for s in daten.letzterAbend.spiele %}{{ b.coverKachel(s) }}{% endfor %}
+        {%- for s in daten.letzterAbend.spiele %}{{ b.coverKachel(s, null, null, null, s.slug in daten.letzterAbend.premieren) }}{% endfor %}
       </ul>
     </div>
     {%- endif %}

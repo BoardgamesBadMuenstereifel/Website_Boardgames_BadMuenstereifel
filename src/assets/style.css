@@ -600,6 +600,8 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .cover-reihe a { position: relative; }
 .cr-platz { position: absolute; left: -.35rem; top: -.4rem; z-index: 1; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: var(--tinte); font-family: var(--schrift-titel); font-weight: 700; box-shadow: 0 2px 0 var(--aubergine-dunkel); }
 .rang-reihe { padding-top: .6rem; }
+.cr-premiere { position: absolute; left: -.35rem; top: -.4rem; z-index: 1; padding: .2rem .55rem; border-radius: 999px; background: var(--gold); color: var(--tinte); font-family: var(--schrift-titel); font-weight: 700; font-size: .78rem; letter-spacing: .02em; box-shadow: 0 2px 0 var(--aubergine-dunkel); }
+.letzter .cover-reihe { padding-top: .6rem; }
 .ruhm-reihe li:nth-child(1) .cr-platz { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--gold)); }
 .ruhm-reihe li:nth-child(2) .cr-platz { background: radial-gradient(circle at 35% 30%, #f4f4f4, #b9bcc0); }
 .ruhm-reihe li:nth-child(3) .cr-platz { background: radial-gradient(circle at 35% 30%, #f3c6a0, #c27c4a); }

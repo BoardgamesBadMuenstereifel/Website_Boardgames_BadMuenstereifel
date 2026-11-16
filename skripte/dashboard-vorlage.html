@@ -97,6 +97,8 @@
   .rang .rname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .rang .spur { display: block; height: .85rem; }
   .rang .spur i { display: block; height: 100%; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--aubergine); }
+  .feld.allein { margin-bottom: 1.2rem; }
+  @media (min-width: 62rem) { .rang.zwei { grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 1.5rem; } }
   .rang .zahl { white-space: nowrap; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
 
   .st { display: inline-flex; align-items: center; gap: .4rem; }
@@ -228,6 +230,12 @@
       <ul class="rang" id="rang"></ul>
     </section>
   </div>
+
+  <section class="feld allein" aria-labelledby="h-verlage">
+    <h2 id="h-verlage">Verlage mit der meisten Spielzeit</h2>
+    <ul class="rang zwei" id="verlage"></ul>
+    <p>Jedes Spiel zählt beim Originalverlag laut BGG, Lizenzausgaben (z. B. deutsche Fassungen) nicht. Ein Klick wählt alle Spiele des Verlags aus.</p>
+  </section>
 
   <section aria-labelledby="h-tabelle">
     <div class="kopf-zeile">
@@ -402,6 +410,7 @@ function zeichne() {
   zeichneGalerie();
   zeichneMonate(von, bis);
   zeichneRang();
+  zeichneVerlage();
   zeichneTabelle();
 
   // Bedienelemente auf den Stand bringen
@@ -483,6 +492,27 @@ function zeichneRang() {
   $("rang").innerHTML = oben.length ? oben.map(({ s, n, zeit }) =>
     `<li><button type="button" data-spiel="${s.i}" aria-pressed="${state.auswahl.has(s.i)}" title="${esc(s.name)}"><span class="rname">${esc(s.name)}</span><span class="spur"><i style="width:${(zeit / max) * 100}%"></i></span><span class="zahl">${zeit ? stunden(zeit) : n + "×"}</span></button></li>`).join("")
     : "<li>Keine Partie im Zeitraum.</li>";
+}
+
+// Verlage: BGG nennt den Originalverlag zuerst, danach die Lizenzverlage. Gezählt wird nur der erste,
+// damit jede Partie genau einmal zählt.
+let verlagSpiele = new Map();
+function zeichneVerlage() {
+  const v = new Map();
+  for (const z of treffer) {
+    if (!z.n || !z.zeit || !z.s.verlage.length) continue;
+    const e = v.get(z.s.verlage[0]) ?? { zeit: 0, n: 0, spiele: [] };
+    e.zeit += z.zeit; e.n += z.n; e.spiele.push(z.s);
+    v.set(z.s.verlage[0], e);
+  }
+  const oben = [...v].sort((a, b) => b[1].zeit - a[1].zeit || a[0].localeCompare(b[0], "de")).slice(0, 10);
+  verlagSpiele = new Map(oben.map(([name, e]) => [name, e.spiele.map((s) => s.i)]));
+  const max = Math.max(1, ...oben.map(([, e]) => e.zeit));
+  $("verlage").innerHTML = oben.length ? oben.map(([name, e]) => {
+    const an = state.auswahl.size === e.spiele.length && e.spiele.every((s) => state.auswahl.has(s.i));
+    const titel = `${name}: ${mal(e.spiele.length, "Spiel", "Spiele")}, ${mal(e.n, "Partie", "Partien")} – ${e.spiele.map((s) => s.name).join(", ")}`;
+    return `<li><button type="button" data-verlag="${esc(name)}" aria-pressed="${an}" title="${esc(titel)}"><span class="rname">${esc(name)}</span><span class="spur"><i style="width:${(e.zeit / max) * 100}%"></i></span><span class="zahl">${stunden(e.zeit)}</span></button></li>`;
+  }).join("") : "<li>Keine Partie mit Verlagsangabe im Zeitraum.</li>";
 }
 
 function zeichneTabelle() {
@@ -570,6 +600,14 @@ function waehle(e) {
 }
 $("galerie").addEventListener("click", waehle);
 $("rang").addEventListener("click", waehle);
+$("verlage").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-verlag]"); if (!b) return;
+  const ids = verlagSpiele.get(b.dataset.verlag) ?? [];
+  const an = b.getAttribute("aria-pressed") === "true";
+  state.auswahl.clear();
+  if (!an) for (const i of ids) state.auswahl.add(i);
+  zeichne();
+});
 $("auswahl").addEventListener("click", (e) => {
   if (e.target.id === "auswahl-weg") { state.auswahl.clear(); zeichne(); } else waehle(e);
 });

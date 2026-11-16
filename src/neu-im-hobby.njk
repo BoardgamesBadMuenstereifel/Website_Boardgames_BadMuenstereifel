@@ -19,12 +19,14 @@ permalink: /neu-im-hobby/
           {%- for e in g.spiele %}
           {%- set ziel = ('/spiele/' + e.spiel.slug + '/' + ('#bewertung' if e.spiel.bewertung else '')) | url %}
           <li>
+            <a class="empf-name" href="{{ ziel }}">{{ e.spiel.name }}</a>
             <a class="empf-cover" href="{{ ziel }}" tabindex="-1" aria-hidden="true">{{ b.cover(e.spiel, "empf-bild") }}</a>
-            <div>
-              <a href="{{ ziel }}">{{ e.spiel.name }}</a>
+            {%- if e.spiel.bewertung or e.grund %}
+            <div class="empf-info">
               {%- if e.spiel.bewertung %}<span class="empf-note">Unsere Bewertung</span>{% endif %}
               {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
             </div>
+            {%- endif %}
           </li>
           {%- endfor %}
         </ul>

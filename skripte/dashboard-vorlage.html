@@ -159,7 +159,7 @@
       <label>Spiel suchen <input type="search" id="f-suche" placeholder="z. B. Azul" autocomplete="off"></label>
       <label>Zeitraum <select id="f-zeit"></select></label>
       <label>Nicht gespielt seit
-        <select id="f-ruht"><option value="">egal</option><option value="6">6 Monaten</option><option value="12">12 Monaten</option><option value="24">24 Monaten</option></select>
+        <select id="f-ruht"><option value="">egal</option><option value="6-12">6 – 12 Monaten</option><option value="12-24">12 – 24 Monaten</option><option value="24">&gt; 24 Monaten</option></select>
       </label>
       <div class="schieben"><button type="button" class="knopf" id="zurueck">Alle Filter zurücksetzen</button></div>
     </div>
@@ -359,13 +359,16 @@ function zeichne() {
   const grenze = zurueck(HEUTE, state.monate);
   const [von, bis] = bereich();
   const suche = state.suche.trim().toLowerCase();
-  // „Nicht gespielt seit“: letzte Partie liegt vor diesem Tag (oder es gab nie eine), egal ob in der Sammlung
-  const ruhtSeit = state.ruht ? zurueck(HEUTE, +state.ruht) : "";
+  // „Nicht gespielt seit“: letzte Partie liegt in der gewählten Spanne (z. B. vor 6 bis 12 Monaten), egal ob in der Sammlung.
+  // Spiele ohne jede Partie fallen dabei heraus.
+  const [ruhtAb, ruhtBis] = String(state.ruht).split("-");
+  const ruhtVor = state.ruht ? zurueck(HEUTE, +ruhtAb) : "";
+  const ruhtNach = ruhtBis ? zurueck(HEUTE, +ruhtBis) : "";
   for (const s of S) s.status = statusVon(s, grenze);
 
   const passt = (s) =>
     (state.bestand === "alle" || (state.bestand === "sammlung") === s.sammlung) &&
-    (!ruhtSeit || !s.zuletzt || s.zuletzt < ruhtSeit) &&
+    (!ruhtVor || (s.zuletzt && s.zuletzt < ruhtVor && (!ruhtNach || s.zuletzt >= ruhtNach))) &&
     (!suche || s.name.toLowerCase().includes(suche)) &&
     (!state.status || (state.status === "kandidat" ? istKandidat(s.status) : s.status === state.status)) &&
     passtBgg(s);

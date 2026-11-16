@@ -135,10 +135,10 @@ So kommt ein neues Foto auf die Seite:
 
 ## Dashboard: Auswertung für den Vorstand
 
-Das Dashboard zeigt, was gespielt wurde und wie die Sammlung genutzt wird, zum Beispiel welche Spiele nie oder lange nicht auf dem Tisch lagen und sich für den Verkauf eignen. Es liegt nur auf deinem Rechner und erscheint nicht auf der Website.
+Das Dashboard zeigt, was gespielt wurde und wie die Sammlung genutzt wird, zum Beispiel welche Spiele nie oder lange nicht auf dem Tisch lagen und sich für den Verkauf eignen.
 
-- **Öffnen:** Doppelklick auf `Dashboard.cmd` im Projektordner. Die Datei baut `dashboard.html` aus den Listen in `daten/` neu und öffnet sie im Browser.
-- Es nutzt die Listen, die auf deinem Rechner liegen. Hast du eine Liste nur auf GitHub geändert, hol dir vorher den aktuellen Stand (oder bitte Claude darum).
+- **Online:** unter `/dashboard/`, also https://www.boardgames-muenstereifel.club/dashboard/. Die Seite baut sich mit der Website jede Nacht neu. Sie ist absichtlich **nirgends verlinkt**, steht nicht in der Sitemap und ist für Suchmaschinen gesperrt. Wer die Adresse kennt, kann sie trotzdem öffnen. Bitte keinen Link darauf in Menü oder Seiten einbauen.
+- **Auf deinem Rechner:** Doppelklick auf `Dashboard.cmd` im Projektordner. Die Datei baut `dashboard.html` aus den Listen in `daten/` neu und öffnet sie im Browser. Sie nutzt die Listen, die auf deinem Rechner liegen. Hast du eine Liste nur auf GitHub geändert, hol dir vorher den aktuellen Stand (oder bitte Claude darum).
 - Oben filterst du nach Name, Zeitraum, „Nicht gespielt seit“ (6, 12 oder 24 Monaten, alle Spiele), BGG-Daten (Komplexität, maximale Spielzeit, Spieleranzahl, Note, Verlag, Jahr) und nach der Sammlung. Darunter erscheinen die Cover der gefundenen Spiele, die mit der meisten Spielzeit zuerst.
 - Ein Klick auf ein Cover wählt das Spiel aus: „Partien pro Monat“, Kennzahlen und Tabelle zeigen dann nur dieses Spiel. Ein Klick auf einen Spielnamen in der Tabelle öffnet die Einzelansicht mit allen Spieltagen.
 - Mit „Ansicht als Excel-Liste (CSV) speichern“ bekommst du die aktuelle Auswahl für Excel.

@@ -70,7 +70,9 @@ async function main() {
   const cache = lese(CACHE, { spiele: {} });
   const jetzt = Date.now();
   const ids = [...new Set(alleSpiele.map((s) => s.bggId).filter(Boolean))];
-  const offen = ids.filter((id) => !cache.spiele[id] || jetzt - Date.parse(cache.spiele[id].abgerufen) > EINEN_TAG_MS);
+  // Neu abrufen: unbekannt, älter als ein Tag oder noch ohne Verlage (die werden erst seit November 2026 gespeichert)
+  const veraltet = (e) => !e || jetzt - Date.parse(e.abgerufen) > EINEN_TAG_MS || (!e.fehlt && !Array.isArray(e.verlage));
+  const offen = ids.filter((id) => veraltet(cache.spiele[id]));
   console.log(`${ids.length} Spiele mit BGG-ID, ${offen.length} werden abgerufen.`);
 
   try {

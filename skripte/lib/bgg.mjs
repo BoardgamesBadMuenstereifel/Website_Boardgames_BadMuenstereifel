@@ -50,6 +50,11 @@ export function leseThings(xml) {
       bewertung: sterne === null ? null : Math.round(sterne * 10) / 10,
       komplexitaet: gewicht === null ? null : Math.round(gewicht * 10) / 10,
       beschreibung: kurzText(i.description),
+      // Alle Verlage aller Ausgaben, z. B. Kosmos für die deutsche. Platzhalter wie „(Unknown)“ fallen weg.
+      verlage: [...new Set((i.link ?? [])
+        .filter((l) => l["@type"] === "boardgamepublisher")
+        .map((l) => entitaeten(l["@value"]).trim())
+        .filter((v) => v && !/^\(.*\)$/.test(v)))],
       bildQuelle: typeof i.thumbnail === "string" ? i.thumbnail.trim() : null,
     };
   });

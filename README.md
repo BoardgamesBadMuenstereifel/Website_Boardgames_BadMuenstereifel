@@ -133,6 +133,16 @@ So kommt ein neues Foto auf die Seite:
 - Die Antworten unter „Häufige Fragen“ auf „Neu hier?“ stehen direkt in `src/neu-hier.njk`.
 - Teilt jemand einen Link, zeigen WhatsApp, Facebook & Co. das Bild `src/assets/vorschau.png` (Logo mit Namen, 1200 × 630 Pixel).
 
+## Dashboard: Auswertung für den Vorstand
+
+Das Dashboard zeigt, was gespielt wurde und wie die Sammlung genutzt wird, zum Beispiel welche Spiele nie oder lange nicht auf dem Tisch lagen und sich für den Verkauf eignen. Es liegt nur auf deinem Rechner und erscheint nicht auf der Website.
+
+- **Öffnen:** Doppelklick auf `Dashboard.cmd` im Projektordner. Die Datei baut `dashboard.html` aus den Listen in `daten/` neu und öffnet sie im Browser.
+- Es nutzt die Listen, die auf deinem Rechner liegen. Hast du eine Liste nur auf GitHub geändert, hol dir vorher den aktuellen Stand (oder bitte Claude darum).
+- Oben filterst du nach Name, Zeitraum, „Nicht gespielt seit“ (6, 12 oder 24 Monaten, alle Spiele), BGG-Daten (Komplexität, maximale Spielzeit, Spieleranzahl, Note, Verlag, Jahr) und nach der Sammlung. Darunter erscheinen die Cover der gefundenen Spiele, die mit der meisten Spielzeit zuerst.
+- Ein Klick auf ein Cover wählt das Spiel aus: „Partien pro Monat“, Kennzahlen und Tabelle zeigen dann nur dieses Spiel. Ein Klick auf einen Spielnamen in der Tabelle öffnet die Einzelansicht mit allen Spieltagen.
+- Mit „Ansicht als Excel-Liste (CSV) speichern“ bekommst du die aktuelle Auswahl für Excel.
+
 ## Etwas stimmt nicht: Warnungen ansehen
 
 Fehler in den Listen stoppen die Website nicht. Die Seite wird trotzdem gebaut, und die Datei `daten/WARNUNGEN.md` listet auf, was aufgefallen ist, zum Beispiel ein ungültiges Datum oder eine unbekannte ID. Öffne sie nach einer Änderung kurz auf GitHub.

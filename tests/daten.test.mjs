@@ -212,8 +212,10 @@ test("BGG-XML: Felder, Entitäten, leere Werte", () => {
   assert.equal(a.bewertung, 7.8);
   assert.equal(a.komplexitaet, 2.3);
   assert.equal(a.beschreibung, 'Erste Zeile. Zweite Zeile mit "Zitat" & mehr.');
+  assert.deepEqual(a.verlage, ["Beispielverlag & Söhne", "Zweiter Verlag"]);
   assert.equal(b.bewertung, null);
   assert.equal(b.bildQuelle, null);
+  assert.deepEqual(b.verlage, []);
   assert.equal(leseSuche(fs.readFileSync("fixtures/bgg-search.xml", "utf8"))[0].id, "2001");
 });
 

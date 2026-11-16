@@ -39,6 +39,10 @@ jobs:
           # Mit eigener Domain: Variable EIGENE_DOMAIN=ja setzen, dann liegt die Seite im Hauptverzeichnis
           PFAD_PREFIX: ${{ vars.EIGENE_DOMAIN == 'ja' && '/' || format('/{0}/', github.event.repository.name) }}
 
+      # Interne Auswertung unter /dashboard/: nirgends verlinkt, nicht in der Sitemap, für Suchmaschinen gesperrt
+      - name: Dashboard bauen
+        run: node skripte/dashboard.mjs --web _site/dashboard/index.html
+
       - name: Cache und Warnungen sichern
         run: |
           git config user.name "website-bot"

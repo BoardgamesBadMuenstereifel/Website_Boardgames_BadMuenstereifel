@@ -459,6 +459,7 @@ export async function ladeDaten({ ordner = process.env.DATEN_ORDNER ?? "daten", 
   const termineStart = termine.filter((t) => t !== naechsterOffen).slice(0, 3);
 
   return {
+    partien, // einzelne Partien, für das lokale Dashboard (skripte/dashboard.mjs)
     heute, termine, termineNachMonat, naechsterOffen, termineStart,
     // Auf der Terminseite sind die ersten drei Monate offen, der Rest ist eingeklappt
     termineSpaeterAnzahl: termineNachMonat.slice(3).reduce((n, m) => n + m.termine.length, 0),

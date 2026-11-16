@@ -7,3 +7,5 @@ _site/
 /Brettspielsammlung.xlsx
 # Zuordnung der Mitglieder-Kürzel: nie veröffentlichen
 Mitglieder-Kuerzel*.xlsx
+# Lokales Dashboard, wird von skripte/dashboard.mjs erzeugt
+/dashboard.html

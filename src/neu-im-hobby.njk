@@ -4,6 +4,7 @@ titel: Neu im Hobby?
 beschreibung: Unsere Empfehlungen für den Einstieg ins Brettspiel-Hobby, sortiert danach, mit wem du spielst. Von den ersten Spielen mit Kindern bis zum nächsten Schritt.
 permalink: /neu-im-hobby/
 ---
+{% import "bausteine.njk" as b %}
 <section class="sektion" aria-labelledby="h-empf">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-empf">Neu im Hobby?</h1>
@@ -16,10 +17,14 @@ permalink: /neu-im-hobby/
         {%- if g.text %}<p class="empf-satz">{{ g.text }}</p>{% endif %}
         <ul>
           {%- for e in g.spiele %}
+          {%- set ziel = ('/spiele/' + e.spiel.slug + '/' + ('#bewertung' if e.spiel.bewertung else '')) | url %}
           <li>
-            <a href="{{ ('/spiele/' + e.spiel.slug + '/' + ('#bewertung' if e.spiel.bewertung else '')) | url }}">{{ e.spiel.name }}</a>
-            {%- if e.spiel.bewertung %}<span class="empf-note">Unsere Bewertung</span>{% endif %}
-            {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
+            <a class="empf-cover" href="{{ ziel }}" tabindex="-1" aria-hidden="true">{{ b.cover(e.spiel, "empf-bild") }}</a>
+            <div>
+              <a href="{{ ziel }}">{{ e.spiel.name }}</a>
+              {%- if e.spiel.bewertung %}<span class="empf-note">Unsere Bewertung</span>{% endif %}
+              {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
+            </div>
           </li>
           {%- endfor %}
         </ul>

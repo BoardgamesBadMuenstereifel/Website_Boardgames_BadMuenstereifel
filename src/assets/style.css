@@ -193,7 +193,11 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .empf-karte h2, .empf-karte h3 { font-size: 1.2rem; color: var(--aubergine); margin: 0 0 .4rem; padding-bottom: .4rem; border-bottom: 3px solid var(--gold); }
 .empf-satz { margin: 0 0 .3rem; font-size: .98rem; }
 .empf-karte ul { list-style: none; margin: 0; padding: 0; }
-.empf-karte li a { display: block; padding: .4rem 0; font-weight: 700; color: var(--tinte); }
+.empf-karte li { display: grid; grid-template-columns: 3.6rem 1fr; gap: .75rem; align-items: start; padding: .45rem 0; }
+.empf-karte li + li { border-top: 1px solid rgb(43 37 48 / .1); }
+.empf-karte li a { display: block; padding: .15rem 0 .3rem; font-weight: 700; color: var(--tinte); }
+.empf-karte li a.empf-cover { padding: 0; }
+.empf-bild { display: grid; place-items: center; width: 3.6rem; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: var(--creme); box-shadow: 0 2px 0 rgb(43 37 48 / .18); font-family: var(--schrift-titel); font-size: 1.5rem; color: var(--aubergine); }
 .empf-karte li .empf-note { display: inline-block; margin: -.2rem 0 .3rem; padding: 0 .5rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .82rem; font-weight: 700; }
 
 /* Hinweis auf eine Bewertung in Ranglisten und auf der Spielseite */

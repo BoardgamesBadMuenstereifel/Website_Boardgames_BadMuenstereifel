@@ -28,10 +28,23 @@
   header p { margin: 0; font-size: .92rem; }
   :focus-visible { outline: 3px solid var(--tinte); outline-offset: 2px; border-radius: 4px; }
 
+  /* Menü: welche Bereiche angezeigt werden */
+  .ansicht { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .4rem; padding: .7rem 0; }
+  .ansicht-leiste { border-bottom: 2px solid var(--aubergine); background: var(--hell); }
+  .ansicht > strong { min-width: 5.5rem; font-family: var(--titel); color: var(--aubergine); }
+  .ansicht button { min-height: 2.1rem; padding: 0 .65rem; border: 2px solid var(--aubergine); border-radius: 999px; background: var(--hell); color: var(--aubergine); font-weight: 700; font-size: .85rem; cursor: pointer; }
+  .ansicht button[aria-pressed="true"] { background: var(--aubergine); color: var(--creme); }
+  .ansicht button[aria-pressed="true"]::before { content: "✓ "; }
+  .ansicht button:hover { border-color: var(--gold); }
+  .ansicht .klein { margin-left: auto; border-style: dashed; font-weight: 400; }
+  .ansicht .klein + .klein { margin-left: 0; }
+
   /* Filter */
   .leiste { border-bottom: 2px solid var(--aubergine); padding: .7rem 0; }
   .reihe { display: flex; flex-wrap: wrap; gap: .6rem .8rem; align-items: end; }
   .reihe + .reihe { margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--linie); }
+  .filter-mehr { margin-top: .6rem; padding-top: .6rem; border-top: 1px solid var(--linie); }
+  #mehr-filter[aria-expanded="true"] { background: var(--aubergine); color: var(--creme); }
   .reihe > strong { align-self: center; min-width: 5.5rem; font-family: var(--titel); color: var(--aubergine); }
   .leiste label, .gruppe { display: grid; gap: .1rem; font-weight: 700; font-size: .85rem; color: var(--aubergine); }
   select, input[type="search"], button { font: inherit; }
@@ -46,16 +59,17 @@
   .knopf:hover { background: var(--dunkel); color: var(--creme); }
   .schieben { margin-left: auto; }
 
-  main { padding: 1.2rem 0 3rem; }
+  main { padding: 1.2rem 0 3rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  main > * { min-width: 0; }
   section { margin-bottom: 1.2rem; }
-  .kacheln { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .7rem; margin: 0 0 1.2rem; padding: 0; list-style: none; }
+  .kacheln { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: .7rem; margin: 0; padding: 0; list-style: none; }
   .kacheln li, .feld { background: var(--hell); border-radius: 14px; padding: .8rem 1rem; }
   .kacheln b { display: block; font-family: var(--titel); font-size: 1.9rem; line-height: 1.1; color: var(--aubergine); }
   .kacheln span { display: block; font-weight: 700; }
   .kacheln small { display: block; font-size: .85rem; }
-  .paar { display: grid; gap: .9rem; margin-bottom: 1.2rem; }
+  .paar { display: grid; gap: .9rem; }
   .paar > * { min-width: 0; margin: 0; }
-  @media (min-width: 62rem) { .paar { grid-template-columns: 3fr 2fr; } }
+  @media (min-width: 62rem) { .paar { grid-template-columns: 3fr 2fr; } .paar:has(> [hidden]) { grid-template-columns: 1fr; } }
   .feld p { margin: .5rem 0 0; font-size: .88rem; }
   .kopf-zeile { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: baseline; justify-content: space-between; margin-bottom: .5rem; }
   .kopf-zeile h2 { margin: 0; }
@@ -72,7 +86,7 @@
   .galerie .gn { font-size: .8rem; margin-top: auto; }
   .galerie.blass button[aria-pressed="false"] .bild { opacity: .45; }
   .mehr { margin-top: .7rem; }
-  .auswahl { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: 0 0 .7rem; font-size: .92rem; }
+  .auswahl { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: 0; font-size: .92rem; background: var(--hell); border-left: 5px solid var(--gold); border-radius: 12px; padding: .55rem .9rem; }
   .auswahl button.chip { border: 0; border-radius: 999px; background: var(--aubergine); color: var(--creme); padding: .15rem .7rem; font-weight: 700; cursor: pointer; }
   .auswahl button.chip::after { content: " ×"; }
 
@@ -87,6 +101,22 @@
   .flaeche button:hover i, .flaeche button:focus-visible i { background: var(--gold); opacity: 1; }
   .achse { display: flex; gap: 2px; font-size: .75rem; height: 1.3rem; }
   .achse span { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: visible; }
+  .trends { display: grid; gap: .5rem 1.5rem; }
+  @media (min-width: 52rem) { .trends { grid-template-columns: 1fr 1fr; } }
+  .trends h3 { margin: 0 0 .3rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+  .trends h3.hoch { color: var(--gruen); } .trends h3.runter { color: var(--rot); }
+  .trends h3.hoch::before { content: "▲ "; } .trends h3.runter::before { content: "▼ "; }
+  .trend { display: grid; gap: .1rem; margin: 0; padding: 0; list-style: none; }
+  .trend button { width: 100%; display: grid; grid-template-columns: 2.2rem 1fr auto; gap: .6rem; align-items: center; border: 0; border-radius: 9px; background: none; padding: .2rem .3rem; cursor: pointer; color: var(--tinte); text-align: left; font-size: .92rem; }
+  .trend button:hover { background: rgb(225 159 66 / .18); }
+  .trend .tl-bild { font-size: .9rem; border-radius: 6px; }
+  .trend .zahl { text-align: right; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .trend .zahl b { display: block; }
+  .trend .zahl small { font-size: .78rem; }
+  .trend .hoch b { color: var(--gruen); } .trend .runter b { color: var(--rot); }
+  .ej-kopf { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; justify-content: space-between; margin-bottom: .6rem; }
+  .ej-kopf h2 { margin: 0; }
+  .flaeche button[aria-pressed="true"] i { background: var(--gold); opacity: 1; }
   .tipp { position: absolute; z-index: 3; top: 0; transform: translateX(-50%); background: var(--tinte); color: var(--hell); font-size: .85rem; padding: .25rem .55rem; border-radius: 7px; white-space: nowrap; pointer-events: none; }
 
   /* Meistgespielt */
@@ -97,7 +127,6 @@
   .rang .rname { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .rang .spur { display: block; height: .85rem; }
   .rang .spur i { display: block; height: 100%; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--aubergine); }
-  .feld.allein { margin-bottom: 1.2rem; }
   @media (min-width: 62rem) { .rang.zwei { grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 1.5rem; } }
   /* Topliste nach Spielzeit: dunkles Design wie die teilbare Topliste */
   .feld.tl { background: radial-gradient(60rem 30rem at 10% -10%, rgb(225 159 66 / .16), transparent 60%), radial-gradient(45rem 25rem at 110% 110%, rgb(33 68 76 / .55), transparent 60%), var(--tinte); color: var(--hell); padding: 1rem 1.2rem; }
@@ -200,8 +229,9 @@
       <label>Nicht gespielt seit
         <select id="f-ruht"><option value="">egal</option><option value="6-12">6 – 12 Monaten</option><option value="12-24">12 – 24 Monaten</option><option value="24">&gt; 24 Monaten</option></select>
       </label>
-      <div class="schieben"><button type="button" class="knopf" id="zurueck">Alle Filter zurücksetzen</button></div>
+      <div class="schieben"><button type="button" class="knopf" id="mehr-filter" aria-expanded="false" aria-controls="filter-mehr">Mehr Filter</button> <button type="button" class="knopf" id="zurueck">Alle Filter zurücksetzen</button></div>
     </div>
+    <div class="filter-mehr" id="filter-mehr" hidden>
     <div class="reihe">
       <strong>BGG-Daten</strong>
       <label>Komplexität von
@@ -238,24 +268,29 @@
       </div>
       <label>Status <select id="f-status"></select></label>
     </div>
+    </div>
   </div>
 </div>
 
+<nav class="ansicht-leiste" aria-label="Bereiche anzeigen"><div class="wrap ansicht" id="ansicht">
+  <strong>Anzeigen</strong>
+</div></nav>
+
 <main class="wrap">
-  <section class="feld" aria-labelledby="h-galerie">
+  <div class="auswahl" id="auswahl" hidden></div>
+  <section class="feld" aria-labelledby="h-galerie" data-bereich="galerie">
     <div class="kopf-zeile">
       <h2 id="h-galerie">Gefundene Spiele</h2>
       <p id="galerie-text" aria-live="polite"></p>
     </div>
-    <div class="auswahl" id="auswahl" hidden></div>
     <ul class="galerie" id="galerie"></ul>
     <button type="button" class="knopf mehr" id="mehr" hidden></button>
   </section>
 
-  <ul class="kacheln" id="kacheln"></ul>
+  <ul class="kacheln" id="kacheln" data-bereich="zahlen"></ul>
 
   <div class="paar">
-    <section class="feld" aria-labelledby="h-monate">
+    <section class="feld" aria-labelledby="h-monate" data-bereich="monate">
       <h2 id="h-monate">Partien pro Monat</h2>
       <div class="chart" id="chart">
         <div class="flaeche" id="flaeche"></div>
@@ -264,19 +299,41 @@
       </div>
       <p>Ein Klick auf einen Monat zeigt nur diesen Monat, ein zweiter Klick hebt das wieder auf. Blasse Balken liegen außerhalb des gewählten Zeitraums.</p>
     </section>
-    <section class="feld" aria-labelledby="h-rang">
+    <section class="feld" aria-labelledby="h-rang" data-bereich="rang">
       <h2 id="h-rang">Meiste Spielzeit</h2>
       <ul class="rang" id="rang"></ul>
     </section>
   </div>
 
-  <section class="feld allein" aria-labelledby="h-verlage">
+  <section class="feld allein" aria-labelledby="h-trends" data-bereich="trends">
+    <div class="kopf-zeile"><h2 id="h-trends">Trends</h2><p id="trend-zeit"></p></div>
+    <div class="trends">
+      <div><h3 class="hoch">Im Kommen</h3><ol class="trend" id="trend-hoch"></ol></div>
+      <div><h3 class="runter">Seltener gespielt</h3><ol class="trend" id="trend-runter"></ol></div>
+    </div>
+    <p>Spielzeit der letzten 3 Monate gegenüber den 3 Monaten davor, unabhängig von den Filtern. Ein Klick zeigt das Spiel.</p>
+  </section>
+
+  <section class="feld allein" aria-labelledby="h-jahre" data-bereich="jahre">
+    <div class="ej-kopf">
+      <h2 id="h-jahre">Spiele nach Erscheinungsjahr</h2>
+      <span class="segmente" id="ej-art"><button type="button" data-art="spiele">Spiele</button><button type="button" data-art="partien">Partien</button></span>
+    </div>
+    <div class="chart">
+      <div class="flaeche" id="ej-flaeche"></div>
+      <div class="achse" id="ej-achse" aria-hidden="true"></div>
+      <div class="tipp" id="ej-tipp" hidden></div>
+    </div>
+    <p id="ej-text"></p>
+  </section>
+
+  <section class="feld allein" aria-labelledby="h-verlage" data-bereich="verlage">
     <h2 id="h-verlage">Verlage mit der meisten Spielzeit</h2>
     <ul class="rang zwei" id="verlage"></ul>
     <p>Jedes Spiel zählt beim Originalverlag laut BGG, Lizenzausgaben (z. B. deutsche Fassungen) nicht. Ein Klick wählt alle Spiele des Verlags aus.</p>
   </section>
 
-  <section class="feld allein tl" aria-labelledby="h-topliste">
+  <section class="feld allein tl" aria-labelledby="h-topliste" data-bereich="topliste">
     <h2 id="h-topliste">Topliste nach Spielzeit</h2>
     <div class="tl-jahre" id="tl-jahre"></div>
     <h2>Spiele des Quartals</h2>
@@ -284,7 +341,7 @@
     <p>Unabhängig von den Filtern. Spielzeit = Partien × maximale Spieldauer laut BGG; bei Gleichstand zählen mehr Partien, dann die jüngste. Ein Klick zeigt das Spiel.</p>
   </section>
 
-  <section aria-labelledby="h-tabelle">
+  <section aria-labelledby="h-tabelle" data-bereich="tabelle">
     <div class="kopf-zeile">
       <h2 id="h-tabelle">Spiele im Detail</h2>
       <p id="treffer" aria-live="polite"></p>
@@ -337,6 +394,19 @@ const ERSTER = alleTage[0] || HEUTE;
 
 const START = { zeit: "alle", bestand: "alle", status: "", ruht: "", suche: "", monate: 12, kvon: "", kbis: "", dauer: "", spieler: "", note: "", jahr: "", verlag: "" };
 const state = { ...START, spalte: "zeit", ab: true, auswahl: new Set(), alleCover: false };
+// Filter und Ansicht stehen in der Adresse (?zeit=…&zeigen=…), damit man eine Ansicht als Link teilen kann
+const ADRESSE = new URLSearchParams(location.search);
+for (const k of Object.keys(START)) if (ADRESSE.has(k)) state[k] = k === "monate" ? +ADRESSE.get(k) || START.monate : ADRESSE.get(k);
+let ejArt = ADRESSE.get("ej") === "partien" ? "partien" : "spiele";
+const ZUSATZFILTER = ["kvon", "kbis", "dauer", "spieler", "note", "jahr", "verlag", "bestand", "status"];
+function inAdresse() {
+  const p = new URLSearchParams();
+  for (const [k, v] of Object.entries(START)) if (String(state[k]) !== String(v)) p.set(k, state[k]);
+  if (sichtbar && [...sichtbar].sort().join() !== [...BEREICHE_START].sort().join()) p.set("zeigen", [...sichtbar].join(","));
+  if (ejArt !== "spiele") p.set("ej", ejArt);
+  const ziel = location.pathname + (p.size ? "?" + p : "") + location.hash;
+  try { if (ziel !== location.pathname + location.search + location.hash) history.replaceState(null, "", ziel); } catch { /* z. B. lokal geöffnet */ }
+}
 // Auswahlfelder, die direkt einen Wert im Zustand setzen
 const FELDER = { "f-zeit": "zeit", "f-ruht": "ruht", "f-kvon": "kvon", "f-kbis": "kbis", "f-dauer": "dauer", "f-spieler": "spieler", "f-note": "note", "f-jahr": "jahr" };
 
@@ -459,6 +529,7 @@ function zeichne() {
 
   zeichneGalerie();
   zeichneMonate(von, bis);
+  zeichneJahre();
   zeichneRang();
   zeichneVerlage();
   zeichneTabelle();
@@ -471,6 +542,11 @@ function zeichne() {
   for (const [id, feld] of Object.entries(FELDER)) $(id).value = state[feld];
   if ($("f-suche").value !== state.suche) $("f-suche").value = state.suche;
   if ($("f-verlag").value !== state.verlag) $("f-verlag").value = state.verlag;
+  const aktiv = ZUSATZFILTER.filter((k) => String(state[k]) !== String(START[k])).length;
+  const offen = !$("filter-mehr").hidden;
+  $("mehr-filter").textContent = (offen ? "Weniger Filter" : "Mehr Filter") + (aktiv ? ` (${aktiv} aktiv)` : "");
+  $("mehr-filter").setAttribute("aria-expanded", String(offen));
+  inAdresse();
 }
 
 function zeitName() {
@@ -534,6 +610,34 @@ function zeichneMonate(von, bis) {
   $("achse").innerHTML = [...zaehler.keys()].map((m) => `<span>${m.endsWith("-01") ? m.slice(0, 4) : m.endsWith("-07") ? "Jul" : ""}</span>`).join("");
   const namen = zeilen.map((z) => z.s.name);
   $("h-monate").textContent = "Partien pro Monat" + (state.auswahl.size ? ": " + (namen.length <= 3 ? namen.join(", ") : `${namen.length} ausgewählte Spiele`) : "");
+}
+
+// Erscheinungsjahr laut BGG: gefilterte Spiele (bzw. ihre Partien im Zeitraum) je Jahr, ältere gesammelt
+const EJ_GRENZE = 2000;
+let ejSpiele = new Map();
+function zeichneJahre() {
+  const bis = Math.max(+HEUTE.slice(0, 4), ...treffer.map((z) => z.s.jahr || 0));
+  const topf = new Map([["vor", { n: 0, ids: [] }]]);
+  for (let j = EJ_GRENZE; j <= bis; j++) topf.set(String(j), { n: 0, ids: [] });
+  let ohne = 0;
+  for (const z of treffer) {
+    if (ejArt === "partien" && !z.n) continue;
+    if (!z.s.jahr) { ohne += ejArt === "partien" ? z.n : 1; continue; }
+    const t = topf.get(z.s.jahr < EJ_GRENZE ? "vor" : String(z.s.jahr));
+    t.n += ejArt === "partien" ? z.n : 1;
+    t.ids.push(z.s.i);
+  }
+  ejSpiele = new Map([...topf].map(([k, t]) => [k, t.ids]));
+  const hoechster = Math.max(1, ...[...topf.values()].map((t) => t.n));
+  const max = hoechster <= 4 ? 4 : schoen(hoechster);
+  const einheit = ejArt === "partien" ? ["Partie", "Partien"] : ["Spiel", "Spiele"];
+  const name = (k) => (k === "vor" ? "vor " + EJ_GRENZE : k);
+  const gewaehlt = (ids) => ids.length > 0 && ids.length === state.auswahl.size && ids.every((i) => state.auswahl.has(i));
+  $("ej-flaeche").innerHTML = [1, 0.5].map((a) => `<div class="gitter" style="bottom:${a * 100}%"><span>${Math.round(max * a)}</span></div>`).join("")
+    + [...topf].map(([k, t]) => `<button type="button" data-jahr="${k}" data-n="${t.n}" aria-label="${name(k)}: ${mal(t.n, ...einheit)}" aria-pressed="${gewaehlt(t.ids)}"><i style="height:${t.n ? `max(2px, ${(t.n / max) * 100}%)` : "0"}"></i></button>`).join("");
+  $("ej-achse").innerHTML = [...topf.keys()].map((k) => `<span>${k === "vor" ? "älter" : +k % 5 === 0 && +k !== EJ_GRENZE ? k : ""}</span>`).join("");
+  document.querySelectorAll("#ej-art button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.art === ejArt)));
+  $("ej-text").textContent = `Erscheinungsjahr laut BGG, ${ejArt === "partien" ? "Partien " + zeitName() : "gezählt werden die gefundenen Spiele"}. ${ohne ? mal(ohne, ...einheit) + " ohne Jahresangabe. " : ""}Ein Klick wählt alle Spiele des Jahres aus.`;
 }
 
 function zeichneRang() {
@@ -641,6 +745,7 @@ $("f-bestand").addEventListener("click", (e) => {
   if (state.bestand === "fremd") state.status = "";
   zeichne();
 });
+$("mehr-filter").addEventListener("click", () => { $("filter-mehr").hidden = !$("filter-mehr").hidden; zeichne(); });
 $("zurueck").addEventListener("click", () => { Object.assign(state, START); state.auswahl.clear(); state.alleCover = false; zeichne(); });
 function waehle(e) {
   const b = e.target.closest("button[data-spiel]"); if (!b) return;
@@ -667,6 +772,28 @@ $("flaeche").addEventListener("click", (e) => {
   state.zeit = state.zeit === "mo:" + b.dataset.monat ? "alle" : "mo:" + b.dataset.monat;
   zeichne();
 });
+$("ej-art").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  ejArt = b.dataset.art; zeichneJahre(); inAdresse();
+});
+$("ej-flaeche").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-jahr]"); if (!b) return;
+  const an = b.getAttribute("aria-pressed") === "true";
+  state.auswahl.clear();
+  if (!an) for (const i of ejSpiele.get(b.dataset.jahr) ?? []) state.auswahl.add(i);
+  zeichne();
+});
+function ejTipp(e) {
+  const b = e.target.closest && e.target.closest("button[data-jahr]");
+  if (!b) { $("ej-tipp").hidden = true; return; }
+  $("ej-tipp").textContent = b.getAttribute("aria-label");
+  $("ej-tipp").style.left = b.offsetLeft + $("ej-flaeche").offsetLeft + b.offsetWidth / 2 + "px";
+  $("ej-tipp").hidden = false;
+}
+$("ej-flaeche").addEventListener("mouseover", ejTipp);
+$("ej-flaeche").addEventListener("focusin", ejTipp);
+$("ej-flaeche").addEventListener("mouseleave", () => { $("ej-tipp").hidden = true; });
+$("ej-flaeche").addEventListener("focusout", () => { $("ej-tipp").hidden = true; });
 function tipp(e) {
   const b = e.target.closest && e.target.closest("button[data-monat]");
   if (!b) { $("tipp").hidden = true; return; }
@@ -747,6 +874,53 @@ for (const id of ["tl-jahre", "tl-quartale"]) $(id).addEventListener("click", (e
 });
 zeichneTopliste();
 
+// Menü: Bereiche ein- und ausblenden. Die Wahl merkt sich der Browser (nur auf diesem Gerät).
+const BEREICHE = [["galerie", "Gefundene Spiele"], ["zahlen", "Kennzahlen"], ["monate", "Partien pro Monat"], ["rang", "Meiste Spielzeit"], ["trends", "Trends"], ["jahre", "Erscheinungsjahr"], ["verlage", "Verlage"], ["topliste", "Topliste"], ["tabelle", "Spiele im Detail"]];
+var BEREICHE_START = ["galerie", "zahlen", "tabelle"];
+var sichtbar; // var: inAdresse() fragt es schon vor dieser Zeile ab (dann undefined)
+if (ADRESSE.has("zeigen")) sichtbar = new Set(ADRESSE.get("zeigen").split(",").filter((k) => BEREICHE.some(([b]) => b === k)));
+else try { sichtbar = new Set(JSON.parse(localStorage.getItem("dashboard-bereiche")) ?? BEREICHE_START); } catch { sichtbar = new Set(BEREICHE_START); }
+$("ansicht").insertAdjacentHTML("beforeend", BEREICHE.map(([k, name]) => `<button type="button" data-bereich="${k}">${name}</button>`).join("")
+  + `<button type="button" class="klein" data-alle="1">Alle</button><button type="button" class="klein" data-alle="0">Keine</button>`);
+function zeigeBereiche() {
+  for (const b of $("ansicht").querySelectorAll("button[data-bereich]")) b.setAttribute("aria-pressed", sichtbar.has(b.dataset.bereich));
+  for (const el of document.querySelectorAll("main [data-bereich]")) el.hidden = !sichtbar.has(el.dataset.bereich);
+  const paar = document.querySelector(".paar");
+  paar.hidden = [...paar.children].every((el) => el.hidden);
+  try { localStorage.setItem("dashboard-bereiche", JSON.stringify([...sichtbar])); } catch { /* dann nur für diesen Besuch */ }
+  inAdresse();
+}
+$("ansicht").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.alle) sichtbar = new Set(b.dataset.alle === "1" ? BEREICHE.map(([k]) => k) : []);
+  else if (sichtbar.has(b.dataset.bereich)) sichtbar.delete(b.dataset.bereich); else sichtbar.add(b.dataset.bereich);
+  zeigeBereiche();
+});
+zeigeBereiche();
+
+// Trends: Spielzeit der letzten 3 Monate gegenüber den 3 Monaten davor, fest über alle Partien
+function zeichneTrends() {
+  const mitte = zurueck(HEUTE, 3), anfang = zurueck(HEUTE, 6);
+  const liste = [];
+  for (const s of S) {
+    if (!s.dauer) continue;
+    let jetzt = 0, vorher = 0;
+    for (const t of s.tage) { if (t > mitte && t <= HEUTE) jetzt++; else if (t > anfang && t <= mitte) vorher++; }
+    if (jetzt !== vorher) liste.push({ s, jetzt, vorher, diff: (jetzt - vorher) * s.dauer });
+  }
+  const zeile = (e, art) => `<li><button type="button" data-spiel="${e.s.i}" title="${esc(e.s.name)}">${tlBild(e.s)}<span>${esc(e.s.name)}</span><span class="zahl ${art}"><b>${e.diff > 0 ? "+" : "−"}${stunden(Math.abs(e.diff))}</b><small>${e.vorher} → ${mal(e.jetzt, "Partie", "Partien")}</small></span></button></li>`;
+  const hoch = liste.filter((e) => e.diff > 0).sort((a, b) => b.diff - a.diff || b.jetzt - a.jetzt).slice(0, 6);
+  const runter = liste.filter((e) => e.diff < 0).sort((a, b) => a.diff - b.diff || b.vorher - a.vorher).slice(0, 6);
+  $("trend-hoch").innerHTML = hoch.map((e) => zeile(e, "hoch")).join("") || "<li>Nichts auffällig.</li>";
+  $("trend-runter").innerHTML = runter.map((e) => zeile(e, "runter")).join("") || "<li>Nichts auffällig.</li>";
+  $("trend-zeit").textContent = `${kurz(mitte)} – ${kurz(HEUTE)} gegenüber ${kurz(anfang)} – ${kurz(mitte)}`;
+}
+for (const id of ["trend-hoch", "trend-runter"]) $(id).addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-spiel]");
+  if (b) zeigeSpiel(S[+b.dataset.spiel]);
+});
+zeichneTrends();
+
 // Feste Auswahllisten
 const alleVerlage = [...new Set(S.flatMap((s) => s.verlage))].sort((a, b) => a.localeCompare(b, "de"));
 $("verlage-liste").innerHTML = alleVerlage.map((v) => `<option value="${esc(v)}">`).join("");
@@ -757,6 +931,12 @@ if (!alleVerlage.length) {
   $("f-verlag").title = "Die Verlage werden beim nächsten nächtlichen BGG-Abruf geholt.";
 }
 $("stand").textContent = `Stand ${kurz(HEUTE)} · ${D.partien.length} Partien seit ${kurz(ERSTER)} · letzter erfasster Abend ${kurz(alleTage[alleTage.length - 1])}`;
+// Unbrauchbare Werte aus einem Link (z. B. vertippt) auf den Standard zurücksetzen
+if (!/^(alle|m:d+|j:d{4}|mo:d{4}-d{2})$/.test(state.zeit)) state.zeit = START.zeit;
+for (const [id, feld] of Object.entries(FELDER)) if (feld !== "zeit" && ![...$(id).options].some((o) => o.value === String(state[feld]))) state[feld] = START[feld];
+if (!["alle", "sammlung", "fremd"].includes(state.bestand)) state.bestand = START.bestand;
+if (state.status && !["kandidat", ...STATUS].includes(state.status)) state.status = START.status;
+if (ZUSATZFILTER.some((k) => String(state[k]) !== String(START[k]))) $("filter-mehr").hidden = false;
 zeichne();
 </script>
 </body>

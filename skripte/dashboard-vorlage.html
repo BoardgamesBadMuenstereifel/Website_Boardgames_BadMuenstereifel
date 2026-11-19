@@ -311,7 +311,6 @@
       <div><h3 class="hoch">Im Kommen</h3><ol class="trend" id="trend-hoch"></ol></div>
       <div><h3 class="runter">Seltener gespielt</h3><ol class="trend" id="trend-runter"></ol></div>
     </div>
-    <p>Spielzeit der letzten 3 Monate gegenüber den 3 Monaten davor, unabhängig von den Filtern. Ein Klick zeigt das Spiel.</p>
   </section>
 
   <section class="feld allein" aria-labelledby="h-jahre" data-bereich="jahre">
@@ -898,22 +897,24 @@ $("ansicht").addEventListener("click", (e) => {
 });
 zeigeBereiche();
 
-// Trends: Spielzeit der letzten 3 Monate gegenüber den 3 Monaten davor, fest über alle Partien
+// Trends: Spielzeit der letzten 6 Monate gegenüber den 6 Monaten davor, fest über alle Partien
 function zeichneTrends() {
-  const mitte = zurueck(HEUTE, 3), anfang = zurueck(HEUTE, 6);
+  const mitte = zurueck(HEUTE, 6), anfang = zurueck(HEUTE, 12);
   const liste = [];
   for (const s of S) {
     if (!s.dauer) continue;
     let jetzt = 0, vorher = 0;
     for (const t of s.tage) { if (t > mitte && t <= HEUTE) jetzt++; else if (t > anfang && t <= mitte) vorher++; }
-    if (jetzt !== vorher) liste.push({ s, jetzt, vorher, diff: (jetzt - vorher) * s.dauer });
+    // Einzelne Partien (0 → 1, 1 → 0) sind Zufall, kein Trend
+    if (jetzt !== vorher && Math.max(jetzt, vorher) > 1) liste.push({ s, jetzt, vorher, diff: (jetzt - vorher) * s.dauer });
   }
   const zeile = (e, art) => `<li><button type="button" data-spiel="${e.s.i}" title="${esc(e.s.name)}">${tlBild(e.s)}<span>${esc(e.s.name)}</span><span class="zahl ${art}"><b>${e.diff > 0 ? "+" : "−"}${stunden(Math.abs(e.diff))}</b><small>${e.vorher} → ${mal(e.jetzt, "Partie", "Partien")}</small></span></button></li>`;
   const hoch = liste.filter((e) => e.diff > 0).sort((a, b) => b.diff - a.diff || b.jetzt - a.jetzt).slice(0, 6);
   const runter = liste.filter((e) => e.diff < 0).sort((a, b) => a.diff - b.diff || b.vorher - a.vorher).slice(0, 6);
   $("trend-hoch").innerHTML = hoch.map((e) => zeile(e, "hoch")).join("") || "<li>Nichts auffällig.</li>";
   $("trend-runter").innerHTML = runter.map((e) => zeile(e, "runter")).join("") || "<li>Nichts auffällig.</li>";
-  $("trend-zeit").textContent = `${kurz(mitte)} – ${kurz(HEUTE)} gegenüber ${kurz(anfang)} – ${kurz(mitte)}`;
+  $("trend-zeit").textContent = "Letzte 6 Monate vs. Vorperiode";
+  $("trend-zeit").title = `${kurz(mitte)} – ${kurz(HEUTE)} gegenüber ${kurz(anfang)} – ${kurz(mitte)}`;
 }
 for (const id of ["trend-hoch", "trend-runter"]) $(id).addEventListener("click", (e) => {
   const b = e.target.closest("button[data-spiel]");

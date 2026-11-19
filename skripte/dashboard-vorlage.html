@@ -36,6 +36,10 @@
   .ansicht button[aria-pressed="true"] { background: var(--aubergine); color: var(--creme); }
   .ansicht button[aria-pressed="true"]::before { content: "✓ "; }
   .ansicht button:hover { border-color: var(--gold); }
+  .ansicht .ohne-filter { display: inline-flex; align-items: center; gap: .4rem; padding-left: .7rem; border-left: 2px solid var(--linie); }
+  .ansicht .ohne-filter small { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--aubergine); opacity: .75; white-space: nowrap; }
+  .ansicht button.dunkel { border-color: var(--tinte); color: var(--tinte); }
+  .ansicht button.dunkel[aria-pressed="true"] { background: var(--tinte); color: var(--gold); }
   .ansicht .klein { margin-left: auto; border-style: dashed; font-weight: 400; }
   .ansicht .klein + .klein { margin-left: 0; }
 
@@ -114,6 +118,15 @@
   .trend .zahl b { display: block; }
   .trend .zahl small { font-size: .78rem; }
   .trend .hoch b { color: var(--gruen); } .trend .runter b { color: var(--rot); }
+  /* Trends im dunklen Design der Topliste */
+  .tl .kopf-zeile p { color: rgb(239 222 198 / .7); font-weight: 400; font-size: .85rem; }
+  .tl .trend-spalte { background: rgb(255 255 255 / .05); border: 1px solid rgb(255 255 255 / .09); border-radius: 12px; padding: .5rem .55rem; }
+  .tl .trends h3.hoch, .tl .trend .hoch b { color: #6fcf97; }
+  .tl .trends h3.runter, .tl .trend .runter b { color: #f2897d; }
+  .tl .trend button { color: var(--creme); }
+  .tl .trend button:hover { background: rgb(225 159 66 / .22); }
+  .tl .trend .zahl small { color: rgb(239 222 198 / .7); }
+  .tl .trend li:not(:has(button)) { color: rgb(239 222 198 / .6); padding: .2rem .3rem; }
   .ej-kopf { display: flex; flex-wrap: wrap; gap: .4rem 1rem; align-items: center; justify-content: space-between; margin-bottom: .6rem; }
   .ej-kopf h2 { margin: 0; }
   .flaeche button[aria-pressed="true"] i { background: var(--gold); opacity: 1; }
@@ -305,14 +318,6 @@
     </section>
   </div>
 
-  <section class="feld allein" aria-labelledby="h-trends" data-bereich="trends">
-    <div class="kopf-zeile"><h2 id="h-trends">Trends</h2><p id="trend-zeit"></p></div>
-    <div class="trends">
-      <div><h3 class="hoch">Im Kommen</h3><ol class="trend" id="trend-hoch"></ol></div>
-      <div><h3 class="runter">Seltener gespielt</h3><ol class="trend" id="trend-runter"></ol></div>
-    </div>
-  </section>
-
   <section class="feld allein" aria-labelledby="h-jahre" data-bereich="jahre">
     <div class="ej-kopf">
       <h2 id="h-jahre">Spiele nach Erscheinungsjahr</h2>
@@ -330,6 +335,14 @@
     <h2 id="h-verlage">Verlage mit der meisten Spielzeit</h2>
     <ul class="rang zwei" id="verlage"></ul>
     <p>Jedes Spiel zählt beim Originalverlag laut BGG, Lizenzausgaben (z. B. deutsche Fassungen) nicht. Ein Klick wählt alle Spiele des Verlags aus.</p>
+  </section>
+
+  <section class="feld allein tl" aria-labelledby="h-trends" data-bereich="trends">
+    <div class="kopf-zeile"><h2 id="h-trends">Trends</h2><p id="trend-zeit"></p></div>
+    <div class="trends">
+      <div class="trend-spalte"><h3 class="hoch">Im Kommen</h3><ol class="trend" id="trend-hoch"></ol></div>
+      <div class="trend-spalte"><h3 class="runter">Seltener gespielt</h3><ol class="trend" id="trend-runter"></ol></div>
+    </div>
   </section>
 
   <section class="feld allein tl" aria-labelledby="h-topliste" data-bereich="topliste">
@@ -874,12 +887,15 @@ for (const id of ["tl-jahre", "tl-quartale"]) $(id).addEventListener("click", (e
 zeichneTopliste();
 
 // Menü: Bereiche ein- und ausblenden. Die Wahl merkt sich der Browser (nur auf diesem Gerät).
-const BEREICHE = [["galerie", "Gefundene Spiele"], ["zahlen", "Kennzahlen"], ["monate", "Partien pro Monat"], ["rang", "Meiste Spielzeit"], ["trends", "Trends"], ["jahre", "Erscheinungsjahr"], ["verlage", "Verlage"], ["topliste", "Topliste"], ["tabelle", "Spiele im Detail"]];
+const BEREICHE = [["galerie", "Gefundene Spiele"], ["zahlen", "Kennzahlen"], ["monate", "Partien pro Monat"], ["rang", "Meiste Spielzeit"], ["jahre", "Erscheinungsjahr"], ["verlage", "Verlage"], ["tabelle", "Spiele im Detail"], ["trends", "Trends"], ["topliste", "Topliste"]];
+// Diese Bereiche rechnen immer über alle Partien; im Menü dunkel und abgesetzt, wie die Bereiche selbst
+const OHNE_FILTER = ["trends", "topliste"];
 var BEREICHE_START = ["galerie", "zahlen", "tabelle"];
 var sichtbar; // var: inAdresse() fragt es schon vor dieser Zeile ab (dann undefined)
 if (ADRESSE.has("zeigen")) sichtbar = new Set(ADRESSE.get("zeigen").split(",").filter((k) => BEREICHE.some(([b]) => b === k)));
 else try { sichtbar = new Set(JSON.parse(localStorage.getItem("dashboard-bereiche")) ?? BEREICHE_START); } catch { sichtbar = new Set(BEREICHE_START); }
-$("ansicht").insertAdjacentHTML("beforeend", BEREICHE.map(([k, name]) => `<button type="button" data-bereich="${k}">${name}</button>`).join("")
+$("ansicht").insertAdjacentHTML("beforeend", BEREICHE.filter(([k]) => !OHNE_FILTER.includes(k)).map(([k, name]) => `<button type="button" data-bereich="${k}">${name}</button>`).join("")
+  + `<span class="ohne-filter"><small>Ohne Filter</small>` + BEREICHE.filter(([k]) => OHNE_FILTER.includes(k)).map(([k, name]) => `<button type="button" class="dunkel" data-bereich="${k}" title="Unabhängig von den Filtern, immer über alle Partien">${name}</button>`).join("") + `</span>`
   + `<button type="button" class="klein" data-alle="1">Alle</button><button type="button" class="klein" data-alle="0">Keine</button>`);
 function zeigeBereiche() {
   for (const b of $("ansicht").querySelectorAll("button[data-bereich]")) b.setAttribute("aria-pressed", sichtbar.has(b.dataset.bereich));

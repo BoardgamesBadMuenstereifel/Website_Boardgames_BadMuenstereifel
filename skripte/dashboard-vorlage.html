@@ -99,6 +99,45 @@
   .rang .spur i { display: block; height: 100%; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--aubergine); }
   .feld.allein { margin-bottom: 1.2rem; }
   @media (min-width: 62rem) { .rang.zwei { grid-template-rows: repeat(5, auto); grid-auto-flow: column; column-gap: 1.5rem; } }
+  /* Topliste nach Spielzeit: dunkles Design wie die teilbare Topliste */
+  .feld.tl { background: radial-gradient(60rem 30rem at 10% -10%, rgb(225 159 66 / .16), transparent 60%), radial-gradient(45rem 25rem at 110% 110%, rgb(33 68 76 / .55), transparent 60%), var(--tinte); color: var(--hell); padding: 1rem 1.2rem; }
+  .tl h2 { color: var(--creme); }
+  .tl > p { color: rgb(239 222 198 / .65); }
+  .tl :focus-visible { outline-color: var(--gold); }
+  .tl-jahre { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: .8rem; margin-bottom: 1rem; }
+  .tl-jahr { background: var(--hell); border-radius: 12px; padding: .6rem .8rem; box-shadow: 0 10px 30px rgb(0 0 0 / .25); }
+  .tl-jahr h3 { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; margin: 0 0 .3rem; font-family: var(--titel); font-size: 1.4rem; color: var(--aubergine); }
+  .tl-jahr h3 small { font: 700 .75rem var(--text); color: var(--aubergine); opacity: .8; text-align: right; }
+  .tl-jahr ol { display: grid; gap: .15rem; margin: 0; padding: 0; list-style: none; }
+  .tl-jahr button { width: 100%; display: grid; grid-template-columns: 1.3rem 2.6rem 1fr auto; gap: .55rem; align-items: center; border: 0; border-radius: 9px; background: none; padding: .15rem .3rem .15rem 0; cursor: pointer; color: var(--tinte); text-align: left; }
+  .tl-jahr button:hover { background: rgb(225 159 66 / .2); }
+  .tl-platz { font-family: var(--titel); font-weight: 700; font-size: 1.15rem; text-align: center; color: var(--aubergine); }
+  .tl-jahr li:first-child .tl-platz { color: #b86f12; }
+  .tl-name { font-weight: 700; line-height: 1.2; }
+  .tl-wert { text-align: right; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .tl-wert b { display: block; font-family: var(--titel); }
+  .tl-wert small { font-size: .78rem; }
+  .tl-bild { position: relative; display: grid; place-items: center; width: 100%; aspect-ratio: 1; border-radius: 7px; overflow: hidden; background: var(--aubergine); color: var(--creme); font-family: var(--titel); font-size: 1.1rem; }
+  .tl-bild img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .tl-rollen { overflow-x: auto; }
+  .tl-raster { min-width: 46rem; }
+  .tl-kopf, .tl-zeile { display: grid; grid-template-columns: 3.2rem repeat(4, 1fr); gap: .6rem; }
+  .tl-kopf span { font-size: .8rem; font-weight: 700; color: rgb(239 222 198 / .7); padding-left: .3rem; text-transform: uppercase; letter-spacing: .06em; }
+  .tl-kopf span small { text-transform: none; letter-spacing: 0; }
+  .tl-kopf span small { font-weight: 400; }
+  .tl-zeile { margin-top: .5rem; align-items: stretch; }
+  .tl-zeile > b { align-self: center; font-family: var(--titel); font-size: 1.15rem; color: var(--gold); }
+  .tl-quartal { background: rgb(255 255 255 / .05); border: 1px solid rgb(255 255 255 / .09); border-radius: 12px; padding: .35rem .4rem; }
+  .tl-quartal ol { display: grid; gap: .1rem; margin: 0; padding: 0; list-style: none; }
+  .tl-quartal button { width: 100%; display: grid; grid-template-columns: 1rem 2.2rem 1fr auto; gap: .45rem; align-items: center; border: 0; border-radius: 8px; background: none; padding: .15rem .25rem .15rem 0; cursor: pointer; color: var(--creme); text-align: left; font-size: .85rem; }
+  .tl-quartal button:hover { background: rgb(225 159 66 / .22); }
+  .tl-quartal .tl-platz { font-size: .95rem; color: rgb(239 222 198 / .6); }
+  .tl-quartal li:first-child .tl-platz { color: var(--gold); }
+  .tl-quartal .tl-name { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.15; }
+  .tl-quartal .tl-wert { font-size: .78rem; white-space: nowrap; color: rgb(239 222 198 / .7); }
+  .tl-quartal .tl-bild { font-size: .9rem; border-radius: 6px; }
+  .tl-quartal small.tl-hinweis { display: block; font-size: .72rem; padding: .15rem .3rem 0; color: rgb(239 222 198 / .55); }
+  .tl-leer { border: 2px dashed rgb(255 255 255 / .12); border-radius: 12px; min-height: 4rem; }
   .rang .zahl { white-space: nowrap; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
 
   .st { display: inline-flex; align-items: center; gap: .4rem; }
@@ -235,6 +274,14 @@
     <h2 id="h-verlage">Verlage mit der meisten Spielzeit</h2>
     <ul class="rang zwei" id="verlage"></ul>
     <p>Jedes Spiel zählt beim Originalverlag laut BGG, Lizenzausgaben (z. B. deutsche Fassungen) nicht. Ein Klick wählt alle Spiele des Verlags aus.</p>
+  </section>
+
+  <section class="feld allein tl" aria-labelledby="h-topliste">
+    <h2 id="h-topliste">Topliste nach Spielzeit</h2>
+    <div class="tl-jahre" id="tl-jahre"></div>
+    <h2>Spiele des Quartals</h2>
+    <div class="tl-rollen"><div class="tl-raster" id="tl-quartale"></div></div>
+    <p>Unabhängig von den Filtern. Spielzeit = Partien × maximale Spieldauer laut BGG; bei Gleichstand zählen mehr Partien, dann die jüngste. Ein Klick zeigt das Spiel.</p>
   </section>
 
   <section aria-labelledby="h-tabelle">
@@ -658,6 +705,47 @@ $("csv").addEventListener("click", () => {
   document.body.appendChild(a); a.click(); a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 });
+
+// Topliste nach Spielzeit: fest über alle Partien, unabhängig von Filtern
+function topNach(filter) {
+  const passt = typeof filter === "string" ? (d) => d.startsWith(filter) : filter;
+  const z = new Map();
+  for (const [datum, i] of D.partien) {
+    if (!passt(datum)) continue;
+    const e = z.get(i) ?? { s: S[i], n: 0, zuletzt: "" };
+    e.n += 1; if (datum > e.zuletzt) e.zuletzt = datum;
+    z.set(i, e);
+  }
+  const liste = [...z.values()];
+  for (const e of liste) e.zeit = e.s.dauer ? e.n * e.s.dauer : null;
+  return liste.sort((a, b) => (b.zeit ?? -1) - (a.zeit ?? -1) || b.n - a.n || b.zuletzt.localeCompare(a.zuletzt) || a.s.name.localeCompare(b.s.name, "de"));
+}
+const tlBild = (s) => `<span class="tl-bild">${esc(s.name.slice(0, 1).toUpperCase())}${s.cover ? `<img src="${esc(s.cover)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</span>`;
+function zeichneTopliste() {
+  const jahre = [...new Set(alleTage.map((t) => t.slice(0, 4)))];
+  const [hj, hm] = [HEUTE.slice(0, 4), +HEUTE.slice(5, 7)];
+  $("tl-jahre").innerHTML = jahre.map((j) => {
+    const alle = topNach(j);
+    const partien = alle.reduce((a, e) => a + e.n, 0);
+    return `<div class="tl-jahr"><h3>${j} <small>${mal(partien, "Partie", "Partien")} · ${mal(alle.length, "Spiel", "Spiele")}${j === hj ? " · bis " + kurz(HEUTE).slice(0, 6) : ""}</small></h3><ol>${alle.slice(0, 5).map((e, p) =>
+      `<li><button type="button" data-spiel="${e.s.i}" title="${esc(e.s.name)}"><span class="tl-platz">${p + 1}</span>${tlBild(e.s)}<span class="tl-name">${esc(e.s.name)}</span><span class="tl-wert"><b>${e.zeit ? stunden(e.zeit) : "–"}</b><small>${mal(e.n, "Partie", "Partien")}</small></span></button></li>`).join("")}</ol></div>`;
+  }).join("");
+  const QUARTALE = [["Q1", "Jan–Mär"], ["Q2", "Apr–Jun"], ["Q3", "Jul–Sep"], ["Q4", "Okt–Dez"]];
+  const hq = Math.ceil(hm / 3);
+  $("tl-quartale").innerHTML = `<div class="tl-kopf"><span></span>${QUARTALE.map(([q, m]) => `<span>${q} <small>${m}</small></span>`).join("")}</div>` + jahre.map((j) =>
+    `<div class="tl-zeile"><b>${j}</b>${QUARTALE.map((_, q) => {
+      const oben = topNach((d) => d.startsWith(j) && Math.ceil(+d.slice(5, 7) / 3) === q + 1).slice(0, 3);
+      if (!oben.length) return `<span class="tl-leer" aria-hidden="true"></span>`;
+      const laufend = j === hj && q + 1 === hq;
+      return `<div class="tl-quartal"><ol>${oben.map((e, p) =>
+        `<li><button type="button" data-spiel="${e.s.i}" title="${esc(e.s.name)}, ${mal(e.n, "Partie", "Partien")}"><span class="tl-platz">${p + 1}</span>${tlBild(e.s)}<span class="tl-name">${esc(e.s.name)}</span><span class="tl-wert">${e.zeit ? stunden(e.zeit) : mal(e.n, "Partie", "Partien")}</span></button></li>`).join("")}</ol>${laufend ? `<small class="tl-hinweis">läuft noch</small>` : ""}</div>`;
+    }).join("")}</div>`).join("");
+}
+for (const id of ["tl-jahre", "tl-quartale"]) $(id).addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-spiel]");
+  if (b) zeigeSpiel(S[+b.dataset.spiel]);
+});
+zeichneTopliste();
 
 // Feste Auswahllisten
 const alleVerlage = [...new Set(S.flatMap((s) => s.verlage))].sort((a, b) => a.localeCompare(b, "de"));

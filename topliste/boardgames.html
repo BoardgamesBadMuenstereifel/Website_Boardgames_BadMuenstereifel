@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boardgames Topliste nach Spielzeit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tinte: #2b2530;
+    --aubergine: #514859;
+    --creme-hell: #f8f0e2;
+    --creme: #efdec6;
+    --gold: #e19f42;
+    --gold-dunkel: #b86f12;
+    --titel: "Fraunces", Georgia, serif;
+    --text: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--tinte); }
+  body {
+    color: var(--creme-hell);
+    font-family: var(--text);
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(225,159,66,.16), transparent 60%),
+      radial-gradient(900px 500px at 110% 110%, rgba(33,68,76,.55), transparent 60%),
+      var(--tinte);
+  }
+  .seite { max-width: 1440px; margin: 0 auto; padding: 18px 28px 12px; display: flex; flex-direction: column; gap: 16px; }
+
+  .ueber { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  h1 { font-family: var(--titel); font-weight: 800; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; }
+  h1 span { color: var(--gold); }
+  h1 small { font-weight: 600; font-size: .6em; color: var(--creme); }
+  h2 { font-family: var(--titel); font-weight: 600; font-size: 19px; color: var(--creme); margin-bottom: 8px; }
+
+  /* Jahresauswertung */
+  .jahre { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .jahr { background: var(--creme-hell); color: var(--tinte); border-radius: 14px; padding: 12px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  .jahr h3 { font-family: var(--titel); font-weight: 800; font-size: 26px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .jahr h3 small { font: 700 12px var(--text); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-dunkel); text-align: right; }
+  .jahr ol { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .jahr li { display: grid; grid-template-columns: 24px 44px 1fr auto; align-items: center; gap: 10px; padding: 2px 6px 2px 0; border-radius: 8px; transition: background .15s, opacity .15s; }
+  .platz { font-family: var(--titel); font-weight: 800; font-size: 22px; text-align: center; color: var(--aubergine); }
+  .jahr li:first-child .platz { color: var(--gold-dunkel); }
+  .jahr .name { font-weight: 700; font-size: 16px; line-height: 1.15; }
+  .jahr li:first-child .name { font-size: 18px; }
+  .wert { text-align: right; line-height: 1.15; }
+  .wert b { display: block; font-family: var(--titel); font-size: 18px; }
+  .wert span { font-size: 12px; color: var(--aubergine); }
+
+  /* Cover */
+  .cover { width: 100%; aspect-ratio: 1; border-radius: 7px; overflow: hidden; display: grid; place-items: center;
+    font: 800 14px var(--titel); color: rgba(255,255,255,.92);
+    background: linear-gradient(135deg, hsl(var(--h) 45% 46%), hsl(calc(var(--h) + 40) 40% 30%));
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Spiel des Monats */
+  .monate { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 12px 16px 10px; }
+  .kopfzeile, .jahreszeile { display: grid; grid-template-columns: 54px repeat(12, 1fr); gap: 8px; }
+  .kopfzeile span { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(239,222,198,.55); text-align: center; }
+  .jahreszeile { margin-top: 8px; align-items: start; }
+  .jahreszeile > b { font-family: var(--titel); font-size: 20px; color: var(--gold); align-self: center; }
+  .monat { display: flex; flex-direction: column; gap: 4px; min-width: 0; border-radius: 8px; padding: 3px; transition: background .15s, opacity .15s; }
+  .monat .cover { max-width: 76px; margin: 0 auto; }
+  .monat .name { font-size: 12px; font-weight: 700; line-height: 1.15; text-align: center; color: var(--creme); min-height: 2.3em;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; hyphens: auto; }
+  .monat .zeit { font-size: 11px; text-align: center; color: rgba(239,222,198,.6); }
+  .monat.leer .cover { background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); color: rgba(255,255,255,.25); }
+  .monat .mlabel { display: none; }
+
+  body.fokus [data-spiel] { opacity: .3; }
+  body.fokus [data-spiel].an { opacity: 1; background: rgba(225,159,66,.22); }
+
+  footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: rgba(239,222,198,.55); }
+
+  @media (max-width: 980px) {
+    .jahre { grid-template-columns: 1fr; }
+    .kopfzeile { display: none; }
+    .jahreszeile { grid-template-columns: repeat(6, 1fr); margin-top: 14px; }
+    .jahreszeile > b { grid-column: 1 / -1; }
+    .monat .mlabel { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: rgba(239,222,198,.55); text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .seite { padding: 18px 16px; }
+    .jahreszeile { grid-template-columns: repeat(4, 1fr); }
+    .jahr li { grid-template-columns: 20px 36px 1fr auto; gap: 8px; }
+    .jahr .name, .jahr li:first-child .name { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="seite">
+  <header>
+    <div class="ueber">Boardgames Bad Münstereifel</div>
+    <h1>Unsere Topliste <span>2025–2026</span> <small>nach Spielzeit</small></h1>
+  </header>
+
+  <section>
+    <h2>Jahresauswertung</h2>
+    <div class="jahre" id="jahre"></div>
+  </section>
+
+  <section class="monate">
+    <h2>Spiel des Monats</h2>
+    <div class="kopfzeile"><span></span></div>
+    <div id="monate"></div>
+  </section>
+
+  <footer>
+    <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · <span id="stand"></span></span>
+    <span>boardgames-muenstereifel.club</span>
+  </footer>
+</div>
+
+<script src="boardgames-daten.js"></script>
+<script>
+const D = window.DATEN;
+const MON = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function farbton(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
+function kuerzel(s) {
+  const w = s.replace(/^(Die|The|Der|Das)\s+/i, "").split(/[\s:]+/).filter(x => /[A-Za-zÄÖÜäöü0-9]/.test(x));
+  return (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || "?").slice(0, 2)).toUpperCase();
+}
+function cover(e) {
+  if (!e) return `<div class="cover">–</div>`;
+  const inhalt = e.cover ? `<img src="cover/${esc(e.cover)}" alt="">` : esc(kuerzel(e.name));
+  return `<div class="cover" style="--h:${farbton(e.name)}" aria-hidden="true">${inhalt}</div>`;
+}
+const stunden = min => (Math.round(min / 6) / 10).toLocaleString("de-DE") + " Std.";
+const partien = n => n === 1 ? "1 Partie" : `${n} Partien`;
+const [sj, sm, st] = D.stand.split("-").map(Number);
+
+document.getElementById("stand").textContent = `Stand ${st}. ${MON[sm - 1]} ${sj}`;
+document.querySelector(".kopfzeile").insertAdjacentHTML("beforeend", MON.map(m => `<span>${m}</span>`).join(""));
+
+document.getElementById("jahre").innerHTML = Object.entries(D.jahre).map(([jahr, j]) => `
+  <article class="jahr">
+    <h3>${jahr} <small>${j.partien} Partien · ${j.spiele} Spiele${Number(jahr) === sj ? " · bis " + st + ". " + MON[sm - 1] : ""}</small></h3>
+    <ol>${j.top.map((e, p) => `
+      <li data-spiel="${esc(e.name)}"><span class="platz">${p + 1}</span>${cover(e)}<span class="name">${esc(e.name)}</span>
+        <span class="wert"><b>${stunden(e.minuten)}</b><span>${partien(e.partien)}</span></span></li>`).join("")}
+    </ol>
+  </article>`).join("");
+
+document.getElementById("monate").innerHTML = Object.keys(D.jahre).map(jahr => {
+  let html = `<div class="jahreszeile"><b>${jahr}</b>`;
+  MON.forEach((m, i) => {
+    const e = D.monate[`${jahr}-${String(i + 1).padStart(2, "0")}`];
+    const laufend = Number(jahr) === sj && i + 1 === sm;
+    html += e
+      ? `<div class="monat" data-spiel="${esc(e.name)}" title="${m} ${jahr}: ${esc(e.name)}, ${partien(e.partien)}"><span class="mlabel">${m}</span>${cover(e)}<span class="name">${esc(e.name)}</span><span class="zeit">${stunden(e.minuten)}${laufend ? " · bisher" : ""}</span></div>`
+      : `<div class="monat leer"><span class="mlabel">${m}</span>${cover(null)}<span class="name"></span></div>`;
+  });
+  return html + `</div>`;
+}).join("");
+
+document.addEventListener("mouseover", e => {
+  const el = e.target.closest("[data-spiel]");
+  document.body.classList.toggle("fokus", !!el);
+  document.querySelectorAll("[data-spiel]").forEach(x => x.classList.toggle("an", !!el && x.dataset.spiel === el.dataset.spiel));
+});
+document.documentElement.addEventListener("mouseleave", () => document.body.classList.remove("fokus"));
+</script>
+</body>
+</html>

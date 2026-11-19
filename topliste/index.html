@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Martins Topliste nach Spielzeit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tinte: #2b2530;
+    --aubergine-dunkel: #3b3342;
+    --aubergine: #514859;
+    --creme-hell: #f8f0e2;
+    --creme: #efdec6;
+    --gold: #e19f42;
+    --gold-dunkel: #b86f12;
+    --rot: #cf4639;
+    --petrol: #21444c;
+    --titel: "Fraunces", Georgia, serif;
+    --text: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--tinte); }
+  body {
+    color: var(--creme-hell);
+    font-family: var(--text);
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(225,159,66,.16), transparent 60%),
+      radial-gradient(900px 500px at 110% 110%, rgba(33,68,76,.55), transparent 60%),
+      var(--tinte);
+  }
+  .seite {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 28px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Kopf */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .ueber { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  h1 { font-family: var(--titel); font-weight: 800; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; }
+  h1 span { color: var(--gold); }
+  h1 small { font-weight: 600; font-size: .6em; color: var(--creme); }
+  .analog { --akzent: var(--gold); }
+  .digital { --akzent: #7fc0cf; }
+
+  h2 {
+    font-family: var(--titel);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--creme);
+    margin-bottom: 6px;
+  }
+
+  /* Jahres-Top-5 */
+  .jahre { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .jahr {
+    background: var(--creme-hell);
+    color: var(--tinte);
+    border-radius: 14px;
+    padding: 10px 14px 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  .jahr h3 {
+    font-family: var(--titel); font-weight: 800; font-size: 24px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .jahr h3 small { font: 700 12px var(--text); letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dunkel); }
+  .spalten { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .spalten h4 {
+    font: 700 11px var(--text); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--tinte); border-bottom: 3px solid var(--akzent); padding-bottom: 3px; margin-bottom: 5px;
+  }
+  .jahr ol { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+  .jahr li {
+    display: grid; grid-template-columns: 16px 32px 1fr; align-items: center; gap: 7px;
+    padding: 2px 4px 2px 0; border-radius: 7px;
+    transition: background .15s;
+  }
+  .platz { font-family: var(--titel); font-weight: 800; font-size: 17px; text-align: center; color: var(--aubergine); }
+  .jahr li:first-child .platz { color: var(--gold-dunkel); }
+  .jahr .name { font-weight: 700; font-size: 13.5px; line-height: 1.12; }
+  .jahr li:first-child .name { font-size: 14.5px; }
+
+  /* Cover */
+  .cover {
+    width: 100%; aspect-ratio: 1; border-radius: 6px; overflow: hidden;
+    display: grid; place-items: center;
+    font: 800 13px var(--titel); color: rgba(255,255,255,.92);
+    background: linear-gradient(135deg, hsl(var(--h) 45% 46%), hsl(calc(var(--h) + 40) 40% 30%));
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.12);
+  }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Monatsraster: Analog und Digital untereinander */
+  .paar { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .panel {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-top: 3px solid var(--akzent);
+    border-radius: 12px;
+    padding: 8px 10px 6px;
+  }
+  .panel h3 { font: 700 12px var(--text); letter-spacing: .12em; text-transform: uppercase; color: var(--akzent); margin-bottom: 4px; }
+  .kopfzeile, .jahreszeile { display: grid; grid-template-columns: 26px repeat(12, 1fr); gap: 4px; }
+  .kopfzeile span { font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(239,222,198,.55); text-align: left; padding-left: 4px; }
+  .jahreszeile { margin-top: 4px; align-items: start; }
+  .jahreszeile > b { font-family: var(--titel); font-size: 15px; color: var(--gold); align-self: center; }
+  .monat {
+    display: flex; flex-direction: row; gap: 6px; align-items: center; min-width: 0;
+    border-radius: 6px; padding: 2px; transition: background .15s, opacity .15s;
+  }
+  .monat .cover { font-size: 11px; width: 32px; flex: none; }
+  .monat .name { font-size: 11px; line-height: 1.15; text-align: left; color: var(--creme);
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; hyphens: auto; }
+  .monat.leer .cover { background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); color: rgba(255,255,255,.25); }
+  .monat.leer .name { color: rgba(239,222,198,.3); }
+  .monat .mlabel { display: none; }
+
+  /* Hervorheben beim Überfahren */
+  body.fokus [data-spiel] { opacity: .3; }
+  body.fokus [data-spiel].an { opacity: 1; background: rgba(225,159,66,.22); }
+  body.fokus .jahr li.an { background: rgba(225,159,66,.25); }
+
+  footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: rgba(239,222,198,.55); }
+
+  @media (max-width: 1100px) {
+    .kopfzeile span { text-align: center; padding: 0; }
+    .monat { flex-direction: column; align-items: stretch; gap: 3px; }
+    .monat .cover { width: 100%; max-width: 46px; margin: 0 auto; }
+    .monat .name { text-align: center; font-size: 10px; -webkit-line-clamp: 2; min-height: 2.3em; }
+  }
+  @media (max-width: 980px) {
+    .jahre { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .kopfzeile { display: none; }
+    .jahreszeile { grid-template-columns: repeat(6, 1fr); margin-top: 10px; }
+    .jahreszeile > b { grid-column: 1 / -1; padding: 0; }
+    .monat .mlabel { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; color: rgba(239,222,198,.55); text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .seite { padding: 18px 16px; }
+    .spalten { grid-template-columns: 1fr; }
+    .jahreszeile { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="seite">
+  <header>
+    <div>
+      <div class="ueber">Boardgames Bad Münstereifel</div>
+      <h1>Martins Topliste <small>nach Spielzeit</small> <span>2023–2026</span></h1>
+    </div>
+  </header>
+
+  <section>
+    <h2>Top 5 des Jahres</h2>
+    <div class="jahre" id="jahre"></div>
+  </section>
+
+  <section class="monate">
+    <h2>Spiel des Monats</h2>
+    <div class="paar" id="monate"></div>
+  </section>
+
+  <footer>
+    <span>boardgames-muenstereifel.club</span>
+    <span>Spiel überfahren, um es überall hervorzuheben</span>
+  </footer>
+</div>
+
+<script>
+// Spielecover (Dateiname = BGG-ID) in topliste/cover/
+const COVER = {
+  "Arche Nova": "342942.jpg",
+  "Bomb Busters": "413246.jpg",
+  "Boss Fighters QR": "454672.jpg",
+  "Cascadia": "295947.jpg",
+  "Cryptid": "246784.jpg",
+  "Die Tavernen im Tiefen Thal": "269207.jpg",
+  "Die verlorenen Ruinen von Arnak": "312484.jpg",
+  "Die weiße Burg": "371942.jpg",
+  "Distilled": "295895.jpg",
+  "Drillers": "465669.jpg",
+  "Expeditions": "379078.jpg",
+  "Flügelschlag": "266192.jpg",
+  "Galactic Cruise": "391137.jpg",
+  "Got Five!": "453526.jpg",
+  "Kauri": "381188.jpg",
+  "Keep the Heroes Out": "333255.jpg",
+  "Kingdom Crossing": "437245.jpg",
+  "Living Forest": "328479.jpg",
+  "Sky Team": "373106.jpg",
+  "Slay the Spire": "338960.jpg",
+  "Spirit Island": "162886.jpg",
+  "Take Time": "440540.jpg",
+  "Terraforming Mars": "167791.jpg",
+  "The Vale of Eternity": "385529.jpg",
+  "Toy Battle": "434654.jpg",
+  "Woodcraft": "355093.jpg",
+};
+
+const JAHRE = {
+  2023: {
+    alle:    ["Keep the Heroes Out", "Arche Nova", "Flügelschlag", "Distilled", "Terra Mystica"],
+    analog:  ["Keep the Heroes Out", "Distilled", "Terraforming Mars", "Cascadia", "Die Tavernen im Tiefen Thal"],
+    digital: ["Arche Nova", "Flügelschlag", "Terra Mystica", "Die verlorenen Ruinen von Arnak", "Next Station: London"],
+  },
+  2024: {
+    alle:    ["Arche Nova", "Frosthaven", "Spirit Island", "Sky Team", "The Vale of Eternity"],
+    analog:  ["Frosthaven", "Keep the Heroes Out", "Sky Team", "Blood on the Clocktower", "The Vale of Eternity"],
+    digital: ["Arche Nova", "Spirit Island", "The Vale of Eternity", "Flügelschlag", "Sky Team"],
+  },
+  2025: {
+    alle:    ["Arche Nova", "Die weiße Burg", "Spirit Island", "Living Forest", "Harmonies"],
+    analog:  ["Slay the Spire", "Blood on the Clocktower", "Bomb Busters", "Boss Fighters QR", "Spirit Island"],
+    digital: ["Arche Nova", "Die weiße Burg", "Spirit Island", "Living Forest", "Harmonies"],
+  },
+};
+
+// [alle, analog, digital] je Monat, beginnend Jan 2023; null = kein Spiel
+const T = "Die Tavernen im Tiefen Thal", A = "Arche Nova", R = "Die verlorenen Ruinen von Arnak";
+const MONATE = [
+  // 2023
+  ["Cascadia", "Cascadia", null],
+  [A, A, null],
+  ["Distilled", "Distilled", null],
+  ["Distilled", "Distilled", null],
+  [T, T, null],
+  ["Terraforming Mars", "Terraforming Mars", null],
+  [A, "Woodcraft", A],
+  [A, "Keep the Heroes Out", A],
+  ["Keep the Heroes Out", "Keep the Heroes Out", null],
+  ["Terra Mystica", "Expeditions", "Terra Mystica"],
+  [R, T, R],
+  ["Flügelschlag", "Terra Nova", "Flügelschlag"],
+  // 2024
+  ["Frosthaven", "Frosthaven", "Flügelschlag"],
+  ["Frosthaven", "Frosthaven", "The Vale of Eternity"],
+  [A, "Frosthaven", A],
+  [A, "Frosthaven", A],
+  [A, "Frosthaven", A],
+  [A, "Frosthaven", A],
+  [A, "Frosthaven", A],
+  ["Keep the Heroes Out", "Keep the Heroes Out", A],
+  ["Sky Team", "Sky Team", "Sky Team"],
+  [A, "Sky Team", A],
+  ["Spirit Island", "Tea Garden", "Spirit Island"],
+  [A, "Slay the Spire", A],
+  // 2025
+  [A, "Bomb Busters", A],
+  [A, "Blood on the Clocktower", A],
+  [A, "Slay the Spire", A],
+  ["Spirit Island", "Blood on the Clocktower", "Spirit Island"],
+  ["Bomb Busters", "Bomb Busters", "Toy Battle"],
+  ["Slay the Spire", "Slay the Spire", "Harmonies"],
+  ["Die weiße Burg", "Kauri", "Die weiße Burg"],
+  ["Die weiße Burg", "Kauri", "Die weiße Burg"],
+  ["Cryptid", "Cryptid", "Living Forest"],
+  ["Flügelschlag", "Slay the Spire", "Flügelschlag"],
+  ["Leaders", "Boss Fighters QR", "Leaders"],
+  ["Galactic Cruise", "Artengarten", "Galactic Cruise"],
+  // 2026
+  [A, "Kingdom Crossing", A],
+  ["Spirit Island", "Luthier", "Spirit Island"],
+  ["Take Time", "Take Time", "Harmonies"],
+  ["Spirit Island", "Kingdom Crossing", "Spirit Island"],
+  ["Got Five!", "Got Five!", "Alchemisten"],
+  ["Slay the Spire", "Slay the Spire", "Alchemisten"],
+  ["Luthier", "Luthier", A],
+  ["Luthier", "Boss Fighters QR", "Luthier"],
+  ["Luthier", "Luthier", "Luthier"],
+  ["Arctica", "Drillers", "Arctica"],
+];
+
+const SEITEN = [["analog", "Analog", 1], ["digital", "Digital", 2]]; // Spalte 0 in MONATE (alle) wird nicht gezeigt
+const MON = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
+
+function farbton(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
+function kuerzel(s) {
+  const w = s.replace(/^(Die|The|Der|Das)\s+/i, "").split(/[\s:]+/).filter(x => x && /[A-Za-zÄÖÜäöü0-9]/.test(x));
+  return (w.length > 1 ? w[0][0] + w[1][0] : w[0].slice(0, 2)).toUpperCase();
+}
+function esc(s) { return s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function cover(name) {
+  if (!name) return `<div class="cover">–</div>`;
+  const inhalt = COVER[name] ? `<img src="cover/${esc(COVER[name])}" alt="">` : esc(kuerzel(name));
+  return `<div class="cover" style="--h:${farbton(name)}" aria-hidden="true">${inhalt}</div>`;
+}
+
+function zeichne() {
+  document.getElementById("jahre").innerHTML = Object.entries(JAHRE).map(([jahr, l]) => `
+    <article class="jahr">
+      <h3>${jahr} <small>Top 5</small></h3>
+      <div class="spalten">${SEITEN.map(([key, titel]) => `
+        <div><h4 class="${key}">${titel}</h4><ol>${l[key].map((s, p) => `
+          <li data-spiel="${esc(s)}"><span class="platz">${p + 1}</span>${cover(s)}<span class="name">${esc(s)}</span></li>`).join("")}
+        </ol></div>`).join("")}
+      </div>
+    </article>`).join("");
+
+  document.getElementById("monate").innerHTML = SEITEN.map(([key, titel, i]) => {
+    let html = `<div class="panel"><h3 class="${key}">${titel}</h3>
+      <div class="kopfzeile"><span></span>${MON.map(m => `<span>${m}</span>`).join("")}</div>`;
+    for (let j = 0; j < 4; j++) {
+      html += `<div class="jahreszeile"><b>${String(2023 + j).slice(2)}</b>`;
+      for (let m = 0; m < 12; m++) {
+        const eintrag = MONATE[j * 12 + m];
+        const s = eintrag ? eintrag[i] : null;
+        html += s
+          ? `<div class="monat" data-spiel="${esc(s)}" title="${MON[m]} ${2023 + j}: ${esc(s)}"><span class="mlabel">${MON[m]}</span>${cover(s)}<span class="name">${esc(s)}</span></div>`
+          : `<div class="monat leer"><span class="mlabel">${MON[m]}</span>${cover(null)}<span class="name">${eintrag ? "–" : ""}</span></div>`;
+      }
+      html += `</div>`;
+    }
+    return html + `</div>`;
+  }).join("");
+}
+
+// Gleiches Spiel überall hervorheben
+document.addEventListener("mouseover", e => {
+  const el = e.target.closest("[data-spiel]");
+  document.body.classList.toggle("fokus", !!el);
+  document.querySelectorAll("[data-spiel]").forEach(x => x.classList.toggle("an", !!el && x.dataset.spiel === el.dataset.spiel));
+});
+
+document.documentElement.addEventListener("mouseleave", () => document.body.classList.remove("fokus"));
+zeichne();
+</script>
+</body>
+</html>

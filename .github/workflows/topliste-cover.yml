@@ -1,0 +1,40 @@
+name: Topliste-Cover holen
+
+# Holt fehlende Cover für topliste/ über die BGG-API (Token als Secret) und legt sie im Repo ab.
+# Läuft, wenn sich das Skript ändert, oder von Hand unter Actions → „Topliste-Cover holen“ → Run workflow.
+on:
+  push:
+    branches: [main]
+    paths: [topliste/cover-holen.mjs]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: topliste-cover
+  cancel-in-progress: false
+
+jobs:
+  holen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Cover von BGG holen
+        run: node topliste/cover-holen.mjs
+        env:
+          BGG_TOKEN: ${{ secrets.BGG_TOKEN }}
+      - name: Cover ins Repo schreiben
+        run: |
+          git config user.name "website-bot"
+          git config user.email "website-bot@users.noreply.github.com"
+          git add topliste/cover topliste/cover-treffer.json
+          if git diff --cached --quiet; then echo "Nichts Neues."; exit 0; fi
+          git commit -m "Topliste: Cover von BGG"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1

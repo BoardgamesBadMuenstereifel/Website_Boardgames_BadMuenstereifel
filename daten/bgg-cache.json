@@ -5021,6 +5021,25 @@
    "cover": "/assets/cover/295947.jpg",
    "abgerufen": "2026-11-20T04:23:25.521Z"
   },
+  "298562": {
+   "id": "298562",
+   "name": "Minigolf Designer",
+   "jahr": 2020,
+   "minSpieler": 1,
+   "maxSpieler": 5,
+   "minDauer": 60,
+   "maxDauer": 90,
+   "alter": 10,
+   "bewertung": 7.8,
+   "komplexitaet": 2.3,
+   "beschreibung": "Minigolf Designer is a competitive free form puzzle board game for 1 to 5 players that plays in 60 to 90 minutes (around 20 minutes per players). In Minigolf Designer, players will compete to collect tiles representing sections of minigolf holes, and arrange them the way they want to form a 9 hole miniature golf course. However, in the end the players will gain more or less victory points depending on certain aspects of their minigolf, and also depending on the number of people drawn on their minigolf.",
+   "verlage": [
+    "A-Z kiadó",
+    "Thematic Games"
+   ],
+   "cover": "/assets/cover/298562.jpg",
+   "abgerufen": "2026-11-20T06:57:08.322Z"
+  },
   "298635": {
    "id": "298635",
    "name": "Alice's Garden",
@@ -5520,6 +5539,38 @@
    ],
    "cover": "/assets/cover/315727.jpg",
    "abgerufen": "2026-11-20T04:24:02.382Z"
+  },
+  "316554": {
+   "id": "316554",
+   "name": "Dune: Imperium",
+   "jahr": 2020,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 14,
+   "bewertung": 8.4,
+   "komplexitaet": 3.1,
+   "beschreibung": "Dune: Imperium is a game that uses deck building to add a hidden information angle to traditional worker placement. It finds inspiration in elements and characters from the Dune legacy, both the new film from Legendary Pictures and the seminal literary series from Frank Herbert, Brian Herbert, and Kevin J. Anderson. As a leader of one of the Great Houses of the Landsraad, raise your banner and marshal your forces and spies. War is coming, and at the center of the conflict is Arrakis – Dune, the desert planet.",
+   "verlage": [
+    "Dire Wolf",
+    "Arclight Games",
+    "Awaken Realms",
+    "Broadway Toys LTD",
+    "Galápagos Jogos",
+    "Geekach LLC",
+    "Kaissa Chess & Games",
+    "Lavka Games",
+    "Lucky Duck Games",
+    "MIPL",
+    "Reflexshop",
+    "Rexhry",
+    "sternenschimmermeer",
+    "Tabletop KZ",
+    "YingDi (旅法师营地)"
+   ],
+   "cover": "/assets/cover/316554.jpg",
+   "abgerufen": "2026-11-20T06:57:08.322Z"
   },
   "317985": {
    "id": "317985",
@@ -6370,6 +6421,31 @@
    "cover": "/assets/cover/357563.jpg",
    "abgerufen": "2026-11-20T04:23:15.025Z"
   },
+  "357873": {
+   "id": "357873",
+   "name": "The Old King's Crown",
+   "jahr": 2025,
+   "minSpieler": 1,
+   "maxSpieler": 4,
+   "minDauer": 60,
+   "maxDauer": 120,
+   "alter": 12,
+   "bewertung": 8,
+   "komplexitaet": 3.7,
+   "beschreibung": "The Old King&rsquo;s Crown is a game of card-driven conquest, where you play as heirs to a vacant throne, vying for control of an ancient, overgrown kingdom. Wield unique abilities and leverage your followers&rsquo; traits to best outwit your opponents across a map that stretches from the teetering heights of the castle to the dappled light of the necropolis. As leader of your faction you will be staking claims with Heralds openly as well as positioning your forces in secret, hoping to claim the locations that fit your designs.",
+   "verlage": [
+    "Eerie Idol Games",
+    "Delirium Games",
+    "Devil Dice Games",
+    "Fox in the Box",
+    "Galakta",
+    "Ghenos Games",
+    "Kolossal Games",
+    "Spielworxx"
+   ],
+   "cover": "/assets/cover/357873.jpg",
+   "abgerufen": "2026-11-20T06:57:08.322Z"
+  },
   "358737": {
    "id": "358737",
    "name": "Leviathan Wilds",
@@ -6446,6 +6522,33 @@
    ],
    "cover": "/assets/cover/359152.jpg",
    "abgerufen": "2026-11-20T04:24:02.382Z"
+  },
+  "359318": {
+   "id": "359318",
+   "name": "Foxy",
+   "jahr": 2022,
+   "minSpieler": 1,
+   "maxSpieler": 5,
+   "minDauer": 15,
+   "maxDauer": 15,
+   "alter": 8,
+   "bewertung": 7.1,
+   "komplexitaet": 1,
+   "beschreibung": "In Foxy, you'll put your memory and observation skills to the test while looking at a sequence of large, full-color cards. Each card shows one of four environments, as well as 1-2 animals that live in that environment — although a cat can show up anywhere, so sometimes a card will feature three animals. To set up, shuffle 19 of the 40 cards into a deck, then shuffle the fox card into this deck. Each player takes a dry erase board and a marker.",
+   "verlage": [
+    "GateOnGames",
+    "4GAMES",
+    "A-games (Board Game / I)",
+    "La Boîte de Jeu",
+    "Fearless Frog",
+    "Game Factory",
+    "Muduko",
+    "Pegasus Spiele",
+    "TLAMA games",
+    "Tranjis Games"
+   ],
+   "cover": "/assets/cover/359318.jpg",
+   "abgerufen": "2026-11-20T06:57:08.322Z"
   },
   "359406": {
    "id": "359406",

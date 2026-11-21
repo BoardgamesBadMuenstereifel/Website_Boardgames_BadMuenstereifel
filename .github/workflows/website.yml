@@ -43,6 +43,10 @@ jobs:
       - name: Dashboard bauen
         run: node skripte/dashboard.mjs --web _site/dashboard/index.html
 
+      # Monatsrückblick zum Teilen unter /monatsrueckblick/ (gleiche Seite wie topliste/monat.html)
+      - name: Monatsrückblick bauen
+        run: node topliste/monat-erzeugen.mjs --web _site/monatsrueckblick
+
       - name: Cache und Warnungen sichern
         run: |
           git config user.name "website-bot"

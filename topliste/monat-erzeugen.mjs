@@ -1,14 +1,19 @@
 // Erzeugt die Daten für topliste/monat.html: je Monat alle gespielten Spiele nach Spielzeit,
-// Premieren und die meistgespielten Themen und Mechaniken laut BoardGameGeek.
+// Premieren und die meistgespielten Themen, Mechaniken, Designer, Illustration und Verlage laut BoardGameGeek.
 // Spielzeit = Partien × maximale Spieldauer laut BGG (wie auf der Website und in boardgames.html).
 // Themen und Mechaniken kommen aus daten/bgg-cache.json (füllt der Website-Workflow mit skripte/bgg-abruf.mjs).
 // Aufruf im Projektordner: .\.werkzeuge\node-v26.13.0-win-x64\node.exe topliste\monat-erzeugen.mjs
+// Website: node topliste/monat-erzeugen.mjs --web _site/monatsrueckblick
+//   legt dort index.html und monat-daten.js ab; die Cover kommen aus /assets/cover/ der Website.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ladeDaten, rangliste } from "../skripte/lib/daten.mjs";
 
 const ORDNER = path.dirname(fileURLToPath(import.meta.url));
+const webIndex = process.argv.indexOf("--web");
+if (webIndex !== -1 && !process.argv[webIndex + 1]) throw new Error("Nach --web fehlt der Zielordner, z. B. _site/monatsrueckblick");
+const webZiel = webIndex === -1 ? null : path.resolve(process.argv[webIndex + 1]);
 process.chdir(path.join(ORDNER, ".."));
 
 const ANZAHL_MERKMALE = 6;
@@ -88,14 +93,15 @@ for (const p of d.partien) if (!erstePartie.has(p.schluessel) || p.datum < erste
 const ersterMonat = [...erstePartie.values()].sort()[0]?.slice(0, 7);
 
 // Anteil an der Spielzeit je Thema oder Mechanik; nur Spiele, für die BGG die Merkmale kennt
-function merkmale(liste, feld) {
+// wert: Spiel -> Liste von Namen (Themen, Mechaniken, Designer …)
+function merkmale(liste, wert, uebersetzen = (s) => s) {
   const summe = new Map();
   let gesamt = 0;
   for (const z of liste) {
-    const werte = spiele.get(z.schluessel)?.bgg?.[feld];
+    const werte = wert(spiele.get(z.schluessel)?.bgg);
     if (!z.spielzeit || !Array.isArray(werte) || !werte.length) continue;
     gesamt += z.spielzeit;
-    for (const w of new Set(werte.map(deutsch))) summe.set(w, (summe.get(w) ?? 0) + z.spielzeit);
+    for (const w of new Set(werte.map(uebersetzen))) summe.set(w, (summe.get(w) ?? 0) + z.spielzeit);
   }
   return [...summe].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "de"))
     .slice(0, ANZAHL_MERKMALE).map(([name, minuten]) => ({ name, minuten, anteil: Math.round((minuten / gesamt) * 100) }));
@@ -116,13 +122,25 @@ for (const schluessel of [...new Set(d.partien.map((p) => p.datum.slice(0, 7)))]
         premiere: erstePartie.get(z.schluessel).startsWith(schluessel),
       };
     }),
-    themen: merkmale(liste, "kategorien"),
-    mechaniken: merkmale(liste, "mechaniken"),
+    themen: merkmale(liste, (b) => b?.kategorien, deutsch),
+    mechaniken: merkmale(liste, (b) => b?.mechaniken, deutsch),
+    designer: merkmale(liste, (b) => b?.designer),
+    illustration: merkmale(liste, (b) => b?.illustration),
+    // BGG nennt den Originalverlag zuerst, danach alle Lizenzausgaben
+    verlage: merkmale(liste, (b) => b?.verlage?.slice(0, 1)),
   };
 }
 
 const daten = { stand: d.heute, ersterMonat, monate };
-fs.writeFileSync(path.join(ORDNER, "monat-daten.js"),
+const ausgabe = webZiel ?? ORDNER;
+fs.mkdirSync(ausgabe, { recursive: true });
+fs.writeFileSync(path.join(ausgabe, "monat-daten.js"),
   "// Erzeugt von topliste/monat-erzeugen.mjs, nicht von Hand ändern.\nwindow.MONATE = " + JSON.stringify(daten, null, 1) + ";\n");
+if (webZiel) {
+  // Gleiche Seite wie lokal, nur die Cover liegen auf der Website unter /assets/cover/
+  const seite = fs.readFileSync(path.join(ORDNER, "monat.html"), "utf8");
+  if (!seite.includes("../src/assets/cover/")) throw new Error("monat.html: Coverpfad ../src/assets/cover/ nicht gefunden.");
+  fs.writeFileSync(path.join(webZiel, "index.html"), seite.replaceAll("../src/assets/cover/", "../assets/cover/"));
+}
 const mitMerkmalen = Object.values(monate).filter((m) => m.themen.length).length;
-console.log(`monat-daten.js geschrieben, Stand ${d.heute}: ${Object.keys(monate).length} Monate, ${mitMerkmalen} davon mit Themen und Mechaniken.`);
+console.log(`${webZiel ? "index.html und " : ""}monat-daten.js in ${path.relative(process.cwd(), ausgabe)} geschrieben, Stand ${d.heute}: ${Object.keys(monate).length} Monate, ${mitMerkmalen} davon mit Themen und Mechaniken.`);

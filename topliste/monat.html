@@ -81,11 +81,18 @@
   .platz .cover { font-size: 26px; }
   .platz .anzahl { width: auto; height: 30px; font-size: 15px; line-height: 26px; border-radius: 15px; min-width: 30px; }
   .platz .premiere { font-size: 11px; top: 9px; }
-  .rang { font: 800 34px/1 var(--titel); color: var(--aubergine); }
-  .platz:first-child .rang { color: var(--gold-dunkel); }
+  .rang { font: 800 34px/1 var(--titel); color: var(--tinte); }
+  /* Treppchen: Platz 1 in der Mitte und am höchsten, Gold, Silber, Bronze */
+  .top { align-items: end; grid-template-columns: 1fr 1.12fr 1fr; }
+  .platz.p1 { order: 2; --gross: 150px; padding: 22px 14px; background: linear-gradient(150deg, #fbe3a0, #e8b54a 55%, #c98a1e); }
+  .platz.p2 { order: 1; padding: 14px 12px; background: linear-gradient(150deg, #f4f5f7, #c9ced5 55%, #9aa2ac); }
+  .platz.p3 { order: 3; --gross: 116px; background: linear-gradient(150deg, #f3c9a2, #cf8c57 55%, #a3612f); }
+  .platz.p1 .rang { font-size: 42px; }
+  .platz.p1 .name { font-size: 21px; }
+  .platz .premiere { box-shadow: 0 0 0 1.5px var(--tinte), 0 2px 6px rgba(0,0,0,.35); }
   .platz .name { font-weight: 700; font-size: 19px; line-height: 1.15; margin: 4px 0 8px; hyphens: auto; }
   .platz .wert b { font-family: var(--titel); font-size: 22px; }
-  .platz .wert span { display: block; font-size: 13px; color: var(--aubergine); }
+  .platz .wert span { display: block; font-size: 13px; color: rgba(43,37,48,.78); }
 
   /* Alle weiteren */
   .weitere { min-height: 0; display: flex; flex-direction: column; }
@@ -100,14 +107,22 @@
 
   /* Seitenleiste */
   aside { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 14px 16px;
-    display: flex; flex-direction: column; gap: 18px; min-height: 0; overflow: hidden; }
-  aside ol { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    display: flex; flex-direction: column; gap: 11px; min-height: 0; overflow: hidden; }
+  aside h2 { font-size: 16px; margin-bottom: 6px; }
+  aside ol { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   aside li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 14px; }
   aside li span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   aside li b { font-family: var(--titel); color: var(--creme); font-size: 14px; }
-  .balken { grid-column: 1 / -1; height: 7px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .balken { grid-column: 1 / -1; height: 6px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
   .balken i { display: block; height: 100%; border-radius: 4px; background: var(--gold); }
   .mech .balken i { background: var(--petrol); }
+  /* Designer, Illustration, Verlage: kompakt ohne Balken */
+  .personen { display: flex; flex-direction: column; gap: 11px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.1); }
+  .personen ol { gap: 3px; }
+  .personen li { font-size: 13px; }
+  .personen li span { font-weight: 400; }
+  .personen li span::before { content: attr(data-rang) "."; display: inline-block; width: 16px; color: var(--gold); font-weight: 700; }
+  .personen li b { font-size: 13px; }
   .quelle { margin-top: auto; font-size: 12px; color: rgba(239,222,198,.55); line-height: 1.35; }
   .hinweis { font-size: 13px; color: rgba(239,222,198,.6); line-height: 1.4; }
 
@@ -117,6 +132,7 @@
     .seite { height: auto; }
     .inhalt { grid-template-columns: 1fr; }
     .top { grid-template-columns: 1fr; }
+    .top .platz { order: 0; }
     .raster { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); }
   }
   @media (max-width: 480px) {
@@ -163,7 +179,12 @@
         <h2>Beliebteste Mechaniken</h2>
         <ol id="mechaniken"></ol>
       </section>
-      <p class="quelle">Anteil an der Spielzeit des Monats, Themen und Mechaniken laut BoardGameGeek. Ein Spiel zählt bei allen seinen Merkmalen.</p>
+      <div class="personen">
+        <section><h2>Designer</h2><ol id="designer"></ol></section>
+        <section><h2>Illustration</h2><ol id="illustration"></ol></section>
+        <section><h2>Verlage</h2><ol id="verlage"></ol></section>
+      </div>
+      <p class="quelle">Anteil an der Spielzeit · Daten: BoardGameGeek</p>
     </aside>
   </div>
 
@@ -200,8 +221,14 @@ const [sj, sm, st] = D.stand.split("-").map(Number);
 $("stand").textContent = `Stand ${st}. ${MON[sm - 1]} ${sj}`;
 $("monat").innerHTML = monate.map(k => `<option value="${k}">${monatsName(k)}</option>`).join("");
 
+function personenListe(liste = []) {
+  if (!liste.length) return `<li class="hinweis">Kommt mit dem nächsten BGG-Abruf.</li>`;
+  return liste.slice(0, 3).map((m, i) => `<li><span data-rang="${i + 1}" title="${esc(m.name)}">${esc(m.name)}</span><b>${m.anteil} %</b></li>`).join("");
+}
+
 function merkmalListe(liste) {
-  if (!liste.length) return `<li class="hinweis">Noch keine BGG-Daten für diesen Monat. Sie kommen mit dem nächsten BGG-Abruf der Website.</li>`;
+  liste = liste.slice(0, 4);
+  if (!liste.length) return `<li class="hinweis">Kommt mit dem nächsten BGG-Abruf der Website.</li>`;
   const max = liste[0].anteil || 1;
   return liste.map(m => `<li><span title="${esc(m.name)}">${esc(m.name)}</span><b>${m.anteil} %</b><div class="balken"><i style="width:${Math.max(4, m.anteil / max * 100)}%"></i></div></li>`).join("");
 }
@@ -220,7 +247,7 @@ function zeige(k) {
 
   const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
   $("top").innerHTML = m.spiele.slice(0, 3).map(ohnePremiere).map((e, i) => `
-    <article class="platz"><div>${cover(e)}</div>
+    <article class="platz p${i + 1}"><div>${cover(e)}</div>
       <div><div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
         <div class="wert"><b>${stunden(e.minuten)}</b><span>${partien(e.partien)}</span></div></div></article>`).join("");
 
@@ -232,6 +259,7 @@ function zeige(k) {
 
   $("themen").innerHTML = merkmalListe(m.themen);
   $("mechaniken").innerHTML = merkmalListe(m.mechaniken);
+  for (const feld of ["designer", "illustration", "verlage"]) $(feld).innerHTML = personenListe(m[feld]);
   if (location.hash.slice(1) !== k) history.replaceState(null, "", "#" + k);
   passeRasterAn();
 }

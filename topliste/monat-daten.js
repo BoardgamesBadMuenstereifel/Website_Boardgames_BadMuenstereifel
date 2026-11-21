@@ -128,7 +128,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Fantasy Flight Games",
+     "minuten": 480,
+     "anteil": 29
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 180,
+     "anteil": 11
+    },
+    {
+     "name": "Breaking Games",
+     "minuten": 150,
+     "anteil": 9
+    },
+    {
+     "name": "Red Mojo",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Osprey Games",
+     "minuten": 100,
+     "anteil": 6
+    },
+    {
+     "name": "BoardGameTables.com",
+     "minuten": 90,
+     "anteil": 5
+    }
+   ]
   },
   "2025-02": {
    "partien": 40,
@@ -353,7 +387,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Alley Cat Games",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 225,
+     "anteil": 10
+    },
+    {
+     "name": "Deep Print Games",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "eggertspiele",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Grey Fox Games",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Half-a-Kingdom Games",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2025-03": {
    "partien": 33,
@@ -557,7 +625,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 160,
+     "anteil": 9
+    },
+    {
+     "name": "Breaking Games",
+     "minuten": 150,
+     "anteil": 9
+    },
+    {
+     "name": "Next Move Games",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Captain Games SRL",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Flatout Games",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Pink Troubadour",
+     "minuten": 100,
+     "anteil": 6
+    }
+   ]
   },
   "2025-04": {
    "partien": 39,
@@ -796,7 +898,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Deep Print Games",
+     "minuten": 210,
+     "anteil": 9
+    },
+    {
+     "name": "Awaken Realms",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Mindclash Games",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Corax Games",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 150,
+     "anteil": 7
+    }
+   ]
   },
   "2025-05": {
    "partien": 35,
@@ -1000,7 +1136,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "CMON Global Limited",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Cranio Creations",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "GMT Games",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "alea",
+     "minuten": 150,
+     "anteil": 6
+    },
+    {
+     "name": "Awaken Realms",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Cocktail Games",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2025-06": {
    "partien": 75,
@@ -1372,7 +1542,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Ludonova",
+     "minuten": 360,
+     "anteil": 8
+    },
+    {
+     "name": "Sparkworks",
+     "minuten": 270,
+     "anteil": 6
+    },
+    {
+     "name": "alea",
+     "minuten": 240,
+     "anteil": 5
+    },
+    {
+     "name": "Ludus Magnus Studio",
+     "minuten": 240,
+     "anteil": 5
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 190,
+     "anteil": 4
+    },
+    {
+     "name": "CMON Global Limited",
+     "minuten": 180,
+     "anteil": 4
+    }
+   ]
   },
   "2025-07": {
    "partien": 35,
@@ -1569,7 +1773,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Funtails",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 180,
+     "anteil": 9
+    },
+    {
+     "name": "Mariucci J. Designs, LLC",
+     "minuten": 180,
+     "anteil": 9
+    },
+    {
+     "name": "Edition Spielwiese",
+     "minuten": 165,
+     "anteil": 8
+    },
+    {
+     "name": "Devir",
+     "minuten": 125,
+     "anteil": 6
+    },
+    {
+     "name": "Feuerland Spiele",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ]
   },
   "2025-08": {
    "partien": 27,
@@ -1724,7 +1962,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Cocktail Games",
+     "minuten": 180,
+     "anteil": 12
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 175,
+     "anteil": 11
+    },
+    {
+     "name": "King Racoon Games",
+     "minuten": 150,
+     "anteil": 10
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 140,
+     "anteil": 9
+    },
+    {
+     "name": "Burnt Island Games",
+     "minuten": 120,
+     "anteil": 8
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 110,
+     "anteil": 7
+    }
+   ]
   },
   "2025-09": {
    "partien": 133,
@@ -2173,7 +2445,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 600,
+     "anteil": 9
+    },
+    {
+     "name": "Pegasus Spiele",
+     "minuten": 460,
+     "anteil": 7
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 440,
+     "anteil": 6
+    },
+    {
+     "name": "Cocktail Games",
+     "minuten": 360,
+     "anteil": 5
+    },
+    {
+     "name": "Kinson Key Games",
+     "minuten": 300,
+     "anteil": 4
+    },
+    {
+     "name": "Osprey Games",
+     "minuten": 300,
+     "anteil": 4
+    }
+   ]
   },
   "2025-10": {
    "partien": 39,
@@ -2342,7 +2648,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Lookout Games",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "ABACUSSPIELE",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Next Move Games",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Ravensburger AG",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Warnecke und Pozzi GbR",
+     "minuten": 120,
+     "anteil": 7
+    }
+   ]
   },
   "2025-11": {
    "partien": 39,
@@ -2539,7 +2879,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Wiggles 3D",
+     "minuten": 360,
+     "anteil": 16
+    },
+    {
+     "name": "Repos Production",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Sorry We Are French",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Tabula Games",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Dire Wolf",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Pegasus Spiele",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2025-12": {
    "partien": 49,
@@ -2743,7 +3117,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Next Move Games",
+     "minuten": 315,
+     "anteil": 13
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 210,
+     "anteil": 8
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 205,
+     "anteil": 8
+    },
+    {
+     "name": "Repos Production",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Garphill Games",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Pegasus Spiele",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2026-01": {
    "partien": 41,
@@ -2961,7 +3369,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Starling Games (II)",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 205,
+     "anteil": 7
+    },
+    {
+     "name": "CMON Global Limited",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Cocktail Games",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Deep Print Games",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Contention Games",
+     "minuten": 150,
+     "anteil": 5
+    }
+   ]
   },
   "2026-02": {
    "partien": 18,
@@ -3074,7 +3516,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "FryxGames",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Portal Games",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Scorpion Masqué",
+     "minuten": 90,
+     "anteil": 9
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 90,
+     "anteil": 9
+    },
+    {
+     "name": "Boardcubator",
+     "minuten": 80,
+     "anteil": 8
+    },
+    {
+     "name": "Garphill Games",
+     "minuten": 80,
+     "anteil": 8
+    }
+   ]
   },
   "2026-03": {
    "partien": 44,
@@ -3313,7 +3789,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Lookout Games",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 230,
+     "anteil": 9
+    },
+    {
+     "name": "Cranio Creations",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "CD Projekt RED",
+     "minuten": 150,
+     "anteil": 6
+    },
+    {
+     "name": "PD-Verlag",
+     "minuten": 130,
+     "anteil": 5
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2026-04": {
    "partien": 40,
@@ -3503,7 +4013,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Lifestyle Boardgames Ltd",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Sorry We Are French",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Blue Orange (EU)",
+     "minuten": 135,
+     "anteil": 6
+    },
+    {
+     "name": "KOSMOS",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ]
   },
   "2026-05": {
    "partien": 64,
@@ -3819,7 +4363,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Stonemaier Games",
+     "minuten": 680,
+     "anteil": 17
+    },
+    {
+     "name": "Funtails",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "Fantasy Flight Games",
+     "minuten": 240,
+     "anteil": 6
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 210,
+     "anteil": 5
+    },
+    {
+     "name": "Awaken Realms",
+     "minuten": 180,
+     "anteil": 4
+    },
+    {
+     "name": "Schmidt Spiele",
+     "minuten": 180,
+     "anteil": 4
+    }
+   ]
   },
   "2026-06": {
    "partien": 26,
@@ -3974,7 +4552,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Stonemaier Games",
+     "minuten": 230,
+     "anteil": 12
+    },
+    {
+     "name": "Feuerland Spiele",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "FryxGames",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Ludonova",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Roxley",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ]
   },
   "2026-07": {
    "partien": 35,
@@ -4206,7 +4818,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "eggertspiele",
+     "minuten": 270,
+     "anteil": 14
+    },
+    {
+     "name": "Lautapelit.fi",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Mighty Boards",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Mindclash Games",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Fractal Juegos",
+     "minuten": 100,
+     "anteil": 5
+    }
+   ]
   },
   "2026-08": {
    "partien": 46,
@@ -4466,7 +5112,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Starling Games (II)",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Schmidt Spiele",
+     "minuten": 150,
+     "anteil": 6
+    },
+    {
+     "name": "Ammonit Spiele",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "CMON Global Limited",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Delicious Games",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ]
   },
   "2026-09": {
    "partien": 32,
@@ -4663,7 +5343,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Ice Makes",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "Feuerland Spiele",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Edition Spielwiese",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Delicious Games",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Queen Games",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Red Mojo",
+     "minuten": 120,
+     "anteil": 7
+    }
+   ]
   },
   "2026-10": {
    "partien": 33,
@@ -4874,7 +5588,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Delicious Games",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Stonemaier Games",
+     "minuten": 230,
+     "anteil": 11
+    },
+    {
+     "name": "Starling Games (II)",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Cucafera Games",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Czech Games Edition (CGE)",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Dire Wolf",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ]
   },
   "2026-11": {
    "partien": 55,
@@ -5155,7 +5903,41 @@ window.MONATE = {
     }
    ],
    "themen": [],
-   "mechaniken": []
+   "mechaniken": [],
+   "designer": [],
+   "illustration": [],
+   "verlage": [
+    {
+     "name": "Feuerland Spiele",
+     "minuten": 320,
+     "anteil": 10
+    },
+    {
+     "name": "Dire Wolf",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "IELLO",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "Awaken Realms",
+     "minuten": 180,
+     "anteil": 6
+    },
+    {
+     "name": "Lookout Games",
+     "minuten": 180,
+     "anteil": 6
+    },
+    {
+     "name": "Starling Games (II)",
+     "minuten": 160,
+     "anteil": 5
+    }
+   ]
   }
  }
 };

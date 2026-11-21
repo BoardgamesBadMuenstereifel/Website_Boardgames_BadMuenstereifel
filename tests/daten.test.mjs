@@ -215,6 +215,8 @@ test("BGG-XML: Felder, Entitäten, leere Werte", () => {
   assert.deepEqual(a.verlage, ["Beispielverlag & Söhne", "Zweiter Verlag"]);
   assert.deepEqual(a.kategorien, ["Beispielkategorie"]);
   assert.deepEqual(a.mechaniken, ["Hand Management"]);
+  assert.deepEqual(a.designer, ["Erika Beispiel"]);
+  assert.deepEqual(a.illustration, ["Max Muster"]);
   assert.equal(b.bewertung, null);
   assert.equal(b.bildQuelle, null);
   assert.deepEqual(b.verlage, []);

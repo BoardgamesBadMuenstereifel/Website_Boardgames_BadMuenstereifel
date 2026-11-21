@@ -16,6 +16,9 @@
     <minage value="10" />
     <link type="boardgamecategory" id="1" value="Beispielkategorie" />
     <link type="boardgamemechanic" id="2" value="Hand Management" />
+    <link type="boardgamedesigner" id="3" value="Erika Beispiel" />
+    <link type="boardgamedesigner" id="4" value="(Uncredited)" />
+    <link type="boardgameartist" id="5" value="Max Muster" />
     <link type="boardgamepublisher" id="11" value="Beispielverlag &amp;amp; Söhne" />
     <link type="boardgamepublisher" id="12" value="Zweiter Verlag" />
     <link type="boardgamepublisher" id="13" value="(Unknown)" />

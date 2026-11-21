@@ -15,6 +15,7 @@
     <maxplaytime value="45" />
     <minage value="10" />
     <link type="boardgamecategory" id="1" value="Beispielkategorie" />
+    <link type="boardgamemechanic" id="2" value="Hand Management" />
     <link type="boardgamepublisher" id="11" value="Beispielverlag &amp;amp; Söhne" />
     <link type="boardgamepublisher" id="12" value="Zweiter Verlag" />
     <link type="boardgamepublisher" id="13" value="(Unknown)" />

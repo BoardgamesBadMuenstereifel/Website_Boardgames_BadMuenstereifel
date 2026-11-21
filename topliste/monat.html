@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boardgames Monatsrückblick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tinte: #2b2530;
+    --aubergine: #514859;
+    --creme-hell: #f8f0e2;
+    --creme: #efdec6;
+    --gold: #e19f42;
+    --gold-dunkel: #b86f12;
+    --petrol: #2f7f86;
+    --titel: "Fraunces", Georgia, serif;
+    --text: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--tinte); height: 100%; }
+  body {
+    color: var(--creme-hell);
+    font-family: var(--text);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(225,159,66,.16), transparent 60%),
+      radial-gradient(900px 500px at 110% 110%, rgba(33,68,76,.55), transparent 60%),
+      var(--tinte);
+  }
+  .seite { height: 100vh; min-height: 620px; max-width: 1600px; margin: 0 auto; padding: 16px 28px 10px;
+    display: grid; grid-template-rows: auto 1fr auto; gap: 14px; }
+
+  /* Kopf mit Monatswahl */
+  header { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+  .ueber { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  h1 { font-family: var(--titel); font-weight: 800; font-size: clamp(26px, 3vw, 40px); line-height: 1.05; }
+  h1 span { color: var(--gold); }
+  h1 small { font-weight: 600; font-size: .55em; color: var(--creme); }
+  .wahl { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .menue { display: flex; gap: 6px; align-items: center; }
+  .menue button, .menue select { font: 700 15px var(--text); color: var(--creme-hell); background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.16); border-radius: 9px; height: 36px; cursor: pointer; }
+  .menue button { width: 36px; font-size: 18px; line-height: 1; }
+  .menue button:disabled { opacity: .3; cursor: default; }
+  .menue select { padding: 0 12px; }
+  .menue select option { color: var(--tinte); }
+  .menue :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .zahlen { display: flex; gap: 14px; font-size: 14px; color: var(--creme); }
+  .zahlen b { font-family: var(--titel); font-size: 20px; color: var(--creme-hell); margin-right: 3px; }
+  .zahlen .prem b { color: var(--gold); }
+
+  .inhalt { display: grid; grid-template-columns: 1fr 300px; gap: 18px; min-height: 0; }
+  .links { display: grid; grid-template-rows: auto 1fr; gap: 14px; min-height: 0; }
+  h2 { font-family: var(--titel); font-weight: 600; font-size: 18px; color: var(--creme); margin-bottom: 8px; }
+
+  /* Cover */
+  .cover { position: relative; width: 100%; aspect-ratio: 1; border-radius: 8px; overflow: hidden; display: grid; place-items: center;
+    font: 800 16px var(--titel); color: rgba(255,255,255,.92);
+    background: linear-gradient(135deg, hsl(var(--h) 45% 46%), hsl(calc(var(--h) + 40) 40% 30%));
+    box-shadow: 0 6px 16px rgba(0,0,0,.3), inset 0 0 0 1px rgba(0,0,0,.12); }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .anzahl { position: absolute; right: 5px; bottom: 5px; min-width: 26px; height: 26px; padding: 0 6px; border-radius: 13px;
+    background: var(--tinte); color: var(--creme-hell); border: 2px solid var(--creme-hell);
+    font: 800 13px/22px var(--titel); text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+  .premiere { position: absolute; left: 0; top: 7px; padding: 2px 7px 2px 6px; border-radius: 0 6px 6px 0;
+    background: var(--gold); color: var(--tinte); font: 700 10px var(--text); letter-spacing: .06em; text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0,0,0,.35); }
+
+  /* Top 3 */
+  .top { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .platz { display: grid; grid-template-columns: var(--gross, 128px) 1fr; gap: 14px; align-items: center;
+    background: var(--creme-hell); color: var(--tinte); border-radius: 14px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  .platz .cover { font-size: 26px; }
+  .platz .anzahl { width: auto; height: 30px; font-size: 15px; line-height: 26px; border-radius: 15px; min-width: 30px; }
+  .platz .premiere { font-size: 11px; top: 9px; }
+  .rang { font: 800 34px/1 var(--titel); color: var(--aubergine); }
+  .platz:first-child .rang { color: var(--gold-dunkel); }
+  .platz .name { font-weight: 700; font-size: 19px; line-height: 1.15; margin: 4px 0 8px; hyphens: auto; }
+  .platz .wert b { font-family: var(--titel); font-size: 22px; }
+  .platz .wert span { display: block; font-size: 13px; color: var(--aubergine); }
+
+  /* Alle weiteren */
+  .weitere { min-height: 0; display: flex; flex-direction: column; }
+  .raster { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(var(--spalten, 10), var(--kachel, 90px));
+    gap: var(--abstand, 12px); align-content: start; }
+  .kachel { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .kachel .name { font-size: var(--schrift, 12px); font-weight: 700; line-height: 1.15; text-align: center; color: var(--creme);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .raster.klein .anzahl { min-width: 20px; height: 20px; font-size: 11px; line-height: 16px; right: 3px; bottom: 3px; padding: 0 4px; }
+  .raster.klein .premiere { font-size: 8px; top: 4px; padding: 1px 5px 1px 4px; }
+  .leer { color: rgba(239,222,198,.6); font-size: 15px; }
+
+  /* Seitenleiste */
+  aside { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 18px; min-height: 0; overflow: hidden; }
+  aside ol { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  aside li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 14px; }
+  aside li span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  aside li b { font-family: var(--titel); color: var(--creme); font-size: 14px; }
+  .balken { grid-column: 1 / -1; height: 7px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .balken i { display: block; height: 100%; border-radius: 4px; background: var(--gold); }
+  .mech .balken i { background: var(--petrol); }
+  .quelle { margin-top: auto; font-size: 12px; color: rgba(239,222,198,.55); line-height: 1.35; }
+  .hinweis { font-size: 13px; color: rgba(239,222,198,.6); line-height: 1.4; }
+
+  footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: rgba(239,222,198,.55); }
+
+  @media (max-width: 1100px) {
+    .seite { height: auto; }
+    .inhalt { grid-template-columns: 1fr; }
+    .top { grid-template-columns: 1fr; }
+    .raster { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .seite { padding: 16px; }
+    .platz { --gross: 88px; }
+    .wahl { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="seite">
+  <header>
+    <div>
+      <div class="ueber">Boardgames Bad Münstereifel</div>
+      <h1>Gespielt im <span id="titel"></span> <small>nach Spielzeit</small></h1>
+    </div>
+    <div class="wahl">
+      <div class="menue">
+        <button type="button" id="zurueck" aria-label="Vorheriger Monat">‹</button>
+        <select id="monat" aria-label="Monat wählen"></select>
+        <button type="button" id="vor" aria-label="Nächster Monat">›</button>
+      </div>
+      <div class="zahlen" id="zahlen"></div>
+    </div>
+  </header>
+
+  <div class="inhalt">
+    <div class="links">
+      <section>
+        <div class="top" id="top"></div>
+      </section>
+      <section class="weitere">
+        <h2 id="weitere-titel">Außerdem gespielt</h2>
+        <div class="raster" id="raster"></div>
+      </section>
+    </div>
+    <aside>
+      <section>
+        <h2>Beliebteste Themen</h2>
+        <ol id="themen"></ol>
+      </section>
+      <section class="mech">
+        <h2>Beliebteste Mechaniken</h2>
+        <ol id="mechaniken"></ol>
+      </section>
+      <p class="quelle">Anteil an der Spielzeit des Monats, Themen und Mechaniken laut BoardGameGeek. Ein Spiel zählt bei allen seinen Merkmalen.</p>
+    </aside>
+  </div>
+
+  <footer>
+    <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · Zahl am Cover = Partien · <span id="stand"></span></span>
+    <span>boardgames-muenstereifel.club</span>
+  </footer>
+</div>
+
+<script src="monat-daten.js"></script>
+<script>
+const D = window.MONATE;
+const MON = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+const monate = Object.keys(D.monate).sort().reverse();
+const $ = id => document.getElementById(id);
+
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function farbton(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
+function kuerzel(s) {
+  const w = s.replace(/^(Die|The|Der|Das)\s+/i, "").split(/[\s:]+/).filter(x => /[A-Za-zÄÖÜäöü0-9]/.test(x));
+  return (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || "?").slice(0, 2)).toUpperCase();
+}
+function cover(e) {
+  const inhalt = e.cover ? `<img src="../src/assets/cover/${esc(e.cover)}" alt="">` : esc(kuerzel(e.name));
+  return `<div class="cover" style="--h:${farbton(e.name)}" aria-hidden="true">${inhalt}`
+    + (e.premiere ? `<span class="premiere">Premiere</span>` : "")
+    + `<span class="anzahl">${e.partien}×</span></div>`;
+}
+const stunden = min => min ? (Math.round(min / 6) / 10).toLocaleString("de-DE") + " Std." : "Dauer unbekannt";
+const partien = n => n === 1 ? "1 Partie" : `${n} Partien`;
+const monatsName = k => `${MON[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`;
+const [sj, sm, st] = D.stand.split("-").map(Number);
+
+$("stand").textContent = `Stand ${st}. ${MON[sm - 1]} ${sj}`;
+$("monat").innerHTML = monate.map(k => `<option value="${k}">${monatsName(k)}</option>`).join("");
+
+function merkmalListe(liste) {
+  if (!liste.length) return `<li class="hinweis">Noch keine BGG-Daten für diesen Monat. Sie kommen mit dem nächsten BGG-Abruf der Website.</li>`;
+  const max = liste[0].anteil || 1;
+  return liste.map(m => `<li><span title="${esc(m.name)}">${esc(m.name)}</span><b>${m.anteil} %</b><div class="balken"><i style="width:${Math.max(4, m.anteil / max * 100)}%"></i></div></li>`).join("");
+}
+
+function zeige(k) {
+  const m = D.monate[k];
+  $("monat").value = k;
+  $("vor").disabled = monate.indexOf(k) === 0;
+  $("zurueck").disabled = monate.indexOf(k) === monate.length - 1;
+  $("titel").textContent = monatsName(k);
+  document.title = `Gespielt im ${monatsName(k)} · Boardgames Bad Münstereifel`;
+  const premieren = m.spiele.filter(e => e.premiere).length;
+  $("zahlen").innerHTML = `<span><b>${m.partien}</b>Partien</span><span><b>${m.spiele.length}</b>Spiele</span>`
+    + `<span><b>${m.abende}</b>${m.abende === 1 ? "Abend" : "Abende"}</span>`
+    + (k === D.ersterMonat ? "" : `<span class="prem"><b>${premieren}</b>${premieren === 1 ? "Premiere" : "Premieren"}</span>`);
+
+  const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
+  $("top").innerHTML = m.spiele.slice(0, 3).map(ohnePremiere).map((e, i) => `
+    <article class="platz"><div>${cover(e)}</div>
+      <div><div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
+        <div class="wert"><b>${stunden(e.minuten)}</b><span>${partien(e.partien)}</span></div></div></article>`).join("");
+
+  const rest = m.spiele.slice(3).map(ohnePremiere);
+  $("weitere-titel").textContent = rest.length ? `Außerdem gespielt · ${rest.length} Spiele` : "Außerdem gespielt";
+  $("raster").innerHTML = rest.length
+    ? rest.map(e => `<div class="kachel" title="${esc(e.name)}: ${partien(e.partien)}, ${stunden(e.minuten)}">${cover(e)}<span class="name">${esc(e.name)}</span></div>`).join("")
+    : `<p class="leer">Keine weiteren Spiele in diesem Monat.</p>`;
+
+  $("themen").innerHTML = merkmalListe(m.themen);
+  $("mechaniken").innerHTML = merkmalListe(m.mechaniken);
+  if (location.hash.slice(1) !== k) history.replaceState(null, "", "#" + k);
+  passeRasterAn();
+}
+
+// Kachelgröße so wählen, dass alle Spiele ohne Scrollen auf die Seite passen
+function passeRasterAn() {
+  const r = $("raster"), n = r.querySelectorAll(".kachel").length;
+  if (!n || matchMedia("(max-width: 1100px)").matches) { r.style.cssText = ""; return; }
+  const b = r.clientWidth, h = r.clientHeight;
+  let best = { s: 40, spalten: Math.floor(b / 46) };
+  for (let spalten = 1; spalten <= n; spalten++) {
+    const abstand = spalten > 12 ? 8 : 12;
+    const s = Math.floor((b - abstand * (spalten - 1)) / spalten);
+    const schrift = s < 70 ? 10 : s < 95 ? 11 : 12;
+    const zeilen = Math.ceil(n / spalten);
+    const hoehe = zeilen * (s + 4 + schrift * 1.2) + (zeilen - 1) * abstand;
+    if (hoehe <= h && s <= 140) { best = { s, spalten, abstand, schrift }; break; }
+  }
+  r.classList.toggle("klein", best.s < 70);
+  r.style.setProperty("--kachel", best.s + "px");
+  r.style.setProperty("--spalten", best.spalten);
+  r.style.setProperty("--abstand", (best.abstand ?? 8) + "px");
+  r.style.setProperty("--schrift", (best.schrift ?? 10) + "px");
+}
+
+$("monat").addEventListener("change", e => zeige(e.target.value));
+$("zurueck").addEventListener("click", () => zeige(monate[monate.indexOf($("monat").value) + 1]));
+$("vor").addEventListener("click", () => zeige(monate[monate.indexOf($("monat").value) - 1]));
+addEventListener("resize", passeRasterAn);
+addEventListener("hashchange", () => D.monate[location.hash.slice(1)] && zeige(location.hash.slice(1)));
+zeige(D.monate[location.hash.slice(1)] ? location.hash.slice(1) : monate[0]);
+</script>
+</body>
+</html>

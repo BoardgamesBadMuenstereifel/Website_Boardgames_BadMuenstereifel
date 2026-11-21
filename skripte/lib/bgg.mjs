@@ -32,6 +32,8 @@ export function kurzText(text, max = 600) {
   return ende > max * 0.5 ? schnitt.slice(0, ende + 1) : schnitt.slice(0, schnitt.lastIndexOf(" ")) + " …";
 }
 
+const linkWerte = (i, typ) => [...new Set((i.link ?? []).filter((l) => l["@type"] === typ).map((l) => entitaeten(l["@value"]).trim()).filter(Boolean))];
+
 export function leseThings(xml) {
   const doc = parser.parse(xml);
   const items = doc.items?.item ?? [];
@@ -55,6 +57,9 @@ export function leseThings(xml) {
         .filter((l) => l["@type"] === "boardgamepublisher")
         .map((l) => entitaeten(l["@value"]).trim())
         .filter((v) => v && !/^\(.*\)$/.test(v)))],
+      // Themen (BGG: categories) und Mechaniken, englisch wie bei BGG. Für die Monatsauswertung in topliste/.
+      kategorien: linkWerte(i, "boardgamecategory"),
+      mechaniken: linkWerte(i, "boardgamemechanic"),
       bildQuelle: typeof i.thumbnail === "string" ? i.thumbnail.trim() : null,
     };
   });

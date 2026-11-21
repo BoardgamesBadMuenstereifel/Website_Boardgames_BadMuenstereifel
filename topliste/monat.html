@@ -50,7 +50,7 @@
   header { align-items: center; gap: 16px; }
   .kopf-rechts { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
   .zahlen { display: flex; gap: 10px; }
-  .zahlen > span { display: flex; flex-direction: column; align-items: center; min-width: 84px; padding: 7px 12px 8px;
+  .zahlen > span { display: flex; flex-direction: column; align-items: center; min-width: 78px; padding: 7px 11px 8px;
     background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 12px; }
   .zahlen b { font: 800 34px/1 var(--titel); color: var(--creme-hell); }
   .zahlen small { margin-top: 4px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--creme); }
@@ -106,18 +106,18 @@
   .leer { color: rgba(239,222,198,.6); font-size: 15px; }
 
   /* Seitenleiste */
-  aside { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 14px 16px;
-    display: flex; flex-direction: column; gap: 11px; min-height: 0; overflow: hidden; }
-  aside h2 { font-size: 16px; margin-bottom: 6px; }
-  aside ol { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  aside li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: 14px; }
+  aside { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.09); border-radius: 14px; padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 10px; min-height: 0; overflow: hidden; }
+  aside h2 { font-size: 16px; margin-bottom: 4px; }
+  aside ol { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  aside li { display: grid; grid-template-columns: 1fr auto; gap: 1px 8px; font-size: 14px; line-height: 1.2; }
   aside li span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   aside li b { font-family: var(--titel); color: var(--creme); font-size: 14px; }
-  .balken { grid-column: 1 / -1; height: 6px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .balken { grid-column: 1 / -1; height: 5px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
   .balken i { display: block; height: 100%; border-radius: 4px; background: var(--gold); }
   .mech .balken i { background: var(--petrol); }
   /* Designer, Illustration, Verlage: kompakt ohne Balken */
-  .personen { display: flex; flex-direction: column; gap: 11px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.1); }
+  .personen { display: flex; flex-direction: column; gap: 8px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.1); }
   .personen ol { gap: 3px; }
   .personen li { font-size: 13px; }
   .personen li span { font-weight: 400; }
@@ -125,6 +125,18 @@
   .personen li b { font-size: 13px; }
   .quelle { margin-top: auto; font-size: 12px; color: rgba(239,222,198,.55); line-height: 1.35; }
   .hinweis { font-size: 13px; color: rgba(239,222,198,.6); line-height: 1.4; }
+
+  /* Auswahl über die Listen rechts */
+  aside [data-feld] { cursor: pointer; border-radius: 6px; margin: 0 -6px; padding: 1px 6px; transition: background .15s; }
+  aside [data-feld]:hover { background: rgba(255,255,255,.07); }
+  aside [data-feld]:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+  aside [data-feld].an { background: rgba(225,159,66,.25); }
+  .platz, .kachel { transition: opacity .2s, filter .2s, transform .2s; }
+  body.auswahl [data-i]:not(.an) { opacity: .22; filter: grayscale(.8); }
+  body.auswahl .kachel.an { transform: translateY(-3px); }
+  body.auswahl .kachel.an .cover { box-shadow: 0 0 0 3px var(--gold), 0 8px 20px rgba(0,0,0,.4); }
+  body.auswahl .platz.an { box-shadow: 0 0 0 3px var(--creme-hell), 0 10px 30px rgba(0,0,0,.3); }
+  #auswahl-info { color: var(--gold); font-family: var(--text); font-size: 14px; font-weight: 700; margin-left: 10px; }
 
   footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: rgba(239,222,198,.55); }
 
@@ -166,7 +178,7 @@
         <div class="top" id="top"></div>
       </section>
       <section class="weitere">
-        <h2 id="weitere-titel">Außerdem gespielt</h2>
+        <h2><span id="weitere-titel">Außerdem gespielt</span><span id="auswahl-info" aria-live="polite"></span></h2>
         <div class="raster" id="raster"></div>
       </section>
     </div>
@@ -184,12 +196,11 @@
         <section><h2>Illustration</h2><ol id="illustration"></ol></section>
         <section><h2>Verlage</h2><ol id="verlage"></ol></section>
       </div>
-      <p class="quelle">Anteil an der Spielzeit · Daten: BoardGameGeek</p>
     </aside>
   </div>
 
   <footer>
-    <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · Zahl am Cover = Partien · <span id="stand"></span></span>
+    <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · Zahl am Cover = Partien · Listen rechts: Anteil an der Spielzeit · <span id="stand"></span></span>
     <span>boardgames-muenstereifel.club</span>
   </footer>
 </div>
@@ -221,16 +232,18 @@ const [sj, sm, st] = D.stand.split("-").map(Number);
 $("stand").textContent = `Stand ${st}. ${MON[sm - 1]} ${sj}`;
 $("monat").innerHTML = monate.map(k => `<option value="${k}">${monatsName(k)}</option>`).join("");
 
-function personenListe(liste = []) {
+const klickbar = (feld, m) => `data-feld="${feld}" data-wert="${esc(m.name)}" tabindex="0" role="button" aria-pressed="false" title="${esc(m.voll ?? m.name)}: Spiele hervorheben"`;
+
+function personenListe(liste = [], feld) {
   if (!liste.length) return `<li class="hinweis">Kommt mit dem nächsten BGG-Abruf.</li>`;
-  return liste.slice(0, 3).map((m, i) => `<li><span data-rang="${i + 1}" title="${esc(m.name)}">${esc(m.name)}</span><b>${m.anteil} %</b></li>`).join("");
+  return liste.slice(0, 3).map((m, i) => `<li ${klickbar(feld, m)}><span data-rang="${i + 1}">${esc(m.name)}</span><b>${m.anteil} %</b></li>`).join("");
 }
 
-function merkmalListe(liste) {
-  liste = liste.slice(0, 4);
+function merkmalListe(liste, feld) {
+  liste = liste.slice(0, 5);
   if (!liste.length) return `<li class="hinweis">Kommt mit dem nächsten BGG-Abruf der Website.</li>`;
   const max = liste[0].anteil || 1;
-  return liste.map(m => `<li><span title="${esc(m.name)}">${esc(m.name)}</span><b>${m.anteil} %</b><div class="balken"><i style="width:${Math.max(4, m.anteil / max * 100)}%"></i></div></li>`).join("");
+  return liste.map(m => `<li ${klickbar(feld, m)}><span>${esc(m.name)}</span><b>${m.anteil} %</b><div class="balken"><i style="width:${Math.max(4, m.anteil / max * 100)}%"></i></div></li>`).join("");
 }
 
 function zeige(k) {
@@ -247,19 +260,20 @@ function zeige(k) {
 
   const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
   $("top").innerHTML = m.spiele.slice(0, 3).map(ohnePremiere).map((e, i) => `
-    <article class="platz p${i + 1}"><div>${cover(e)}</div>
+    <article class="platz p${i + 1}" data-i="${i}"><div>${cover(e)}</div>
       <div><div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
         <div class="wert"><b>${stunden(e.minuten)}</b><span>${partien(e.partien)}</span></div></div></article>`).join("");
 
   const rest = m.spiele.slice(3).map(ohnePremiere);
   $("weitere-titel").textContent = rest.length ? `Außerdem gespielt · ${rest.length} Spiele` : "Außerdem gespielt";
   $("raster").innerHTML = rest.length
-    ? rest.map(e => `<div class="kachel" title="${esc(e.name)}: ${partien(e.partien)}, ${stunden(e.minuten)}">${cover(e)}<span class="name">${esc(e.name)}</span></div>`).join("")
+    ? rest.map((e, i) => `<div class="kachel" data-i="${i + 3}" title="${esc(e.name)}: ${partien(e.partien)}, ${stunden(e.minuten)}">${cover(e)}<span class="name">${esc(e.name)}</span></div>`).join("")
     : `<p class="leer">Keine weiteren Spiele in diesem Monat.</p>`;
 
-  $("themen").innerHTML = merkmalListe(m.themen);
-  $("mechaniken").innerHTML = merkmalListe(m.mechaniken);
-  for (const feld of ["designer", "illustration", "verlage"]) $(feld).innerHTML = personenListe(m[feld]);
+  for (const feld of ["themen", "mechaniken"]) $(feld).innerHTML = merkmalListe(m[feld], feld);
+  for (const feld of ["designer", "illustration", "verlage"]) $(feld).innerHTML = personenListe(m[feld], feld);
+  aktuell = m.spiele;
+  waehle(null);
   if (location.hash.slice(1) !== k) history.replaceState(null, "", "#" + k);
   passeRasterAn();
 }
@@ -284,6 +298,34 @@ function passeRasterAn() {
   r.style.setProperty("--abstand", (best.abstand ?? 8) + "px");
   r.style.setProperty("--schrift", (best.schrift ?? 10) + "px");
 }
+
+// Klick auf einen Eintrag rechts hebt die Spiele dazu hervor, nochmal klicken (oder Esc) hebt es auf
+let aktuell = [], auswahl = null;
+function waehle(neu) {
+  auswahl = neu && auswahl && neu.feld === auswahl.feld && neu.wert === auswahl.wert ? null : neu;
+  document.body.classList.toggle("auswahl", !!auswahl);
+  document.querySelectorAll("aside [data-feld]").forEach(li => {
+    const an = !!auswahl && li.dataset.feld === auswahl.feld && li.dataset.wert === auswahl.wert;
+    li.classList.toggle("an", an);
+    li.setAttribute("aria-pressed", an);
+  });
+  let treffer = 0;
+  document.querySelectorAll("[data-i]").forEach(el => {
+    const an = !!auswahl && (aktuell[el.dataset.i].merkmale?.[auswahl.feld] ?? []).includes(auswahl.wert);
+    el.classList.toggle("an", an);
+    treffer += an;
+  });
+  $("auswahl-info").textContent = auswahl ? `${auswahl.wert}: ${treffer === 1 ? "1 Spiel" : treffer + " Spiele"} · nochmal klicken zum Aufheben` : "";
+}
+document.querySelector("aside").addEventListener("click", e => {
+  const li = e.target.closest("[data-feld]");
+  if (li) waehle({ feld: li.dataset.feld, wert: li.dataset.wert });
+});
+document.querySelector("aside").addEventListener("keydown", e => {
+  const li = e.target.closest("[data-feld]");
+  if (li && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); waehle({ feld: li.dataset.feld, wert: li.dataset.wert }); }
+});
+addEventListener("keydown", e => { if (e.key === "Escape" && auswahl) waehle(null); });
 
 $("monat").addEventListener("change", e => zeige(e.target.value));
 $("zurueck").addEventListener("click", () => zeige(monate[monate.indexOf($("monat").value) + 1]));

@@ -94,40 +94,77 @@ const ersterMonat = [...erstePartie.values()].sort()[0]?.slice(0, 7);
 
 // Anteil an der Spielzeit je Thema oder Mechanik; nur Spiele, für die BGG die Merkmale kennt
 // wert: Spiel -> Liste von Namen (Themen, Mechaniken, Designer …)
-function merkmale(liste, wert, uebersetzen = (s) => s) {
+// zusammen: Namen, die im Monat nur bei genau denselben Spielen stehen (z. B. ein Autorenduo), werden ein Eintrag „A & B“
+function merkmale(liste, wert, uebersetzen = (s) => s, zusammen = false) {
   const summe = new Map();
   let gesamt = 0;
   for (const z of liste) {
     const werte = wert(spiele.get(z.schluessel)?.bgg);
     if (!z.spielzeit || !Array.isArray(werte) || !werte.length) continue;
     gesamt += z.spielzeit;
-    for (const w of new Set(werte.map(uebersetzen))) summe.set(w, (summe.get(w) ?? 0) + z.spielzeit);
+    for (const w of new Set(werte.map(uebersetzen))) {
+      const e = summe.get(w) ?? { minuten: 0, spiele: [] };
+      e.minuten += z.spielzeit;
+      e.spiele.push(z.schluessel);
+      summe.set(w, e);
+    }
   }
-  return [...summe].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "de"))
-    .slice(0, ANZAHL_MERKMALE).map(([name, minuten]) => ({ name, minuten, anteil: Math.round((minuten / gesamt) * 100) }));
+  const gruppen = new Map();
+  for (const [name, e] of summe) {
+    const key = zusammen ? e.spiele.slice().sort().join("|") : name;
+    const g = gruppen.get(key) ?? { teile: [], minuten: e.minuten };
+    g.teile.push(name);
+    gruppen.set(key, g);
+  }
+  const verbinde = (t) => (t.length < 2 ? t[0] : t.slice(0, -1).join(", ") + " & " + t.at(-1));
+  // Zusammengeführte Namen kurz wie auf Spieleschachteln: nur Nachnamen, große Teams „A, B & 4 weitere“.
+  // Alle vollen Namen stehen in voll (Tooltip).
+  const nachname = (n) => n.split(" ").at(-1);
+  const kurz = (t) => (t.length < 2 ? t[0] : t.length <= 3 ? verbinde(t.map(nachname)) : `${nachname(t[0])}, ${nachname(t[1])} & ${t.length - 2} weitere`);
+  return [...gruppen.values()]
+    .map((g) => ({ name: kurz(g.teile), voll: g.teile.length > 1 ? verbinde(g.teile) : undefined, teile: g.teile.length > 1 ? g.teile : undefined, minuten: g.minuten }))
+    .sort((a, b) => b.minuten - a.minuten || a.name.localeCompare(b.name, "de"))
+    .slice(0, ANZAHL_MERKMALE).map((m) => ({ ...m, anteil: Math.round((m.minuten / gesamt) * 100) }));
 }
+
+// BGG unterscheidet Namensgleiche mit Zusätzen wie „Petr Štich (III)“ oder „Starling Games (II)“
+const ohneZusatz = (s) => s.replace(/\s+\([IVX]+\)$/, "");
+
+// Feld -> [Werte aus dem BGG-Eintrag, Übersetzung, Duos zusammenführen]
+const FELDER = {
+  themen: [(b) => b?.kategorien, deutsch],
+  mechaniken: [(b) => b?.mechaniken, deutsch],
+  designer: [(b) => b?.designer, ohneZusatz, true],
+  illustration: [(b) => b?.illustration, ohneZusatz, true],
+  // BGG nennt den Originalverlag zuerst, danach alle Lizenzausgaben
+  verlage: [(b) => b?.verlage?.slice(0, 1), ohneZusatz],
+};
 
 const monate = {};
 for (const schluessel of [...new Set(d.partien.map((p) => p.datum.slice(0, 7)))].sort()) {
   const partien = d.partien.filter((p) => p.datum.startsWith(schluessel));
   const liste = rangliste(partien, null, dauer);
+  const listen = Object.fromEntries(Object.entries(FELDER).map(([feld, [wert, uebersetzen, zusammen]]) => [feld, merkmale(liste, wert, uebersetzen, zusammen)]));
   monate[schluessel] = {
     partien: partien.length,
     abende: new Set(partien.map((p) => p.datum)).size,
     spiele: liste.map((z) => {
       const s = spiele.get(z.schluessel);
+      // Für die klickbaren Listen rechts: welche der gezeigten Merkmale hat dieses Spiel?
+      const merkmaleSpiel = {};
+      for (const [feld, [wert, uebersetzen = (x) => x]] of Object.entries(FELDER)) {
+        const eigene = new Set((wert(s?.bgg) ?? []).map(uebersetzen));
+        const treffer = listen[feld].filter((m) => (m.teile ?? [m.name]).some((n) => eigene.has(n))).map((m) => m.name);
+        if (treffer.length) merkmaleSpiel[feld] = treffer;
+      }
       return {
         name: s?.name ?? z.schluessel, partien: z.partien, minuten: z.spielzeit,
         cover: s?.bgg?.cover ? path.basename(s.bgg.cover) : null,
         premiere: erstePartie.get(z.schluessel).startsWith(schluessel),
+        merkmale: merkmaleSpiel,
       };
     }),
-    themen: merkmale(liste, (b) => b?.kategorien, deutsch),
-    mechaniken: merkmale(liste, (b) => b?.mechaniken, deutsch),
-    designer: merkmale(liste, (b) => b?.designer),
-    illustration: merkmale(liste, (b) => b?.illustration),
-    // BGG nennt den Originalverlag zuerst, danach alle Lizenzausgaben
-    verlage: merkmale(liste, (b) => b?.verlage?.slice(0, 1)),
+    ...listen,
   };
 }
 

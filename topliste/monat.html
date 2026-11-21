@@ -140,6 +140,100 @@
 
   footer { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: rgba(239,222,198,.55); }
 
+  /* ---------- Instagram: drei Hochkant-Bilder 1080 × 1350 (4:5) ---------- */
+  .knopf { font: 700 15px var(--text); color: var(--creme-hell); background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.16); border-radius: 9px; height: 36px; padding: 0 14px; cursor: pointer; }
+  .knopf:hover { background: rgba(255,255,255,.13); }
+  .leise { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .leise:hover { color: var(--gold); }
+  .knopf.gold { background: var(--gold); border-color: var(--gold); color: var(--tinte); }
+  .knopf:disabled { opacity: .5; cursor: wait; }
+  #insta { display: none; height: 100vh; padding: 14px 24px; flex-direction: column; gap: 14px; }
+  body.insta .seite { display: none; }
+  body.insta #insta { display: flex; }
+  .insta-leiste { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .insta-leiste .tipp { color: rgba(239,222,198,.65); font-size: 13px; margin-left: auto; }
+  .folien { flex: 1; min-height: 0; display: flex; justify-content: center; align-items: flex-start; gap: 24px; }
+  .folie-platz { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .folie-rahmen { width: calc(1080px * var(--s, .4)); height: calc(1350px * var(--s, .4)); position: relative;
+    border-radius: 6px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+  .folie { position: absolute; left: 0; top: 0; width: 1080px; height: 1350px; transform: scale(var(--s, .4)); transform-origin: 0 0;
+    padding: 64px 64px 44px; display: flex; flex-direction: column; overflow: hidden; color: var(--creme-hell);
+    background:
+      radial-gradient(900px 600px at 0% 0%, rgba(225,159,66,.2), transparent 60%),
+      radial-gradient(800px 600px at 100% 100%, rgba(33,68,76,.6), transparent 60%),
+      var(--tinte); }
+  .f-ueber { font: 700 24px var(--text); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+  .f-titel { font: 800 88px/1 var(--titel); margin-top: 14px; }
+  .f-titel span { color: var(--gold); }
+  .f-unter { font: 600 34px var(--titel); color: var(--creme); margin-top: 10px; }
+  .f-fuss { margin-top: auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center;
+    font: 700 22px var(--text); color: rgba(239,222,198,.6); }
+  .f-fuss b { font: 800 26px var(--titel); color: var(--creme-hell); }
+  .f-fuss b i { font-style: normal; color: var(--gold); }
+
+  .f-zahlen { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); gap: 18px; margin-top: 44px; }
+  .f-zahlen > div { background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.13); border-radius: 22px;
+    padding: 18px 0 20px; text-align: center; }
+  .f-zahlen b { display: block; font: 800 80px/1 var(--titel); }
+  .f-zahlen small { display: block; margin-top: 8px; font: 700 21px var(--text); letter-spacing: .12em; text-transform: uppercase; color: var(--creme); }
+  .f-zahlen .prem { background: var(--gold); border-color: var(--gold); }
+  .f-zahlen .prem b, .f-zahlen .prem small { color: var(--tinte); }
+
+  .ic { position: relative; width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden; display: grid; place-items: center;
+    font: 800 40px var(--titel); color: rgba(255,255,255,.92); background-size: cover; background-position: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,.35); }
+  .ic .anzahl { right: 8px; bottom: 8px; min-width: 44px; height: 44px; padding: 0 10px; border-radius: 22px; border-width: 3px;
+    font-size: 22px; line-height: 38px; }
+  .ic .premiere { top: 12px; font-size: 16px; padding: 4px 11px 4px 9px; border-radius: 0 9px 9px 0; }
+
+  .f-podest { margin-top: auto; display: grid; grid-template-columns: 1fr 1.18fr 1fr; gap: 22px; align-items: end; }
+  .f-platz { border-radius: 24px; padding: 20px 20px 22px; color: var(--tinte); box-shadow: 0 14px 34px rgba(0,0,0,.35); }
+  .f-platz.p1 { order: 2; padding: 26px 24px 30px; background: linear-gradient(150deg, #fbe3a0, #e8b54a 55%, #c98a1e); }
+  .f-platz.p2 { order: 1; background: linear-gradient(150deg, #f4f5f7, #c9ced5 55%, #9aa2ac); }
+  .f-platz.p3 { order: 3; background: linear-gradient(150deg, #f3c9a2, #cf8c57 55%, #a3612f); }
+  .f-platz .premiere { box-shadow: 0 0 0 2px var(--tinte), 0 2px 6px rgba(0,0,0,.35); }
+  .f-platz .rang { font: 800 52px/1 var(--titel); margin-top: 16px; }
+  .f-platz.p1 .rang { font-size: 64px; }
+  .f-platz .name { font: 700 27px/1.15 var(--text); margin-top: 6px; height: 2.3em; overflow: hidden; }
+  .f-platz.p1 .name { font-size: 30px; }
+  .f-platz .wert { margin-top: 10px; font: 800 32px var(--titel); }
+  .f-platz .wert span { display: block; font: 400 21px var(--text); color: rgba(43,37,48,.8); margin-top: 2px; }
+
+  .f-raster { flex: 1; min-height: 0; margin-top: 34px; display: grid; justify-content: center; align-content: center;
+    grid-template-columns: repeat(var(--spalten, 6), var(--kachel, 140px)); gap: var(--abstand, 20px); }
+  .f-raster .kachel { gap: 6px; }
+  .f-raster .kachel .name { font-size: var(--schrift, 18px); white-space: nowrap; overflow: hidden; text-overflow: clip; }
+  .f-raster.mittel .ic .anzahl { min-width: 34px; height: 34px; font-size: 17px; line-height: 28px; border-width: 2px; right: 5px; bottom: 5px; padding: 0 7px; }
+  .f-raster.mittel .ic .premiere { font-size: 12px; top: 8px; padding: 3px 8px 3px 6px; }
+  .f-raster.klein .ic .anzahl { min-width: 26px; height: 26px; font-size: 13px; line-height: 22px; border-width: 2px; right: 4px; bottom: 4px; padding: 0 5px; }
+  .f-raster.klein .ic .premiere { font-size: 9px; top: 5px; padding: 2px 6px 2px 4px; }
+  .f-raster .ic { font-size: calc(var(--kachel, 140px) * .26); border-radius: 9px; }
+  .f-legende { margin-top: 26px; display: flex; gap: 34px; justify-content: center; font: 400 21px var(--text); color: var(--creme); }
+  .f-legende span { display: flex; align-items: center; gap: 10px; }
+  .f-legende .anzahl, .f-legende .premiere { position: static; box-shadow: none; }
+  .f-legende .anzahl { min-width: 36px; height: 36px; border-radius: 18px; font-size: 17px; line-height: 32px; }
+  .f-legende .premiere { font-size: 14px; padding: 4px 10px; border-radius: 6px; }
+
+  .f-listen { flex: 1; margin-top: 40px; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+  .f-karte { background: rgba(255,255,255,.05); border: 2px solid rgba(255,255,255,.09); border-radius: 22px; padding: 28px 30px 32px; }
+  .f-karte h3 { font: 600 36px var(--titel); color: var(--creme); margin-bottom: 18px; }
+  .f-karte ol { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .f-karte li { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; font: 700 26px/1.15 var(--text); }
+  .f-karte li span { white-space: nowrap; overflow: hidden; }
+  .f-karte li b { font: 800 26px var(--titel); color: var(--creme); }
+  .f-karte .balken { height: 9px; border-radius: 5px; }
+  .f-karte .balken i { border-radius: 5px; }
+  .f-zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .f-drei { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .f-drei .f-karte { padding: 22px 22px 24px; }
+  .f-drei h3 { font-size: 28px; margin-bottom: 10px; }
+  .f-drei ol { gap: 12px; }
+  .f-drei li { grid-template-columns: 28px 1fr; font: 400 23px/1.2 var(--text); }
+  .f-drei li i { font-style: normal; font-weight: 700; color: var(--gold); }
+  .f-drei li span { overflow: hidden; white-space: nowrap; }
+  .f-notiz { margin-top: 26px; font: 400 19px/1.4 var(--text); color: rgba(239,222,198,.6); }
+
   @media (max-width: 1100px) {
     .seite { height: auto; }
     .inhalt { grid-template-columns: 1fr; }
@@ -201,8 +295,18 @@
 
   <footer>
     <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · Zahl am Cover = Partien · Listen rechts: Anteil an der Spielzeit · <span id="stand"></span></span>
-    <span>boardgames-muenstereifel.club</span>
+    <span><button type="button" class="leise" id="insta-an" title="Drei Hochkant-Bilder (1080 × 1350) für Instagram">Instagram-Bilder ›</button> · boardgames-muenstereifel.club</span>
   </footer>
+</div>
+
+<div id="insta">
+  <div class="insta-leiste">
+    <button type="button" class="knopf" id="insta-aus">← Übersicht</button>
+    <span id="insta-menue"></span>
+    <button type="button" class="knopf gold" id="alle-speichern">Alle 3 Bilder speichern</button>
+    <span class="tipp">1080 × 1350 Pixel (4:5), in dieser Reihenfolge als Karussell posten</span>
+  </div>
+  <div class="folien" id="folien"></div>
 </div>
 
 <script src="monat-daten.js"></script>
@@ -274,9 +378,159 @@ function zeige(k) {
   for (const feld of ["designer", "illustration", "verlage"]) $(feld).innerHTML = personenListe(m[feld], feld);
   aktuell = m.spiele;
   waehle(null);
-  if (location.hash.slice(1) !== k) history.replaceState(null, "", "#" + k);
+  const ziel = "#" + k + (instaAn ? "/insta" : "");
+  if (location.hash !== ziel) history.replaceState(null, "", ziel);
   passeRasterAn();
+  if (instaAn) baueFolien(k);
 }
+
+// ---------- Instagram: drei Hochkant-Bilder ----------
+let instaAn = false;
+const coverBild = e => e.cover ? `background-image:url('../src/assets/cover/${esc(e.cover)}')` : `background-image:linear-gradient(135deg, hsl(${farbton(e.name)} 45% 46%), hsl(${farbton(e.name) + 40} 40% 30%))`;
+function igCover(e) {
+  return `<div class="ic" style="${coverBild(e)}">${e.cover ? "" : esc(kuerzel(e.name))}`
+    + (e.premiere ? `<span class="premiere">Premiere</span>` : "")
+    + `<span class="anzahl">${e.partien}×</span></div>`;
+}
+// Text auf Breite kürzen (html2canvas kann kein text-overflow)
+const messer = document.createElement("canvas").getContext("2d");
+function kuerze(text, schrift, breite) {
+  messer.font = schrift;
+  if (messer.measureText(text).width <= breite) return text;
+  let t = text;
+  while (t.length > 1 && messer.measureText(t + "…").width > breite) t = t.slice(0, -1);
+  return t.trimEnd() + "…";
+}
+const fuss = (nr, rechts) => `<div class="f-fuss"><span>${rechts}</span><b>${nr}<i> / 3</i></b></div>`;
+
+function baueFolien(k) {
+  const m = D.monate[k], erster = k === D.ersterMonat;
+  const spiele = m.spiele.map(e => erster ? { ...e, premiere: false } : e);
+  const premieren = spiele.filter(e => e.premiere).length;
+  const kopf = (unter) => `<div class="f-ueber">Boardgames Bad Münstereifel</div>`
+    + `<div class="f-titel">${unter}</div>`;
+
+  const zahlen = [[m.partien, "Partien"], [spiele.length, "Spiele"], [m.abende, m.abende === 1 ? "Abend" : "Abende"]];
+  const f1 = kopf(`Gespielt im<br><span>${monatsName(k)}</span>`)
+    + `<div class="f-unter">Die meistgespielten Spiele nach Spielzeit</div>`
+    + `<div class="f-zahlen" style="--n:${erster ? 3 : 4}">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`
+    + (erster ? "" : `<div class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></div>`) + `</div>`
+    + `<div class="f-podest">${spiele.slice(0, 3).map((e, i) => `<div class="f-platz p${i + 1}">${igCover(e)}
+        <div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
+        <div class="wert">${stunden(e.minuten)}<span>${partien(e.partien)}</span></div></div>`).join("")}</div>`
+    + fuss(1, "boardgames-muenstereifel.club");
+
+  const rest = spiele.slice(3);
+  const f2 = `<div class="f-ueber">${monatsName(k)}</div>`
+    + `<div class="f-titel" style="font-size:72px">Außerdem gespielt</div>`
+    + `<div class="f-unter">${rest.length === 1 ? "1 weiteres Spiel" : rest.length + " weitere Spiele"}, sortiert nach Spielzeit</div>`
+    + (rest.length ? `<div class="f-raster" id="f-raster">${rest.map(e => `<div class="kachel">${igCover(e)}<span class="name" data-name="${esc(e.name)}"></span></div>`).join("")}</div>`
+      : `<p class="f-unter" style="margin-top:60px">Keine weiteren Spiele in diesem Monat.</p>`)
+    + `<div class="f-legende"><span><span class="anzahl">3×</span> Partien im Monat</span>`
+    + (erster ? "" : `<span><span class="premiere">Premiere</span> zum ersten Mal bei uns gespielt</span>`) + `</div>`
+    + fuss(2, "boardgames-muenstereifel.club");
+
+  const balkenListe = (liste, farbe) => {
+    liste = (liste ?? []).slice(0, 5);
+    if (!liste.length) return `<li style="font-weight:400">Noch keine BGG-Daten.</li>`;
+    const max = liste[0].anteil || 1;
+    return liste.map(x => `<li><span>${esc(kuerze(x.name, "700 26px 'Atkinson Hyperlegible'", 300))}</span><b>${x.anteil} %</b>`
+      + `<div class="balken"><i style="width:${Math.max(4, x.anteil / max * 100)}%;background:${farbe}"></i></div></li>`).join("");
+  };
+  const top3 = liste => (liste ?? []).slice(0, 3).map((x, i) => `<li><i>${i + 1}.</i><span>${esc(kuerze(x.name, "400 23px 'Atkinson Hyperlegible'", 215))}</span></li>`).join("") || `<li>–</li>`;
+  const f3 = `<div class="f-ueber">${monatsName(k)}</div>`
+    + `<div class="f-titel" style="font-size:72px">Was wir gespielt haben</div>`
+    + `<div class="f-unter">Themen, Mechaniken und Köpfe hinter den Spielen</div>`
+    + `<div class="f-listen"><div class="f-zwei">`
+    + `<div class="f-karte"><h3>Themen</h3><ol>${balkenListe(m.themen, "var(--gold)")}</ol></div>`
+    + `<div class="f-karte"><h3>Mechaniken</h3><ol>${balkenListe(m.mechaniken, "var(--petrol)")}</ol></div></div>`
+    + `<div class="f-drei"><div class="f-karte"><h3>Designer</h3><ol>${top3(m.designer)}</ol></div>`
+    + `<div class="f-karte"><h3>Illustration</h3><ol>${top3(m.illustration)}</ol></div>`
+    + `<div class="f-karte"><h3>Verlage</h3><ol>${top3(m.verlage)}</ol></div></div></div>`
+    + `<p class="f-notiz">Prozent = Anteil an der gesamten Spielzeit des Monats. Spielzeit = Partien × Spieldauer laut BoardGameGeek. Stand ${st}. ${MON[sm - 1]} ${sj}.</p>`
+    + fuss(3, "boardgames-muenstereifel.club");
+
+  $("folien").innerHTML = [f1, f2, f3].map((f, i) => `<div class="folie-platz"><div class="folie-rahmen"><div class="folie" id="folie-${i + 1}">${f}</div></div>`
+    + `<button type="button" class="knopf" data-speichern="${i + 1}">Bild ${i + 1} speichern</button></div>`).join("");
+  document.fonts.ready.then(() => { passeFolienRasterAn(); skaliereFolien(); });
+  skaliereFolien();
+}
+
+// Kacheln auf Bild 2 so groß wie möglich, alle Spiele passen hinein
+function passeFolienRasterAn() {
+  const r = $("f-raster");
+  if (!r) return;
+  const n = r.children.length, b = 952, h = r.clientHeight;
+  // Für jede Spaltenzahl die größte Kachel, die in Breite und Höhe passt; davon die größte nehmen
+  let best = { s: 0 };
+  for (let spalten = 1; spalten <= n; spalten++) {
+    const abstand = spalten > 9 ? 12 : 20;
+    const zeilen = Math.ceil(n / spalten);
+    const breit = Math.floor((b - abstand * (spalten - 1)) / spalten);
+    for (const schrift of [19, 16, 13]) {
+      const s = Math.min(230, breit, Math.floor((h - (zeilen - 1) * abstand) / zeilen - 6 - schrift * 1.2));
+      if ((s >= 130 ? 19 : s >= 90 ? 16 : 13) === schrift && s > best.s) best = { s, spalten, abstand, schrift };
+    }
+  }
+  r.classList.toggle("mittel", best.s < 150 && best.s >= 95);
+  r.classList.toggle("klein", best.s < 95);
+  r.style.cssText = `--kachel:${best.s}px;--spalten:${best.spalten};--abstand:${best.abstand}px;--schrift:${best.schrift}px`;
+  r.querySelectorAll(".name").forEach(el => { el.textContent = kuerze(el.dataset.name, `700 ${best.schrift}px 'Atkinson Hyperlegible'`, best.s); });
+}
+
+// Vorschau: alle drei Bilder nebeneinander, so groß wie das Fenster erlaubt
+function skaliereFolien() {
+  const f = $("folien");
+  if (!instaAn || !f.clientWidth) return;
+  const s = Math.min((f.clientWidth - 48) / 3240, (f.clientHeight - 46) / 1350);
+  f.style.setProperty("--s", Math.max(.12, s).toFixed(4));
+}
+
+function setzeInsta(an) {
+  instaAn = an;
+  document.body.classList.toggle("insta", an);
+  // Monatsmenü wandert mit, damit man auch hier blättern kann
+  (an ? $("insta-menue") : document.querySelector(".kopf-rechts")).append(document.querySelector(".menue"));
+  zeige($("monat").value);
+  if (an) skaliereFolien(); else passeRasterAn();
+}
+
+let h2cLaden;
+async function speichere(nr) {
+  h2cLaden ??= new Promise((ok, fehler) => {
+    const s = document.createElement("script");
+    s.src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+    s.onload = ok; s.onerror = fehler; document.head.append(s);
+  });
+  await h2cLaden;
+  await document.fonts.ready;
+  const el = $("folie-" + nr);
+  const leinwand = await html2canvas(el, {
+    width: 1080, height: 1350, scale: 1, useCORS: true, backgroundColor: "#2b2530", logging: false,
+    onclone: doc => { doc.getElementById("folie-" + nr).style.transform = "none"; },
+  });
+  const blob = await new Promise(ok => leinwand.toBlob(ok, "image/png"));
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `monatsrueckblick-${$("monat").value}-${nr}.png`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+async function speichernMitKnopf(knopf, nummern) {
+  const text = knopf.textContent;
+  knopf.disabled = true; knopf.textContent = "Wird erstellt …";
+  try { for (const nr of nummern) await speichere(nr); }
+  catch (e) { alert("Das Bild konnte nicht erstellt werden. Bitte stattdessen einen Screenshot machen."); console.error(e); }
+  knopf.disabled = false; knopf.textContent = text;
+}
+$("folien").addEventListener("click", e => {
+  const k = e.target.closest("[data-speichern]");
+  if (k) speichernMitKnopf(k, [Number(k.dataset.speichern)]);
+});
+$("alle-speichern").addEventListener("click", e => speichernMitKnopf(e.currentTarget, [1, 2, 3]));
+$("insta-an").addEventListener("click", () => setzeInsta(true));
+$("insta-aus").addEventListener("click", () => setzeInsta(false));
+addEventListener("resize", skaliereFolien);
 
 // Kachelgröße so wählen, dass alle Spiele ohne Scrollen auf die Seite passen
 function passeRasterAn() {
@@ -331,8 +585,17 @@ $("monat").addEventListener("change", e => zeige(e.target.value));
 $("zurueck").addEventListener("click", () => zeige(monate[monate.indexOf($("monat").value) + 1]));
 $("vor").addEventListener("click", () => zeige(monate[monate.indexOf($("monat").value) - 1]));
 addEventListener("resize", passeRasterAn);
-addEventListener("hashchange", () => D.monate[location.hash.slice(1)] && zeige(location.hash.slice(1)));
-zeige(D.monate[location.hash.slice(1)] ? location.hash.slice(1) : monate[0]);
+const ausHash = () => { const [k, modus] = location.hash.slice(1).split("/"); return { k: D.monate[k] ? k : null, insta: modus === "insta" }; };
+addEventListener("hashchange", () => {
+  const h = ausHash();
+  if (h.k) $("monat").value = h.k;
+  if (h.insta !== instaAn) setzeInsta(h.insta); else if (h.k) zeige(h.k);
+});
+{
+  const h = ausHash();
+  $("monat").value = h.k ?? monate[0];
+  if (h.insta) setzeInsta(true); else zeige(h.k ?? monate[0]);
+}
 </script>
 </body>
 </html>

@@ -47,9 +47,15 @@
   .menue select { padding: 0 12px; }
   .menue select option { color: var(--tinte); }
   .menue :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-  .zahlen { display: flex; gap: 14px; font-size: 14px; color: var(--creme); }
-  .zahlen b { font-family: var(--titel); font-size: 20px; color: var(--creme-hell); margin-right: 3px; }
-  .zahlen .prem b { color: var(--gold); }
+  header { align-items: center; gap: 16px; }
+  .kopf-rechts { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .zahlen { display: flex; gap: 10px; }
+  .zahlen > span { display: flex; flex-direction: column; align-items: center; min-width: 84px; padding: 7px 12px 8px;
+    background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 12px; }
+  .zahlen b { font: 800 34px/1 var(--titel); color: var(--creme-hell); }
+  .zahlen small { margin-top: 4px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--creme); }
+  .zahlen .prem { background: var(--gold); border-color: var(--gold); }
+  .zahlen .prem b, .zahlen .prem small { color: var(--tinte); }
 
   .inhalt { display: grid; grid-template-columns: 1fr 300px; gap: 18px; min-height: 0; }
   .links { display: grid; grid-template-rows: auto 1fr; gap: 14px; min-height: 0; }
@@ -116,7 +122,8 @@
   @media (max-width: 480px) {
     .seite { padding: 16px; }
     .platz { --gross: 88px; }
-    .wahl { align-items: flex-start; }
+    .zahlen > span { min-width: 0; padding: 6px 10px; }
+    .zahlen b { font-size: 26px; }
   }
 </style>
 </head>
@@ -127,13 +134,13 @@
       <div class="ueber">Boardgames Bad Münstereifel</div>
       <h1>Gespielt im <span id="titel"></span> <small>nach Spielzeit</small></h1>
     </div>
-    <div class="wahl">
+    <div class="kopf-rechts">
+      <div class="zahlen" id="zahlen"></div>
       <div class="menue">
         <button type="button" id="zurueck" aria-label="Vorheriger Monat">‹</button>
         <select id="monat" aria-label="Monat wählen"></select>
         <button type="button" id="vor" aria-label="Nächster Monat">›</button>
       </div>
-      <div class="zahlen" id="zahlen"></div>
     </div>
   </header>
 
@@ -207,9 +214,9 @@ function zeige(k) {
   $("titel").textContent = monatsName(k);
   document.title = `Gespielt im ${monatsName(k)} · Boardgames Bad Münstereifel`;
   const premieren = m.spiele.filter(e => e.premiere).length;
-  $("zahlen").innerHTML = `<span><b>${m.partien}</b>Partien</span><span><b>${m.spiele.length}</b>Spiele</span>`
-    + `<span><b>${m.abende}</b>${m.abende === 1 ? "Abend" : "Abende"}</span>`
-    + (k === D.ersterMonat ? "" : `<span class="prem"><b>${premieren}</b>${premieren === 1 ? "Premiere" : "Premieren"}</span>`);
+  $("zahlen").innerHTML = `<span><b>${m.partien}</b><small>Partien</small></span><span><b>${m.spiele.length}</b><small>Spiele</small></span>`
+    + `<span><b>${m.abende}</b><small>${m.abende === 1 ? "Abend" : "Abende"}</small></span>`
+    + (k === D.ersterMonat ? "" : `<span class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></span>`);
 
   const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
   $("top").innerHTML = m.spiele.slice(0, 3).map(ohnePremiere).map((e, i) => `

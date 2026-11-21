@@ -127,10 +127,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kampf",
+     "minuten": 710,
+     "anteil": 43
+    },
+    {
+     "name": "Horror",
+     "minuten": 600,
+     "anteil": 36
+    },
+    {
+     "name": "Romanvorlage",
+     "minuten": 600,
+     "anteil": 36
+    },
+    {
+     "name": "Abenteuer",
+     "minuten": 480,
+     "anteil": 29
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 450,
+     "anteil": 27
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 445,
+     "anteil": 27
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1075,
+     "anteil": 65
+    },
+    {
+     "name": "Solo",
+     "minuten": 820,
+     "anteil": 50
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 790,
+     "anteil": 48
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 630,
+     "anteil": 38
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 630,
+     "anteil": 38
+    },
+    {
+     "name": "Ereignisse",
+     "minuten": 615,
+     "anteil": 37
+    }
+   ],
+   "designer": [
+    {
+     "name": "Kevin Wilson",
+     "minuten": 480,
+     "anteil": 29
+    },
+    {
+     "name": "Richard Launius",
+     "minuten": 480,
+     "anteil": 29
+    },
+    {
+     "name": "Kosch",
+     "minuten": 180,
+     "anteil": 11
+    },
+    {
+     "name": "Luke Laurie",
+     "minuten": 150,
+     "anteil": 9
+    },
+    {
+     "name": "Fernando Eduardo Sánchez",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Hal Duncan",
+     "minuten": 100,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Anders Finér",
+     "minuten": 480,
+     "anteil": 30
+    },
+    {
+     "name": "Brian Schomburg",
+     "minuten": 480,
+     "anteil": 30
+    },
+    {
+     "name": "Henning Ludvigsen",
+     "minuten": 480,
+     "anteil": 30
+    },
+    {
+     "name": "Kevin Wilson",
+     "minuten": 480,
+     "anteil": 30
+    },
+    {
+     "name": "Kurt Miller",
+     "minuten": 480,
+     "anteil": 30
+    },
+    {
+     "name": "Patrick McEvoy",
+     "minuten": 480,
+     "anteil": 30
+    }
+   ],
    "verlage": [
     {
      "name": "Fantasy Flight Games",
@@ -386,10 +510,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 910,
+     "anteil": 41
+    },
+    {
+     "name": "Tiere",
+     "minuten": 865,
+     "anteil": 39
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 510,
+     "anteil": 23
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 470,
+     "anteil": 21
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 370,
+     "anteil": 17
+    },
+    {
+     "name": "Puzzle",
+     "minuten": 290,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1005,
+     "anteil": 46
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 980,
+     "anteil": 45
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 915,
+     "anteil": 42
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 850,
+     "anteil": 39
+    },
+    {
+     "name": "Solo",
+     "minuten": 735,
+     "anteil": 33
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 660,
+     "anteil": 30
+    }
+   ],
+   "designer": [
+    {
+     "name": "Dani Garcia",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Kosch",
+     "minuten": 180,
+     "anteil": 9
+    },
+    {
+     "name": "Alexander Pfister",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Roy Cannaday",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Fernando Eduardo Sánchez",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Martin Wallace",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Javier González Cava",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Nicolas Gendron",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Judit Piella",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Toni Llobet",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Andreas Resch",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Christian Strain",
+     "minuten": 150,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Alley Cat Games",
@@ -624,10 +872,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 635,
+     "anteil": 36
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 490,
+     "anteil": 28
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 310,
+     "anteil": 18
+    },
+    {
+     "name": "Tiere",
+     "minuten": 265,
+     "anteil": 15
+    },
+    {
+     "name": "Kampf",
+     "minuten": 250,
+     "anteil": 14
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 240,
+     "anteil": 14
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 835,
+     "anteil": 48
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 760,
+     "anteil": 44
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 705,
+     "anteil": 40
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 705,
+     "anteil": 40
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 670,
+     "anteil": 38
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 660,
+     "anteil": 38
+    }
+   ],
+   "designer": [
+    {
+     "name": "Tomáš Holek",
+     "minuten": 260,
+     "anteil": 15
+    },
+    {
+     "name": "Luke Laurie",
+     "minuten": 150,
+     "anteil": 9
+    },
+    {
+     "name": "Aaron Mesburne",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Fabien Gridel",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Kevin Russ",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Molly Johnson",
+     "minuten": 120,
+     "anteil": 7
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Beth Sobel",
+     "minuten": 190,
+     "anteil": 12
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jakub Lang",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jakub Politzer",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jiří Kůs",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jiří Mikovec",
+     "minuten": 160,
+     "anteil": 10
+    }
+   ],
    "verlage": [
     {
      "name": "Czech Games Edition (CGE)",
@@ -897,10 +1269,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Fantasy",
+     "minuten": 450,
+     "anteil": 20
+    },
+    {
+     "name": "Gebietsaufbau",
+     "minuten": 450,
+     "anteil": 20
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 435,
+     "anteil": 19
+    },
+    {
+     "name": "Tiere",
+     "minuten": 425,
+     "anteil": 19
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 420,
+     "anteil": 19
+    },
+    {
+     "name": "Mittelalter",
+     "minuten": 395,
+     "anteil": 17
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Mehrheiten",
+     "minuten": 790,
+     "anteil": 35
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 770,
+     "anteil": 34
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 680,
+     "anteil": 30
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 645,
+     "anteil": 28
+    },
+    {
+     "name": "Solo",
+     "minuten": 645,
+     "anteil": 28
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 630,
+     "anteil": 28
+    }
+   ],
+   "designer": [
+    {
+     "name": "Kamil 'Sanex' Cieśla",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Łukasz Włodarczyk",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Richard Ámann",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Robert Plesowicz",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Viktor Péter",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Michael Kiesling",
+     "minuten": 165,
+     "anteil": 7
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Lukas Siegmon",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Ágnes Staudt",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Attila Sáfrány",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Csilla Bíró",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Gergő Ádám",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "László Fejes",
+     "minuten": 180,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Deep Print Games",
@@ -1135,10 +1631,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Fantasy",
+     "minuten": 650,
+     "anteil": 27
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 610,
+     "anteil": 26
+    },
+    {
+     "name": "Abenteuer",
+     "minuten": 480,
+     "anteil": 20
+    },
+    {
+     "name": "Industrie",
+     "minuten": 480,
+     "anteil": 20
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 420,
+     "anteil": 18
+    },
+    {
+     "name": "Kampf",
+     "minuten": 390,
+     "anteil": 16
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 1030,
+     "anteil": 43
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 720,
+     "anteil": 30
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 720,
+     "anteil": 30
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 665,
+     "anteil": 28
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 660,
+     "anteil": 28
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 635,
+     "anteil": 27
+    }
+   ],
+   "designer": [
+    {
+     "name": "Stefan Feld",
+     "minuten": 270,
+     "anteil": 11
+    },
+    {
+     "name": "Ananda Gupta",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "David Preti",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Jason Matthews",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Jean-Baptiste Lullien",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Nicolas Raoult",
+     "minuten": 180,
+     "anteil": 8
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Antonio De Luca",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Chechu Nieto",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Dany Orizio",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Édouard Guiton",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Giorgia Lanza",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Guillaume Ries",
+     "minuten": 180,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "CMON Global Limited",
@@ -1541,10 +2161,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 1565,
+     "anteil": 35
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 870,
+     "anteil": 20
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 540,
+     "anteil": 12
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 540,
+     "anteil": 12
+    },
+    {
+     "name": "Science-Fiction",
+     "minuten": 530,
+     "anteil": 12
+    },
+    {
+     "name": "Industrie",
+     "minuten": 520,
+     "anteil": 12
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1625,
+     "anteil": 37
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 1545,
+     "anteil": 35
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 1475,
+     "anteil": 33
+    },
+    {
+     "name": "Solo",
+     "minuten": 1295,
+     "anteil": 29
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 1185,
+     "anteil": 27
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 1175,
+     "anteil": 27
+    }
+   ],
+   "designer": [
+    {
+     "name": "Germán P. Millán",
+     "minuten": 360,
+     "anteil": 8
+    },
+    {
+     "name": "Sarah Shipp",
+     "minuten": 270,
+     "anteil": 6
+    },
+    {
+     "name": "Tomáš Holek",
+     "minuten": 260,
+     "anteil": 6
+    },
+    {
+     "name": "Andrea Colletti",
+     "minuten": 240,
+     "anteil": 6
+    },
+    {
+     "name": "Diego Fonseca",
+     "minuten": 240,
+     "anteil": 6
+    },
+    {
+     "name": "Marco Montanaro",
+     "minuten": 240,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Laura Bevon",
+     "minuten": 360,
+     "anteil": 8
+    },
+    {
+     "name": "Mercedes Palacios",
+     "minuten": 270,
+     "anteil": 6
+    },
+    {
+     "name": "Angelica Donarini",
+     "minuten": 240,
+     "anteil": 5
+    },
+    {
+     "name": "Cristian Casado Otazu",
+     "minuten": 240,
+     "anteil": 5
+    },
+    {
+     "name": "Giovanni Pirrotta",
+     "minuten": 240,
+     "anteil": 5
+    },
+    {
+     "name": "Lukas Siegmon",
+     "minuten": 240,
+     "anteil": 5
+    }
+   ],
    "verlage": [
     {
      "name": "Ludonova",
@@ -1772,10 +2516,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Fantasy",
+     "minuten": 705,
+     "anteil": 33
+    },
+    {
+     "name": "Tiere",
+     "minuten": 580,
+     "anteil": 27
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 540,
+     "anteil": 26
+    },
+    {
+     "name": "Puzzle",
+     "minuten": 525,
+     "anteil": 25
+    },
+    {
+     "name": "Mittelalter",
+     "minuten": 410,
+     "anteil": 19
+    },
+    {
+     "name": "Partyspiel",
+     "minuten": 410,
+     "anteil": 19
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 800,
+     "anteil": 38
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 775,
+     "anteil": 37
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 570,
+     "anteil": 27
+    },
+    {
+     "name": "Solo",
+     "minuten": 530,
+     "anteil": 25
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 485,
+     "anteil": 23
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 480,
+     "anteil": 23
+    }
+   ],
+   "designer": [
+    {
+     "name": "Dr. Hans Joachim Höh",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Maikel Cheney",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Tobias Immich",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Uwe Rosenberg",
+     "minuten": 240,
+     "anteil": 11
+    },
+    {
+     "name": "Kosch",
+     "minuten": 225,
+     "anteil": 11
+    },
+    {
+     "name": "Jonathan Mariucci",
+     "minuten": 180,
+     "anteil": 9
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Dennis Lohausen",
+     "minuten": 285,
+     "anteil": 13
+    },
+    {
+     "name": "Hendrik Noack",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "James Churchill",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Lukas Siegmon",
+     "minuten": 225,
+     "anteil": 11
+    },
+    {
+     "name": "Judit Piella",
+     "minuten": 180,
+     "anteil": 9
+    },
+    {
+     "name": "Toni Llobet",
+     "minuten": 180,
+     "anteil": 9
+    }
+   ],
    "verlage": [
     {
      "name": "Funtails",
@@ -1961,10 +2829,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 465,
+     "anteil": 30
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 320,
+     "anteil": 21
+    },
+    {
+     "name": "Seefahrt",
+     "minuten": 300,
+     "anteil": 19
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 285,
+     "anteil": 18
+    },
+    {
+     "name": "Tiere",
+     "minuten": 280,
+     "anteil": 18
+    },
+    {
+     "name": "Entdeckung",
+     "minuten": 270,
+     "anteil": 17
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Schlusswertung",
+     "minuten": 650,
+     "anteil": 42
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 555,
+     "anteil": 36
+    },
+    {
+     "name": "Solo",
+     "minuten": 500,
+     "anteil": 32
+    },
+    {
+     "name": "Wechselnde Startspieler",
+     "minuten": 480,
+     "anteil": 31
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 475,
+     "anteil": 30
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 340,
+     "anteil": 22
+    }
+   ],
+   "designer": [
+    {
+     "name": "Hisashi Hayashi",
+     "minuten": 180,
+     "anteil": 12
+    },
+    {
+     "name": "Tomáš Holek",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Felix Mertikat",
+     "minuten": 150,
+     "anteil": 10
+    },
+    {
+     "name": "Till Bröstl",
+     "minuten": 150,
+     "anteil": 10
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 140,
+     "anteil": 9
+    },
+    {
+     "name": "Carl de Visser",
+     "minuten": 120,
+     "anteil": 8
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Dominique Ferland",
+     "minuten": 180,
+     "anteil": 12
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 175,
+     "anteil": 11
+    },
+    {
+     "name": "Jakub Lang",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jakub Politzer",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jiří Kůs",
+     "minuten": 160,
+     "anteil": 10
+    },
+    {
+     "name": "Jiří Mikovec",
+     "minuten": 160,
+     "anteil": 10
+    }
+   ],
    "verlage": [
     {
      "name": "Cocktail Games",
@@ -2444,10 +3436,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 1980,
+     "anteil": 28
+    },
+    {
+     "name": "Tiere",
+     "minuten": 1530,
+     "anteil": 22
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 1460,
+     "anteil": 21
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 1090,
+     "anteil": 15
+    },
+    {
+     "name": "Science-Fiction",
+     "minuten": 1020,
+     "anteil": 14
+    },
+    {
+     "name": "Weltraum",
+     "minuten": 930,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Offenes Drafting",
+     "minuten": 2720,
+     "anteil": 39
+    },
+    {
+     "name": "Solo",
+     "minuten": 2690,
+     "anteil": 38
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 2455,
+     "anteil": 35
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 2450,
+     "anteil": 35
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 2375,
+     "anteil": 34
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 2035,
+     "anteil": 29
+    }
+   ],
+   "designer": [
+    {
+     "name": "Tomáš Holek",
+     "minuten": 480,
+     "anteil": 7
+    },
+    {
+     "name": "Hisashi Hayashi",
+     "minuten": 360,
+     "anteil": 5
+    },
+    {
+     "name": "Lukas Zach",
+     "minuten": 360,
+     "anteil": 5
+    },
+    {
+     "name": "Michael Palm",
+     "minuten": 360,
+     "anteil": 5
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 350,
+     "anteil": 5
+    },
+    {
+     "name": "Dennis Northcott",
+     "minuten": 300,
+     "anteil": 4
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Beth Sobel",
+     "minuten": 620,
+     "anteil": 9
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 600,
+     "anteil": 9
+    },
+    {
+     "name": "Jakub Politzer",
+     "minuten": 600,
+     "anteil": 9
+    },
+    {
+     "name": "Jiří Kůs",
+     "minuten": 600,
+     "anteil": 9
+    },
+    {
+     "name": "Ondřej Hrdina",
+     "minuten": 600,
+     "anteil": 9
+    },
+    {
+     "name": "Jakub Lang",
+     "minuten": 480,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Czech Games Edition (CGE)",
@@ -2647,10 +3763,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 975,
+     "anteil": 55
+    },
+    {
+     "name": "Tiere",
+     "minuten": 435,
+     "anteil": 25
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 420,
+     "anteil": 24
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 340,
+     "anteil": 19
+    },
+    {
+     "name": "Lernspiel",
+     "minuten": 250,
+     "anteil": 14
+    },
+    {
+     "name": "Würfel",
+     "minuten": 240,
+     "anteil": 14
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1040,
+     "anteil": 59
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 930,
+     "anteil": 52
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 735,
+     "anteil": 41
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 520,
+     "anteil": 29
+    },
+    {
+     "name": "Solo",
+     "minuten": 445,
+     "anteil": 25
+    },
+    {
+     "name": "Deckbau",
+     "minuten": 435,
+     "anteil": 25
+    }
+   ],
+   "designer": [
+    {
+     "name": "Kosch",
+     "minuten": 180,
+     "anteil": 11
+    },
+    {
+     "name": "Daniel Greiner",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Michael Kiesling",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Michael Schacht",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Elwen",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Mín",
+     "minuten": 120,
+     "anteil": 7
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Chris Quilliams",
+     "minuten": 225,
+     "anteil": 14
+    },
+    {
+     "name": "Judit Piella",
+     "minuten": 180,
+     "anteil": 11
+    },
+    {
+     "name": "Toni Llobet",
+     "minuten": 180,
+     "anteil": 11
+    },
+    {
+     "name": "Annemarie van Lierop",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Design/Main",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Justin Chan",
+     "minuten": 135,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Lookout Games",
@@ -2878,10 +4118,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 965,
+     "anteil": 42
+    },
+    {
+     "name": "Kampf",
+     "minuten": 660,
+     "anteil": 29
+    },
+    {
+     "name": "Abenteuer",
+     "minuten": 580,
+     "anteil": 25
+    },
+    {
+     "name": "Tiere",
+     "minuten": 375,
+     "anteil": 16
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 330,
+     "anteil": 14
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 270,
+     "anteil": 12
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1000,
+     "anteil": 44
+    },
+    {
+     "name": "Kooperativ",
+     "minuten": 840,
+     "anteil": 37
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 670,
+     "anteil": 29
+    },
+    {
+     "name": "Deckbau",
+     "minuten": 630,
+     "anteil": 27
+    },
+    {
+     "name": "Solo",
+     "minuten": 565,
+     "anteil": 25
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 505,
+     "anteil": 22
+    }
+   ],
+   "designer": [
+    {
+     "name": "AC Atienza",
+     "minuten": 360,
+     "anteil": 16
+    },
+    {
+     "name": "Connor Reid",
+     "minuten": 360,
+     "anteil": 16
+    },
+    {
+     "name": "Bruno Sautter",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Ludovic Roudy",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Marco Canetta",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Stefania Niccolini",
+     "minuten": 180,
+     "anteil": 8
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Alex Diochon",
+     "minuten": 360,
+     "anteil": 17
+    },
+    {
+     "name": "Niels Vestergaard",
+     "minuten": 360,
+     "anteil": 17
+    },
+    {
+     "name": "Zachary Whistle",
+     "minuten": 360,
+     "anteil": 17
+    },
+    {
+     "name": "David Sitbon",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Éric Azagury",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Florian Poullet",
+     "minuten": 180,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Wiggles 3D",
@@ -3116,10 +4480,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 880,
+     "anteil": 35
+    },
+    {
+     "name": "Tiere",
+     "minuten": 715,
+     "anteil": 29
+    },
+    {
+     "name": "Abstrakt",
+     "minuten": 420,
+     "anteil": 17
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 410,
+     "anteil": 16
+    },
+    {
+     "name": "Deduktion",
+     "minuten": 360,
+     "anteil": 14
+    },
+    {
+     "name": "Renaissance",
+     "minuten": 315,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Schlusswertung",
+     "minuten": 1170,
+     "anteil": 47
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 1115,
+     "anteil": 45
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 990,
+     "anteil": 40
+    },
+    {
+     "name": "Solo",
+     "minuten": 860,
+     "anteil": 35
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 735,
+     "anteil": 30
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 680,
+     "anteil": 27
+    }
+   ],
+   "designer": [
+    {
+     "name": "Michael Kiesling",
+     "minuten": 315,
+     "anteil": 13
+    },
+    {
+     "name": "Bruno Sautter",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Ludovic Roudy",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Tomáš Holek",
+     "minuten": 160,
+     "anteil": 6
+    },
+    {
+     "name": "David Gordon (I)",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Jorge J. Barroso",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Chris Quilliams",
+     "minuten": 315,
+     "anteil": 13
+    },
+    {
+     "name": "Philippe Guérin",
+     "minuten": 315,
+     "anteil": 13
+    },
+    {
+     "name": "Éric Azagury",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Florian Poullet",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 160,
+     "anteil": 6
+    },
+    {
+     "name": "Jakub Lang",
+     "minuten": 160,
+     "anteil": 6
+    }
+   ],
    "verlage": [
     {
      "name": "Next Move Games",
@@ -3368,10 +4856,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Fantasy",
+     "minuten": 930,
+     "anteil": 34
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 895,
+     "anteil": 33
+    },
+    {
+     "name": "Tiere",
+     "minuten": 660,
+     "anteil": 24
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 525,
+     "anteil": 19
+    },
+    {
+     "name": "Abenteuer",
+     "minuten": 450,
+     "anteil": 16
+    },
+    {
+     "name": "Kampf",
+     "minuten": 445,
+     "anteil": 16
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 1110,
+     "anteil": 40
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 1070,
+     "anteil": 39
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1040,
+     "anteil": 38
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 930,
+     "anteil": 34
+    },
+    {
+     "name": "Aufträge",
+     "minuten": 925,
+     "anteil": 34
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 885,
+     "anteil": 32
+    }
+   ],
+   "designer": [
+    {
+     "name": "Stefan Feld",
+     "minuten": 270,
+     "anteil": 10
+    },
+    {
+     "name": "James A. Wilson",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Jamey Stegmaier",
+     "minuten": 205,
+     "anteil": 7
+    },
+    {
+     "name": "David Preti",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Hisashi Hayashi",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Jean-Baptiste Lullien",
+     "minuten": 180,
+     "anteil": 7
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Andrew Bosley",
+     "minuten": 330,
+     "anteil": 12
+    },
+    {
+     "name": "Cody Jones",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Dann May",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Dennis Lohausen",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Dany Orizio",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Dominique Ferland",
+     "minuten": 180,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Starling Games (II)",
@@ -3515,10 +5127,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Abenteuer",
+     "minuten": 240,
+     "anteil": 25
+    },
+    {
+     "name": "Gebietsaufbau",
+     "minuten": 210,
+     "anteil": 22
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 185,
+     "anteil": 19
+    },
+    {
+     "name": "Romanvorlage",
+     "minuten": 165,
+     "anteil": 17
+    },
+    {
+     "name": "Abstrakt",
+     "minuten": 140,
+     "anteil": 15
+    },
+    {
+     "name": "Puzzle",
+     "minuten": 140,
+     "anteil": 15
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 520,
+     "anteil": 54
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 370,
+     "anteil": 39
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 350,
+     "anteil": 36
+    },
+    {
+     "name": "Aufträge",
+     "minuten": 340,
+     "anteil": 35
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 320,
+     "anteil": 33
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 320,
+     "anteil": 33
+    }
+   ],
+   "designer": [
+    {
+     "name": "Ignacy Trzewiczek",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Joanna Kijanka",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Jonathan Fryxelius",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Alan Stone",
+     "minuten": 90,
+     "anteil": 9
+    },
+    {
+     "name": "Jamey Stegmaier",
+     "minuten": 90,
+     "anteil": 9
+    },
+    {
+     "name": "Thomas Dagenais-Lespérance",
+     "minuten": 90,
+     "anteil": 9
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Dominik Mayer",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Ignacy Trzewiczek",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Jerzy Ferdyn",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Maciej Mutwil",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Mateusz \"Draegg\" Stanisławski",
+     "minuten": 120,
+     "anteil": 13
+    },
+    {
+     "name": "Mateusz Bielski",
+     "minuten": 120,
+     "anteil": 13
+    }
+   ],
    "verlage": [
     {
      "name": "FryxGames",
@@ -3788,10 +5524,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 1075,
+     "anteil": 42
+    },
+    {
+     "name": "Tiere",
+     "minuten": 805,
+     "anteil": 32
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 665,
+     "anteil": 26
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 605,
+     "anteil": 24
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 400,
+     "anteil": 16
+    },
+    {
+     "name": "Abenteuer",
+     "minuten": 390,
+     "anteil": 15
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1460,
+     "anteil": 57
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1325,
+     "anteil": 52
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 1265,
+     "anteil": 50
+    },
+    {
+     "name": "Solo",
+     "minuten": 1000,
+     "anteil": 39
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 995,
+     "anteil": 39
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 960,
+     "anteil": 38
+    }
+   ],
+   "designer": [
+    {
+     "name": "Kosch",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Andrea Robbiani",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Renato Ciervo",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Łukasz Woźniak",
+     "minuten": 150,
+     "anteil": 6
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 140,
+     "anteil": 6
+    },
+    {
+     "name": "Elwen",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Beth Sobel",
+     "minuten": 335,
+     "anteil": 13
+    },
+    {
+     "name": "Judit Piella",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Toni Llobet",
+     "minuten": 240,
+     "anteil": 9
+    },
+    {
+     "name": "Michael Menzel",
+     "minuten": 210,
+     "anteil": 8
+    },
+    {
+     "name": "Candida Corsi",
+     "minuten": 180,
+     "anteil": 7
+    },
+    {
+     "name": "Sara Valentino",
+     "minuten": 180,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Lookout Games",
@@ -4012,10 +5872,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Tiere",
+     "minuten": 650,
+     "anteil": 31
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 510,
+     "anteil": 24
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 510,
+     "anteil": 24
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 315,
+     "anteil": 15
+    },
+    {
+     "name": "Science-Fiction",
+     "minuten": 295,
+     "anteil": 14
+    },
+    {
+     "name": "Verhandeln",
+     "minuten": 285,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Schlusswertung",
+     "minuten": 815,
+     "anteil": 38
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 730,
+     "anteil": 34
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 695,
+     "anteil": 33
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 695,
+     "anteil": 33
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 665,
+     "anteil": 31
+    },
+    {
+     "name": "Solo",
+     "minuten": 665,
+     "anteil": 31
+    }
+   ],
+   "designer": [
+    {
+     "name": "Klaus Teuber",
+     "minuten": 195,
+     "anteil": 9
+    },
+    {
+     "name": "Ikhwan Kwon",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Marco Canetta",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Stefania Niccolini",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Tomáš Holek",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Yoann Levet",
+     "minuten": 135,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "David Sitbon",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "Franz Vohwinkel",
+     "minuten": 210,
+     "anteil": 10
+    },
+    {
+     "name": "Michael Menzel",
+     "minuten": 195,
+     "anteil": 9
+    },
+    {
+     "name": "Andreas Resch",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "Eugenia Smolenceva",
+     "minuten": 180,
+     "anteil": 8
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 160,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Lifestyle Boardgames Ltd",
@@ -4362,10 +6346,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Tiere",
+     "minuten": 1330,
+     "anteil": 33
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 1260,
+     "anteil": 31
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 1145,
+     "anteil": 28
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 750,
+     "anteil": 18
+    },
+    {
+     "name": "Deduktion",
+     "minuten": 555,
+     "anteil": 14
+    },
+    {
+     "name": "Kampf",
+     "minuten": 540,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 2130,
+     "anteil": 52
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 1815,
+     "anteil": 44
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 1570,
+     "anteil": 38
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 1460,
+     "anteil": 36
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1220,
+     "anteil": 30
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 1155,
+     "anteil": 28
+    }
+   ],
+   "designer": [
+    {
+     "name": "Dr. Hans Joachim Höh",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "Maikel Cheney",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "Tobias Immich",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 350,
+     "anteil": 9
+    },
+    {
+     "name": "Alexander Pfister",
+     "minuten": 250,
+     "anteil": 6
+    },
+    {
+     "name": "Kevin Wilson",
+     "minuten": 240,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Beth Sobel",
+     "minuten": 620,
+     "anteil": 15
+    },
+    {
+     "name": "Ana Maria Martinez Jaramillo",
+     "minuten": 410,
+     "anteil": 10
+    },
+    {
+     "name": "Hendrik Noack",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "James Churchill",
+     "minuten": 360,
+     "anteil": 9
+    },
+    {
+     "name": "Greg May (II)",
+     "minuten": 350,
+     "anteil": 9
+    },
+    {
+     "name": "Natalia Rojas",
+     "minuten": 350,
+     "anteil": 9
+    }
+   ],
    "verlage": [
     {
      "name": "Stonemaier Games",
@@ -4551,10 +6659,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Tiere",
+     "minuten": 620,
+     "anteil": 33
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 620,
+     "anteil": 33
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 610,
+     "anteil": 33
+    },
+    {
+     "name": "Gebietsaufbau",
+     "minuten": 600,
+     "anteil": 32
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 495,
+     "anteil": 27
+    },
+    {
+     "name": "Industrie",
+     "minuten": 450,
+     "anteil": 24
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Kartenhand",
+     "minuten": 1000,
+     "anteil": 54
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 890,
+     "anteil": 48
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 890,
+     "anteil": 48
+    },
+    {
+     "name": "Solo",
+     "minuten": 755,
+     "anteil": 40
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 690,
+     "anteil": 37
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 560,
+     "anteil": 30
+    }
+   ],
+   "designer": [
+    {
+     "name": "Mathias Wigge",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Reiner Knizia",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 140,
+     "anteil": 8
+    },
+    {
+     "name": "Elwen",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Gavan Brown",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Germán P. Millán",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Franz Vohwinkel",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "Dennis Lohausen",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Loïc Billiau",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Steffen Bieker",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Ana Maria Martinez Jaramillo",
+     "minuten": 140,
+     "anteil": 8
+    },
+    {
+     "name": "Beth Sobel",
+     "minuten": 140,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Stonemaier Games",
@@ -4817,10 +7049,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Gebietsaufbau",
+     "minuten": 570,
+     "anteil": 29
+    },
+    {
+     "name": "Tiere",
+     "minuten": 565,
+     "anteil": 29
+    },
+    {
+     "name": "Science-Fiction",
+     "minuten": 470,
+     "anteil": 24
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 460,
+     "anteil": 24
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 400,
+     "anteil": 21
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 350,
+     "anteil": 18
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Aufträge",
+     "minuten": 660,
+     "anteil": 34
+    },
+    {
+     "name": "Mehrheiten",
+     "minuten": 650,
+     "anteil": 33
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 640,
+     "anteil": 33
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 635,
+     "anteil": 32
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 625,
+     "anteil": 32
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 605,
+     "anteil": 31
+    }
+   ],
+   "designer": [
+    {
+     "name": "Touko Tahkokallio",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Alexander Pfister",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Allan Kirkeby",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Louis Malz",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Matthias Cramer",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Reiner Knizia",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Andreas Resch",
+     "minuten": 210,
+     "anteil": 11
+    },
+    {
+     "name": "Jere Kasanen",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Jukka Rajaniemi",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Kory Lynn Hubbel",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Sampo Sikiö",
+     "minuten": 200,
+     "anteil": 10
+    },
+    {
+     "name": "Michael Menzel",
+     "minuten": 165,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "eggertspiele",
@@ -5111,10 +7467,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Science-Fiction",
+     "minuten": 760,
+     "anteil": 31
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 675,
+     "anteil": 28
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 630,
+     "anteil": 26
+    },
+    {
+     "name": "Tiere",
+     "minuten": 540,
+     "anteil": 22
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 410,
+     "anteil": 17
+    },
+    {
+     "name": "Deduktion",
+     "minuten": 230,
+     "anteil": 9
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 840,
+     "anteil": 34
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 835,
+     "anteil": 34
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 730,
+     "anteil": 30
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 710,
+     "anteil": 29
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 665,
+     "anteil": 27
+    },
+    {
+     "name": "Einkommen",
+     "minuten": 650,
+     "anteil": 27
+    }
+   ],
+   "designer": [
+    {
+     "name": "James A. Wilson",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Tomáš Holek",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Daniel Dranove",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Dimitri Perrier",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Eric M. Lang",
+     "minuten": 120,
+     "anteil": 5
+    },
+    {
+     "name": "Matthieu Verdier",
+     "minuten": 120,
+     "anteil": 5
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Andrew Bosley",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Cody Jones",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Dann May",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "František Sedláček",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Jakub Lang",
+     "minuten": 160,
+     "anteil": 7
+    },
+    {
+     "name": "Jakub Politzer",
+     "minuten": 160,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Czech Games Edition (CGE)",
@@ -5342,10 +7822,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Wirtschaft",
+     "minuten": 580,
+     "anteil": 32
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 515,
+     "anteil": 29
+    },
+    {
+     "name": "Tiere",
+     "minuten": 360,
+     "anteil": 20
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 320,
+     "anteil": 18
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 315,
+     "anteil": 18
+    },
+    {
+     "name": "Gebietsaufbau",
+     "minuten": 230,
+     "anteil": 13
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 780,
+     "anteil": 43
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 730,
+     "anteil": 41
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 570,
+     "anteil": 32
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 555,
+     "anteil": 31
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 495,
+     "anteil": 28
+    },
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 480,
+     "anteil": 27
+    }
+   ],
+   "designer": [
+    {
+     "name": "Jeffrey CCH",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "Mathias Wigge",
+     "minuten": 150,
+     "anteil": 8
+    },
+    {
+     "name": "Johannes Sich",
+     "minuten": 135,
+     "anteil": 8
+    },
+    {
+     "name": "Fernando Eduardo Sánchez",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Ross Arnold",
+     "minuten": 120,
+     "anteil": 7
+    },
+    {
+     "name": "Rüdiger Dorn",
+     "minuten": 120,
+     "anteil": 7
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Dennis Lohausen",
+     "minuten": 355,
+     "anteil": 20
+    },
+    {
+     "name": "Cold Castle Studios",
+     "minuten": 270,
+     "anteil": 15
+    },
+    {
+     "name": "Amanda Phelps",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "Arepko",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "Daniel Cunha",
+     "minuten": 180,
+     "anteil": 10
+    },
+    {
+     "name": "James Churchill",
+     "minuten": 180,
+     "anteil": 10
+    }
+   ],
    "verlage": [
     {
      "name": "Ice Makes",
@@ -5587,10 +8191,134 @@ window.MONATE = {
      "premiere": false
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Kartenspiel",
+     "minuten": 990,
+     "anteil": 47
+    },
+    {
+     "name": "Industrie",
+     "minuten": 630,
+     "anteil": 30
+    },
+    {
+     "name": "Tiere",
+     "minuten": 565,
+     "anteil": 27
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 540,
+     "anteil": 25
+    },
+    {
+     "name": "Wirtschaft",
+     "minuten": 540,
+     "anteil": 25
+    },
+    {
+     "name": "Städtebau",
+     "minuten": 475,
+     "anteil": 22
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Solo",
+     "minuten": 1200,
+     "anteil": 56
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 1065,
+     "anteil": 50
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 1045,
+     "anteil": 49
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1020,
+     "anteil": 48
+    },
+    {
+     "name": "Aufträge",
+     "minuten": 790,
+     "anteil": 37
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 790,
+     "anteil": 37
+    }
+   ],
+   "designer": [
+    {
+     "name": "Vladimír Suchý",
+     "minuten": 270,
+     "anteil": 13
+    },
+    {
+     "name": "James A. Wilson",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Elizabeth Hargrave",
+     "minuten": 140,
+     "anteil": 7
+    },
+    {
+     "name": "Adam Španěl",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Eloi Pujadas",
+     "minuten": 120,
+     "anteil": 6
+    },
+    {
+     "name": "Joaquim Vilalta",
+     "minuten": 120,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Beth Sobel",
+     "minuten": 275,
+     "anteil": 13
+    },
+    {
+     "name": "Andrew Bosley",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Cody Jones",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Dann May",
+     "minuten": 160,
+     "anteil": 8
+    },
+    {
+     "name": "Milan Vavroň",
+     "minuten": 150,
+     "anteil": 7
+    },
+    {
+     "name": "Uildrim",
+     "minuten": 150,
+     "anteil": 7
+    }
+   ],
    "verlage": [
     {
      "name": "Delicious Games",
@@ -5902,10 +8630,134 @@ window.MONATE = {
      "premiere": true
     }
    ],
-   "themen": [],
-   "mechaniken": [],
-   "designer": [],
-   "illustration": [],
+   "themen": [
+    {
+     "name": "Tiere",
+     "minuten": 885,
+     "anteil": 29
+    },
+    {
+     "name": "Science-Fiction",
+     "minuten": 870,
+     "anteil": 28
+    },
+    {
+     "name": "Kartenspiel",
+     "minuten": 830,
+     "anteil": 27
+    },
+    {
+     "name": "Fantasy",
+     "minuten": 735,
+     "anteil": 24
+    },
+    {
+     "name": "Mittelalter",
+     "minuten": 415,
+     "anteil": 13
+    },
+    {
+     "name": "Umwelt",
+     "minuten": 360,
+     "anteil": 12
+    }
+   ],
+   "mechaniken": [
+    {
+     "name": "Unterschiedliche Fähigkeiten",
+     "minuten": 980,
+     "anteil": 31
+    },
+    {
+     "name": "Kartenhand",
+     "minuten": 970,
+     "anteil": 31
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 875,
+     "anteil": 28
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 815,
+     "anteil": 26
+    },
+    {
+     "name": "Solo",
+     "minuten": 790,
+     "anteil": 25
+    },
+    {
+     "name": "Arbeiter einsetzen",
+     "minuten": 670,
+     "anteil": 21
+    }
+   ],
+   "designer": [
+    {
+     "name": "Richard Garfield",
+     "minuten": 360,
+     "anteil": 11
+    },
+    {
+     "name": "Christos Giannakoulas",
+     "minuten": 320,
+     "anteil": 10
+    },
+    {
+     "name": "Manolis Zachariadis",
+     "minuten": 320,
+     "anteil": 10
+    },
+    {
+     "name": "Paul Dennen",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "Adam Kwapiński",
+     "minuten": 180,
+     "anteil": 6
+    },
+    {
+     "name": "Kosch",
+     "minuten": 180,
+     "anteil": 6
+    }
+   ],
+   "illustration": [
+    {
+     "name": "Martin Mottet",
+     "minuten": 320,
+     "anteil": 10
+    },
+    {
+     "name": "Maurice Mosqua",
+     "minuten": 320,
+     "anteil": 10
+    },
+    {
+     "name": "Brett Nienburg",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "Clay Brooks",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "Derek Herring",
+     "minuten": 240,
+     "anteil": 8
+    },
+    {
+     "name": "Kenan Jackson",
+     "minuten": 240,
+     "anteil": 8
+    }
+   ],
    "verlage": [
     {
      "name": "Feuerland Spiele",

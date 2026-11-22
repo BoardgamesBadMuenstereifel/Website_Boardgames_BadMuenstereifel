@@ -1,6 +1,6 @@
 # Warnungen beim letzten Website-Bau
 
-Stand: 2026-11-21
+Stand: 2026-11-22
 
 Die Website wurde trotzdem gebaut. Das hier solltest du dir ansehen:
 

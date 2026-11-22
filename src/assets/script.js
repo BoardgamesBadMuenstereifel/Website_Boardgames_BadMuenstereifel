@@ -47,12 +47,15 @@
   }
 })();
 
-// Filter der Sammlung. Ohne JavaScript bleibt alles sichtbar.
+// Filter der Sammlung (Regal). Fächer ohne passendes Spiel verschwinden, die Zahl auf dem Schild zählt mit.
+// Ohne JavaScript bleibt alles sichtbar.
 (function () {
   var form = document.getElementById("filter");
   if (!form) return;
   form.hidden = false;
-  var karten = Array.prototype.slice.call(document.querySelectorAll("#sammlung > li"));
+  var regal = document.getElementById("sammlung");
+  var karten = Array.prototype.slice.call(regal.querySelectorAll("[data-name]"));
+  var faecher = Array.prototype.slice.call(regal.querySelectorAll("[data-fach]"));
   var treffer = document.getElementById("treffer");
   function passt(k, f) {
     var d = k.dataset;
@@ -69,12 +72,33 @@
     var f = Object.fromEntries(new FormData(form));
     var n = 0;
     karten.forEach(function (k) { var ok = passt(k, f); k.hidden = !ok; if (ok) n++; });
-    treffer.textContent = n + (n === 1 ? " Spiel" : " Spiele");
+    faecher.forEach(function (fach) {
+      var sichtbar = fach.querySelectorAll("[data-name]:not([hidden])").length;
+      fach.hidden = !sichtbar;
+      fach.querySelector("[data-anzahl]").textContent = sichtbar;
+      fach.querySelector("[data-anzahl] + .nur-sr").textContent = sichtbar === 1 ? " Spiel" : " Spiele";
+    });
+    regal.hidden = !n;
+    treffer.textContent = n ? n + (n === 1 ? " Spiel" : " Spiele") : "Kein Spiel passt zu deiner Auswahl.";
   }
   form.addEventListener("change", anwenden);
   form.addEventListener("input", anwenden);
   form.addEventListener("submit", function (e) { e.preventDefault(); });
   anwenden();
+
+  // Das Namensschild über einer Schachtel bleibt im Regal, auch bei Schachteln ganz links oder rechts
+  function schildRuecken(e) {
+    var a = e.target.closest && e.target.closest(".schachtel a");
+    if (!a) return;
+    var info = a.querySelector(".schachtel-info");
+    info.style.removeProperty("--verschub");
+    var r = info.getBoundingClientRect(), g = regal.getBoundingClientRect();
+    if (r.width < 2) return;
+    var v = Math.max(0, g.left + 6 - r.left) - Math.max(0, r.right - g.right + 6);
+    if (v) info.style.setProperty("--verschub", Math.round(v) + "px");
+  }
+  regal.addEventListener("mouseover", schildRuecken);
+  regal.addEventListener("focusin", schildRuecken);
 })();
 
 // Fotos „landen“ beim Herunterscrollen auf dem Tisch. Ohne JavaScript oder bei

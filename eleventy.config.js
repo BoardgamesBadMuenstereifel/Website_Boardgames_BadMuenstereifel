@@ -1,3 +1,6 @@
+import path from "node:path";
+import { regalFaecher, bildMasse } from "./skripte/lib/regal.mjs";
+
 export default function (config) {
   config.addPassthroughCopy({ "src/assets": "assets" });
   for (const datei of ["fraunces-latin-700-normal", "fraunces-latin-ext-700-normal"]) {
@@ -21,6 +24,9 @@ export default function (config) {
     return `${String(Math.round(minuten / 6) / 10).replace(".", ",")} Std.`;
   });
   config.addFilter("jsonSicher", (wert) => JSON.stringify(wert).replace(/</g, "\\u003c"));
+  // Sammlung als Regal: Fächer je Kategorie und die Maße der Cover (Datei liegt unter src/)
+  config.addFilter("regalFaecher", regalFaecher);
+  config.addFilter("coverMasse", (cover) => (cover ? bildMasse(path.join("src", cover)) : null));
 
   // Termine als Veranstaltungen, die Suchmaschinen lesen können (schema.org). Termine ohne Ort fehlen, Google verlangt einen.
   const isoBerlin = (datum, uhrzeit) => {

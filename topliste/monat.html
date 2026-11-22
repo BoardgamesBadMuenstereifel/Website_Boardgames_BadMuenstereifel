@@ -372,7 +372,7 @@ function zeige(k) {
   document.title = `Gespielt im ${monatsName(k)} · Boardgames Bad Münstereifel`;
   const premieren = m.spiele.filter(e => e.premiere).length;
   $("zahlen").innerHTML = `<span><b>${m.partien}</b><small>Partien</small></span><span><b>${m.spiele.length}</b><small>Spiele</small></span>`
-    + `<span><b>${m.abende}</b><small>${m.abende === 1 ? "Abend" : "Abende"}</small></span>`
+    + `<span><b>${m.abende}</b><small>Treffen</small></span>`
     + (k === D.ersterMonat ? "" : `<span class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></span>`);
 
   const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
@@ -419,7 +419,7 @@ function baueFolien(k) {
   const kopf = (unter) => `<div class="f-ueber">Boardgames Bad Münstereifel</div>`
     + `<div class="f-titel">${unter}</div>`;
 
-  const zahlen = [[m.partien, "Partien"], [spiele.length, "Spiele"], [m.abende, m.abende === 1 ? "Abend" : "Abende"]];
+  const zahlen = [[m.partien, "Partien"], [spiele.length, "Spiele"], [m.abende, "Treffen"]];
   // Bild 1: Titel, Zahlen und alle Spiele gleich groß, sortiert nach Spielzeit
   const f1 = kopf(`Gespielt im <span>${monatsName(k)}</span>`).replace('class="f-titel"', 'class="f-titel" style="font-size:64px"')
     + `<div class="f-zahlen" style="--n:${erster ? 3 : 4};margin-top:30px">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`

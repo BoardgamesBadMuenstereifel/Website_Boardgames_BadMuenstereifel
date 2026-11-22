@@ -130,10 +130,13 @@ function merkmale(liste, wert, uebersetzen = (s) => s, zusammen = false) {
 // BGG unterscheidet Namensgleiche mit Zusätzen wie „Petr Štich (III)“ oder „Starling Games (II)“
 const ohneZusatz = (s) => s.replace(/\s+\([IVX]+\)$/, "");
 
+const IGNORIERTE_MECHANIKEN = new Set(["Solo / Solitaire Game"]);
+
 // Feld -> [Werte aus dem BGG-Eintrag, Übersetzung, Duos zusammenführen]
 const FELDER = {
   themen: [(b) => b?.kategorien, deutsch],
-  mechaniken: [(b) => b?.mechaniken, deutsch],
+  // Ohne Solo: wir spielen die Spiele in der Gruppe, nicht allein
+  mechaniken: [(b) => b?.mechaniken?.filter((m) => !IGNORIERTE_MECHANIKEN.has(m)), deutsch],
   designer: [(b) => b?.designer, ohneZusatz, true],
   illustration: [(b) => b?.illustration, ohneZusatz, true],
   // BGG nennt den Originalverlag zuerst, danach alle Lizenzausgaben

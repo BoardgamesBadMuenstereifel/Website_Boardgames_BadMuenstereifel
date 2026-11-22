@@ -1,6 +1,6 @@
 // Erzeugt von topliste/monat-erzeugen.mjs, nicht von Hand ändern.
 window.MONATE = {
- "stand": "2026-11-21",
+ "stand": "2026-11-22",
  "ersterMonat": "2025-01",
  "monate": {
   "2025-01": {
@@ -22,10 +22,10 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Würfeln",
-       "Ereignisse"
+       "Ereignisse",
+       "Kooperativ"
       ],
       "designer": [
        "Launius & Wilson"
@@ -76,7 +76,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Schlusswertung",
        "Würfeln"
@@ -169,7 +168,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Schlusswertung",
        "Ereignisse"
@@ -212,9 +210,6 @@ window.MONATE = {
       "themen": [
        "Kartenspiel"
       ],
-      "mechaniken": [
-       "Solo"
-      ],
       "illustration": [
        "Beth Sobel"
       ]
@@ -247,8 +242,8 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
-       "Unterschiedliche Fähigkeiten"
+       "Unterschiedliche Fähigkeiten",
+       "Kooperativ"
       ]
      }
     },
@@ -277,7 +272,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Unterschiedliche Fähigkeiten"
+       "Unterschiedliche Fähigkeiten",
+       "Kooperativ"
       ]
      }
     },
@@ -287,7 +283,11 @@ window.MONATE = {
      "minuten": 30,
      "cover": "413246.jpg",
      "premiere": true,
-     "merkmale": {}
+     "merkmale": {
+      "mechaniken": [
+       "Kooperativ"
+      ]
+     }
     },
     {
      "name": "Triqueta",
@@ -352,11 +352,6 @@ window.MONATE = {
      "anteil": 65
     },
     {
-     "name": "Solo",
-     "minuten": 820,
-     "anteil": 50
-    },
-    {
      "name": "Unterschiedliche Fähigkeiten",
      "minuten": 790,
      "anteil": 48
@@ -375,6 +370,11 @@ window.MONATE = {
      "name": "Ereignisse",
      "minuten": 615,
      "anteil": 37
+    },
+    {
+     "name": "Kooperativ",
+     "minuten": 580,
+     "anteil": 35
     }
    ],
    "designer": [
@@ -538,7 +538,7 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Variabler Aufbau",
-       "Solo"
+       "Plättchen legen"
       ],
       "designer": [
        "Dani Garcia"
@@ -591,8 +591,7 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "designer": [
        "Roy Cannaday"
@@ -664,8 +663,8 @@ window.MONATE = {
        "Kartenhand",
        "Schlusswertung",
        "Variabler Aufbau",
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Plättchen legen"
       ],
       "designer": [
        "Martin Wallace"
@@ -746,7 +745,6 @@ window.MONATE = {
        "Kartenhand",
        "Schlusswertung",
        "Sets sammeln",
-       "Solo",
        "Offenes Drafting"
       ],
       "illustration": [
@@ -800,8 +798,8 @@ window.MONATE = {
       "mechaniken": [
        "Sets sammeln",
        "Variabler Aufbau",
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Plättchen legen"
       ],
       "illustration": [
        "Beth Sobel"
@@ -859,9 +857,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -877,7 +872,8 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Schlusswertung"
+       "Schlusswertung",
+       "Plättchen legen"
       ],
       "verlage": [
        "Lookout Games"
@@ -937,6 +933,9 @@ window.MONATE = {
        "Tiere",
        "Fantasy",
        "Umwelt"
+      ],
+      "mechaniken": [
+       "Plättchen legen"
       ]
      }
     },
@@ -951,7 +950,8 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Plättchen legen"
       ]
      }
     },
@@ -1000,11 +1000,7 @@ window.MONATE = {
      "minuten": 30,
      "cover": "359029.jpg",
      "premiere": true,
-     "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ]
-     }
+     "merkmale": {}
     },
     {
      "name": "Dumm gelaufen",
@@ -1070,7 +1066,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Sets sammeln",
-       "Solo"
+       "Plättchen legen"
       ]
      }
     }
@@ -1129,14 +1125,14 @@ window.MONATE = {
      "anteil": 39
     },
     {
-     "name": "Solo",
-     "minuten": 735,
-     "anteil": 33
-    },
-    {
      "name": "Offenes Drafting",
      "minuten": 660,
      "anteil": 30
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 565,
+     "anteil": 26
     }
    ],
    "designer": [
@@ -1269,9 +1265,9 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Mehrheiten"
       ],
       "designer": [
        "Tomáš Holek"
@@ -1297,11 +1293,11 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
        "Kartenhand",
        "Offenes Drafting",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Mehrheiten"
       ],
       "designer": [
        "Luke Laurie"
@@ -1326,7 +1322,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
        "Offenes Drafting",
        "Sets sammeln"
@@ -1370,7 +1365,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Variabler Aufbau",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Mehrheiten"
       ],
       "designer": [
        "Tomáš Holek"
@@ -1431,7 +1427,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting",
        "Sets sammeln"
@@ -1455,8 +1450,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Mehrheiten"
       ],
       "designer": [
        "Ivan Lashin"
@@ -1476,7 +1471,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting",
        "Sets sammeln",
@@ -1504,9 +1498,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kampf"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -1555,9 +1546,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -1644,7 +1632,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Offenes Drafting",
        "Schlusswertung"
       ]
@@ -1692,7 +1679,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Sets sammeln"
       ]
      }
@@ -1790,11 +1776,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 835,
-     "anteil": 48
-    },
-    {
      "name": "Variabler Aufbau",
      "minuten": 760,
      "anteil": 44
@@ -1818,6 +1799,11 @@ window.MONATE = {
      "name": "Schlusswertung",
      "minuten": 660,
      "anteil": 38
+    },
+    {
+     "name": "Mehrheiten",
+     "minuten": 500,
+     "anteil": 29
     }
    ],
    "designer": [
@@ -1974,8 +1960,7 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Mehrheiten",
-       "Solo"
+       "Mehrheiten"
       ],
       "designer": [
        "Cieśla, Plesowicz & Włodarczyk"
@@ -2018,7 +2003,7 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Mehrheiten",
-       "Solo"
+       "Schlusswertung"
       ],
       "designer": [
        "Tomáš Holek"
@@ -2092,7 +2077,8 @@ window.MONATE = {
       "mechaniken": [
        "Offenes Drafting",
        "Sets sammeln",
-       "Kartenhand"
+       "Kartenhand",
+       "Schlusswertung"
       ],
       "verlage": [
        "Lookout Games"
@@ -2107,7 +2093,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Plättchen legen"
       ],
       "designer": [
@@ -2131,8 +2116,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Mehrheiten",
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "illustration": [
        "Behnke, Berger & 15 weitere"
@@ -2171,7 +2155,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Plättchen legen"
+       "Plättchen legen",
+       "Schlusswertung"
       ]
      }
     },
@@ -2230,7 +2215,8 @@ window.MONATE = {
        "Mittelalter"
       ],
       "mechaniken": [
-       "Kartenhand"
+       "Kartenhand",
+       "Schlusswertung"
       ]
      }
     },
@@ -2297,7 +2283,8 @@ window.MONATE = {
       "mechaniken": [
        "Offenes Drafting",
        "Sets sammeln",
-       "Plättchen legen"
+       "Plättchen legen",
+       "Schlusswertung"
       ],
       "designer": [
        "Michael Kiesling"
@@ -2316,8 +2303,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
-       "Plättchen legen"
+       "Plättchen legen",
+       "Schlusswertung"
       ]
      }
     },
@@ -2456,7 +2443,8 @@ window.MONATE = {
       "mechaniken": [
        "Offenes Drafting",
        "Sets sammeln",
-       "Plättchen legen"
+       "Plättchen legen",
+       "Schlusswertung"
       ]
      }
     },
@@ -2489,7 +2477,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Sets sammeln",
-       "Solo",
        "Plättchen legen"
       ]
      }
@@ -2577,14 +2564,14 @@ window.MONATE = {
      "anteil": 28
     },
     {
-     "name": "Solo",
-     "minuten": 645,
-     "anteil": 28
-    },
-    {
      "name": "Plättchen legen",
      "minuten": 630,
      "anteil": 28
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 545,
+     "anteil": 24
     }
    ],
    "designer": [
@@ -3490,7 +3477,8 @@ window.MONATE = {
        "Industrie"
       ],
       "mechaniken": [
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ],
       "designer": [
        "Germán P. Millán"
@@ -3517,7 +3505,6 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Schlusswertung",
-       "Solo",
        "Unterschiedliche Fähigkeiten"
       ],
       "designer": [
@@ -3545,7 +3532,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Schlusswertung",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ],
       "designer": [
        "Kosch"
@@ -3586,8 +3574,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Solo",
-       "Unterschiedliche Fähigkeiten"
+       "Unterschiedliche Fähigkeiten",
+       "Offenes Drafting"
       ]
      }
     },
@@ -3603,8 +3591,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Variabler Aufbau",
-       "Solo"
+       "Variabler Aufbau"
       ],
       "designer": [
        "Tomáš Holek"
@@ -3651,8 +3638,8 @@ window.MONATE = {
        "Kartenhand",
        "Schlusswertung",
        "Variabler Aufbau",
-       "Solo",
-       "Unterschiedliche Fähigkeiten"
+       "Unterschiedliche Fähigkeiten",
+       "Offenes Drafting"
       ]
      }
     },
@@ -3709,8 +3696,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Variabler Aufbau",
-       "Solo"
+       "Variabler Aufbau"
       ]
      }
     },
@@ -3747,7 +3733,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Variabler Aufbau",
-       "Solo",
        "Unterschiedliche Fähigkeiten"
       ]
      }
@@ -3780,9 +3765,6 @@ window.MONATE = {
       "themen": [
        "Umwelt",
        "Wirtschaft"
-      ],
-      "mechaniken": [
-       "Solo"
       ],
       "illustration": [
        "Lukas Siegmon"
@@ -3843,7 +3825,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Schlusswertung",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Offenes Drafting"
       ],
       "verlage": [
        "alea"
@@ -3859,6 +3842,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Science-Fiction"
+      ],
+      "mechaniken": [
+       "Offenes Drafting"
       ]
      }
     },
@@ -3963,7 +3949,6 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Variabler Aufbau",
-       "Solo",
        "Unterschiedliche Fähigkeiten"
       ]
      }
@@ -3996,7 +3981,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Sets sammeln"
       ]
      }
@@ -4008,9 +3992,6 @@ window.MONATE = {
      "cover": "284435.jpg",
      "premiere": false,
      "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ],
       "illustration": [
        "Lukas Siegmon"
       ]
@@ -4025,7 +4006,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Schlusswertung",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ]
      }
     },
@@ -4054,9 +4036,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -4085,7 +4064,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Variabler Aufbau",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ]
      }
     },
@@ -4105,7 +4085,8 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Kartenhand"
+       "Kartenhand",
+       "Offenes Drafting"
       ]
      }
     },
@@ -4115,7 +4096,11 @@ window.MONATE = {
      "minuten": 45,
      "cover": "393307.jpg",
      "premiere": false,
-     "merkmale": {}
+     "merkmale": {
+      "mechaniken": [
+       "Offenes Drafting"
+      ]
+     }
     },
     {
      "name": "Beasty Bar",
@@ -4171,7 +4156,8 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ]
      }
     },
@@ -4195,7 +4181,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Variabler Aufbau",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Offenes Drafting"
       ]
      }
     },
@@ -4321,11 +4308,6 @@ window.MONATE = {
      "anteil": 33
     },
     {
-     "name": "Solo",
-     "minuten": 1295,
-     "anteil": 29
-    },
-    {
      "name": "Sets sammeln",
      "minuten": 1185,
      "anteil": 27
@@ -4334,6 +4316,11 @@ window.MONATE = {
      "name": "Unterschiedliche Fähigkeiten",
      "minuten": 1175,
      "anteil": 27
+    },
+    {
+     "name": "Offenes Drafting",
+     "minuten": 1150,
+     "anteil": 26
     }
    ],
    "designer": [
@@ -4495,7 +4482,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Sets sammeln"
       ],
       "designer": [
        "Kosch"
@@ -4544,8 +4532,7 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Plättchen legen",
-       "Solo"
+       "Plättchen legen"
       ],
       "designer": [
        "Uwe Rosenberg",
@@ -4573,8 +4560,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Würfeln",
-       "Plättchen legen",
-       "Solo"
+       "Plättchen legen"
       ],
       "designer": [
        "Uwe Rosenberg"
@@ -4615,7 +4601,6 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
-       "Solo",
        "Variabler Aufbau"
       ],
       "designer": [
@@ -4638,8 +4623,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
-       "Plättchen legen",
-       "Solo"
+       "Plättchen legen"
       ]
      }
     },
@@ -4691,7 +4675,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Würfeln",
-       "Solo",
        "Offenes Drafting",
        "Variabler Aufbau"
       ],
@@ -4712,7 +4695,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Sets sammeln"
       ]
      }
     },
@@ -4725,6 +4709,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Puzzle"
+      ],
+      "mechaniken": [
+       "Sets sammeln"
       ],
       "illustration": [
        "Lukas Siegmon"
@@ -4785,7 +4772,8 @@ window.MONATE = {
       "mechaniken": [
        "Plättchen legen",
        "Offenes Drafting",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Sets sammeln"
       ],
       "verlage": [
        "Devir"
@@ -4803,7 +4791,8 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Plättchen legen"
+       "Plättchen legen",
+       "Sets sammeln"
       ],
       "designer": [
        "Kosch"
@@ -4875,6 +4864,9 @@ window.MONATE = {
       "themen": [
        "Fantasy",
        "Kartenspiel"
+      ],
+      "mechaniken": [
+       "Sets sammeln"
       ]
      }
     },
@@ -4910,7 +4902,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Sets sammeln"
       ]
      }
     },
@@ -4937,6 +4930,9 @@ window.MONATE = {
       "themen": [
        "Kartenspiel",
        "Partyspiel"
+      ],
+      "mechaniken": [
+       "Sets sammeln"
       ]
      }
     }
@@ -4990,11 +4986,6 @@ window.MONATE = {
      "anteil": 27
     },
     {
-     "name": "Solo",
-     "minuten": 530,
-     "anteil": 25
-    },
-    {
      "name": "Offenes Drafting",
      "minuten": 485,
      "anteil": 23
@@ -5003,6 +4994,11 @@ window.MONATE = {
      "name": "Variabler Aufbau",
      "minuten": 480,
      "anteil": 23
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 470,
+     "anteil": 22
     }
    ],
    "designer": [
@@ -5161,7 +5157,6 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Variabler Aufbau",
-       "Solo",
        "Wechselnde Startspieler"
       ],
       "designer": [
@@ -5189,7 +5184,8 @@ window.MONATE = {
        "Entdeckung"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Arbeiter einsetzen"
       ],
       "designer": [
        "Bröstl & Mertikat"
@@ -5216,7 +5212,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Solo",
        "Wechselnde Startspieler",
        "Offenes Drafting",
        "Würfeln"
@@ -5246,8 +5241,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Variabler Aufbau",
-       "Solo"
+       "Variabler Aufbau"
       ],
       "designer": [
        "Visser & Gray"
@@ -5266,6 +5260,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Fantasy"
+      ],
+      "mechaniken": [
+       "Arbeiter einsetzen"
       ]
      }
     },
@@ -5299,9 +5296,9 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Variabler Aufbau",
-       "Solo",
        "Offenes Drafting",
-       "Würfeln"
+       "Würfeln",
+       "Arbeiter einsetzen"
       ]
      }
     },
@@ -5540,11 +5537,6 @@ window.MONATE = {
      "anteil": 36
     },
     {
-     "name": "Solo",
-     "minuten": 500,
-     "anteil": 32
-    },
-    {
      "name": "Wechselnde Startspieler",
      "minuten": 480,
      "anteil": 31
@@ -5558,6 +5550,11 @@ window.MONATE = {
      "name": "Würfeln",
      "minuten": 340,
      "anteil": 22
+    },
+    {
+     "name": "Arbeiter einsetzen",
+     "minuten": 320,
+     "anteil": 21
     }
    ],
    "designer": [
@@ -5709,9 +5706,9 @@ window.MONATE = {
        "Weltraum"
       ],
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Einkommen"
       ],
       "designer": [
        "Tomáš Holek"
@@ -5781,7 +5778,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Schlusswertung",
        "Kartenhand",
        "Sets sammeln"
@@ -5827,11 +5823,11 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Variabler Aufbau",
        "Schlusswertung",
        "Kartenhand",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ],
       "designer": [
        "King, Northcott & Thompson"
@@ -5849,7 +5845,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
        "Sets sammeln"
       ]
@@ -5866,7 +5861,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
        "Schlusswertung"
       ]
@@ -5898,7 +5892,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Variabler Aufbau",
        "Schlusswertung"
       ],
@@ -5959,7 +5952,6 @@ window.MONATE = {
        "Weltraum"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand"
       ]
      }
@@ -5977,7 +5969,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ]
      }
     },
@@ -5994,11 +5987,11 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Variabler Aufbau",
        "Schlusswertung",
        "Kartenhand",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ]
      }
     },
@@ -6014,8 +6007,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Einkommen"
       ]
      }
     },
@@ -6100,7 +6093,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Schlusswertung",
        "Kartenhand"
       ],
@@ -6125,7 +6117,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ],
       "verlage": [
        "Pegasus Spiele"
@@ -6216,9 +6209,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Wirtschaft"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -6249,7 +6239,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Kartenhand"
+       "Kartenhand",
+       "Einkommen"
       ],
       "illustration": [
        "Beth Sobel"
@@ -6287,11 +6278,11 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Variabler Aufbau",
        "Schlusswertung",
        "Kartenhand",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ]
      }
     },
@@ -6321,11 +6312,7 @@ window.MONATE = {
      "minuten": 60,
      "cover": "284435.jpg",
      "premiere": false,
-     "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ]
-     }
+     "merkmale": {}
     },
     {
      "name": "Ohne Furcht und Adel",
@@ -6338,7 +6325,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ]
      }
     },
@@ -6355,7 +6343,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Sets sammeln"
       ]
@@ -6492,11 +6479,7 @@ window.MONATE = {
      "minuten": 40,
      "cover": "206931.jpg",
      "premiere": true,
-     "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ]
-     }
+     "merkmale": {}
     },
     {
      "name": "Schnitzeljagd",
@@ -6539,7 +6522,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Einkommen"
       ]
      }
     },
@@ -6704,11 +6688,6 @@ window.MONATE = {
      "anteil": 39
     },
     {
-     "name": "Solo",
-     "minuten": 2690,
-     "anteil": 38
-    },
-    {
      "name": "Variabler Aufbau",
      "minuten": 2455,
      "anteil": 35
@@ -6727,6 +6706,11 @@ window.MONATE = {
      "name": "Sets sammeln",
      "minuten": 2035,
      "anteil": 29
+    },
+    {
+     "name": "Einkommen",
+     "minuten": 1590,
+     "anteil": 23
     }
    ],
    "designer": [
@@ -6934,7 +6918,6 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Solo",
        "Deckbau"
       ],
       "designer": [
@@ -6984,7 +6967,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Deckbau"
+       "Deckbau",
+       "Würfeln"
       ],
       "verlage": [
        "Warnecke und Pozzi GbR"
@@ -7006,7 +6990,6 @@ window.MONATE = {
        "Offenes Drafting",
        "Schlusswertung",
        "Kartenhand",
-       "Solo",
        "Deckbau"
       ],
       "designer": [
@@ -7030,7 +7013,8 @@ window.MONATE = {
       "mechaniken": [
        "Offenes Drafting",
        "Sets sammeln",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Würfeln"
       ],
       "illustration": [
        "Chris Quilliams"
@@ -7099,7 +7083,7 @@ window.MONATE = {
        "Sets sammeln",
        "Schlusswertung",
        "Kartenhand",
-       "Solo"
+       "Würfeln"
       ],
       "illustration": [
        "Beth Sobel"
@@ -7115,6 +7099,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Würfel"
+      ],
+      "mechaniken": [
+       "Würfeln"
       ]
      }
     },
@@ -7156,8 +7143,7 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Offenes Drafting",
-       "Solo"
+       "Offenes Drafting"
       ]
      }
     },
@@ -7174,8 +7160,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Sets sammeln",
-       "Solo"
+       "Sets sammeln"
       ],
       "illustration": [
        "Beth Sobel"
@@ -7195,7 +7180,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Deckbau"
+       "Deckbau",
+       "Würfeln"
       ]
      }
     },
@@ -7236,6 +7222,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Würfel"
+      ],
+      "mechaniken": [
+       "Würfeln"
       ]
      }
     },
@@ -7341,14 +7330,14 @@ window.MONATE = {
      "anteil": 29
     },
     {
-     "name": "Solo",
-     "minuten": 445,
-     "anteil": 25
-    },
-    {
      "name": "Deckbau",
      "minuten": 435,
      "anteil": 25
+    },
+    {
+     "name": "Würfeln",
+     "minuten": 430,
+     "anteil": 24
     }
    ],
    "designer": [
@@ -7535,6 +7524,9 @@ window.MONATE = {
       "themen": [
        "Tiere"
       ],
+      "mechaniken": [
+       "Aufträge"
+      ],
       "designer": [
        "Canetta & Niccolini"
       ],
@@ -7578,8 +7570,8 @@ window.MONATE = {
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
        "Deckbau",
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Aufträge"
       ],
       "designer": [
        "Paul Dennen"
@@ -7651,8 +7643,7 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Deckbau",
-       "Solo"
+       "Deckbau"
       ]
      }
     },
@@ -7687,8 +7678,7 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Kooperativ",
-       "Unterschiedliche Fähigkeiten",
-       "Solo"
+       "Unterschiedliche Fähigkeiten"
       ]
      }
     },
@@ -7705,7 +7695,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Offenes Drafting"
       ],
       "illustration": [
@@ -7744,7 +7733,7 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Solo"
+       "Aufträge"
       ]
      }
     },
@@ -7765,7 +7754,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Kartenhand",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Aufträge"
       ]
      }
     },
@@ -7775,11 +7765,7 @@ window.MONATE = {
      "minuten": 60,
      "cover": "369341.jpg",
      "premiere": true,
-     "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ]
-     }
+     "merkmale": {}
     },
     {
      "name": "Istanbul",
@@ -7790,6 +7776,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Wirtschaft"
+      ],
+      "mechaniken": [
+       "Aufträge"
       ],
       "verlage": [
        "Pegasus Spiele"
@@ -7824,7 +7813,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting"
       ],
       "illustration": [
@@ -7874,7 +7862,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting"
       ]
      }
@@ -7986,14 +7973,14 @@ window.MONATE = {
      "anteil": 27
     },
     {
-     "name": "Solo",
-     "minuten": 565,
-     "anteil": 25
-    },
-    {
      "name": "Offenes Drafting",
      "minuten": 505,
      "anteil": 22
+    },
+    {
+     "name": "Aufträge",
+     "minuten": 480,
+     "anteil": 21
     }
    ],
    "designer": [
@@ -8168,7 +8155,8 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Sets sammeln",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Plättchen legen"
       ],
       "designer": [
        "Michael Kiesling"
@@ -8211,7 +8199,6 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Schlusswertung",
-       "Solo",
        "Variabler Aufbau"
       ],
       "designer": [
@@ -8238,8 +8225,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "designer": [
        "Gordon & O'Connell"
@@ -8262,7 +8248,7 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Sets sammeln",
-       "Solo"
+       "Plättchen legen"
       ],
       "designer": [
        "Gołębiowski & Wojtkowiak"
@@ -8305,7 +8291,6 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Kartenhand",
-       "Solo",
        "Variabler Aufbau"
       ],
       "verlage": [
@@ -8345,9 +8330,9 @@ window.MONATE = {
       "mechaniken": [
        "Sets sammeln",
        "Kartenhand",
-       "Solo",
        "Offenes Drafting",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Plättchen legen"
       ]
      }
     },
@@ -8482,7 +8467,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau"
       ]
      }
@@ -8498,7 +8482,7 @@ window.MONATE = {
        "Abstrakt"
       ],
       "mechaniken": [
-       "Solo"
+       "Plättchen legen"
       ]
      }
     },
@@ -8576,9 +8560,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -8612,8 +8593,8 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Plättchen legen"
       ],
       "verlage": [
        "Czech Games Edition (CGE)"
@@ -8648,7 +8629,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting"
       ]
      }
@@ -8703,11 +8683,6 @@ window.MONATE = {
      "anteil": 40
     },
     {
-     "name": "Solo",
-     "minuten": 860,
-     "anteil": 35
-    },
-    {
      "name": "Offenes Drafting",
      "minuten": 735,
      "anteil": 30
@@ -8716,6 +8691,11 @@ window.MONATE = {
      "name": "Variabler Aufbau",
      "minuten": 680,
      "anteil": 27
+    },
+    {
+     "name": "Plättchen legen",
+     "minuten": 640,
+     "anteil": 26
     }
    ],
    "designer": [
@@ -8878,12 +8858,12 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting",
        "Sets sammeln",
        "Aufträge",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Variabler Aufbau"
       ],
       "designer": [
        "James A. Wilson"
@@ -8926,8 +8906,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Variabler Aufbau"
       ],
       "designer": [
        "Stefan Feld"
@@ -8977,7 +8957,6 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand"
       ],
       "designer": [
@@ -9014,7 +8993,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Sets sammeln",
        "Schlusswertung"
       ]
@@ -9032,8 +9010,8 @@ window.MONATE = {
        "Abenteuer"
       ],
       "mechaniken": [
-       "Solo",
-       "Kartenhand"
+       "Kartenhand",
+       "Variabler Aufbau"
       ]
      }
     },
@@ -9062,9 +9040,9 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
        "Aufträge",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Variabler Aufbau"
       ],
       "designer": [
        "Jamey Stegmaier"
@@ -9194,9 +9172,9 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Variabler Aufbau"
       ]
      }
     },
@@ -9261,7 +9239,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Aufträge"
+       "Aufträge",
+       "Variabler Aufbau"
       ]
      }
     },
@@ -9276,9 +9255,9 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Variabler Aufbau"
       ],
       "illustration": [
        "Beth Sobel"
@@ -9320,9 +9299,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -9386,7 +9362,11 @@ window.MONATE = {
      "minuten": 20,
      "cover": "373106.jpg",
      "premiere": false,
-     "merkmale": {}
+     "merkmale": {
+      "mechaniken": [
+       "Variabler Aufbau"
+      ]
+     }
     }
    ],
    "themen": [
@@ -9423,11 +9403,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 1110,
-     "anteil": 40
-    },
-    {
      "name": "Kartenhand",
      "minuten": 1070,
      "anteil": 39
@@ -9450,6 +9425,11 @@ window.MONATE = {
     {
      "name": "Schlusswertung",
      "minuten": 885,
+     "anteil": 32
+    },
+    {
+     "name": "Variabler Aufbau",
+     "minuten": 875,
      "anteil": 32
     }
    ],
@@ -9594,10 +9574,10 @@ window.MONATE = {
        "Romanvorlage"
       ],
       "mechaniken": [
-       "Solo",
        "Plättchen legen",
        "Unterschiedliche Fähigkeiten",
-       "Würfeln"
+       "Würfeln",
+       "Sechseckraster"
       ],
       "designer": [
        "Kijanka & Trzewiczek"
@@ -9621,10 +9601,10 @@ window.MONATE = {
        "Abenteuer"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Unterschiedliche Fähigkeiten",
-       "Würfeln"
+       "Würfeln",
+       "Sechseckraster"
       ],
       "designer": [
        "Jonathan Fryxelius"
@@ -9689,7 +9669,6 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Solo",
        "Plättchen legen",
        "Aufträge"
       ],
@@ -9712,7 +9691,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Aufträge",
        "Unterschiedliche Fähigkeiten",
@@ -9768,7 +9746,6 @@ window.MONATE = {
        "Puzzle"
       ],
       "mechaniken": [
-       "Solo",
        "Plättchen legen",
        "Aufträge"
       ]
@@ -9785,7 +9762,8 @@ window.MONATE = {
        "Gebietsaufbau"
       ],
       "mechaniken": [
-       "Plättchen legen"
+       "Plättchen legen",
+       "Sechseckraster"
       ]
      }
     },
@@ -9798,9 +9776,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -9855,7 +9830,7 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo"
+       "Sechseckraster"
       ]
      }
     }
@@ -9894,11 +9869,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 520,
-     "anteil": 54
-    },
-    {
      "name": "Kartenhand",
      "minuten": 370,
      "anteil": 39
@@ -9922,6 +9892,11 @@ window.MONATE = {
      "name": "Würfeln",
      "minuten": 320,
      "anteil": 33
+    },
+    {
+     "name": "Sechseckraster",
+     "minuten": 300,
+     "anteil": 31
     }
    ],
    "designer": [
@@ -10150,8 +10125,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Offenes Drafting",
-       "Solo",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Deckbau"
       ],
       "designer": [
        "Łukasz Woźniak"
@@ -10180,7 +10155,6 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo",
        "Sets sammeln"
       ],
       "designer": [
@@ -10207,7 +10181,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Solo",
        "Sets sammeln"
       ],
       "designer": [
@@ -10259,8 +10232,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Solo",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Deckbau"
       ]
      }
     },
@@ -10280,7 +10253,7 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo"
+       "Deckbau"
       ],
       "designer": [
        "Elwen & Mín"
@@ -10305,7 +10278,8 @@ window.MONATE = {
        "Offenes Drafting",
        "Schlusswertung",
        "Sets sammeln",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Deckbau"
       ],
       "verlage": [
        "PD-Verlag"
@@ -10335,7 +10309,7 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Solo"
+       "Deckbau"
       ]
      }
     },
@@ -10394,7 +10368,6 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo",
        "Sets sammeln",
        "Variabler Aufbau"
       ]
@@ -10441,7 +10414,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Deckbau"
       ]
      }
     },
@@ -10495,7 +10469,6 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Solo",
        "Sets sammeln",
        "Variabler Aufbau"
       ],
@@ -10513,8 +10486,7 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Offenes Drafting",
-       "Schlusswertung",
-       "Solo"
+       "Schlusswertung"
       ]
      }
     },
@@ -10529,7 +10501,8 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Variabler Aufbau"
+       "Variabler Aufbau",
+       "Deckbau"
       ]
      }
     },
@@ -10561,7 +10534,6 @@ window.MONATE = {
       "mechaniken": [
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo",
        "Variabler Aufbau"
       ],
       "illustration": [
@@ -10636,7 +10608,6 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Offenes Drafting",
-       "Solo",
        "Sets sammeln"
       ]
      }
@@ -10723,11 +10694,6 @@ window.MONATE = {
      "anteil": 50
     },
     {
-     "name": "Solo",
-     "minuten": 1000,
-     "anteil": 39
-    },
-    {
      "name": "Sets sammeln",
      "minuten": 995,
      "anteil": 39
@@ -10736,6 +10702,11 @@ window.MONATE = {
      "name": "Variabler Aufbau",
      "minuten": 960,
      "anteil": 38
+    },
+    {
+     "name": "Deckbau",
+     "minuten": 685,
+     "anteil": 27
     }
    ],
    "designer": [
@@ -10908,7 +10879,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ],
       "designer": [
        "Canetta & Niccolini"
@@ -10933,7 +10905,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Solo"
+       "Einkommen"
       ],
       "designer": [
        "Tomáš Holek"
@@ -10974,7 +10946,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Würfeln",
-       "Kartenhand"
+       "Kartenhand",
+       "Einkommen"
       ],
       "designer": [
        "Klaus Teuber"
@@ -10998,9 +10971,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -11047,7 +11017,8 @@ window.MONATE = {
      "merkmale": {
       "mechaniken": [
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ],
       "illustration": [
        "David Sitbon"
@@ -11105,8 +11076,7 @@ window.MONATE = {
       "mechaniken": [
        "Schlusswertung",
        "Offenes Drafting",
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "verlage": [
        "Stonemaier Games"
@@ -11124,8 +11094,7 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ]
      }
     },
@@ -11166,8 +11135,7 @@ window.MONATE = {
        "Offenes Drafting",
        "Sets sammeln",
        "Würfeln",
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "verlage": [
        "Stonemaier Games"
@@ -11185,8 +11153,7 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Würfeln",
-       "Solo"
+       "Würfeln"
       ]
      }
     },
@@ -11224,8 +11191,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Schlusswertung",
-       "Sets sammeln",
-       "Solo"
+       "Sets sammeln"
       ]
      }
     },
@@ -11285,7 +11251,7 @@ window.MONATE = {
        "Schlusswertung",
        "Sets sammeln",
        "Kartenhand",
-       "Solo"
+       "Einkommen"
       ]
      }
     },
@@ -11419,9 +11385,9 @@ window.MONATE = {
      "anteil": 31
     },
     {
-     "name": "Solo",
-     "minuten": 665,
-     "anteil": 31
+     "name": "Einkommen",
+     "minuten": 595,
+     "anteil": 28
     }
    ],
    "designer": [
@@ -11582,11 +11548,11 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Würfeln",
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Schlusswertung"
       ],
       "designer": [
        "Elizabeth Hargrave"
@@ -11612,7 +11578,6 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Unterschiedliche Fähigkeiten",
        "Würfeln"
@@ -11679,7 +11644,6 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Würfeln"
       ],
@@ -11702,7 +11666,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Unterschiedliche Fähigkeiten",
        "Würfeln",
@@ -11719,9 +11682,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Tiere"
-      ],
-      "mechaniken": [
-       "Solo"
       ],
       "illustration": [
        "Klemens Franz"
@@ -11758,7 +11718,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Kartenhand"
       ]
      }
@@ -11775,7 +11734,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Sets sammeln"
       ]
@@ -11793,7 +11751,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Unterschiedliche Fähigkeiten"
       ]
@@ -11811,7 +11768,6 @@ window.MONATE = {
        "Kampf"
       ],
       "mechaniken": [
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Würfeln"
       ]
@@ -11871,8 +11827,8 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Schlusswertung"
       ],
       "illustration": [
        "Beth Sobel"
@@ -11887,9 +11843,9 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Unterschiedliche Fähigkeiten",
-       "Würfeln"
+       "Würfeln",
+       "Schlusswertung"
       ]
      }
     },
@@ -11906,9 +11862,9 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Schlusswertung"
       ],
       "verlage": [
        "Stonemaier Games"
@@ -11936,7 +11892,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Unterschiedliche Fähigkeiten",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Schlusswertung"
       ]
      }
     },
@@ -11953,10 +11910,10 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Schlusswertung"
       ]
      }
     },
@@ -11972,8 +11929,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Solo",
-       "Kartenhand"
+       "Kartenhand",
+       "Schlusswertung"
       ],
       "illustration": [
        "Ana Maria Martinez Jaramillo"
@@ -11991,7 +11948,8 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Würfeln"
+       "Würfeln",
+       "Schlusswertung"
       ]
      }
     },
@@ -12003,7 +11961,6 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Unterschiedliche Fähigkeiten",
        "Würfeln"
       ]
@@ -12036,7 +11993,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Schlusswertung"
       ],
       "verlage": [
        "Lookout Games"
@@ -12053,6 +12011,9 @@ window.MONATE = {
       "themen": [
        "Fantasy",
        "Umwelt"
+      ],
+      "mechaniken": [
+       "Schlusswertung"
       ]
      }
     },
@@ -12065,9 +12026,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -12203,7 +12161,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Offenes Drafting",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Schlusswertung"
       ]
      }
     },
@@ -12237,7 +12196,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Sets sammeln"
       ]
      }
@@ -12293,9 +12251,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Fantasy"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     }
@@ -12334,11 +12289,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 2130,
-     "anteil": 52
-    },
-    {
      "name": "Kartenhand",
      "minuten": 1815,
      "anteil": 44
@@ -12362,6 +12312,11 @@ window.MONATE = {
      "name": "Sets sammeln",
      "minuten": 1155,
      "anteil": 28
+    },
+    {
+     "name": "Schlusswertung",
+     "minuten": 1055,
+     "anteil": 26
     }
    ],
    "designer": [
@@ -12519,7 +12474,6 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo",
        "Plättchen legen",
        "Sets sammeln"
       ],
@@ -12550,8 +12504,8 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Wechselnde Startspieler"
       ],
       "designer": [
        "Elizabeth Hargrave"
@@ -12605,8 +12559,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Schlusswertung",
-       "Solo",
-       "Plättchen legen"
+       "Plättchen legen",
+       "Wechselnde Startspieler"
       ],
       "illustration": [
        "Fryxelius & Fryxelius"
@@ -12653,7 +12607,7 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo"
+       "Wechselnde Startspieler"
       ],
       "designer": [
        "Elwen & Mín"
@@ -12749,7 +12703,7 @@ window.MONATE = {
        "Kartenhand",
        "Offenes Drafting",
        "Schlusswertung",
-       "Solo"
+       "Wechselnde Startspieler"
       ],
       "verlage": [
        "Stonemaier Games"
@@ -12767,7 +12721,8 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Wechselnde Startspieler"
       ]
      }
     },
@@ -12798,8 +12753,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Offenes Drafting",
-       "Solo"
+       "Offenes Drafting"
       ]
      }
     },
@@ -12881,9 +12835,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Fantasy"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -12960,17 +12911,17 @@ window.MONATE = {
      "anteil": 48
     },
     {
-     "name": "Solo",
-     "minuten": 755,
-     "anteil": 40
-    },
-    {
      "name": "Plättchen legen",
      "minuten": 690,
      "anteil": 37
     },
     {
      "name": "Sets sammeln",
+     "minuten": 560,
+     "anteil": 30
+    },
+    {
+     "name": "Wechselnde Startspieler",
      "minuten": 560,
      "anteil": 30
     }
@@ -13866,12 +13817,12 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Sets sammeln",
        "Kartenhand",
        "Offenes Drafting",
-       "Einkommen"
+       "Einkommen",
+       "Arbeiter einsetzen"
       ],
       "designer": [
        "James A. Wilson"
@@ -13895,7 +13846,6 @@ window.MONATE = {
        "Science-Fiction"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Einkommen"
       ],
@@ -13919,9 +13869,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Fantasy"
-      ],
-      "mechaniken": [
-       "Solo"
       ],
       "designer": [
        "Daviau & Lang"
@@ -13965,7 +13912,8 @@ window.MONATE = {
        "Science-Fiction"
       ],
       "mechaniken": [
-       "Schlusswertung"
+       "Schlusswertung",
+       "Arbeiter einsetzen"
       ],
       "designer": [
        "Perrier & Verdier"
@@ -13984,7 +13932,6 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Einkommen"
       ],
@@ -14063,7 +14010,7 @@ window.MONATE = {
        "Science-Fiction"
       ],
       "mechaniken": [
-       "Solo"
+       "Arbeiter einsetzen"
       ]
      }
     },
@@ -14080,7 +14027,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand"
       ]
      }
@@ -14097,7 +14043,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Einkommen"
+       "Einkommen",
+       "Arbeiter einsetzen"
       ]
      }
     },
@@ -14122,7 +14069,6 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Offenes Drafting"
       ]
      }
@@ -14141,7 +14087,8 @@ window.MONATE = {
        "Schlusswertung",
        "Sets sammeln",
        "Kartenhand",
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Arbeiter einsetzen"
       ]
      }
     },
@@ -14227,7 +14174,8 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Offenes Drafting"
+       "Offenes Drafting",
+       "Arbeiter einsetzen"
       ],
       "verlage": [
        "Schmidt Spiele"
@@ -14430,7 +14378,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Sets sammeln"
       ]
      }
@@ -14478,11 +14425,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 840,
-     "anteil": 34
-    },
-    {
      "name": "Schlusswertung",
      "minuten": 835,
      "anteil": 34
@@ -14506,6 +14448,11 @@ window.MONATE = {
      "name": "Einkommen",
      "minuten": 650,
      "anteil": 27
+    },
+    {
+     "name": "Arbeiter einsetzen",
+     "minuten": 600,
+     "anteil": 25
     }
    ],
    "designer": [
@@ -14697,12 +14644,12 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting",
        "Variabler Aufbau",
        "Schlusswertung",
-       "Unterschiedliche Fähigkeiten"
+       "Unterschiedliche Fähigkeiten",
+       "Sets sammeln"
       ],
       "designer": [
        "Mathias Wigge"
@@ -14723,9 +14670,6 @@ window.MONATE = {
      "cover": "318977.jpg",
      "premiere": true,
      "merkmale": {
-      "mechaniken": [
-       "Solo"
-      ],
       "designer": [
        "Johannes Sich"
       ],
@@ -14748,7 +14692,8 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Kartenhand"
+       "Kartenhand",
+       "Sets sammeln"
       ],
       "designer": [
        "Rüdiger Dorn"
@@ -14799,7 +14744,6 @@ window.MONATE = {
        "Fantasy"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung"
       ],
       "designer": [
@@ -14818,7 +14762,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Variabler Aufbau",
        "Unterschiedliche Fähigkeiten"
@@ -14837,7 +14780,6 @@ window.MONATE = {
        "Kartenspiel"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand"
       ],
       "illustration": [
@@ -14881,7 +14823,6 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Variabler Aufbau",
        "Unterschiedliche Fähigkeiten"
       ]
@@ -14902,7 +14843,8 @@ window.MONATE = {
       "mechaniken": [
        "Kartenhand",
        "Offenes Drafting",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Sets sammeln"
       ]
      }
     },
@@ -14916,6 +14858,9 @@ window.MONATE = {
       "themen": [
        "Wirtschaft",
        "Gebietsaufbau"
+      ],
+      "mechaniken": [
+       "Sets sammeln"
       ]
      }
     },
@@ -14927,7 +14872,7 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo"
+       "Sets sammeln"
       ]
      }
     },
@@ -14989,7 +14934,6 @@ window.MONATE = {
        "Umwelt"
       ],
       "mechaniken": [
-       "Solo",
        "Offenes Drafting",
        "Variabler Aufbau",
        "Schlusswertung"
@@ -15005,9 +14949,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -15020,6 +14961,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
+      ],
+      "mechaniken": [
+       "Sets sammeln"
       ],
       "illustration": [
        "Dennis Lohausen"
@@ -15140,11 +15084,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 780,
-     "anteil": 43
-    },
-    {
      "name": "Kartenhand",
      "minuten": 730,
      "anteil": 41
@@ -15168,6 +15107,11 @@ window.MONATE = {
      "name": "Unterschiedliche Fähigkeiten",
      "minuten": 480,
      "anteil": 27
+    },
+    {
+     "name": "Sets sammeln",
+     "minuten": 465,
+     "anteil": 26
     }
    ],
    "designer": [
@@ -15317,12 +15261,12 @@ window.MONATE = {
        "Städtebau"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Kartenhand",
        "Offenes Drafting",
        "Aufträge",
-       "Sets sammeln"
+       "Sets sammeln",
+       "Einkommen"
       ],
       "designer": [
        "James A. Wilson"
@@ -15348,9 +15292,9 @@ window.MONATE = {
        "Städtebau"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
-       "Kartenhand"
+       "Kartenhand",
+       "Einkommen"
       ],
       "designer": [
        "Vladimír Suchý"
@@ -15375,7 +15319,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Kartenhand",
        "Offenes Drafting",
@@ -15425,7 +15368,6 @@ window.MONATE = {
        "Industrie"
       ],
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Offenes Drafting"
       ],
@@ -15449,8 +15391,8 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Einkommen"
       ]
      }
     },
@@ -15467,9 +15409,9 @@ window.MONATE = {
        "Wirtschaft"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
-       "Aufträge"
+       "Aufträge",
+       "Einkommen"
       ],
       "designer": [
        "Vladimír Suchý"
@@ -15493,11 +15435,11 @@ window.MONATE = {
        "Städtebau"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Kartenhand",
        "Offenes Drafting",
-       "Aufträge"
+       "Aufträge",
+       "Einkommen"
       ],
       "designer": [
        "Martin Wallace"
@@ -15515,7 +15457,6 @@ window.MONATE = {
      "premiere": false,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Offenes Drafting",
        "Aufträge"
       ],
@@ -15566,7 +15507,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Aufträge"
+       "Aufträge",
+       "Einkommen"
       ],
       "illustration": [
        "Beth Sobel"
@@ -15609,7 +15551,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Sets sammeln"
       ]
@@ -15658,7 +15599,6 @@ window.MONATE = {
        "Tiere"
       ],
       "mechaniken": [
-       "Solo",
        "Schlusswertung",
        "Offenes Drafting"
       ],
@@ -15692,7 +15632,6 @@ window.MONATE = {
      "premiere": true,
      "merkmale": {
       "mechaniken": [
-       "Solo",
        "Kartenhand",
        "Aufträge",
        "Sets sammeln"
@@ -15839,11 +15778,6 @@ window.MONATE = {
    ],
    "mechaniken": [
     {
-     "name": "Solo",
-     "minuten": 1200,
-     "anteil": 56
-    },
-    {
      "name": "Schlusswertung",
      "minuten": 1065,
      "anteil": 50
@@ -15867,6 +15801,11 @@ window.MONATE = {
      "name": "Sets sammeln",
      "minuten": 790,
      "anteil": 37
+    },
+    {
+     "name": "Einkommen",
+     "minuten": 760,
+     "anteil": 36
     }
    ],
    "designer": [
@@ -16045,7 +15984,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Schlusswertung"
+       "Schlusswertung",
+       "Gleichzeitige Aktionswahl"
       ],
       "designer": [
        "Richard Garfield"
@@ -16070,8 +16010,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
-       "Kartenhand",
-       "Solo"
+       "Kartenhand"
       ],
       "designer": [
        "Adam Kwapiński"
@@ -16100,7 +16039,6 @@ window.MONATE = {
        "Kartenhand",
        "Schlusswertung",
        "Offenes Drafting",
-       "Solo",
        "Arbeiter einsetzen"
       ],
       "designer": [
@@ -16173,7 +16111,6 @@ window.MONATE = {
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
        "Offenes Drafting",
-       "Solo",
        "Arbeiter einsetzen"
       ],
       "designer": [
@@ -16201,7 +16138,8 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
-       "Kartenhand"
+       "Kartenhand",
+       "Gleichzeitige Aktionswahl"
       ]
      }
     },
@@ -16234,8 +16172,7 @@ window.MONATE = {
       ],
       "mechaniken": [
        "Kartenhand",
-       "Schlusswertung",
-       "Solo"
+       "Schlusswertung"
       ]
      }
     },
@@ -16252,7 +16189,6 @@ window.MONATE = {
       "mechaniken": [
        "Unterschiedliche Fähigkeiten",
        "Offenes Drafting",
-       "Solo",
        "Arbeiter einsetzen"
       ],
       "designer": [
@@ -16292,6 +16228,9 @@ window.MONATE = {
       "themen": [
        "Mittelalter"
       ],
+      "mechaniken": [
+       "Gleichzeitige Aktionswahl"
+      ],
       "illustration": [
        "Dennis Lohausen"
       ]
@@ -16318,6 +16257,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Science-Fiction"
+      ],
+      "mechaniken": [
+       "Gleichzeitige Aktionswahl"
       ],
       "designer": [
        "Richard Garfield"
@@ -16354,9 +16296,6 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Tiere"
-      ],
-      "mechaniken": [
-       "Solo"
       ],
       "illustration": [
        "Dennis Lohausen"
@@ -16469,6 +16408,9 @@ window.MONATE = {
       "themen": [
        "Fantasy"
       ],
+      "mechaniken": [
+       "Gleichzeitige Aktionswahl"
+      ],
       "illustration": [
        "Dennis Lohausen"
       ]
@@ -16514,6 +16456,9 @@ window.MONATE = {
      "merkmale": {
       "themen": [
        "Kartenspiel"
+      ],
+      "mechaniken": [
+       "Gleichzeitige Aktionswahl"
       ]
      }
     },
@@ -16618,9 +16563,6 @@ window.MONATE = {
       "themen": [
        "Tiere",
        "Kartenspiel"
-      ],
-      "mechaniken": [
-       "Solo"
       ]
      }
     },
@@ -16704,14 +16646,14 @@ window.MONATE = {
      "anteil": 26
     },
     {
-     "name": "Solo",
-     "minuten": 790,
-     "anteil": 25
-    },
-    {
      "name": "Arbeiter einsetzen",
      "minuten": 670,
      "anteil": 21
+    },
+    {
+     "name": "Gleichzeitige Aktionswahl",
+     "minuten": 555,
+     "anteil": 18
     }
    ],
    "designer": [

@@ -58,7 +58,7 @@
   .zahlen .prem b, .zahlen .prem small { color: var(--tinte); }
 
   .inhalt { display: grid; grid-template-columns: 1fr 300px; gap: 18px; min-height: 0; }
-  .links { display: grid; grid-template-rows: auto 1fr; gap: 14px; min-height: 0; }
+  .links { display: grid; grid-template-rows: 1fr; min-height: 0; }
   h2 { font-family: var(--titel); font-weight: 600; font-size: 18px; color: var(--creme); margin-bottom: 8px; }
 
   /* Cover */
@@ -232,6 +232,22 @@
   .f-drei li { grid-template-columns: 28px 1fr; font: 400 23px/1.2 var(--text); }
   .f-drei li i { font-style: normal; font-weight: 700; color: var(--gold); }
   .f-drei li span { overflow: hidden; white-space: nowrap; }
+  .f-listen:has(.f-gross) { margin-top: 30px; }
+  .f-gross { padding: 22px 30px 26px; }
+  .f-gross h3 { font-size: 38px; margin-bottom: 12px; }
+  .f-gross ol { gap: 14px; }
+  .f-gross li { font-size: 29px; gap: 6px 14px; }
+  .f-gross li b { font-size: 29px; }
+  .f-gross li span i { font-style: normal; color: var(--gold); display: inline-block; width: 44px; }
+  .f-gross .balken { height: 10px; }
+  .f-eng { gap: 16px; }
+  .f-eng .f-karte { padding: 16px 30px 20px; }
+  .f-eng h3 { font-size: 32px; margin-bottom: 8px; }
+  .f-eng ol { gap: 7px; }
+  .f-eng li { font-size: 23px; gap: 4px 14px; }
+  .f-eng li b { font-size: 23px; }
+  .f-eng li span i { width: 34px; }
+  .f-eng .balken { height: 6px; }
   .f-notiz { margin-top: 26px; font: 400 19px/1.4 var(--text); color: rgba(239,222,198,.6); }
 
   @media (max-width: 1100px) {
@@ -268,11 +284,8 @@
 
   <div class="inhalt">
     <div class="links">
-      <section>
-        <div class="top" id="top"></div>
-      </section>
       <section class="weitere">
-        <h2><span id="weitere-titel">Außerdem gespielt</span><span id="auswahl-info" aria-live="polite"></span></h2>
+        <h2><span id="weitere-titel">Alle Spiele</span><span id="auswahl-info" aria-live="polite"></span></h2>
         <div class="raster" id="raster"></div>
       </section>
     </div>
@@ -363,16 +376,12 @@ function zeige(k) {
     + (k === D.ersterMonat ? "" : `<span class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></span>`);
 
   const ohnePremiere = e => k === D.ersterMonat ? { ...e, premiere: false } : e;
-  $("top").innerHTML = m.spiele.slice(0, 3).map(ohnePremiere).map((e, i) => `
-    <article class="platz p${i + 1}" data-i="${i}"><div>${cover(e)}</div>
-      <div><div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
-        <div class="wert"><b>${stunden(e.minuten)}</b><span>${partien(e.partien)}</span></div></div></article>`).join("");
-
-  const rest = m.spiele.slice(3).map(ohnePremiere);
-  $("weitere-titel").textContent = rest.length ? `Außerdem gespielt · ${rest.length} Spiele` : "Außerdem gespielt";
-  $("raster").innerHTML = rest.length
-    ? rest.map((e, i) => `<div class="kachel" data-i="${i + 3}" title="${esc(e.name)}: ${partien(e.partien)}, ${stunden(e.minuten)}">${cover(e)}<span class="name">${esc(e.name)}</span></div>`).join("")
-    : `<p class="leer">Keine weiteren Spiele in diesem Monat.</p>`;
+  // Alle Spiele gleich groß im Raster, sortiert nach Spielzeit (kein Treppchen)
+  const alle = m.spiele.map(ohnePremiere);
+  $("weitere-titel").textContent = `Alle Spiele nach Spielzeit · ${alle.length === 1 ? "1 Spiel" : alle.length + " Spiele"}`;
+  $("raster").innerHTML = alle.length
+    ? alle.map((e, i) => `<div class="kachel" data-i="${i}" title="${i + 1}. ${esc(e.name)}: ${partien(e.partien)}, ${stunden(e.minuten)}">${cover(e)}<span class="name">${esc(e.name)}</span></div>`).join("")
+    : `<p class="leer">Keine Spiele in diesem Monat.</p>`;
 
   for (const feld of ["themen", "mechaniken"]) $(feld).innerHTML = merkmalListe(m[feld], feld);
   for (const feld of ["designer", "illustration", "verlage"]) $(feld).innerHTML = personenListe(m[feld], feld);
@@ -411,43 +420,39 @@ function baueFolien(k) {
     + `<div class="f-titel">${unter}</div>`;
 
   const zahlen = [[m.partien, "Partien"], [spiele.length, "Spiele"], [m.abende, m.abende === 1 ? "Abend" : "Abende"]];
-  const f1 = kopf(`Gespielt im<br><span>${monatsName(k)}</span>`)
-    + `<div class="f-unter">Die meistgespielten Spiele nach Spielzeit</div>`
-    + `<div class="f-zahlen" style="--n:${erster ? 3 : 4}">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`
+  // Bild 1: Titel, Zahlen und alle Spiele gleich groß, sortiert nach Spielzeit
+  const f1 = kopf(`Gespielt im <span>${monatsName(k)}</span>`).replace('class="f-titel"', 'class="f-titel" style="font-size:64px"')
+    + `<div class="f-zahlen" style="--n:${erster ? 3 : 4};margin-top:30px">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`
     + (erster ? "" : `<div class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></div>`) + `</div>`
-    + `<div class="f-podest">${spiele.slice(0, 3).map((e, i) => `<div class="f-platz p${i + 1}">${igCover(e)}
-        <div class="rang">${i + 1}</div><div class="name">${esc(e.name)}</div>
-        <div class="wert">${stunden(e.minuten)}<span>${partien(e.partien)}</span></div></div>`).join("")}</div>`
-    + fuss(1, "boardgames-muenstereifel.club");
-
-  const rest = spiele.slice(3);
-  const f2 = `<div class="f-ueber">${monatsName(k)}</div>`
-    + `<div class="f-titel" style="font-size:72px">Außerdem gespielt</div>`
-    + `<div class="f-unter">${rest.length === 1 ? "1 weiteres Spiel" : rest.length + " weitere Spiele"}, sortiert nach Spielzeit</div>`
-    + (rest.length ? `<div class="f-raster" id="f-raster">${rest.map(e => `<div class="kachel">${igCover(e)}<span class="name" data-name="${esc(e.name)}"></span></div>`).join("")}</div>`
-      : `<p class="f-unter" style="margin-top:60px">Keine weiteren Spiele in diesem Monat.</p>`)
+    + `<div class="f-unter" style="margin-top:28px;font-size:30px">Alle Spiele nach Spielzeit</div>`
+    + (spiele.length ? `<div class="f-raster" id="f-raster" style="margin-top:18px">${spiele.map(e => `<div class="kachel">${igCover(e)}<span class="name" data-name="${esc(e.name)}"></span></div>`).join("")}</div>`
+      : `<p class="f-unter" style="margin-top:60px">Keine Spiele in diesem Monat.</p>`)
     + `<div class="f-legende"><span><span class="anzahl">3×</span> Partien im Monat</span>`
     + (erster ? "" : `<span><span class="premiere">Premiere</span> zum ersten Mal bei uns gespielt</span>`) + `</div>`
-    + fuss(2, "boardgames-muenstereifel.club");
+    + fuss(1, "boardgames-muenstereifel.club");
 
   const balkenListe = (liste, farbe) => {
     liste = (liste ?? []).slice(0, 5);
     if (!liste.length) return `<li style="font-weight:400">Noch keine BGG-Daten.</li>`;
     const max = liste[0].anteil || 1;
-    return liste.map(x => `<li><span>${esc(kuerze(x.name, "700 26px 'Atkinson Hyperlegible'", 300))}</span><b>${x.anteil} %</b>`
-      + `<div class="balken"><i style="width:${Math.max(4, x.anteil / max * 100)}%;background:${farbe}"></i></div></li>`).join("");
+    return liste.map((x, i) => `<li><span><i>${i + 1}.</i>${esc(kuerze(x.name, "700 30px 'Atkinson Hyperlegible'", 700))}</span><b>${x.anteil} %</b>`
+      + `<div class="balken"><i style="width:${Math.max(3, x.anteil / max * 100)}%;background:${farbe}"></i></div></li>`).join("");
   };
-  const top3 = liste => (liste ?? []).slice(0, 3).map((x, i) => `<li><i>${i + 1}.</i><span>${esc(kuerze(x.name, "400 23px 'Atkinson Hyperlegible'", 215))}</span></li>`).join("") || `<li>–</li>`;
-  const f3 = `<div class="f-ueber">${monatsName(k)}</div>`
+  const karte = (titel, liste, farbe) => `<div class="f-karte f-gross"><h3>${titel}</h3><ol>${balkenListe(liste, farbe)}</ol></div>`;
+  const notiz = `<p class="f-notiz">Prozent = Anteil an der gesamten Spielzeit des Monats. Spielzeit = Partien × Spieldauer laut BoardGameGeek. Stand ${st}. ${MON[sm - 1]} ${sj}.</p>`;
+
+  // Bild 2: Themen und Mechaniken
+  const f2 = `<div class="f-ueber">${monatsName(k)}</div>`
     + `<div class="f-titel" style="font-size:72px">Was wir gespielt haben</div>`
-    + `<div class="f-unter">Themen, Mechaniken und Köpfe hinter den Spielen</div>`
-    + `<div class="f-listen"><div class="f-zwei">`
-    + `<div class="f-karte"><h3>Themen</h3><ol>${balkenListe(m.themen, "var(--gold)")}</ol></div>`
-    + `<div class="f-karte"><h3>Mechaniken</h3><ol>${balkenListe(m.mechaniken, "var(--petrol)")}</ol></div></div>`
-    + `<div class="f-drei"><div class="f-karte"><h3>Designer</h3><ol>${top3(m.designer)}</ol></div>`
-    + `<div class="f-karte"><h3>Illustration</h3><ol>${top3(m.illustration)}</ol></div>`
-    + `<div class="f-karte"><h3>Verlage</h3><ol>${top3(m.verlage)}</ol></div></div></div>`
-    + `<p class="f-notiz">Prozent = Anteil an der gesamten Spielzeit des Monats. Spielzeit = Partien × Spieldauer laut BoardGameGeek. Stand ${st}. ${MON[sm - 1]} ${sj}.</p>`
+    + `<div class="f-unter">Die beliebtesten Themen und Mechaniken</div>`
+    + `<div class="f-listen">${karte("Themen", m.themen, "var(--gold)")}${karte("Mechaniken", m.mechaniken, "var(--petrol)")}</div>`
+    + notiz + fuss(2, "boardgames-muenstereifel.club");
+
+  // Bild 3: Designer, Illustration, Verlage
+  const f3 = `<div class="f-ueber">${monatsName(k)}</div>`
+    + `<div class="f-titel" style="font-size:72px">Wer dahinter steckt</div>`
+    + `<div class="f-unter">Designer, Illustration und Verlage unserer Spiele</div>`
+    + `<div class="f-listen f-eng">${karte("Designer", m.designer, "var(--gold)")}${karte("Illustration", m.illustration, "var(--petrol)")}${karte("Verlage", m.verlage, "var(--creme)")}</div>`
     + fuss(3, "boardgames-muenstereifel.club");
 
   $("folien").innerHTML = [f1, f2, f3].map((f, i) => `<div class="folie-platz"><div class="folie-rahmen"><div class="folie" id="folie-${i + 1}">${f}</div></div>`

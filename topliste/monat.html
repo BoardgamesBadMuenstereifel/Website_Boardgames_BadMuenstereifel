@@ -565,7 +565,13 @@ async function speichere(nr) {
   const el = $("folie-" + nr);
   const leinwand = await html2canvas(el, {
     width: 1080, height: 1350, scale: 1, useCORS: true, backgroundColor: "#2b2530", logging: false,
-    onclone: doc => { doc.getElementById("folie-" + nr).style.transform = "none"; },
+    onclone: doc => {
+      doc.getElementById("folie-" + nr).style.transform = "none";
+      // html2canvas malt Schatten auf Covern mit Hintergrundbild als dunkle Flächen aufs Bild, deshalb im Export ohne Schatten
+      const stil = doc.createElement("style");
+      stil.textContent = ".folie .ic, .folie .ic * { box-shadow: none !important; }";
+      doc.head.append(stil);
+    },
   });
   const blob = await new Promise(ok => leinwand.toBlob(ok, "image/png"));
   const a = document.createElement("a");

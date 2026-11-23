@@ -153,7 +153,12 @@
   body.insta #insta { display: flex; }
   .insta-leiste { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .insta-leiste .tipp { color: rgba(239,222,198,.65); font-size: 13px; margin-left: auto; }
-  .folien { flex: 1; min-height: 0; display: flex; justify-content: center; align-items: flex-start; gap: 24px; }
+  .folien { flex: 1; min-height: 0; display: flex; flex-wrap: wrap; justify-content: center; align-content: flex-start; gap: 24px; overflow-y: auto; padding-bottom: 10px; }
+  .umschalter { display: inline-flex; }
+  .umschalter .knopf { border-radius: 0; }
+  .umschalter .knopf:first-child { border-radius: 9px 0 0 9px; }
+  .umschalter .knopf:last-child { border-radius: 0 9px 9px 0; border-left: 0; }
+  .umschalter .knopf[aria-pressed="true"] { background: var(--creme-hell); color: var(--tinte); }
   .folie-platz { display: flex; flex-direction: column; align-items: center; gap: 8px; }
   .folie-rahmen { width: calc(1080px * var(--s, .4)); height: calc(1350px * var(--s, .4)); position: relative;
     border-radius: 6px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
@@ -308,7 +313,7 @@
 
   <footer>
     <span>Spielzeit = Partien × Spieldauer laut BoardGameGeek · Zahl am Cover = Partien · Listen rechts: Anteil an der Spielzeit · <span id="stand"></span></span>
-    <span><button type="button" class="leise" id="insta-an" title="Drei Hochkant-Bilder (1080 × 1350) für Instagram">Instagram-Bilder ›</button> · boardgames-muenstereifel.club</span>
+    <span><button type="button" class="leise" id="insta-an" title="Hochkant-Bilder (1080 × 1350) für Instagram">Instagram-Bilder ›</button> · boardgames-muenstereifel.club</span>
   </footer>
 </div>
 
@@ -316,7 +321,11 @@
   <div class="insta-leiste">
     <button type="button" class="knopf" id="insta-aus">← Übersicht</button>
     <span id="insta-menue"></span>
-    <button type="button" class="knopf gold" id="alle-speichern">Alle 3 Bilder speichern</button>
+    <span class="umschalter" role="group" aria-label="Covergröße">
+      <button type="button" class="knopf" data-cover="gross" aria-pressed="true">Große Cover</button>
+      <button type="button" class="knopf" data-cover="kompakt" aria-pressed="false">Alles auf 1 Bild</button>
+    </span>
+    <button type="button" class="knopf gold" id="alle-speichern">Alle Bilder speichern</button>
     <span class="tipp">1080 × 1350 Pixel (4:5), in dieser Reihenfolge als Karussell posten</span>
   </div>
   <div class="folien" id="folien"></div>
@@ -393,7 +402,7 @@ function zeige(k) {
   if (instaAn) baueFolien(k);
 }
 
-// ---------- Instagram: drei Hochkant-Bilder ----------
+// ---------- Instagram: Hochkant-Bilder, Anzahl je nach Spielen ----------
 let instaAn = false;
 const coverBild = e => e.cover ? `background-image:url('../src/assets/cover/${esc(e.cover)}')` : `background-image:linear-gradient(135deg, hsl(${farbton(e.name)} 45% 46%), hsl(${farbton(e.name) + 40} 40% 30%))`;
 function igCover(e) {
@@ -410,7 +419,21 @@ function kuerze(text, schrift, breite) {
   while (t.length > 1 && messer.measureText(t + "…").width > breite) t = t.slice(0, -1);
   return t.trimEnd() + "…";
 }
-const fuss = (nr, rechts) => `<div class="f-fuss"><span>${rechts}</span><b>${nr}<i> / 3</i></b></div>`;
+// Seitenzahl wird erst eingesetzt, wenn feststeht, wie viele Bilder es werden
+const fuss = () => `<div class="f-fuss"><span>boardgames-muenstereifel.club</span><b>§NR§<i> / §VON§</i></b></div>`;
+
+// „Große Cover“: Spiele auf mehrere Bilder verteilen. Bild 1 fasst neben Titel und Zahlen bis zu ERSTES Spiele,
+// jedes weitere bis zu WEITERE. Bis BIS_EINS Spiele bleibt alles auf Bild 1.
+let coverModus = "gross";
+const ERSTES = 15, WEITERE = 12, BIS_EINS = 18;
+function verteile(n) {
+  if (coverModus === "kompakt" || n <= BIS_EINS) return [n];
+  // Bis 15 übrige Spiele reicht ein Folgebild (5 × 3 wie Bild 1), sonst Bilder mit je bis zu 12 großen Covern (4 × 3)
+  const rest = n - ERSTES, seiten = rest <= ERSTES ? 1 : Math.ceil(rest / WEITERE), je = Math.ceil(rest / seiten);
+  const teile = [ERSTES];
+  for (let i = 0; i < seiten; i++) teile.push(Math.min(je, rest - i * je));
+  return teile;
+}
 
 function baueFolien(k) {
   const m = D.monate[k], erster = k === D.ersterMonat;
@@ -420,16 +443,29 @@ function baueFolien(k) {
     + `<div class="f-titel">${unter}</div>`;
 
   const zahlen = [[m.partien, "Partien"], [spiele.length, "Spiele"], [m.abende, "Treffen"]];
-  // Bild 1: Titel, Zahlen und alle Spiele gleich groß, sortiert nach Spielzeit
-  const f1 = kopf(`Gespielt im <span>${monatsName(k)}</span>`).replace('class="f-titel"', 'class="f-titel" style="font-size:64px"')
-    + `<div class="f-zahlen" style="--n:${erster ? 3 : 4};margin-top:30px">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`
-    + (erster ? "" : `<div class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></div>`) + `</div>`
-    + `<div class="f-unter" style="margin-top:28px;font-size:30px">Alle Spiele nach Spielzeit</div>`
-    + (spiele.length ? `<div class="f-raster" id="f-raster" style="margin-top:18px">${spiele.map(e => `<div class="kachel">${igCover(e)}<span class="name" data-name="${esc(e.name)}"></span></div>`).join("")}</div>`
-      : `<p class="f-unter" style="margin-top:60px">Keine Spiele in diesem Monat.</p>`)
-    + `<div class="f-legende"><span><span class="anzahl">3×</span> Partien im Monat</span>`
-    + (erster ? "" : `<span><span class="premiere">Premiere</span> zum ersten Mal bei uns gespielt</span>`) + `</div>`
-    + fuss(1, "boardgames-muenstereifel.club");
+  // Spiele-Bilder: Bild 1 mit Titel und Zahlen, bei „Große Cover“ weitere Bilder mit dem Rest (mit Platzziffer)
+  const teile = verteile(spiele.length), mitPlatz = teile.length > 1;
+  const raster = (von, bis) => `<div class="f-raster" style="margin-top:18px">${spiele.slice(von, bis).map((e, i) =>
+    `<div class="kachel">${igCover(e)}<span class="name" data-name="${esc((mitPlatz ? `${von + i + 1}. ` : "") + e.name)}"></span></div>`).join("")}</div>`;
+  const legende = `<div class="f-legende"><span><span class="anzahl">3×</span> Partien im Monat</span>`
+    + (erster ? "" : `<span><span class="premiere">Premiere</span> zum ersten Mal bei uns gespielt</span>`) + `</div>`;
+  const spielFolien = [];
+  let von = 0;
+  teile.forEach((anzahl, nr) => {
+    const bis = von + anzahl;
+    spielFolien.push(nr === 0
+      ? kopf(`Gespielt im <span>${monatsName(k)}</span>`).replace('class="f-titel"', 'class="f-titel" style="font-size:64px"')
+        + `<div class="f-zahlen" style="--n:${erster ? 3 : 4};margin-top:30px">${zahlen.map(([z, t]) => `<div><b>${z}</b><small>${t}</small></div>`).join("")}`
+        + (erster ? "" : `<div class="prem"><b>${premieren}</b><small>${premieren === 1 ? "Premiere" : "Premieren"}</small></div>`) + `</div>`
+        + `<div class="f-unter" style="margin-top:28px;font-size:30px">${mitPlatz ? `Alle Spiele nach Spielzeit · Platz 1–${bis}` : "Alle Spiele nach Spielzeit"}</div>`
+        + (spiele.length ? raster(von, bis) : `<p class="f-unter" style="margin-top:60px">Keine Spiele in diesem Monat.</p>`)
+        + legende + fuss()
+      : `<div class="f-ueber">${monatsName(k)}</div>`
+        + `<div class="f-titel" style="font-size:72px">Außerdem gespielt</div>`
+        + `<div class="f-unter">Platz ${von + 1}–${bis} von ${spiele.length}, nach Spielzeit</div>`
+        + raster(von, bis) + fuss());
+    von = bis;
+  });
 
   const balkenListe = (liste, farbe) => {
     liste = (liste ?? []).slice(0, 5);
@@ -446,26 +482,26 @@ function baueFolien(k) {
     + `<div class="f-titel" style="font-size:72px">Was wir gespielt haben</div>`
     + `<div class="f-unter">Die beliebtesten Themen und Mechaniken</div>`
     + `<div class="f-listen">${karte("Themen", m.themen, "var(--gold)")}${karte("Mechaniken", m.mechaniken, "var(--petrol)")}</div>`
-    + notiz + fuss(2, "boardgames-muenstereifel.club");
+    + notiz + fuss();
 
   // Bild 3: Designer, Illustration, Verlage
   const f3 = `<div class="f-ueber">${monatsName(k)}</div>`
     + `<div class="f-titel" style="font-size:72px">Wer dahinter steckt</div>`
     + `<div class="f-unter">Designer, Illustration und Verlage unserer Spiele</div>`
     + `<div class="f-listen f-eng">${karte("Designer", m.designer, "var(--gold)")}${karte("Illustration", m.illustration, "var(--petrol)")}${karte("Verlage", m.verlage, "var(--creme)")}</div>`
-    + fuss(3, "boardgames-muenstereifel.club");
+    + fuss();
 
-  $("folien").innerHTML = [f1, f2, f3].map((f, i) => `<div class="folie-platz"><div class="folie-rahmen"><div class="folie" id="folie-${i + 1}">${f}</div></div>`
+  const alle = [...spielFolien, f2, f3];
+  anzahlFolien = alle.length;
+  $("alle-speichern").textContent = `Alle ${alle.length} Bilder speichern`;
+  $("folien").innerHTML = alle.map((f, i) => `<div class="folie-platz"><div class="folie-rahmen"><div class="folie" id="folie-${i + 1}">${f.replace("§NR§", i + 1).replace("§VON§", alle.length)}</div></div>`
     + `<button type="button" class="knopf" data-speichern="${i + 1}">Bild ${i + 1} speichern</button></div>`).join("");
   document.fonts.ready.then(() => { passeFolienRasterAn(); skaliereFolien(); });
   skaliereFolien();
 }
 
 // Kacheln auf Bild 2 so groß wie möglich, alle Spiele passen hinein
-function passeFolienRasterAn() {
-  const r = $("f-raster");
-  if (!r) return;
-  const n = r.children.length, b = 952, h = r.clientHeight;
+function groessteKachel(n, b, h) {
   // Für jede Spaltenzahl die größte Kachel, die in Breite und Höhe passt; davon die größte nehmen
   let best = { s: 0 };
   for (let spalten = 1; spalten <= n; spalten++) {
@@ -477,10 +513,27 @@ function passeFolienRasterAn() {
       if ((s >= 130 ? 19 : s >= 90 ? 16 : 13) === schrift && s > best.s) best = { s, spalten, abstand, schrift };
     }
   }
-  r.classList.toggle("mittel", best.s < 150 && best.s >= 95);
-  r.classList.toggle("klein", best.s < 95);
-  r.style.cssText = `--kachel:${best.s}px;--spalten:${best.spalten};--abstand:${best.abstand}px;--schrift:${best.schrift}px`;
-  r.querySelectorAll(".name").forEach(el => { el.textContent = kuerze(el.dataset.name, `700 ${best.schrift}px 'Atkinson Hyperlegible'`, best.s); });
+  return best;
+}
+function passeFolienRasterAn() {
+  const raster = [...document.querySelectorAll("#folien .f-raster")];
+  if (!raster.length) return;
+  const b = 952;
+  const werte = raster.map(r => groessteKachel(r.children.length, b, r.clientHeight));
+  // Bild 1 (mit Titel und Zahlen) eigene Größe; alle Folgebilder gleich große Cover, die kleinste passende gilt
+  const sFolge = werte.length > 1 ? Math.min(...werte.slice(1).map(w => w.s)) : 0;
+  raster.forEach((r, i) => {
+    const s = i === 0 ? werte[0].s : sFolge;
+    const abstand = s < 100 ? 12 : 20, schrift = s >= 130 ? 19 : s >= 90 ? 16 : 13;
+    const spalten = Math.min(r.children.length, Math.max(werte[i].spalten, Math.floor((b + abstand) / (s + abstand))));
+    r.classList.toggle("mittel", s < 150 && s >= 95);
+    r.classList.toggle("klein", s < 95);
+    r.style.setProperty("--kachel", s + "px");
+    r.style.setProperty("--spalten", spalten);
+    r.style.setProperty("--abstand", abstand + "px");
+    r.style.setProperty("--schrift", schrift + "px");
+    r.querySelectorAll(".name").forEach(el => { el.textContent = kuerze(el.dataset.name, `700 ${schrift}px 'Atkinson Hyperlegible'`, s); });
+  });
 }
 
 // Vorschau: alle drei Bilder nebeneinander, so groß wie das Fenster erlaubt
@@ -532,7 +585,15 @@ $("folien").addEventListener("click", e => {
   const k = e.target.closest("[data-speichern]");
   if (k) speichernMitKnopf(k, [Number(k.dataset.speichern)]);
 });
-$("alle-speichern").addEventListener("click", e => speichernMitKnopf(e.currentTarget, [1, 2, 3]));
+let anzahlFolien = 3;
+$("alle-speichern").addEventListener("click", e => speichernMitKnopf(e.currentTarget, Array.from({ length: anzahlFolien }, (_, i) => i + 1)));
+document.querySelector(".umschalter").addEventListener("click", e => {
+  const k = e.target.closest("[data-cover]");
+  if (!k || k.dataset.cover === coverModus) return;
+  coverModus = k.dataset.cover;
+  document.querySelectorAll("[data-cover]").forEach(b => b.setAttribute("aria-pressed", b.dataset.cover === coverModus));
+  baueFolien($("monat").value);
+});
 $("insta-an").addEventListener("click", () => setzeInsta(true));
 $("insta-aus").addEventListener("click", () => setzeInsta(false));
 addEventListener("resize", skaliereFolien);

@@ -244,35 +244,20 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   }
 }
 @media (prefers-reduced-motion: reduce) { .schachtel img, .ohne-cover { transition: none; } }
+/* „Neu im Hobby?“ im selben Regal: Schild als Überschrift, daneben der Satz zur Gruppe, Aufkleber für bewertete Spiele */
+.regal-empf .fach { scroll-margin-top: 1rem; }
+.regal-empf .fach-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .7rem; }
+.regal-empf h2.schild { margin: 0; line-height: 1; color: var(--tinte); }
+.fach-satz { margin: 0; font-size: .92rem; line-height: 1.3; color: var(--creme-hell); text-shadow: 0 1px 0 rgb(0 0 0 / .35); }
+.schachtel-marke { position: absolute; top: -.5rem; right: -.45rem; z-index: 1; padding: .1rem .4rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .72rem; font-weight: 700; transform: rotate(10deg); box-shadow: 0 2px 0 rgb(0 0 0 / .35); }
 .fakten { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: .6rem; margin: 0 0 1rem; }
 .fakten div { background: var(--creme-hell); border-radius: 10px; padding: .5rem .7rem; }
 .fakten dt { font-size: .85rem; color: var(--aubergine); }
 .fakten dd { margin: 0; font-weight: 700; }
 .partien-info { font-weight: 700; color: var(--aubergine); }
-.empf-karte li span { display: block; font-size: .92rem; color: var(--aubergine); margin-top: -.2rem; padding-bottom: .3rem; }
 .rechtstext { overflow-wrap: anywhere; }
 .rechtstext .wrap { max-width: 44rem; }
 .rechtstext h2 { font-size: 1.2rem; margin-top: 1.4rem; }
-
-/* Empfehlungen */
-.empf { display: grid; gap: .9rem; }
-.empf-karte { background: var(--creme-hell); border-radius: var(--radius); padding: 1rem 1.1rem; scroll-margin-top: 1rem; }
-.empf-karte h2, .empf-karte h3 { font-size: 1.2rem; color: var(--aubergine); margin: 0 0 .4rem; padding-bottom: .4rem; border-bottom: 3px solid var(--gold); }
-.empf-satz { margin: 0 0 .3rem; font-size: .98rem; }
-.empf-karte ul { list-style: none; margin: 0; padding: 0; }
-/* Handy: Name über dem Cover, daneben Hinweis und Begründung. Ab 40rem: Cover links, Name und Text rechts. */
-.empf-karte li { display: grid; grid-template-columns: 3.6rem 1fr; grid-template-areas: "name name" "cover info"; column-gap: .75rem; align-items: start; padding: .45rem 0; }
-.empf-name { grid-area: name; }
-.empf-cover { grid-area: cover; }
-.empf-info { grid-area: info; }
-@media (min-width: 40rem) {
-  .empf-karte li { grid-template-areas: "cover name" "cover info"; grid-template-rows: auto 1fr; }
-}
-.empf-karte li + li { border-top: 1px solid rgb(43 37 48 / .1); }
-.empf-karte li a { display: block; padding: .15rem 0 .3rem; font-weight: 700; color: var(--tinte); }
-.empf-karte li a.empf-cover { padding: 0; }
-.empf-bild { display: grid; place-items: center; width: 3.6rem; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: var(--creme); box-shadow: 0 2px 0 rgb(43 37 48 / .18); font-family: var(--schrift-titel); font-size: 1.5rem; color: var(--aubergine); }
-.empf-karte li .empf-note { display: inline-block; margin: -.2rem 0 .3rem; padding: 0 .5rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .82rem; font-weight: 700; }
 
 /* Hinweis auf eine Bewertung in Ranglisten und auf der Spielseite */
 .fokus-hinweis { position: relative; z-index: 1; display: inline-block; margin-top: .35rem; padding: .15rem .6rem; border-radius: 999px; background: var(--petrol); color: var(--creme); font-size: .85rem; font-weight: 700; text-decoration: none; }
@@ -311,7 +296,6 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   .filter { grid-template-columns: repeat(4, 1fr); }
   .regal { --schachtel: 7rem; --luft: 1.125rem; --brett: .875rem; padding-inline: .75rem; padding-bottom: .75rem; }
   .regalbrett { column-gap: .55rem; padding-inline: 1rem; }
-  .empf { grid-template-columns: repeat(2, 1fr); }
   .fokus-archiv { grid-template-columns: 1fr 1fr; }
   .zweispaltig { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
@@ -320,7 +304,6 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
   /* Die Matte läuft links bis an den Bildschirmrand */
   .hero-bild { --rand: calc((100vw - min(100vw - 2rem, 68rem)) / 2); width: calc(100% + var(--rand)); margin: 1.4rem 0 0 calc(-1 * var(--rand)); }
   .liste-gruppe { grid-template-columns: 2.2fr 1fr; gap: 2rem; }
-  .empf { grid-template-columns: repeat(3, 1fr); }
   .fokus-archiv { grid-template-columns: repeat(3, 1fr); }
   .termine { grid-template-columns: 1fr 1fr; }
   .termine[data-limit="3"] { grid-template-columns: repeat(3, 1fr); }

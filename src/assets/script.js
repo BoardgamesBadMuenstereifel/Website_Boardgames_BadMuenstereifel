@@ -85,20 +85,25 @@
   form.addEventListener("input", anwenden);
   form.addEventListener("submit", function (e) { e.preventDefault(); });
   anwenden();
+})();
 
-  // Das Namensschild über einer Schachtel bleibt im Regal, auch bei Schachteln ganz links oder rechts
-  function schildRuecken(e) {
-    var a = e.target.closest && e.target.closest(".schachtel a");
-    if (!a) return;
-    var info = a.querySelector(".schachtel-info");
-    info.style.removeProperty("--verschub");
-    var r = info.getBoundingClientRect(), g = regal.getBoundingClientRect();
-    if (r.width < 2) return;
-    var v = Math.max(0, g.left + 6 - r.left) - Math.max(0, r.right - g.right + 6);
-    if (v) info.style.setProperty("--verschub", Math.round(v) + "px");
-  }
-  regal.addEventListener("mouseover", schildRuecken);
-  regal.addEventListener("focusin", schildRuecken);
+// Das Namensschild über einer Schachtel bleibt im Regal, auch bei Schachteln ganz links oder rechts
+// (Sammlung und „Neu im Hobby?“)
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll(".regal"), function (regal) {
+    function schildRuecken(e) {
+      var a = e.target.closest && e.target.closest(".schachtel a");
+      if (!a) return;
+      var info = a.querySelector(".schachtel-info");
+      info.style.removeProperty("--verschub");
+      var r = info.getBoundingClientRect(), g = regal.getBoundingClientRect();
+      if (r.width < 2) return;
+      var v = Math.max(0, g.left + 6 - r.left) - Math.max(0, r.right - g.right + 6);
+      if (v) info.style.setProperty("--verschub", Math.round(v) + "px");
+    }
+    regal.addEventListener("mouseover", schildRuecken);
+    regal.addEventListener("focusin", schildRuecken);
+  });
 })();
 
 // Fotos „landen“ beim Herunterscrollen auf dem Tisch. Ohne JavaScript oder bei

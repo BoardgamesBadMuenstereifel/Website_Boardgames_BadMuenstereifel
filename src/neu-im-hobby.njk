@@ -4,33 +4,39 @@ titel: Neu im Hobby?
 beschreibung: Unsere Empfehlungen für den Einstieg ins Brettspiel-Hobby, sortiert danach, mit wem du spielst. Von den ersten Spielen mit Kindern bis zum nächsten Schritt.
 permalink: /neu-im-hobby/
 ---
-{% import "bausteine.njk" as b %}
 <section class="sektion" aria-labelledby="h-empf">
   <div class="wrap">
     <h1 class="seiten-titel" id="h-empf">Neu im Hobby?</h1>
-    <p class="lead">Du willst ins Hobby einsteigen? Mit diesen Spielen klappt der Anfang. Sortiert danach, mit wem du spielst, bis hin zu Ideen für den nächsten Schritt. Spiele mit Note haben wir ausführlich bewertet.</p>
+    <p class="lead">Du willst ins Hobby einsteigen? Mit diesen Spielen klappt der Anfang. Sortiert danach, mit wem du spielst, bis hin zu Ideen für den nächsten Schritt. Tipp auf eine Schachtel, dann siehst du alles zum Spiel. Spiele mit dem Aufkleber „Bewertet“ haben wir ausführlich bewertet.</p>
     {%- if daten.empfehlungen.length %}
-    <div class="empf">
+    {#- Das Regal wie bei der Sammlung: ein Fach je Gruppe, darin die Schachteln mit dem Cover nach vorn #}
+    <div class="regal regal-empf">
       {%- for g in daten.empfehlungen %}
-      <article class="empf-karte" id="{{ g.anker }}" aria-labelledby="h-{{ g.anker }}">
-        <h2 id="h-{{ g.anker }}">{{ g.name }}</h2>
-        {%- if g.text %}<p class="empf-satz">{{ g.text }}</p>{% endif %}
-        <ul>
-          {%- for e in g.spiele %}
-          {%- set ziel = ('/spiele/' + e.spiel.slug + '/' + ('#bewertung' if e.spiel.bewertung else '')) | url %}
-          <li>
-            <a class="empf-name" href="{{ ziel }}">{{ e.spiel.name }}</a>
-            <a class="empf-cover" href="{{ ziel }}" tabindex="-1" aria-hidden="true">{{ b.cover(e.spiel, "empf-bild") }}</a>
-            {%- if e.spiel.bewertung or e.grund %}
-            <div class="empf-info">
-              {%- if e.spiel.bewertung %}<span class="empf-note">Unsere Bewertung</span>{% endif %}
-              {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
-            </div>
-            {%- endif %}
+      <section class="fach" id="{{ g.anker }}" aria-labelledby="h-{{ g.anker }}">
+        <div class="fach-kopf">
+          <h2 class="schild" id="h-{{ g.anker }}">{{ g.name }} <span class="fach-zahl">{{ g.spiele.length }}<span class="nur-sr"> {{ "Spiel" if g.spiele.length == 1 else "Spiele" }}</span></span></h2>
+          {%- if g.text %}<p class="fach-satz">{{ g.text }}</p>{% endif %}
+        </div>
+        <ul class="regalbrett">
+          {%- for e in g.spiele %}{% set s = e.spiel %}
+          <li class="schachtel">
+            <a href="{{ ('/spiele/' + s.slug + '/' + ('#bewertung' if s.bewertung else '')) | url }}">
+              {%- if s.bgg and s.bgg.cover %}{% set m = s.bgg.cover | coverMasse %}
+              <img src="{{ s.bgg.cover | url }}" alt=""{% if m %} width="{{ m.breite }}" height="{{ m.hoehe }}" style="--q: {{ (m.breite / m.hoehe) | round(3) }}"{% endif %} loading="lazy" decoding="async">
+              {%- else %}
+              <span class="ohne-cover" aria-hidden="true">{{ s.name }}</span>
+              {%- endif %}
+              <span class="schachtel-info"><b>{{ s.name }}</b>
+                {%- if s.bewertung %}<span>Unsere Bewertung</span>{% endif %}
+                {%- if e.grund %}<span>{{ e.grund }}</span>{% endif %}
+                {%- set fakten = ([s.bgg | spieler, s.bgg | dauer] | select | join(" · ")) if s.bgg else "" %}
+                {%- if fakten %}<span>{{ fakten }}</span>{% endif %}</span>
+              {%- if s.bewertung %}<span class="schachtel-marke" aria-hidden="true">Bewertet</span>{% endif %}
+            </a>
           </li>
           {%- endfor %}
         </ul>
-      </article>
+      </section>
       {%- endfor %}
     </div>
     {%- else %}

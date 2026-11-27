@@ -143,3 +143,39 @@
     pruefen();
   });
 })();
+
+// Spiele: die drei Top-10-Listen als Reiter. Ohne JavaScript stehen sie untereinander.
+(function () {
+  var block = document.querySelector("[data-reiter]");
+  if (!block) return;
+  var leiste = block.querySelector('[role="tablist"]');
+  var reiter = Array.prototype.slice.call(leiste.querySelectorAll('[role="tab"]'));
+  if (reiter.length < 2) return;
+  var listen = reiter.map(function (r) { return document.getElementById(r.getAttribute("aria-controls")); });
+  listen.forEach(function (l, i) {
+    l.setAttribute("role", "tabpanel");
+    l.setAttribute("aria-labelledby", reiter[i].id);
+    l.tabIndex = -1;
+  });
+  function zeige(n, fokus) {
+    reiter.forEach(function (r, i) {
+      var an = i === n;
+      r.setAttribute("aria-selected", an ? "true" : "false");
+      r.tabIndex = an ? 0 : -1;
+      listen[i].hidden = !an;
+    });
+    if (fokus) reiter[n].focus();
+  }
+  reiter.forEach(function (r, i) {
+    r.addEventListener("click", function () { zeige(i); });
+    r.addEventListener("keydown", function (e) {
+      var n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: reiter.length - 1 }[e.key];
+      if (n === undefined) return;
+      e.preventDefault();
+      zeige((n + reiter.length) % reiter.length, true);
+    });
+  });
+  block.classList.add("mit-reitern");
+  leiste.hidden = false;
+  zeige(0);
+})();

@@ -9,30 +9,46 @@ permalink: /spiele/
   <div class="wrap">
     <h1 class="seiten-titel" id="h-spiele">Spiele</h1>
     <p class="lead">Mit diesen Spielen verbringen wir die meiste Zeit. Du musst keine Regeln kennen, wir erklären sie dir.</p>
-    {#- Ranglisten als Cover mit Platz, darunter Spielzeit und Partien #}
+    {#- Ranglisten als Cover mit Platz, darunter ein Balken (Spielzeit im Vergleich zu Platz 1), Spielzeit und Partien.
+        Die Listen sind nach Spielzeit sortiert, Platz 1 hat also die meiste. #}
     {%- macro rangreihe(liste, anzahl) %}
     {%- import "bausteine.njk" as b %}
+    {%- set top = liste | batch(anzahl) | first %}
+    {%- set hoechste = top[0].spielzeit %}
     <ol class="cover-reihe rang-reihe">
-      {%- for e in liste | batch(anzahl) | first %}{{ b.coverKachel(e.spiel, e.spielzeit | spielzeit, loop.index, e.partien + (" Partie" if e.partien == 1 else " Partien")) }}{% endfor %}
+      {%- for e in top %}{{ b.coverKachel(e.spiel, e.spielzeit | spielzeit, loop.index, e.partien + (" Partie" if e.partien == 1 else " Partien"), false, ((e.spielzeit / hoechste * 100) | round(1)) if (hoechste and e.spielzeit) else null) }}{% endfor %}
     </ol>
     {%- endmacro %}
-    <div class="rangliste">
-      <h2 class="band-h">Letzte 12 Monate <span class="klein-info">{{ daten.zahlen12.abende }} Spieletreffen, {{ daten.zahlen12.partien }} Partien</span></h2>
-      {{ rangreihe(daten.meist12, 10) }}
+    {%- set krone %}<svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg>{% endset %}
+    {#- Ohne JavaScript stehen die drei Listen untereinander. Mit JavaScript werden daraus Reiter (script.js). #}
+    <div class="ranglisten" data-reiter>
+      <h2 class="band-h ranglisten-h">Unsere Top 10</h2>
+      <div class="reiter" role="tablist" aria-label="Zeitraum der Top 10" hidden>
+        <button type="button" role="tab" id="reiter-12" aria-controls="liste-12">12 Monate</button>
+        {%- if daten.meist3.length %}<button type="button" role="tab" id="reiter-3" aria-controls="liste-3">{{ b.flamme() }} Hotlist</button>{% endif %}
+        {%- if daten.hallOfFame.length %}<button type="button" role="tab" id="reiter-ruhm" aria-controls="liste-ruhm">{{ krone | safe }} Hall of Fame</button>{% endif %}
+      </div>
+      <div class="rangliste" id="liste-12">
+        <h3 class="band-h liste-h">Letzte 12 Monate</h3>
+        <p class="klein-info liste-info">{{ daten.zahlen12.abende }} Spieletreffen, {{ daten.zahlen12.partien }} Partien in den letzten 12 Monaten</p>
+        {{ rangreihe(daten.meist12, 10) }}
+      </div>
+      {%- if daten.meist3.length %}
+      <div class="rangliste" id="liste-3">
+        <h3 class="band-h liste-h">{{ b.flamme() }} Hotlist: letzte 3 Monate</h3>
+        <p class="klein-info liste-info">{{ daten.zahlen3.abende }} Spieletreffen, {{ daten.zahlen3.partien }} Partien in den letzten 3 Monaten</p>
+        {{ rangreihe(daten.meist3, 10) }}
+      </div>
+      {%- endif %}
+      {%- if daten.hallOfFame.length %}
+      <div class="rangliste ruhm-reihe" id="liste-ruhm">
+        <h3 class="band-h liste-h">{{ krone | safe }} Hall of Fame</h3>
+        <p class="klein-info liste-info">Die meiste Spielzeit seit {{ daten.hallOfFameSeit }}</p>
+        {{ rangreihe(daten.hallOfFame, 10) }}
+      </div>
+      {%- endif %}
     </div>
-    {%- if daten.meist3.length %}
-    <div class="rangliste">
-      <h2 class="band-h">{{ b.flamme() }} Hotlist: letzte 3 Monate <span class="klein-info">{{ daten.zahlen3.abende }} Spieletreffen, {{ daten.zahlen3.partien }} Partien</span></h2>
-      {{ rangreihe(daten.meist3, 10) }}
-    </div>
-    {%- endif %}
-    {%- if daten.hallOfFame.length %}
-    <div class="rangliste ruhm-reihe">
-      <h2 class="band-h"><svg class="krone" viewBox="0 0 24 24" aria-hidden="true"><path fill="#b86f12" d="M3 18h18l1-11-5.5 4L12 4l-4.5 7L2 7l1 11zm0 2h18v2H3z"/></svg> Hall of Fame <span class="klein-info">Die meiste Spielzeit seit {{ daten.hallOfFameSeit }}</span></h2>
-      {{ rangreihe(daten.hallOfFame, 10) }}
-    </div>
-    {%- endif %}
-    <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek.</p>
+    <p class="klein-info ohne-einzug">Gezählt wird die Spielzeit: Partien × maximale Spieldauer laut BoardGameGeek. Der Balken zeigt sie im Vergleich zu Platz 1.</p>
     {%- if daten.letzterAbend %}
     <div class="letzter">
       <h2>Zuletzt gespielt <span class="klein-info">Spieletreffen am {{ daten.letzterAbend.datum }}</span></h2>

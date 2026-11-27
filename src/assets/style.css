@@ -681,10 +681,36 @@ img.bild, img.fokus-bild { width: 100%; object-fit: cover; background: var(--cre
 .rang-reihe { padding-top: .6rem; }
 .cr-premiere { position: absolute; left: -.35rem; top: -.4rem; z-index: 1; padding: .2rem .55rem; border-radius: 999px; background: var(--gold); color: var(--tinte); font-family: var(--schrift-titel); font-weight: 700; font-size: .78rem; letter-spacing: .02em; box-shadow: 0 2px 0 var(--aubergine-dunkel); }
 .letzter .cover-reihe { padding-top: .6rem; }
-.ruhm-reihe li:nth-child(1) .cr-platz { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--gold)); }
-.ruhm-reihe li:nth-child(2) .cr-platz { background: radial-gradient(circle at 35% 30%, #f4f4f4, #b9bcc0); }
-.ruhm-reihe li:nth-child(3) .cr-platz { background: radial-gradient(circle at 35% 30%, #f3c6a0, #c27c4a); }
 .ruhm-reihe { background: linear-gradient(160deg, #fff8e6, #f6dfae); border: 2px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.1rem .4rem; box-shadow: 0 4px 0 var(--gold-dunkel); }
 .ruhm-reihe .cover-reihe { margin-inline: -1.1rem; padding-inline: 1.1rem; scroll-padding-inline: 1.1rem; }
 @media (min-width: 40rem) { .ruhm-reihe .cover-reihe { margin-inline: 0; padding-inline: 0; } }
 .cr-zeit + .cr-zeit { margin-top: -.35rem; }
+
+/* Spiele: Top 10 mit Reitern (12 Monate, Hotlist, Hall of Fame) */
+.ranglisten { margin-bottom: .4rem; }
+.ranglisten-h { display: none; }
+.mit-reitern .ranglisten-h { display: block; margin-bottom: .5rem; }
+.mit-reitern .liste-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.liste-info { display: block; margin: -.5rem 0 .2rem; }
+.mit-reitern .liste-info { margin: 0 0 .2rem; }
+.reiter { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .9rem; max-width: 48rem; }
+.reiter button { display: inline-flex; align-items: center; gap: .35rem; font: inherit; font-weight: 700; font-size: .95rem; color: var(--aubergine); background: var(--creme-hell); border: 2px solid transparent; border-radius: 999px; padding: .4rem .95rem; cursor: pointer; box-shadow: 0 2px 0 rgb(43 37 48 / .15); }
+.reiter button:hover { border-color: var(--gold); }
+.reiter button[aria-selected="true"] { background: var(--aubergine); color: var(--creme-hell); box-shadow: 0 3px 0 var(--gold); }
+.reiter button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.reiter .flamme, .reiter .krone { width: 1.15em; height: 1.15em; flex: none; }
+.reiter button[aria-selected="true"] .krone path { fill: var(--gold); }
+.rangliste:focus { outline: none; }
+
+/* Platz 1 bis 3 auf allen Listen als Gold, Silber und Bronze */
+.rang-reihe li:nth-child(-n+3) .cr-platz { width: 2.1rem; height: 2.1rem; left: -.5rem; top: -.55rem; font-size: 1.1rem; }
+.rang-reihe li:nth-child(1) .cr-platz { background: radial-gradient(circle at 35% 30%, #ffe08a, var(--gold)); }
+.rang-reihe li:nth-child(2) .cr-platz { background: radial-gradient(circle at 35% 30%, #f4f4f4, #b9bcc0); }
+.rang-reihe li:nth-child(3) .cr-platz { background: radial-gradient(circle at 35% 30%, #f3c6a0, #c27c4a); }
+.rang-reihe li:nth-child(1) .bild { box-shadow: 0 0 0 3px var(--gold), 0 3px 0 3px rgb(43 37 48 / .18); }
+
+/* Balken: Spielzeit im Vergleich zu Platz 1 */
+.cr-balken { display: block; height: .4rem; background: rgb(81 72 89 / .14); border-radius: 999px; overflow: hidden; margin: .1rem 0 .15rem; }
+.cr-balken i { display: block; height: 100%; background: var(--gold); border-radius: 999px; }
+.ruhm-reihe .cr-balken { background: rgb(184 111 18 / .2); }
+@media (max-width: 39.99rem) { .reiter { gap: .3rem; } .reiter button { padding: .35rem .7rem; font-size: .9rem; } }

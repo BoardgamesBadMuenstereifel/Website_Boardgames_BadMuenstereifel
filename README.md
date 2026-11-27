@@ -137,7 +137,7 @@ So kommt ein neues Foto auf die Seite:
 
 Das Dashboard zeigt, was gespielt wurde und wie die Sammlung genutzt wird, zum Beispiel welche Spiele nie oder lange nicht auf dem Tisch lagen und sich für den Verkauf eignen.
 
-- **Online:** unter `/dashboard/`, also https://www.boardgames-muenstereifel.club/dashboard/. Die Seite baut sich mit der Website jede Nacht neu. Sie ist absichtlich **nirgends verlinkt**, steht nicht in der Sitemap und ist für Suchmaschinen gesperrt. Wer die Adresse kennt, kann sie trotzdem öffnen. Bitte keinen Link darauf in Menü oder Seiten einbauen.
+- **Online:** unter `/dashboard/`, also https://www.boardgames-muenstereifel.de/dashboard/. Die Seite baut sich mit der Website jede Nacht neu. Sie ist absichtlich **nirgends verlinkt**, steht nicht in der Sitemap und ist für Suchmaschinen gesperrt. Wer die Adresse kennt, kann sie trotzdem öffnen. Bitte keinen Link darauf in Menü oder Seiten einbauen.
 - **Auf deinem Rechner:** Doppelklick auf `Dashboard.cmd` im Projektordner. Die Datei baut `dashboard.html` aus den Listen in `daten/` neu und öffnet sie im Browser. Sie nutzt die Listen, die auf deinem Rechner liegen. Hast du eine Liste nur auf GitHub geändert, hol dir vorher den aktuellen Stand (oder bitte Claude darum).
 - Oben filterst du nach Name, Zeitraum, „Nicht gespielt seit“ (6, 12 oder 24 Monaten, alle Spiele), BGG-Daten (Komplexität, maximale Spielzeit, Spieleranzahl, Note, Verlag, Jahr) und nach der Sammlung. Darunter erscheinen die Cover der gefundenen Spiele, die mit der meisten Spielzeit zuerst.
 - Ein Klick auf ein Cover wählt das Spiel aus: „Partien pro Monat“, Kennzahlen und Tabelle zeigen dann nur dieses Spiel. Ein Klick auf einen Spielnamen in der Tabelle öffnet die Einzelansicht mit allen Spieltagen.
@@ -159,9 +159,9 @@ Das muss nur einmal gemacht werden.
 2. **Veröffentlichung einschalten:** unter **Settings → Pages** bei **Source** die Option **GitHub Actions** wählen.
 3. **BGG-Token beantragen:** unter boardgamegeek.com/applications registrieren. Die Freigabe kann über eine Woche dauern.
 4. **Token hinterlegen:** unter **Settings → Secrets and variables → Actions → New repository secret**, Name `BGG_TOKEN`, Wert ist dein Token. Schreibe den Token nie in eine Datei.
-5. **Eigene Domain:** Die Domain `boardgames-muenstereifel.club` ist über Canva gekauft und bleibt dort. Du findest sie in Canva unter **Einstellungen → Web domains**. Sie verlängert sich jedes Jahr automatisch, das nächste Mal am 11.08.2027. So zeigt sie auf diese Seite:
-   1. **Domain bei GitHub bestätigen:** Auf GitHub oben rechts aufs Profilbild, dann **Settings → Pages → Add a domain**, `boardgames-muenstereifel.club` eintragen. Den angezeigten TXT-Eintrag legst du in Canva an: Domain auswählen, **Advanced settings → Manage**, DNS-Einträge. Ins Feld für den Namen gehört nur der Teil vor `.boardgames-muenstereifel.club`. Dann bei GitHub auf **Verify** klicken.
-   2. **In Canva umstellen:** Unter **Advanced settings** den Schalter **Connected to Canva** ausschalten. Ab dann ist die alte Canva-Seite offline. Lösche die A-Einträge `@` und `www` mit dem Wert `103.169.142.0` und lege diese an:
+5. **Eigene Domain:** Die Hauptadresse ist `www.boardgames-muenstereifel.de`. Die Domain liegt bei 1&1 (IONOS), dort läuft auch die Mail. So zeigt sie auf diese Seite:
+   1. **Domain bei GitHub bestätigen:** Auf GitHub oben rechts aufs Profilbild, dann **Settings → Pages → Add a domain**, `boardgames-muenstereifel.de` eintragen. Den angezeigten TXT-Eintrag legst du bei 1&1 unter **Domains & SSL → Domain → DNS** an. Dann bei GitHub auf **Verify** klicken. Der TXT-Eintrag bleibt danach stehen.
+   2. **DNS bei 1&1:** Den Service **Default Site** (Parkseite) abschalten, sonst lassen sich dessen A- und AAAA-Einträge nicht entfernen. Dann diese Einträge anlegen:
 
       | Typ | Name | Wert |
       |---|---|---|
@@ -171,10 +171,11 @@ Das muss nur einmal gemacht werden.
       | A | @ | 185.199.111.153 |
       | CNAME | www | boardgamesbadmuenstereifel.github.io |
 
-   3. **GitHub die Domain mitteilen:** Im Repository unter **Settings → Pages → Custom domain** `www.boardgames-muenstereifel.club` eintragen und speichern. Sobald die DNS-Prüfung grün ist, **Enforce HTTPS** anhaken.
-   4. **Seite umstellen:** Unter **Settings → Secrets and variables → Actions → Variables** die Variable `EIGENE_DOMAIN` mit dem Wert `ja` anlegen. Dann unter **Actions → Website bauen → Run workflow** neu bauen. Ohne diese Variable führen die Links auf der eigenen Domain ins Leere.
+      Die Mail-Einträge (MX, SPF-TXT, `_dmarc`, `*._domainkey`, `autodiscover`) **nicht anfassen**. Das SSL-Angebot von 1&1 brauchst du nicht, das Zertifikat kommt kostenlos von GitHub.
+   3. **GitHub die Domain mitteilen:** Im Repository unter **Settings → Pages → Custom domain** `www.boardgames-muenstereifel.de` eintragen und speichern. Sobald die DNS-Prüfung grün ist und das Zertifikat da ist, **Enforce HTTPS** anhaken.
+   4. **Seite umstellen:** Unter **Settings → Secrets and variables → Actions → Variables** muss die Variable `EIGENE_DOMAIN` den Wert `ja` haben. Die Adresse selbst steht in `src/_data/seite.js`. Ohne diese Variable führen die Links auf der eigenen Domain ins Leere.
 
-   Schalte **Connected to Canva** danach nicht wieder ein, sonst zeigt die Domain womöglich wieder auf die alte Canva-Seite.
+   Die frühere Adresse `boardgames-muenstereifel.club` ist über Canva gekauft (läuft bis 11.08.2027). Die Kalender-Termine behalten ihre Kennung `…@boardgames-muenstereifel.club`, damit Abonnenten keine doppelten Termine bekommen.
 
 ## Für Technik-Interessierte
 

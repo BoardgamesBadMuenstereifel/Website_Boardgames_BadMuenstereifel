@@ -4,6 +4,6 @@ const prefix = process.env.PFAD_PREFIX || "/";
 
 export default {
   url: prefix === "/"
-    ? "https://www.boardgames-muenstereifel.club"
+    ? "https://www.boardgames-muenstereifel.de"
     : `https://boardgamesbadmuenstereifel.github.io${prefix.replace(/\/$/, "")}`,
 };

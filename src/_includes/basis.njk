@@ -24,7 +24,7 @@
   <link rel="icon" href="{{ '/assets/logo/favicon-32.png' | url }}" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="{{ '/assets/logo/apple-touch-icon.png' | url }}">
   <link rel="preload" href="{{ '/assets/schriften/fraunces-latin-700-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}?v={{ seite.stand }}">
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
@@ -70,6 +70,6 @@
       <p class="klein">Powered by <a href="https://boardgamegeek.com" rel="noopener">BGG</a>: Spielinfos von BoardGameGeek. Diese Seite setzt keine Cookies und lädt keine Tracker.</p>
     </div>
   </footer>
-  <script src="{{ '/assets/script.js' | url }}" defer></script>
+  <script src="{{ '/assets/script.js' | url }}?v={{ seite.stand }}" defer></script>
 </body>
 </html>
